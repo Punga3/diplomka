@@ -1,0 +1,38 @@
+\chapter{Title of the second chapter}
+
+\section{Title of the first subchapter of the second chapter}
+
+\section{Title of the second subchapter of the second chapter}
+\begin{thrm}
+Let $\varphi$ be an $\{E\}$-sentence, such that 
+\[\lim_{k\to\infty}\Pr_{G\in\mathcal{G}_k}(G\models\varphi)=1.\]
+
+Let $F=F_{poly}$. Then $\varphi$ is valid in the pseudofinite limit.
+\end{thrm}
+\begin{proof}(Sketch) Write $\varphi=(\forall x_0)(\exists y_0)(\forall x_1)(\exists y_1)\dots\varphi_0(\overline x,\overline y)$, then 
+
+\begin{align}
+\bbl\varphi\bbr&=\bbl(\exists\Phi_0)(\exists\Phi_1)\dots(\forall \overline x)\varphi(\overline x,\Phi_0(x_0),\Phi_1(x_0,x_1),\dots)\bbr\\
+&=\Lor_{\Phi_0,\Phi_1,\dots}\bbl(\forall x)\varphi^\Phi(\overline x)\bbr\\
+&=\Lor_{\Phi_0,\Phi_1,\dots}\Land_{\overline x}\bbl\varphi^{\Phi}(\overline x)\bbr,
+\end{align}
+choose $\Phi_i'$ as a machine that computes the numerically first witness $y_i$ to the parameters $x_0,\dots,x_{i-1}$, then
+\begin{align}
+\bbl\varphi\bbr&=\Lor_{\Phi_0,\Phi_1,\dots}\Land_{\overline x}\bbl\varphi^{\Phi}(\overline x)\bbr\\
+&\geq\Land_{\overline x}\bbl\varphi^{\Phi'}(\overline x)\bbr\\
+&=\Land_{\overline x}\1\\
+&=\1.
+\end{align}
+\end{proof}
+
+\begin{defi}[B.V. pseudofinite limit]
+Let $\mathcal{M}\models \Th(N)$ be $\aleph_1$-saturated and let $\{\mathcal{G}_k\}_{k=0}^\infty$ be a sequence of sets of graphs such that each $\mathcal{G}_k$ contains graphs $G\in\mathcal{G}_k$ wtih the same vertex-set $[g_k]$, where $g_k$ is some positive number. Let $g_i$ be strictly increasing and $\lim_{k\to\infty}\abs{\mathcal{G}_k}=\infty$.
+
+Let $n\in\mathcal{M}\setminus\mathbb{N}$ and let $\Omega:=\mathcal{G}_n$ and $\mathcal{A}:=\{X\subseteq \Omega;X\in\mathcal{M}\}$.
+
+Define a measure $\mu:\mathcal{A}\to\mathbb{R}^+_0$ as $\mu(X)=\st(\frac{\abs{X}}{\abs{\Omega}})$, where $\st$ is the unique standard part of am $\mathcal{M}$-rational. 
+
+Let $\mathcal{I}=\{X\in\mathcal{A};\mu(X)=0\}$, then let $\mathcal{B}:=\mathcal{A}/\mathcal{I}$. Let $F$ be an $L_{all}$-closed family of functions from $\mathcal{M}$.
+
+\[\]
+\end{defi}

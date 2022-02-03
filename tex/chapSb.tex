@@ -1,0 +1,205 @@
+\chapter{$F=F_{tree}$}
+
+\section{Basic observations}
+
+\begin{exam}
+Let \[\mathcal{G}_k=\{([k],E);\text{$E$ consists of exactly one $n/2$-clique}\},\] and $F=F_{tree}$.
+
+We will prove that for every $t>\mathbb{N}$: 
+
+\begin{align}
+&\bbl\text{$\Gamma$ has an $n^{1/t}$-clique}\bbr\\
+&=\bbl(\exists \Lambda)(\forall u)(\forall v)(((u,v \leq n^{1/t})\to\Gamma(\Lambda(u),\Lambda(v)))\land(\Lambda:[n^{1/t}]\hookrightarrow\mathcal{M}))\bbr\\
+&=\Lor_\Lambda\Land_u\Land_v\bbl(u\not=v < n^{1/t})\to(\Gamma(\Lambda(u),\Lambda(v))\land\Lambda(u)\not=\Lambda(v))\bbr\\
+&=\textbf{1}.
+\end{align}
+
+For $j\in[n^{1/t}]$ let $\Lambda_j$ to be a tree of depth $j\cdot (n^{1/t})^2$ which first tries to find an edge $1\leftrightarrow k$ for $k\in[n^{1/t}]$ if it fails than it tries to find $2\leftrightarrow k$ and so on. Once it finds some edge $(i,k)$, then it starts again but from $i+1$ until it finds the first $j$ elelements of $\Delta_\omega$ and responds with the $j$-th element. Since $j$ is always bounded by $n^{1/t}$, $\Lambda$ really sends $F$ to $F$.
+
+\end{exam}
+
+\begin{exam}
+Let \[\mathcal{G}_k=\{([k],E);\text{$E$ consists of exactly one edge}\}\]
+and $F=F_{tree}$.
+
+We will prove that \[\bbl(\exists x)(\exists y)\Gamma(x,y)\bbr=\textbf{0}.\]
+
+Let $T$ be any binary tree of depth $n^{1/t}$, $t>\mathbb{N}$, whose leaves are labeled by unordered pairs of edges.
+
+Start from the root of $T$ and always choose the path that corresponds to an edge not existing. At the end we obtain some answer, that gives us a set of at most $2 \cdot n^{1/t}+2$ vertices. Now we can find at least: 
+\begin{align}
+\binom{n-2n^{1/t}-2}{2}&=\frac{(n-2n^{1/t}-2)(n-2n^{1/t}-3)}{2}\\
+&=:m
+\end{align}
+different $\omega\in\Omega$ such that $T(\omega)$ is not an edge in $\omega$. The standard part of the ratio the number of these counterexamples to $\st(\frac{m}{\abs{\mathcal{G}_n}})= 1$. 
+
+This proves that the boolean value we are considering is $\textbf{0}$ since we can combine the two witnesses for $x$ and $y$ into a tree that could find an edge with depth $n^{1/t}$ for some $t>\mathbb{N}$. \qed
+
+\end{exam}
+
+\begin{thrm}\label{thrmusbv}
+Let $\varphi=(\forall \overline x)\varphi_0(\overline x)$ be a universal $\{E\}$-sentence, such that
+
+\[\lim_{k\to\infty}\Pr_{G\in\mathcal{G}_k}(G\models\varphi)=1.\]
+
+Then $\varphi$ is valid in the pseudofinite limit.
+
+
+\end{thrm}
+
+\begin{proof}
+
+From $\aleph_1$-saturation of $\mathcal{M}$ and our assumption, we know that for each $m\in\mathbb{N}$ there exists a $k_0\in\mathbb{N}$ such that \[\mathcal{M}\models(\forall k>k_0)\left(\Pr_{G\in\mathcal{G}_k}(G\models \varphi)>1-1/m\right).\]
+Therefore, since $n>\mathbb{N}$, we have that $\st(\Pr_{G\in\mathcal{G}_n}(G\models\varphi))=1$ and therefore $\bbl\varphi_0(\overline\alpha)\bbr=\1$ for each tuple $\overline\alpha$ in $F$.
+
+Therefore
+\begin{align}
+\bbl\varphi\bbr&=\Land_{\overline\alpha}\bbl\varphi_0(\overline\alpha)\bbr\\
+&=\Land_{\overline\alpha}\1\\
+&=\1.
+\end{align}
+\end{proof}
+
+\begin{thrm}\label{mutindfind}
+Let $F=F_{tree}$. Let $\varphi_0(x_0,\dots,x_{l-1})$ be a q.f. $\{E\}$-formula. Let $0<p\leq 1$, consider subset $A\subseteq[g_k]^l$ such that for all $\overline a \in A$ 
+
+\[\Pr_{G\in\mathcal{G}_k}(G\models \varphi_0(\overline a))\geq p\]
+
+and
+
+\[\text{$\{\{G\models\varphi_0(\overline a)\}\subseteq \mathcal{G}_k;\overline a \in A\}$ are mutually independent.}\]
+moreover let $A_k$ be the set with the largest cardinality that  has this property.
+
+If $\lim_{k\to\infty} \abs{A_k}=\infty$, then $\bbl(\exists \overline x)\varphi_0(\overline x)\bbr=\1$.
+\end{thrm}
+
+\begin{proof}
+Let $\overline x = (x_0,\dots,x_{l-1})$. Let $T_{\overline a}$ be a tree of some standard depth $d$, that tests whether $G\models\varphi_0(\overline a)$.
+
+From $\aleph_1$-saturation of $\mathcal{M}$ we have $n'>\mathbb{N}$ many tuples \(\overline a_0,\dots,\overline a_{n'-1}\in A_n\), such that \(\Pr_{G\in\mathcal{G}_k}(G\models\varphi_0(\overline a_i))\geq p\), we can assume $n'<n^{1/t_0}$ for some $t_0>\mathbb{N}$.
+
+
+For $j\in[l]$ construct a tree $T_j$ inductively as follows: Start with $T_{\overline a_0}$. Replace the label of every accepting leaf by $(\overline a_0)_j$ and remove the label of every rejecting leaf. Call this tree $T_j^0$. Assume we have already constructed $T_j^{m}$. Construct $T_j^{i+1}$ by appending $T_{\overline a_{m+1}}$ to every undefined leaf, relabeling every satisfied leaf to $(\overline a_{i+1})_j$ and removing labels from every rejecting leaf. We will define $T_j$ as $T_j^{n'}$ with undefined leafs labeled by $0$. (This can be done, because all instances of induction are in $\Th(\mathbb{N})$.) Note that $\dpt(T_j)=d\cdot n' < n^{1/t}$ for some $t>\mathbb{N}$. 
+
+Call $\overline \alpha$ the tuple computed by $T_0,\dots,T_{l-1}$. We will prove that probability of $\overline \alpha$ being a witness to $\varphi_0(\overline x)$ is 1. For each $\overline a_i$ we have, that the probability of $G\models\varphi_0(\overline a_i)$ is at least $p$. The mutual independence of ${\{G\models\varphi_0(\overline a_i);i\in[n']\}}$ and the construction of $T_j$ implies that $T_j$ has a probability of $(1-p)^{n'}$ of failing, which is obviously almost $0$.
+\end{proof}
+
+\begin{exam}
+Let \[\mathcal{G}_k=\{([k],E);\text{$E$ has at least one edge, and can have a second one $0E1$}\},\]
+
+and let $F=F_{tree}$. Then $\mu(\bbl(\exists x)(\exists y)\Gamma(x,y)\bbr)=\frac{1}{2}$.
+\end{exam}
+\begin{proof}
+Let $T_0$ be a tree that always outputs $0$ and $T_1$ be a tree that always outputs $1$. We can prove that $\bbl\Gamma(0,1)\bbr\geq\bbl\Gamma(\alpha,\beta)\bbr$ for any $\alpha,\beta$. 
+\end{proof}
+
+\begin{exam}
+Let \[\mathcal{G}_k=\{([k],E);\text{$E$ at least one edge, and may have exactly $k/2$ more from start}\}\]
+
+and let $F=F_{tree}$. Then $\mu(\bbl(\exists x)(\exists y)\Gamma(x,y)\bbr)=\frac{1}{2}$.
+\end{exam}
+
+\begin{defi}
+We say that $\{\mathcal{G}_k\}_{k=0}^\infty$ is \textbf{isomorphism closed}, if there is $k_0$ such that for every $k>k_0$ if we have that $G_1\in\mathcal{G}_k$, $V_{G_2}=[g_k]$ and $G_1\cong G_2$ then $G_2\in\mathcal{G}_k$.
+
+We say that $\{\mathcal{G}_k\}_{k=0}^\infty$ is \textbf{categorical} if there is $k_0$ such that for every $k>k_0$ if we have $G_1,G_2\in\mathcal{G}_k$ then $G_1\cong G_2$. For a categorical sequence $\{G_k\}_{k=0}^\infty$ we denote $G_k$ the lexicographically minimal element of $\mathcal{G}_k$.
+\end{defi}
+
+\begin{lemm}
+Let $\{\mathcal{G}_k\}_{k=0}^\infty$ be categorical and isomorphism closed, then for large enough $k$
+\[\abs{\mathcal{G}_k}=\frac{g_k!}{\abs{\Aut(G_k)}}.\]
+\end{lemm}
+\begin{proof}
+Every $\rho\in S_{g_k}$ defines an isomorphism $\rho:G_k\to\rho(G_k)$, where $\rho(G_k)$ is a graph obtained from $G_k$ by renaming every vertex $v$ to $\rho(v)$.
+
+\textbf{Claim:} For any $\rho,\pi\in S_{g_k}$:
+\[\rho(G_k)=\pi(G_k)\iff\exists \tau\in\Aut(G_k):\rho\circ\tau=\pi.\]
+\textit{Proof of claim.} ``$\Rightarrow$" Let $\rho(G_k)=\pi(G_k)$, therefore $\tau:=\rho^{-1}\circ\pi\in\Aut(G_k)$ and $\rho\circ\tau=\rho\circ\rho^{-1}\circ\pi=\pi.$
+
+``$\Leftarrow$" Let $\rho\circ\tau=\pi$. Then $\pi(G_k)=\rho(\tau(G_k))=\rho(G_k). \qedhere$
+
+Notice that the $\tau$ in the statement of the claim is uniquely determinted by $\rho^{-1}\circ\pi$. Therefore if we defined a quotient set $S_{g_k}/\sim$ with $\rho\sim\pi\iff\rho(G_k)=\pi(G_k)$ then $\abs{S_{g_k}/\sim}=\frac{g_k!}{\abs{\Aut(G_k)}}$.
+
+The Lemma follows from noticing that if we start with $\{G_k\}$ and then we build $\mathcal{G}_k$ by finding isomorphic graphs on the vertex set $[g_k]$ we can only do so by trying different permutation from $S_{g_k}$ and these permutations find the same graph if and only if they are in the same $\sim$-class. Therefore there is a bijection between $S_{g_k}/\sim$ and $\mathcal{G}_k$. \qed
+\end{proof}
+
+\begin{lemm}[Candidate for optimal search trees]
+Let $\{\mathcal{G}_k\}_{k=0}^\infty$ be categorical and isomorphism closed, let $\varphi(x_0,\dots,x_{l-1})$ be an open $\{E\}$-formula, let $\models \varphi(\overline x) \to \Land_{i,j=0}^{l-1,l-1}x_i=^{b_{ij}}x_j$ for some $b_{ij}\in\{0,1\}$, let $k_0\geq0$ and define $\{q_k\}_{k=k_0}^\infty$ as follows
+
+\[q_k:=\frac{g_k!}{\abs{\Aut(G_k)}}\cdot\frac{\abs{\varphi(G_k)}}{\abs{\bigcup_{G\in\mathcal{G}}\varphi(G_k)}}.\]
+
+Then there is $c\in\mathbb{N}$ and trees $T_0,\dots,T_{l-1}$ of depth $n^{(r)} \cdot c$, (with $n^{(r)}$ being defined in the proof) such that for the $\overline \alpha$ computed by $\overline T$ we have $\bbl\varphi(\overline \alpha)\bbr=\1$.
+\end{lemm}
+
+\begin{proof}
+We will use the identity from the statement to construct a search tree (iterated $T_{\overline a}$) which almost always finds a witness to $\varphi$.
+
+We will analyze the problem in the finite case for big enough $k>0$. We should only check those tuples included in $\bigcup_{G\in\mathcal{G}_k}\varphi(G)$. For example, if we are trying to find an edge then we need not check the constant tuples $(a,a)$. Moreover, to succeed we only need to check one specific tuple in each $\varphi(G),G\in\mathcal{G}_k$.
+
+Consider the set $S=\{(G,\overline a); G\in \mathcal{G}_k, G\models\varphi(\overline a)\}$ and a projection to the second coordinate $p_2: S\to\bigcup_{G\in\mathcal{G}_k}\varphi(G)$. Since $\abs{S}=\frac{g_k!}{\abs{\Aut(G)}}\cdot\abs{\varphi(G_k)}$ we have that $q_k$ is the average size of a $p_2$ preimage of any $\overline a\in \bigcup_{G\in\mathcal{G}_k}\varphi(G)$. 
+
+\textbf{Claim:} For all $\overline a,\overline b\in\bigcup_{G\in\mathcal{G}_k}\varphi(G)$ we have $\abs{p_2^{-1}[\overline a]}=\abs{p_2^{-1}[\overline b]}=q_k$.
+
+\textit{Proof of claim.} We will prove that for any $\overline a,\overline b\in\bigcup_{G\in\mathcal{G}_k}\varphi(G)$ we have $\abs{p_2^{-1}[\overline a]}\leq\abs{p_2^{-1}[\overline b]}$, by symmetry, they must be equal and also equal to $q_k$ which is the average size of any singleton preimage.
+
+Let $p_2^{-1}[\overline a]=\{G_0,\dots,G_{s-1}\}\times\{\overline a\}$ and let $\rho=(b_0\: a_0)\dots(b_{l-1}\:a_{l-1})$, this is a permutation from the condition on $\varphi$. Then \[p_2^{-1}[\overline b]\supseteq\{\rho(G_0),\dots,\rho(G_{s-1})\}\times\{\rho(\overline a)=\overline b\}.\qed\] 
+
+Now consider the multiset $M=(\bigcup_{G\in\mathcal{G}_k}\varphi(G),\text{count}:\overline a \mapsto \abs{p_2^{-1}[\overline a]})$, we will construct the searching tree by plucking elements from this multiset in the following way.
+
+Let $M^{(0)}:=M,\mathcal{G}_k^{(0)}=\mathcal{G}_k$. For $i\geq0$ and $M^{(i)},\mathcal{G}_k^{(i)}$ built, take some $\overline a\in M^{(i)}$ with maximal $\text{count}(\overline a)$, put $\mathcal{G}_k^{(i+1)}=\mathcal{G}_k^{(i)}\setminus p_2^{-1}[\overline a]$ and form $M^{(i+1)}$ by removing $\overline a$, and for every $\overline b \in p_1[p_2^{-1}[\overline a]]\setminus\{\overline a\}$ setting $\text{count}_{M^{(i+1)}}(\overline b)=\max\{0,\text{count}_{M^{(i)}}(\overline b)-(\varphi(G_k))\}$. We also add $T_{\overline a}$ to the leaves of the tree we are constructing $T_i$ and call it $T_{i+1}$.
+
+For each $i\geq 0$ we have that $T_i$ finds a witness in $G\in\mathcal{G}_k$ iff $G\not\in\mathcal{G}_k^{(i)}$. So to calculate the probability of success of $T_i$ we just need to find upper bounds on the cardinality of $\mathcal{G}_k^{(i)}$. 
+
+Define $m_i:=\max\{\text{count}(\overline a);\overline a \in M^{(i)}\}$. Let $k^{(0)}\geq 0$ be the greatest number such that for all $i<k^{(0)}$: 
+\(m_i=q_k.\) 
+
+Define a set $M_m^{(i)}=\{\overline a;\text{count}_{M_i}(\overline a)=m_i\}$. We can see, that $k^{(0)}\geq1$ and $M^{(0)}=\bigcup_{G\in\mathcal{G}_k}\varphi(G)$. At each step $i<k^{(0)}$ we construct $T_{i+1}$ by searching for some $\overline a \in M_{m}^{(i)}$, this results in $\abs{\mathcal{G}_k^{(i+1)}}=\abs{\mathcal{G}_k^{i}}-q_k$. We also remove one instance of every $\overline b \in p_1[p_2^{-1}(\overline a)]\setminus\{\overline a\}$ from $M^{(i)}$ to form $M^{(i+1)}$, this results in $\abs{M^{(i+1)}_m}\geq \abs{M^{(i)}_m}-1-q_k\cdot(\abs{\varphi(G_k)-1}).$
+
+Therefore 
+
+\begin{align}
+k^{(0)}&\geq \left \lfloor \frac{\abs{M^{(0)}_m}}{q_k\cdot\abs{\varphi(G_k)}} \right \rfloor\\
+&=
+\left\lfloor\frac{\abs{\bigcup_{G\in\mathcal{G}_k}\varphi(G)}}{q_k\cdot\abs{\varphi(G_k)}}\right\rfloor
+,
+\end{align}
+
+and $\abs{\mathcal{G}_k^{(k^{(0)})}}=\abs{\mathcal{G}_k}-k^{(0)}\cdot q_k=\frac{\abs{\Aut(G_k)}}{g_k!}-\left\lfloor\frac{\abs{\cup_{G\in\mathcal{G}_k}\varphi(G)}}{q_k\cdot\abs{\varphi(G_k)}}\right\rfloor\cdot q_k\leq \frac{\abs{\Aut(G_k)}}{g_k!}-\left\lfloor\frac{\abs{\cup_{G\in\mathcal{G}_k}\varphi(G)}}{\abs{\varphi(G_k)}} \right \rfloor.$
+
+However the right hand side of the last inequality is rarely $\leq 0$, so generally one has to continue with plucking even after $k^{(0)}$-many steps. We define $k^{(j)}$ as the greatest number such that for all $i<k^{(j)}:m_i\geq q_k-j$ and continue for $k^{(r)}$ steps, where $r$ is the smallest number such that
+
+
+\begin{align}
+\abs{\mathcal{G}_{k}^{k^{(r)}}}&=\abs{\mathcal{G}_k}-k^{(0)}\cdot q_k- \sum_{j=1}^{r}(k^{(j)}-k^{(j-1)})\cdot (q_k - j)\\
+&=0.
+\end{align}
+
+However, this requires a general analysis of $k^{(j)}$ and I haven't manage to compute that.
+
+For $k=n$ in $\mathcal{M}$ we put $n^{(r)}:=k^{(r)}.$
+\end{proof}
+
+\section{$\mathcal{G}_k=\text{ALL}_k$}
+
+\begin{thrm}[Everything exists]
+Let $\varphi(\overline x,\overline y)=\Land_{i=0}^{m-1}\psi_i(\overline x,\overline y)\land \Land_{i=0}^{l-1}\vartheta_i(\overline y)$, where $\psi_i,\vartheta_i$ are literals and $\psi_i$ are not of the form $(y_i=y_j)^b$, $E(y_i,y_j)^b$, $x_i\not= x_i$, $E(x_i,x_i)$, $b\in\{0,1\}$.
+
+Let $\overline \beta$ be a tuple of vertices computed by $F_{tree}$ of the same length as $\overline y$. Then $\bbl(\exists \overline x)\varphi^\Gamma(\overline x,\overline \beta)\bbr=\bbl\Land_{i=0}^{l-1}\vartheta_i(\overline \beta)\bbr$, specifically if $l=0$ then $(\exists \overline x)\phi_0(\overline x,\overline \beta)$ is valid in the b.v. graph.
+\end{thrm}
+\begin{proof} We will construct one tree $T$ computing the whole tuple of witnesses $\overline \alpha$, such a construction can be straightforwardly split into a tuple of tree each computing the specific element.
+
+First we concatenate all the trees used to compute $\overline \beta$. At each leave we can now proceed knowing the value of $\overline \beta$ at the specific $\omega\in\Omega$. Now we just construct a tree as in Theorem \ref{mutindfind} but searching only over edges not checked previously and only to fulfill each $\psi_i$. Luckily we have so far searched only an infinitesimal part of the edges and since we assume $\mathcal{G}_k=\text{ALL}_k$ both of the conditions of the theorem are satisfied, so by analogous argument, we have a tree that finds a witness all of the $\psi_i(\overline x,\overline \beta)$ with probability infinitesimally close to 1.
+
+Therefore
+\begin{align}
+\bbl(\exists \overline x)\varphi^\Gamma(\overline x,\overline \beta)\bbr&=\bbl(\exists \overline x)\Land_{i=0}^{m-1}\psi_i(\overline x,\overline \beta)\bbr \land \bbl\Land_{i=0}^{l-1}\vartheta_i(\overline \beta)\bbr\\
+&=\bbl\Land_{i=0}^{l-1}\vartheta_i(\overline \beta)\bbr.
+\end{align}
+\end{proof}
+
+\begin{crll}
+For each $\varphi(\overline x)$ that is not a tautology in the theory of graphs we have that $\bbl(\forall \overline x)\varphi^\Gamma(\overline x)\bbr=\0$.
+\end{crll}
+\begin{crll}
+For each $\varphi(\overline x,\overline y)$ that is not falsifiable by $\overline y$ in the theory of graphs we have that $\bbl(\forall \overline y)(\exists \overline x)\varphi^\Gamma(\overline x)\bbr=\1$.
+\end{crll}
