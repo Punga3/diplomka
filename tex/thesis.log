@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.22 (TeX Live 2021/Arch Linux) (preloaded format=pdflatex 2021.9.7)  25 NOV 2021 14:33
+This is pdfTeX, Version 3.141592653-2.6-1.40.22 (TeX Live 2021/Arch Linux) (preloaded format=pdflatex 2021.12.12)  13 MAR 2022 13:24
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -394,6 +394,9 @@ Package: amsthm 2020/05/29 v2.20.6
 \thm@headsep=\skip55
 \dth@everypar=\toks30
 )
+(/usr/share/texmf-dist/tex/latex/amsfonts/amssymb.sty
+Package: amssymb 2013/01/14 v3.01 AMS font symbols
+)
 (/usr/share/texmf-dist/tex/latex/bbding/bbding.sty
 Package: bbding 1999/04/15 v1.01 Dingbats symbols
 )
@@ -527,8 +530,8 @@ LaTeX Info: Thecontrolsequence`\]'isalreadyrobust on input line 130.
 \xmathstrut@box=\box52
 \xmathstrut@dim=\dimen178
 )
-Package hyperref Info: Option `unicode' set `true' on input line 107.
-Package hyperref Info: Option `breaklinks' set `true' on input line 108.
+Package hyperref Info: Option `unicode' set `true' on input line 108.
+Package hyperref Info: Option `breaklinks' set `true' on input line 109.
 
 \@input{macros.aux}
 \openout2 = `macros.aux'.
@@ -538,55 +541,51 @@ Package hyperref Info: Option `breaklinks' set `true' on input line 108.
 \c@defn=\count290
 )
 \c@thrm=\count291
-\c@lemm=\count292
-\c@exam=\count293
-\c@defi=\count294
-\c@crll=\count295
 LaTeX Font Info:    Trying to load font information for OT1+lmr on input line 1
-33.
+34.
  (/usr/share/texmf-dist/tex/latex/lm/ot1lmr.fd
 File: ot1lmr.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
 )
 (/usr/share/texmf-dist/tex/latex/l3backend/l3backend-pdftex.def
 File: l3backend-pdftex.def 2021-03-18 L3 backend support: PDF output (pdfTeX)
-\l__color_backend_stack_int=\count296
+\l__color_backend_stack_int=\count292
 \l__pdf_internal_box=\box53
 )
 (../tex/thesis.aux (../tex/title.aux) (../tex/preface.aux) (../tex/chapSb.aux)
 (../tex/epilog.aux) (../tex/bibliography.aux))
 \openout1 = `thesis.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 133.
-LaTeX Font Info:    ... okay on input line 133.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 133.
-LaTeX Font Info:    ... okay on input line 133.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 133.
-LaTeX Font Info:    ... okay on input line 133.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 133.
-LaTeX Font Info:    ... okay on input line 133.
-LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 133.
-LaTeX Font Info:    ... okay on input line 133.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 133.
-LaTeX Font Info:    ... okay on input line 133.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 133.
-LaTeX Font Info:    ... okay on input line 133.
-LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 133.
-LaTeX Font Info:    ... okay on input line 133.
-LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 133.
-LaTeX Font Info:    ... okay on input line 133.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 134.
+LaTeX Font Info:    ... okay on input line 134.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 134.
+LaTeX Font Info:    ... okay on input line 134.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 134.
+LaTeX Font Info:    ... okay on input line 134.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 134.
+LaTeX Font Info:    ... okay on input line 134.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 134.
+LaTeX Font Info:    ... okay on input line 134.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 134.
+LaTeX Font Info:    ... okay on input line 134.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 134.
+LaTeX Font Info:    ... okay on input line 134.
+LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 134.
+LaTeX Font Info:    ... okay on input line 134.
+LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 134.
+LaTeX Font Info:    ... okay on input line 134.
 
 (/usr/share/texmf-dist/tex/context/base/mkii/supp-pdf.mkii
 [Loading MPS to PDF converter (version 2006.09.02).]
-\scratchcounter=\count297
+\scratchcounter=\count293
 \scratchdimen=\dimen179
 \scratchbox=\box54
-\nofMPsegments=\count298
-\nofMParguments=\count299
+\nofMPsegments=\count294
+\nofMParguments=\count295
 \everyMPshowfont=\toks33
-\MPscratchCnt=\count300
+\MPscratchCnt=\count296
 \MPscratchDim=\dimen180
-\MPnumerator=\count301
-\makeMPintoPDFobject=\count302
+\MPnumerator=\count297
+\makeMPintoPDFobject=\count298
 \everyMPtoPDFconversion=\toks34
 ) (/usr/share/texmf-dist/tex/latex/epstopdf-pkg/epstopdf-base.sty
 Package: epstopdf-base 2020-01-24 v2.11 Base part for package epstopdf
@@ -597,7 +596,7 @@ Package epstopdf-base Info: Redefining graphics rule for `.eps' on input line 4
 File: epstopdf-sys.cfg 2010/07/13 v1.3 Configuration of (r)epstopdf for TeX Liv
 e
 ))
-Package hyperref Info: Link coloring OFF on input line 133.
+Package hyperref Info: Link coloring OFF on input line 134.
 
 (/usr/share/texmf-dist/tex/latex/hyperref/nameref.sty
 Package: nameref 2021-04-02 v2.47 Cross-referencing by name of section
@@ -608,11 +607,11 @@ Package: refcount 2019/12/15 v3.6 Data extraction from label references (HO)
 (/usr/share/texmf-dist/tex/generic/gettitlestring/gettitlestring.sty
 Package: gettitlestring 2019/12/15 v1.6 Cleanup title references (HO)
 )
-\c@section@level=\count303
+\c@section@level=\count299
 )
-LaTeX Info: Redefining \ref on input line 133.
-LaTeX Info: Redefining \pageref on input line 133.
-LaTeX Info: Redefining \nameref on input line 133.
+LaTeX Info: Redefining \ref on input line 134.
+LaTeX Info: Redefining \pageref on input line 134.
+LaTeX Info: Redefining \nameref on input line 134.
 
 (../tex/thesis.out) (../tex/thesis.out)
 \@outlinefile=\write5
@@ -622,7 +621,7 @@ LaTeX Info: Redefining \nameref on input line 133.
 
  (../tex/title.tex
 Package hyperref Info: Option `pageanchor' set `false' on input line 6.
-<../img/logo-en.pdf, id=51, 506.4591pt x 156.49065pt>
+<../img/logo-en.pdf, id=59, 506.4591pt x 156.49065pt>
 File: ../img/logo-en.pdf Graphic file (type pdf)
 <use ../img/logo-en.pdf>
 Package pdftex.def Info: ../img/logo-en.pdf  used on input line 9.
@@ -748,10 +747,46 @@ Package hyperref Warning: Token not allowed in a PDF string (Unicode):
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
 (hyperref)                removing `math shift' on input line 182.
 
-) [7]
+[7]
+Chapter 2.
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `math shift' on input line 207.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `subscript' on input line 207.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `math shift' on input line 207.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `math shift' on input line 209.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `subscript' on input line 209.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `subscript' on input line 209.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `math shift' on input line 209.
+
+LaTeX Font Info:    Trying to load font information for TS1+lmr on input line 2
+19.
+(/usr/share/texmf-dist/tex/latex/lm/ts1lmr.fd
+File: ts1lmr.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
+) [8
+
+] [9]) [10]
 \openout2 = `epilog.aux'.
 
- (../tex/epilog.tex) [8
+ (../tex/epilog.tex) [11
 
 
 
@@ -763,7 +798,7 @@ Package hyperref Warning: Token not allowed in a PDF string (Unicode):
 
 Package natbib Warning: Empty `thebibliography' environment on input line 8.
 
-)) [9
+)) [12
 
 
 
@@ -772,7 +807,7 @@ Package natbib Warning: Empty `thebibliography' environment on input line 8.
 \tf@lof=\write7
 \openout7 = `thesis.lof'.
 
- [10
+ [13
 
 
 
@@ -780,45 +815,46 @@ Package natbib Warning: Empty `thebibliography' environment on input line 8.
 \tf@lot=\write8
 \openout8 = `thesis.lot'.
 
- [11
+ [14
 
-] [12
+] [15
 
 ]
 Appendix A.
-[13
+[16
 
 ] (../tex/thesis.aux (../tex/title.aux) (../tex/preface.aux)
 (../tex/chapSb.aux) (../tex/epilog.aux) (../tex/bibliography.aux))
 Package rerunfilecheck Info: File `thesis.out' has not changed.
-(rerunfilecheck)             Checksum: D2DF400F0422F0B6ED0FDA58B29B0BD0;1255.
+(rerunfilecheck)             Checksum: B7DC751E6C5D29DB989972F2C3367E40;1444.
  ) 
 Here is how much of TeX's memory you used:
- 14927 strings out of 478994
- 211439 string characters out of 5864752
- 520813 words of memory out of 5000000
- 32014 multiletter control sequences out of 15000+600000
- 470754 words of font info for 102 fonts, out of 8000000 for 9000
+ 15242 strings out of 478994
+ 215507 string characters out of 5864750
+ 520976 words of memory out of 5000000
+ 32282 multiletter control sequences out of 15000+600000
+ 471129 words of font info for 103 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 88i,13n,90p,728b,2364s stack positions out of 5000i,500n,10000p,200000b,80000s
-{/usr/share/texmf-dist/fonts/enc/dvips/lm/lm-rm.enc}{/usr/share/texmf-dist/fo
-nts/enc/dvips/lm/lm-mathsy.enc}{/usr/share/texmf-dist/fonts/enc/dvips/lm/lm-mat
-hit.enc}{/usr/share/texmf-dist/fonts/enc/dvips/lm/lm-mathex.enc}</usr/share/tex
-mf-dist/fonts/type1/public/lm/lmbx12.pfb></usr/share/texmf-dist/fonts/type1/pub
-lic/lm/lmex10.pfb></usr/share/texmf-dist/fonts/type1/public/lm/lmmi12.pfb></usr
-/share/texmf-dist/fonts/type1/public/lm/lmmi6.pfb></usr/share/texmf-dist/fonts/
-type1/public/lm/lmmi8.pfb></usr/share/texmf-dist/fonts/type1/public/lm/lmr12.pf
-b></usr/share/texmf-dist/fonts/type1/public/lm/lmr17.pfb></usr/share/texmf-dist
-/fonts/type1/public/lm/lmr6.pfb></usr/share/texmf-dist/fonts/type1/public/lm/lm
-r8.pfb></usr/share/texmf-dist/fonts/type1/public/lm/lmri12.pfb></usr/share/texm
-f-dist/fonts/type1/public/lm/lmsy10.pfb></usr/share/texmf-dist/fonts/type1/publ
-ic/lm/lmsy6.pfb></usr/share/texmf-dist/fonts/type1/public/lm/lmsy8.pfb></usr/sh
-are/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb></usr/share/texmf
--dist/fonts/type1/public/stmaryrd/stmary10.pfb>
-Output written on thesis.pdf (17 pages, 540183 bytes).
+ 88i,14n,90p,728b,2364s stack positions out of 5000i,500n,10000p,200000b,80000s
+{/usr/share/texmf-dist/fonts/enc/dvips/lm/lm-ts1.enc}{/usr/share/texmf-dist/f
+onts/enc/dvips/lm/lm-rm.enc}{/usr/share/texmf-dist/fonts/enc/dvips/lm/lm-mathsy
+.enc}{/usr/share/texmf-dist/fonts/enc/dvips/lm/lm-mathit.enc}{/usr/share/texmf-
+dist/fonts/enc/dvips/lm/lm-mathex.enc}</usr/share/texmf-dist/fonts/type1/public
+/lm/lmbx12.pfb></usr/share/texmf-dist/fonts/type1/public/lm/lmex10.pfb></usr/sh
+are/texmf-dist/fonts/type1/public/lm/lmmi12.pfb></usr/share/texmf-dist/fonts/ty
+pe1/public/lm/lmmi6.pfb></usr/share/texmf-dist/fonts/type1/public/lm/lmmi8.pfb>
+</usr/share/texmf-dist/fonts/type1/public/lm/lmr12.pfb></usr/share/texmf-dist/f
+onts/type1/public/lm/lmr17.pfb></usr/share/texmf-dist/fonts/type1/public/lm/lmr
+6.pfb></usr/share/texmf-dist/fonts/type1/public/lm/lmr8.pfb></usr/share/texmf-d
+ist/fonts/type1/public/lm/lmri12.pfb></usr/share/texmf-dist/fonts/type1/public/
+lm/lmsy10.pfb></usr/share/texmf-dist/fonts/type1/public/lm/lmsy6.pfb></usr/shar
+e/texmf-dist/fonts/type1/public/lm/lmsy8.pfb></usr/share/texmf-dist/fonts/type1
+/public/amsfonts/symbols/msbm10.pfb></usr/share/texmf-dist/fonts/type1/public/s
+tmaryrd/stmary10.pfb>
+Output written on thesis.pdf (20 pages, 557552 bytes).
 PDF statistics:
- 274 PDF objects out of 1000 (max. 8388607)
- 214 compressed objects within 3 object streams
- 56 named destinations out of 1000 (max. 500000)
- 106 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 351 PDF objects out of 1000 (max. 8388607)
+ 287 compressed objects within 3 object streams
+ 96 named destinations out of 1000 (max. 500000)
+ 122 words of extra memory for PDF output out of 10000 (max. 10000000)
 

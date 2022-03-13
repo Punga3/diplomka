@@ -2,10 +2,12 @@
 \contentsline {chapter}{\numberline {1}$F=F_{tree}$}{3}{chapter.1}%
 \contentsline {section}{\numberline {1.1}Basic observations}{3}{section.1.1}%
 \contentsline {section}{\numberline {1.2}$\mathcal {G}_k=\text {ALL}_k$}{7}{section.1.2}%
-\contentsline {chapter}{Conclusion}{8}{chapter*.3}%
-\contentsline {chapter}{Bibliography}{9}{chapter*.4}%
-\contentsline {chapter}{List of Figures}{10}{chapter*.5}%
-\contentsline {chapter}{List of Tables}{11}{chapter*.6}%
-\contentsline {chapter}{List of Abbreviations}{12}{chapter*.7}%
-\contentsline {chapter}{\numberline {A}Attachments}{13}{appendix.A}%
-\contentsline {section}{\numberline {A.1}First Attachment}{13}{section.A.1}%
+\contentsline {chapter}{\numberline {2}$F=F_{nbtree}$}{8}{chapter.2}%
+\contentsline {section}{\numberline {2.1}$\mathcal {G}_k=*\text {PATH}_k$}{8}{section.2.1}%
+\contentsline {chapter}{Conclusion}{11}{chapter*.3}%
+\contentsline {chapter}{Bibliography}{12}{chapter*.4}%
+\contentsline {chapter}{List of Figures}{13}{chapter*.5}%
+\contentsline {chapter}{List of Tables}{14}{chapter*.6}%
+\contentsline {chapter}{List of Abbreviations}{15}{chapter*.7}%
+\contentsline {chapter}{\numberline {A}Attachments}{16}{appendix.A}%
+\contentsline {section}{\numberline {A.1}First Attachment}{16}{section.A.1}%
