@@ -1,0 +1,30 @@
+\chapter{The limit}
+\section{Basic examples}
+\subsection{$\mathcal{G}_k=\EDGE_k$}
+We consider the classes of graphs
+\[\EDGE_k:=\{\text{$(k,E); \abs{E}=1$}\},\]
+and we let $\mathcal{G}_k=\EDGE_k$ and $F=F_{tree}$.
+
+Intuitivelly one should not be able to find the edge on a significant i.e. non-infinitesimal fraction of samples with a tree that is allowed to explore only an infinitesimal fraction of edges.
+
+\begin{thrm}
+We will prove that \[\bbl(\exists x)(\exists y)\Gamma(x,y)\bbr=\textbf{0}.\]
+\end{thrm}
+\begin{proof}
+Let $T\in F_{tree}$ be a tree of depth $n^{1/t}$, for some $t>\mathbb{N}$ that outputs a pair of numbers less than $n$.
+
+Start from the root of $T$ and always choose the path that corresponds to an edge not existing. At the end we obtain some answer, that gives us a set of at most $2 \cdot n^{1/t}+2$ vertices. Now we can find at least: 
+\begin{align}
+\binom{n-2n^{1/t}-2}{2}&=\frac{(n-2n^{1/t}-2)(n-2n^{1/t}-3)}{2}
+\end{align}
+different $\omega\in\Omega$ such that $T(\omega)$ is not an edge in $\omega$. 
+
+The probability that any of those graphs is sampled is
+\begin{align}
+\frac{\binom{n-2n^{1/t}-2}{2}}{\abs{\mathcal{G}_k}}&=\frac{(n-2n^{1/t}-2)(n-2n^{1/t}-3)}{n(n-1)}\\
+&=\left(1-\frac{2n^{1/t}-2}{n}\right)\cdot\left(1-\frac{2n^{1/t}-3}{n-1}\right)\\
+&\geq \left(1-\frac{2n^{1/t}-2}{n}\right)^2\\
+&\geq 1-\frac{4n^{1/t}-4}{n}.
+\end{align}
+And one can clearly see that $\st(1-\frac{4n^{1/t}-4}{n})=1$. This proves that the boolean value we are considering is $\textbf{0}$ since we can the two witnesses for $x$ and $y$ into a tree that could find an edge with depth $n^{1/t}$ for some $t>\mathbb{N}$.
+\end{proof}
