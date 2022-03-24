@@ -312,19 +312,48 @@ P_m(\text{$T$ fails})&=P_m(vE0)P_m(\text{$T$ fails}|vE0)\\
 &\geq(1-\frac{2}{m-2})\prod_{i=1}^{k}(1-\frac{2}{m-2i-2})\\
 &\geq\prod_{i=0}^{k}(1-\frac{2}{m-2i-2}).
 \end{align}
-where in \eqref{pmfailchoice} we choose $u_0,w_0$ with the lowest value of \[P_m(\text{$T_{v?=\{u_0,w_0\}}|v?=\{u_0,w_0\}$}),\] the bound follows the fact that all $P_m(v?=\{u,w\})$ are the same for $u,w\not = 0, u\not=w$. In \eqref{pmfaillemma} we use the lemma \ref{lemmrelabeltree} and in \eqref{pmfailih} we use the induction hypothesis.
+where in \eqref{pmfailchoice} we choose $u_0,w_0$ with the lowest value of \[P_m(\text{$T_{v?=\{u_0,w_0\}}|v?=\{u_0,w_0\}$}),\] the bound follows the fact that all $P_m(v?=\{u,w\})$ are the same for distinct non-zero $u,w$. In \eqref{pmfaillemma} we use the lemma \ref{lemmrelabeltree} and in \eqref{pmfailih} we use the induction hypothesis.
 \end{proof}
 
-This shows that for a tree $T\in F_{nbtree}$ of depth $n^{1/t}$ for some $t>\mathbb{N}$ we have that
+\begin{crll}\label{crllpPathtreefail}
+For a tree $T\in F_{nbtree}$ we have that
+\[P_n(T\text{ fails})\approx 1.\]
+\end{crll}
+\begin{proof}
+Since $T$ has depth at most $n^{1/t}$ for some $t>\mathbb{N}$ we by the previous lemma that
 \begin{align}
 P_n(\text{$T$ fails})&\geq \prod_{i=0}^{n^{1/t}}\left(1-\frac{2}{n-2i-2}\right)\\
 &\geq \left(1-\frac{2n^{1/t}}{n-2n^{1/t}-2}\right)\\
 &\approx 1.
 \end{align}
+\end{proof}
 
-As a consequence we get the following.
+Finally we can prove the following theorem.
 
 \begin{thrm}
-\[\bbl(\exists v)((v\not=0)\land(\exists u)(\forall w)(vEw \to w=u))\bbr_{\pPATH_n}=\0\]
+\[\bbl(\exists v)(\exists u)(\forall w)((v\not=0)\land (\Gamma(v,u)) \land(\Gamma(v,w) \to u=w))\bbr=\0\]
 \end{thrm}
+\begin{proof}
+Expanding the value of the formula in the statement we get
+\[\Lor_{\alpha}\Lor_{\beta}\Land_{\gamma}\bbl(\alpha\not=0)\land (\Gamma(\alpha,\beta)) \land(\Gamma(\alpha,\gamma) \to \beta=\gamma)\bbr,\]
+to prove it evalues to $\0$ we need to find for every $\alpha,\beta$ some $\gamma$ such that
+\[\bbl(\alpha\not=0)\land (\Gamma(\alpha,\beta)) \land(\Gamma(\alpha,\gamma) \to \beta=\gamma)\bbr=\0.\]
+For any $\alpha,\beta$ we define
+\[\gamma(\omega):=\begin{cases}v&N(\alpha(\omega))=\{v\}\\w&w\in N(\alpha(\omega))\setminus\{\beta(\omega)\},\end{cases}\]
+such a function can be computed by a tree in $F_{nbtree}$ which we can construct by concatenation of trees computing $\alpha$ and $\beta$.
 
+Let $T$ be the tree computing $\alpha$. Now we proceed by contradiction, let
+\[\epsilon:=\mu(\bbl(\alpha\not=0)\land (\Gamma(\alpha,\beta)) \land(\Gamma(\alpha,\gamma) \to \beta=\gamma)\bbr)>0,\]
+by definition this means that
+\[\epsilon=\st(P_n[(\alpha\not=0)\land (\Gamma(\alpha,\beta)) \land(\Gamma(\alpha,\gamma) \to \beta=\gamma)])>0.\]
+But by definition of $\gamma$ and Corollary \ref{crllpPathtreefail} we have
+\begin{align*}
+0&<\epsilon\\
+&=\st(P_n[(\alpha\not=0)\land (\Gamma(\alpha,\beta)) \land(\Gamma(\alpha,\gamma) \to \beta=\gamma)])\\
+&\leq\st(P_n[(\alpha\not=0)\land (\Gamma(\alpha,\beta)) \land \abs{N(\alpha)}=1])\\
+&\leq\st(P_n[(\alpha\not=0)\land \abs{N(\alpha)}=1])\\
+&=\st(P_n[T\text{ does not fail}])\\
+&=0.
+\end{align*}
+A contradiction.
+\end{proof}
