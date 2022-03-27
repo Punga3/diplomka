@@ -7,7 +7,7 @@ and we let $\mathcal{G}_k=\EDGE_k$ and $F=F_{tree}$.
 
 Intuitivelly one should not be able to find the edge on a significant i.e. non-infinitesimal fraction of samples with a tree that is allowed to explore only an infinitesimal fraction of edges.
 
-\begin{thrm}
+\begin{thrm}\label{thrmedge}
 We will prove that \[\bbl(\exists x)(\exists y)\Gamma(x,y)\bbr=\textbf{0}.\]
 \end{thrm}
 \begin{proof}
@@ -27,4 +27,75 @@ The probability that any of those graphs is sampled is
 &\geq 1-\frac{4n^{1/t}-4}{n}.
 \end{align}
 And one can clearly see that $\st(1-\frac{4n^{1/t}-4}{n})=1$. This proves that the boolean value we are considering is $\textbf{0}$ since we can the two witnesses for $x$ and $y$ into a tree that could find an edge with depth $n^{1/t}$ for some $t>\mathbb{N}$.
+\end{proof}
+
+\subsection{Sparse $\mathcal{G}_k$}
+
+One can see that in Theorem \ref{thrmedge} the exact properties of graphs in $\mathcal{G}_k$ do not play a crucial role. If $\mathcal{G}_k$ consisted of all graphs on $k$ verticies containing say exactly one triangle, or any other fixed subgraph of constant size, and no other edges, we would still find that the non-existence is valid in the limit graph.
+
+A more general case would be to consider a family of graphs in which there is an infinitesimally small chance that two independent uniformly random verticies have an edge between. However, this is not sufficient.
+
+\begin{exam}
+Let $\mathcal{G}_k$ consist of those graphs on the vertex-set $k$ which contain the edge $E(0,1)$ and then has exactly one other edge. 
+
+As $k$ increases, the number of edges get smaller than any standard positive fraction. But
+\[\bbl(\exists x)(\exists y)E(x,y)\bbr=\1,\]
+as witnessed by $x$ being the constant $0$ and $y$ the constant $1$ both of which are computable by a tree of depth $0$.
+\end{exam}
+
+One can see that having distinguished verticies can ruin the sparseness implying the non-existence of edges in the limit graph. We want to distiguish from this situation by considering the sequences $\mathcal{G}_k$ satisfying the following natural definition.
+
+\begin{defi}
+We say that $\{\mathcal{G}_k\}_{k=0}^\infty$ is \textbf{isomorphism closed}, if there is $k_0$ such that for every $k>k_0$ if we have that $G_1\in\mathcal{G}_k$, $V_{G_2}=g_k$ and $G_1\cong G_2$ then $G_2\in\mathcal{G}_k$.
+\end{defi}
+
+
+\begin{thrm}\label{thrmsparse}
+Let an isomorphism closed $\mathcal{G}_k$ have the following property. There is a sequence $\{b_k\}_{k}$ and for big enough $k$, a uniformly sampled $2$-element $\{u,v\}\subseteq g_k$ and every $G\in\mathcal{G}_k$ we have
+\[\Pr[E_G(u,v)]\leq b_k,\]
+and some $k_0$ such that $\lim_{k\to\infty}k^{1/k_0}b_k = 0.$ Then
+
+\[\bbl(\exists x)(\exists y)\Gamma(x,y)\bbr=\0.\]
+\end{thrm}
+\begin{proof}
+Let us define the number $c_{u,v}:=\abs{\{G\in\mathcal{G}_k; E_G(u,v)\}}$, which is the number of graphs $G$ in $\mathcal{G}_k$ satisfying $E_G(u,v)$. Of course $c_{u,u}=0$ for every $u$.
+
+\vspace{0.5em}
+\textbf{Claim:} Let $u\neq v,u'\neq v'$ be vertices, then $c_{u,v}=c_{u',v'}$.\\
+\textit{proof of claim:} Let $\rho:=(u\:u')(v\:v')$ be a permutation with cycles $(u\:u')$ and $(v\:v')$. We can let $\rho$ act on $\mathcal{G}_k$ by sending $G$ to a graph $\rho(G)$ which renames the edges coordinate-wise.
+
+The fact that $\mathcal{G}_k$ is isomorphism closed implies that $\rho$ restricts to a bijection:
+\[\rho':\{G\in\mathcal{G}_k;E_G(u,v), \lnot E_G(u',v')\}\to \{G\in\mathcal{G}_k;E_G(u',v'),\lnot E_G(u,v)\}\]
+which proves the claim. \qed
+\vspace{0.5em}
+
+Now we define a matrix with entries
+\[a_{G,\{u,v\}}:=\begin{cases}1&E_G(u,v)\\0&\text{otherwise}\end{cases}\]
+where the rows are indexed by one of $\abs{\mathcal{G}_k}$ many graphs in $\mathcal{G}_k$ and the columns are indexed by the $\frac{k(k-1)}{2}$ many $2$-element sets of numbers in $k$. We take any distinct vertices $u,v$ and define $p:=\Pr_{G\in \mathcal{G}_k}[E_G(u,v)]=\frac{c_{u,v}}{\abs{\mathcal{G}_k}},$ by the claim the choice of $u,v$ does not matter.
+
+The assumption from the statement is equivalent to the equality 
+\[\sum_{\{u,v\}}a_{G,\{u,v\}}\leq \frac{k(k-1)}{2}b_k\] 
+for every $G$. We combine this with the claim and the definition of $p$ to get
+\begin{align}
+\frac{k(k-1)}{2}\abs{\mathcal{G}_k}p&=\sum_{\{u,v\}}\sum_{G\in\mathcal{G}_k}a_{G,\{u,v\}}\\
+&=\sum_{G\in\mathcal{G}_k}\sum_{\{u,v\}}a_{G,\{u,v\}}\\
+&\leq \abs{\mathcal{G}_k}\frac{k(k-1)}{2}b_k
+\end{align}
+which implies
+\[p\leq b_k.\]
+
+Now let $k:=n$ and let $T\in F_{tree}$ be a tree of depth $n^{1/t}$ for some $t>\mathbb{N}$, where every leaf of $T$ is labeled by some edge. Walk down the tree $T$ from the root by answering negatively to every edge, this gives us a set $E_T$ of all edges $T$ inspected or outputed and $\abs{E_T}\leq n^{1/t}+1$.
+
+Now we just need to prove that the probability $T$ find an edge is infinitesimally small. This is enough to prove the theorem, since the trees computing any two witnesses for $x$ and $y$ in the statement can be combined to construct $T$ and if any tree $T$ succeeds with only infinitesimally small probability, no random vertices can witness an edge on a set of non-zero measure.
+
+For that we just use the fact that $p\leq b_n$ and derive 
+\begin{align}
+\Pr_{G\in\mathcal{G}_n}[T\text{ finds an edge}]&\leq \sum_{\{u,v\}\in E_T} \Pr_{G\in \mathcal{G}_n}[E_G(u,v)]\\
+&=\sum_{\{u,v\}\in E_T} \frac{c_{u,v}}{\abs{\mathcal{G}_n}}\\
+&\leq\sum_{\{u,v\}\in E_T} p\\
+&=(n^{1/t}+1)p\\
+&\leq(n^{1/t}+1)b_k\\
+&\leq n^{1/k_0}b_k\\
+&\approx 0.
+\end{align}
 \end{proof}
