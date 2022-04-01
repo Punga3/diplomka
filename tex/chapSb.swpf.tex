@@ -73,11 +73,99 @@ Call $\overline \alpha$ the tuple computed by $T_0,\dots,T_{l-1}$. We will prove
 \end{proof}
 
 \begin{exam}
+Let \[\mathcal{G}_k=\{([k],E);\text{$E$ has at least one edge, and can have a second one $0E1$}\},\]
+
+and let $F=F_{tree}$. Then $\mu(\bbl(\exists x)(\exists y)\Gamma(x,y)\bbr)=\frac{1}{2}$.
+\end{exam}
+\begin{proof}
+Let $T_0$ be a tree that always outputs $0$ and $T_1$ be a tree that always outputs $1$. We can prove that $\bbl\Gamma(0,1)\bbr\geq\bbl\Gamma(\alpha,\beta)\bbr$ for any $\alpha,\beta$. 
+\end{proof}
+
+\begin{exam}
 Let \[\mathcal{G}_k=\{([k],E);\text{$E$ at least one edge, and may have exactly $k/2$ more from start}\}\]
 
 and let $F=F_{tree}$. Then $\mu(\bbl(\exists x)(\exists y)\Gamma(x,y)\bbr)=\frac{1}{2}$.
 \end{exam}
 
+\begin{defi}
+We say that $\{\mathcal{G}_k\}_{k=0}^\infty$ is \textbf{isomorphism closed}, if there is $k_0$ such that for every $k>k_0$ if we have that $G_1\in\mathcal{G}_k$, $V_{G_2}=[g_k]$ and $G_1\cong G_2$ then $G_2\in\mathcal{G}_k$.
+
+We say that $\{\mathcal{G}_k\}_{k=0}^\infty$ is \textbf{categorical} if there is $k_0$ such that for every $k>k_0$ if we have $G_1,G_2\in\mathcal{G}_k$ then $G_1\cong G_2$. For a categorical sequence $\{G_k\}_{k=0}^\infty$ we denote $G_k$ the lexicographically minimal element of $\mathcal{G}_k$.
+\end{defi}
+
+\begin{lemm}
+Let $\{\mathcal{G}_k\}_{k=0}^\infty$ be categorical and isomorphism closed, then for large enough $k$
+\[\abs{\mathcal{G}_k}=\frac{g_k!}{\abs{\Aut(G_k)}}.\]
+\end{lemm}
+\begin{proof}
+Every $\rho\in S_{g_k}$ defines an isomorphism $\rho:G_k\to\rho(G_k)$, where $\rho(G_k)$ is a graph obtained from $G_k$ by renaming every vertex $v$ to $\rho(v)$.
+
+\textbf{Claim:} For any $\rho,\pi\in S_{g_k}$:
+\[\rho(G_k)=\pi(G_k)\iff\exists \tau\in\Aut(G_k):\rho\circ\tau=\pi.\]
+\textit{Proof of claim.} ``$\Rightarrow$" Let $\rho(G_k)=\pi(G_k)$, therefore $\tau:=\rho^{-1}\circ\pi\in\Aut(G_k)$ and $\rho\circ\tau=\rho\circ\rho^{-1}\circ\pi=\pi.$
+
+``$\Leftarrow$" Let $\rho\circ\tau=\pi$. Then $\pi(G_k)=\rho(\tau(G_k))=\rho(G_k). \qedhere$
+
+Notice that the $\tau$ in the statement of the claim is uniquely determinted by $\rho^{-1}\circ\pi$. Therefore if we defined a quotient set $S_{g_k}/\sim$ with $\rho\sim\pi\iff\rho(G_k)=\pi(G_k)$ then $\abs{S_{g_k}/\sim}=\frac{g_k!}{\abs{\Aut(G_k)}}$.
+
+The Lemma follows from noticing that if we start with $\{G_k\}$ and then we build $\mathcal{G}_k$ by finding isomorphic graphs on the vertex set $[g_k]$ we can only do so by trying different permutation from $S_{g_k}$ and these permutations find the same graph if and only if they are in the same $\sim$-class. Therefore there is a bijection between $S_{g_k}/\sim$ and $\mathcal{G}_k$. \qed
+\end{proof}
+
+\begin{lemm}[Candidate for optimal search trees]
+Let $\{\mathcal{G}_k\}_{k=0}^\infty$ be categorical and isomorphism closed, let $\varphi(x_0,\dots,x_{l-1})$ be an open $\{E\}$-formula, let $\models \varphi(\overline x) \to \Land_{i,j=0}^{l-1,l-1}x_i=^{b_{ij}}x_j$ for some $b_{ij}\in\{0,1\}$, let $k_0\geq0$ and define $\{q_k\}_{k=k_0}^\infty$ as follows
+
+\[q_k:=\frac{g_k!}{\abs{\Aut(G_k)}}\cdot\frac{\abs{\varphi(G_k)}}{\abs{\bigcup_{G\in\mathcal{G}}\varphi(G_k)}}.\]
+
+Then there is $c\in\mathbb{N}$ and trees $T_0,\dots,T_{l-1}$ of depth $n^{(r)} \cdot c$, (with $n^{(r)}$ being defined in the proof) such that for the $\overline \alpha$ computed by $\overline T$ we have $\bbl\varphi(\overline \alpha)\bbr=\1$.
+\end{lemm}
+
+\begin{proof}
+We will use the identity from the statement to construct a search tree (iterated $T_{\overline a}$) which almost always finds a witness to $\varphi$.
+
+We will analyze the problem in the finite case for big enough $k>0$. We should only check those tuples included in $\bigcup_{G\in\mathcal{G}_k}\varphi(G)$. For example, if we are trying to find an edge then we need not check the constant tuples $(a,a)$. Moreover, to succeed we only need to check one specific tuple in each $\varphi(G),G\in\mathcal{G}_k$.
+
+Consider the set $S=\{(G,\overline a); G\in \mathcal{G}_k, G\models\varphi(\overline a)\}$ and a projection to the second coordinate $p_2: S\to\bigcup_{G\in\mathcal{G}_k}\varphi(G)$. Since $\abs{S}=\frac{g_k!}{\abs{\Aut(G)}}\cdot\abs{\varphi(G_k)}$ we have that $q_k$ is the average size of a $p_2$ preimage of any $\overline a\in \bigcup_{G\in\mathcal{G}_k}\varphi(G)$. 
+
+\textbf{Claim:} For all $\overline a,\overline b\in\bigcup_{G\in\mathcal{G}_k}\varphi(G)$ we have $\abs{p_2^{-1}[\overline a]}=\abs{p_2^{-1}[\overline b]}=q_k$.
+
+\textit{Proof of claim.} We will prove that for any $\overline a,\overline b\in\bigcup_{G\in\mathcal{G}_k}\varphi(G)$ we have $\abs{p_2^{-1}[\overline a]}\leq\abs{p_2^{-1}[\overline b]}$, by symmetry, they must be equal and also equal to $q_k$ which is the average size of any singleton preimage.
+
+Let $p_2^{-1}[\overline a]=\{G_0,\dots,G_{s-1}\}\times\{\overline a\}$ and let $\rho=(b_0\: a_0)\dots(b_{l-1}\:a_{l-1})$, this is a permutation from the condition on $\varphi$. Then \[p_2^{-1}[\overline b]\supseteq\{\rho(G_0),\dots,\rho(G_{s-1})\}\times\{\rho(\overline a)=\overline b\}.\qed\] 
+
+Now consider the multiset $M=(\bigcup_{G\in\mathcal{G}_k}\varphi(G),\text{count}:\overline a \mapsto \abs{p_2^{-1}[\overline a]})$, we will construct the searching tree by plucking elements from this multiset in the following way.
+
+Let $M^{(0)}:=M,\mathcal{G}_k^{(0)}=\mathcal{G}_k$. For $i\geq0$ and $M^{(i)},\mathcal{G}_k^{(i)}$ built, take some $\overline a\in M^{(i)}$ with maximal $\text{count}(\overline a)$, put $\mathcal{G}_k^{(i+1)}=\mathcal{G}_k^{(i)}\setminus p_2^{-1}[\overline a]$ and form $M^{(i+1)}$ by removing $\overline a$, and for every $\overline b \in p_1[p_2^{-1}[\overline a]]\setminus\{\overline a\}$ setting $\text{count}_{M^{(i+1)}}(\overline b)=\max\{0,\text{count}_{M^{(i)}}(\overline b)-(\varphi(G_k))\}$. We also add $T_{\overline a}$ to the leaves of the tree we are constructing $T_i$ and call it $T_{i+1}$.
+
+For each $i\geq 0$ we have that $T_i$ finds a witness in $G\in\mathcal{G}_k$ iff $G\not\in\mathcal{G}_k^{(i)}$. So to calculate the probability of success of $T_i$ we just need to find upper bounds on the cardinality of $\mathcal{G}_k^{(i)}$. 
+
+Define $m_i:=\max\{\text{count}(\overline a);\overline a \in M^{(i)}\}$. Let $k^{(0)}\geq 0$ be the greatest number such that for all $i<k^{(0)}$: 
+\(m_i=q_k.\) 
+
+Define a set $M_m^{(i)}=\{\overline a;\text{count}_{M_i}(\overline a)=m_i\}$. We can see, that $k^{(0)}\geq1$ and $M^{(0)}=\bigcup_{G\in\mathcal{G}_k}\varphi(G)$. At each step $i<k^{(0)}$ we construct $T_{i+1}$ by searching for some $\overline a \in M_{m}^{(i)}$, this results in $\abs{\mathcal{G}_k^{(i+1)}}=\abs{\mathcal{G}_k^{i}}-q_k$. We also remove one instance of every $\overline b \in p_1[p_2^{-1}(\overline a)]\setminus\{\overline a\}$ from $M^{(i)}$ to form $M^{(i+1)}$, this results in $\abs{M^{(i+1)}_m}\geq \abs{M^{(i)}_m}-1-q_k\cdot(\abs{\varphi(G_k)-1}).$
+
+Therefore 
+
+\begin{align}
+k^{(0)}&\geq \left \lfloor \frac{\abs{M^{(0)}_m}}{q_k\cdot\abs{\varphi(G_k)}} \right \rfloor\\
+&=
+\left\lfloor\frac{\abs{\bigcup_{G\in\mathcal{G}_k}\varphi(G)}}{q_k\cdot\abs{\varphi(G_k)}}\right\rfloor
+,
+\end{align}
+
+and $\abs{\mathcal{G}_k^{(k^{(0)})}}=\abs{\mathcal{G}_k}-k^{(0)}\cdot q_k=\frac{\abs{\Aut(G_k)}}{g_k!}-\left\lfloor\frac{\abs{\cup_{G\in\mathcal{G}_k}\varphi(G)}}{q_k\cdot\abs{\varphi(G_k)}}\right\rfloor\cdot q_k\leq \frac{\abs{\Aut(G_k)}}{g_k!}-\left\lfloor\frac{\abs{\cup_{G\in\mathcal{G}_k}\varphi(G)}}{\abs{\varphi(G_k)}} \right \rfloor.$
+
+However the right hand side of the last inequality is rarely $\leq 0$, so generally one has to continue with plucking even after $k^{(0)}$-many steps. We define $k^{(j)}$ as the greatest number such that for all $i<k^{(j)}:m_i\geq q_k-j$ and continue for $k^{(r)}$ steps, where $r$ is the smallest number such that
+
+
+\begin{align}
+\abs{\mathcal{G}_{k}^{k^{(r)}}}&=\abs{\mathcal{G}_k}-k^{(0)}\cdot q_k- \sum_{j=1}^{r}(k^{(j)}-k^{(j-1)})\cdot (q_k - j)\\
+&=0.
+\end{align}
+
+However, this requires a general analysis of $k^{(j)}$ and I haven't manage to compute that.
+
+For $k=n$ in $\mathcal{M}$ we put $n^{(r)}:=k^{(r)}.$
+\end{proof}
 
 \section{$\mathcal{G}_k=\text{ALL}_k$}
 
@@ -234,18 +322,6 @@ Finally we can prove the following theorem.
 \[\bbl(\exists v)(\exists u)(\forall w)((v\not=0)\land (\Gamma(v,u)) \land(\Gamma(v,w) \to u=w))\bbr=\0\]
 \end{thrm}
 \begin{proof}
-Expanding the value of the formula in the statement we get
-\[\Lor_{\alpha}\Lor_{\beta}\Land_{\gamma}\bbl(\alpha\not=0)\land (\Gamma(\alpha,\beta)) \land(\Gamma(\alpha,\gamma) \to \beta=\gamma)\bbr,\]
-to prove it evalues to $\0$ we need to find for every $\alpha,\beta$ some $\gamma$ such that
-\[\bbl(\alpha\not=0)\land (\Gamma(\alpha,\beta)) \land(\Gamma(\alpha,\gamma) \to \beta=\gamma)\bbr=\0.\]
-For any $\alpha,\beta$ we define
-\[\gamma(\omega):=\begin{cases}v&N(\alpha(\omega))=\{v\}\\w&w\in N(\alpha(\omega))\setminus\{\beta(\omega)\},\end{cases}\]
-such a function can be computed by a tree in $F_{nbtree}$ which we can construct by concatenation of trees computing $\alpha$ and $\beta$.
-
-Let $T$ be the tree computing $\alpha$. Now we proceed by contradiction, let
-\[\epsilon:=\mu(\bbl(\alpha\not=0)\land (\Gamma(\alpha,\beta)) \land(\Gamma(\alpha,\gamma) \to \beta=\gamma)\bbr)>0,\]
-by definition this means that
-\[\epsilon=\st(P_n[(\alpha\not=0)\land (\Gamma(\alpha,\beta)) \land(\Gamma(\alpha,\gamma) \to \beta=\gamma)])>0.\]
 Expanding the value of the formula in the statement we get
 \[\Lor_{\alpha}\Lor_{\beta}\Land_{\gamma}\bbl(\alpha\not=0)\land (\Gamma(\alpha,\beta)) \land(\Gamma(\alpha,\gamma) \to \beta=\gamma)\bbr,\]
 to prove it evalues to $\0$ we need to find for every $\alpha,\beta$ some $\gamma$ such that

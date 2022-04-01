@@ -88,7 +88,7 @@ Now let $k:=n$ and let $T\in F_{tree}$ be a tree of depth $n^{1/t}$ for some $t>
 
 Now we just need to prove that the probability $T$ find an edge is infinitesimally small. This is enough to prove the theorem, since the trees computing any two witnesses for $x$ and $y$ in the statement can be combined to construct $T$ and if any tree $T$ succeeds with only infinitesimally small probability, no random vertices can witness an edge on a set of non-zero measure.
 
-For that we just use the fact that $p\leq b_n$ and derive 
+We use the fact that $p\leq b_n$ to derive 
 \begin{align}
 \Pr_{G\in\mathcal{G}_n}[T\text{ finds an edge}]&\leq \sum_{\{u,v\}\in E_T} \Pr_{G\in \mathcal{G}_n}[E_G(u,v)]\\
 &=\sum_{\{u,v\}\in E_T} \frac{c_{u,v}}{\abs{\mathcal{G}_n}}\\
@@ -96,6 +96,73 @@ For that we just use the fact that $p\leq b_n$ and derive
 &=(n^{1/t}+1)p\\
 &\leq(n^{1/t}+1)b_k\\
 &\leq n^{1/k_0}b_k\\
-&\approx 0.
+&\approx 0,
 \end{align}
+which proves the theorem.
 \end{proof}
+
+The assumption $\lim_{k\to \infty} k^{1/k_0}b_k=0$ for some $k_0$ may seem unintuitive at first. However, it precisely reflects what is ``sparse" for the trees in $T_{tree}$. The following example shows that without the assumption the theorem fails.
+
+\begin{exam}
+Let $\mathcal{G}_k$ consist of all graphs on the vertex set $\set{k}$ with precisely $\lceil\frac{k(k-1)}{2\log k}\rceil$ edges.
+
+Then we claim that
+\[\bbl(\exists x)(\exists y)\Gamma(x,y)\bbr=\1.\]
+
+Let $\alpha$ and $\beta$ be verticies computed by the tree of the same shape which inspects a set of any $n^{1/t}$ distinct edges for some $t>\mathbb{N}$. If it finds an edge we define $\alpha$ and $\beta$ in any way so they are the distinct verticies incidental with this edge. Otherwise we let $\alpha(\omega)=\beta(\omega)=0$.
+
+Let $T$ be a tree of the same shape, that computes the pair $\{\alpha,\beta\}$ then we can compute the probability where such a tree fails as the fraction of all graphs which have no edges that $T$ inspects. Let $m=\binom{n}{2}$. We get
+
+\begin{align}
+\Pr_{G\in\mathbb{G}_n}[T\text{ fails}]&=\frac{\binom{m-n^{1/t}}{\ceil{ \frac{n(n-1)}{2\log n}} }}{\binom{m}{\ceil{ \frac{n(n-1)}{2\log n}}}}\\
+&=\frac{\frac{(m-n^{1/t})!}{\ceil{\frac{n(n-1)}{2\log n}} ! (m-\ceil{ \frac{n(n-1)}{2\log n}}-n^{1/t})!}}{\frac{m!}{\lceil \frac{n(n-1)}{2\log n}\rceil!(m-\ceil{\frac{n(n-1)}{2\log n}})!}}\\
+&=\frac{(m-n^{1/t})!(m-\ceil{ \frac{n(n-1)}{2\log n}})!}{m!(m-\ceil{\frac{n(n-1)}{2\log n}}-n^{1/t})!}\\
+&=\prod_{i=0}^{n^{1/t}-1}\frac{m-\ceil{\frac{n(n-1)}{2}}-i}{m-i}\\
+&=\left(1-\frac{\ceil{\frac{n(n-1)}{2\log n}}}{\frac{n(n-1)}{2}}\right)^{n^{1/t}}\\
+&\leq\left(1-\frac{\ceil{\frac{n(n-1)}{2\log n}}}{\frac{n(n-1)}{2}}\right)^{n^{1/t}}\\
+&\leq\left(1-\frac{1}{\log n}\right)^{n^{1/t}}
+\end{align}
+
+And for any standard $k$ we have
+\begin{align}
+\left(1-\frac{1}{\log n}\right)^{n^{1/t}}&\leq\left(1-\frac{1}{\log n}\right)^{k\cdot \log n}\\
+&\leq (e^{-\frac{1}{\ln 2}})^k.
+\end{align}
+
+So $\st(\Pr_{G\in\mathcal{G}_n}[T\text{ fails}])=0$ and we get 
+\begin{align}
+\mu(\bbl(\exists x)(\exists y)\Gamma(x,y)) \bbr &\geq \mu(\bbl \Gamma(\alpha,\beta)\bbr)\\
+&=\st(1-\Pr_{G\in\mathbb{G}_n}[T\text{ fails}])\\
+&=1.
+\end{align}
+\end{exam}
+
+\section{Isomorphism closed $\mathcal{G}_k$}
+
+So far the measure of every truth value we encountered was either $0$ or $1$. Is there a sequence $\mathcal{G}_k$ whose $F_{tree}$-limit and an $\{E\}$-sentence $\varphi$ such that ${0<\bbl\varphi^\Gamma\bbr<1?}$ As in the case of edge existance for a limit of sparse graphs, it is not hard to come up with an example if we allow distiguishing elements in $\mathcal{G}_k$.
+
+\begin{exam}
+Let \[\mathcal{G}_k=\{(\set{k},E);\text{$E$ has exactly two edges, one of them being $\{0,1\}$}\},\]
+
+and let $F=F_{tree}$. Then $\mu(\bbl(\exists x)(\exists y)\Gamma(x,y)\bbr)=\frac{1}{2}$.
+\end{exam}
+\begin{proof}
+Let $T_0$ be a tree that always outputs $0$ and $T_1$ be a tree that always outputs $1$. We can prove that $\bbl\Gamma(0,1)\bbr\geq\bbl\Gamma(\alpha,\beta)\bbr$ for any $\alpha,\beta$. 
+\end{proof}
+
+For the case of isomorphism closed $\mathcal{G}_k$ we prove that every $\{E\}$-sentence has truth value either $\0$ or $\1$. We start with the existential case.
+
+\begin{thrm}
+Let $\varphi(\overline x)$ be an $\{E\}$-formula, and let $\mathcal{G}_k$ be isomorphism closed then
+\[\bbl(\exists \overline x)\varphi(\overline x)\bbr\in\{\0,\1\}.\]
+\end{thrm}
+
+\begin{proof}
+Let $\overline T$ be a tuple of trees computing $\overline \alpha$ such that 
+\[p:=\mu(\bbl\varphi(\overline \alpha)\bbr)>\0.\]
+
+We want to iterate $\overline T$ to amplify the probability of success.
+\end{proof}
+\begin{exam}
+NOT TRUE! Consider all graphs with one edge, or one non-edge. $\mu(\bbl(\exists x)(\exists y)\Gamma(x,y)\bbr)=\frac{1}{2}.$
+\end{exam}

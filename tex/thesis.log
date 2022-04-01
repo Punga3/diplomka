@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.22 (TeX Live 2021/Arch Linux) (preloaded format=pdflatex 2021.12.12)  27 MAR 2022 17:25
+This is pdfTeX, Version 3.141592653-2.6-1.40.22 (TeX Live 2021/Arch Linux) (preloaded format=pdflatex 2021.12.12)  1 APR 2022 07:54
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -555,8 +555,8 @@ File: l3backend-pdftex.def 2021-03-18 L3 backend support: PDF output (pdfTeX)
 \l__pdf_internal_box=\box53
 )
 (../tex/thesis.aux (../tex/title.aux) (../tex/preface.aux)
-(../tex/chapModel.aux) (../tex/chapSb.aux) (../tex/epilog.aux)
-(../tex/bibliography.aux))
+(../tex/preliminaries.aux) (../tex/chapForcing.aux) (../tex/chapModel.aux)
+(../tex/chapSb.aux) (../tex/epilog.aux) (../tex/bibliography.aux))
 \openout1 = `thesis.aux'.
 
 LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 135.
@@ -625,7 +625,7 @@ LaTeX Info: Redefining \nameref on input line 135.
 
  (../tex/title.tex
 Package hyperref Info: Option `pageanchor' set `false' on input line 6.
-<../img/logo-en.pdf, id=55, 506.4591pt x 156.49065pt>
+<../img/logo-en.pdf, id=71, 506.4591pt x 156.49065pt>
 File: ../img/logo-en.pdf Graphic file (type pdf)
 <use ../img/logo-en.pdf>
 Package pdftex.def Info: ../img/logo-en.pdf  used on input line 9.
@@ -645,41 +645,41 @@ Package hyperref Info: Option `pageanchor' set `true' on input line 55.
 ] [3
 
 ]) (../tex/thesis.toc
-LaTeX Font Info:    Trying to load font information for OML+lmm on input line 3
+LaTeX Font Info:    Trying to load font information for OML+lmm on input line 4
 .
 
 (/usr/share/texmf-dist/tex/latex/lm/omllmm.fd
 File: omllmm.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
 )
 LaTeX Font Info:    Trying to load font information for OMS+lmsy on input line 
-3.
+4.
 
 (/usr/share/texmf-dist/tex/latex/lm/omslmsy.fd
 File: omslmsy.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
 )
 LaTeX Font Info:    Trying to load font information for OMX+lmex on input line 
-3.
+4.
 
 (/usr/share/texmf-dist/tex/latex/lm/omxlmex.fd
 File: omxlmex.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
 )
 LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <12> on input line 3.
+(Font)              <12> on input line 4.
 LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <8> on input line 3.
+(Font)              <8> on input line 4.
 LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <6> on input line 3.
-LaTeX Font Info:    Trying to load font information for U+msa on input line 3.
+(Font)              <6> on input line 4.
+LaTeX Font Info:    Trying to load font information for U+msa on input line 4.
 
 (/usr/share/texmf-dist/tex/latex/amsfonts/umsa.fd
 File: umsa.fd 2013/01/14 v3.01 AMS symbols A
 )
-LaTeX Font Info:    Trying to load font information for U+msb on input line 3.
+LaTeX Font Info:    Trying to load font information for U+msb on input line 4.
 
 (/usr/share/texmf-dist/tex/latex/amsfonts/umsb.fd
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 )
-LaTeX Font Info:    Trying to load font information for U+stmry on input line 3
+LaTeX Font Info:    Trying to load font information for U+stmry on input line 4
 .
 
 (/usr/share/texmf-dist/tex/latex/stmaryrd/Ustmry.fd))
@@ -699,10 +699,32 @@ LaTeX Font Info:    Trying to load font information for U+stmry on input line 3
 
 
 ]
+\openout2 = `preliminaries.aux'.
+
+ (../tex/preliminaries.tex) [3
+
+
+
+
+]
+\openout2 = `chapForcing.aux'.
+
+ (../tex/chapForcing.tex
+Chapter 1.
+LaTeX Font Info:    Trying to load font information for TS1+lmr on input line 1
+2.
+(/usr/share/texmf-dist/tex/latex/lm/ts1lmr.fd
+File: ts1lmr.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
+)) [4
+
+
+
+
+]
 \openout2 = `chapModel.aux'.
 
  (../tex/chapModel.tex
-Chapter 1.
+Chapter 2.
 LaTeX Font Info:    External font `lmex10' loaded for size
 (Font)              <14.4> on input line 3.
 LaTeX Font Info:    External font `lmex10' loaded for size
@@ -737,16 +759,32 @@ Package hyperref Warning: Token not allowed in a PDF string (Unicode):
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
 (hyperref)                removing `math shift' on input line 32.
 
-[3
+[5
 
 
 
 
-] [4]) [5]
+] [6] [7]
+LaTeX Font Info:    External font `lmex10' loaded for size
+(Font)              <17.28> on input line 140.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `math shift' on input line 140.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `subscript' on input line 140.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `math shift' on input line 140.
+
+[8]) [9]
 \openout2 = `chapSb.aux'.
 
  (../tex/chapSb.tex
-Chapter 2.
+Chapter 3.
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
 (hyperref)                removing `math shift' on input line 1.
@@ -763,76 +801,64 @@ LaTeX Font Info:    External font `lmex10' loaded for size
 (Font)              <24.88> on input line 1.
 LaTeX Font Info:    External font `lmex10' loaded for size
 (Font)              <20.74> on input line 1.
-LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <17.28> on input line 1.
-[6
+[10
 
 
 
 
-] [7]
-
-Package amsthm Warning: The \qedhere command may not work correctly here on inp
-ut line 119.
-
-[8] [9]
+]
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 182.
+(hyperref)                removing `math shift' on input line 82.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `subscript' on input line 182.
+(hyperref)                removing `subscript' on input line 82.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `subscript' on input line 182.
+(hyperref)                removing `subscript' on input line 82.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 182.
+(hyperref)                removing `math shift' on input line 82.
 
-[10]
-Chapter 3.
-
-Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 207.
-
+[11] [12]
+Chapter 4.
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `subscript' on input line 207.
+(hyperref)                removing `math shift' on input line 107.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 207.
+(hyperref)                removing `subscript' on input line 107.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 209.
+(hyperref)                removing `math shift' on input line 107.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `subscript' on input line 209.
+(hyperref)                removing `math shift' on input line 109.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `subscript' on input line 209.
+(hyperref)                removing `subscript' on input line 109.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 209.
+(hyperref)                removing `subscript' on input line 109.
 
-LaTeX Font Info:    Trying to load font information for TS1+lmr on input line 2
-19.
-(/usr/share/texmf-dist/tex/latex/lm/ts1lmr.fd
-File: ts1lmr.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
-) [11
 
-] [12] [13]) [14]
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `math shift' on input line 109.
+
+[13
+
+] [14] [15]) [16] [17]
 \openout2 = `epilog.aux'.
 
-
-(../tex/epilog.tex) [15
+ (../tex/epilog.tex) [18
 
 
 
@@ -840,33 +866,34 @@ File: ts1lmr.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
 ]
 \openout2 = `bibliography.aux'.
 
- (../tex/bibliography.tex (../tex/thesis.bbl
+ (../tex/bibliography.tex
+(../tex/thesis.bbl
 
 Package natbib Warning: Empty `thebibliography' environment on input line 8.
 
-)) [16
+)) [19
 
 
 
 
 ] (../tex/thesis.aux (../tex/title.aux) (../tex/preface.aux)
-(../tex/chapModel.aux) (../tex/chapSb.aux) (../tex/epilog.aux)
-(../tex/bibliography.aux))
+(../tex/preliminaries.aux) (../tex/chapForcing.aux) (../tex/chapModel.aux)
+(../tex/chapSb.aux) (../tex/epilog.aux) (../tex/bibliography.aux))
 Package rerunfilecheck Info: File `thesis.out' has not changed.
-(rerunfilecheck)             Checksum: C76EC14E92D69836FD2DE7CD7302C4A5;1234.
+(rerunfilecheck)             Checksum: B00383DF1ECA8DE9A83315D9C4B49C81;1867.
  ) 
 Here is how much of TeX's memory you used:
- 15298 strings out of 478994
- 216445 string characters out of 5864750
- 521550 words of memory out of 5000000
- 32310 multiletter control sequences out of 15000+600000
+ 15340 strings out of 478994
+ 217077 string characters out of 5864750
+ 519391 words of memory out of 5000000
+ 32322 multiletter control sequences out of 15000+600000
  486776 words of font info for 121 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  88i,14n,90p,728b,2364s stack positions out of 5000i,500n,10000p,200000b,80000s
-{/usr/share/texmf-dist/fonts/enc/dvips/lm/lm-ts1.enc}{/usr/share/texmf-dist/f
-onts/enc/dvips/lm/lm-mathsy.enc}{/usr/share/texmf-dist/fonts/enc/dvips/lm/lm-ma
-thit.enc}{/usr/share/texmf-dist/fonts/enc/dvips/lm/lm-rm.enc}{/usr/share/texmf-
-dist/fonts/enc/dvips/lm/lm-mathex.enc}</usr/share/texmf-dist/fonts/type1/public
+{/usr/share/texmf-dist/fonts/enc/dvips/lm/lm-mathsy.enc}{/usr/share/texmf-dis
+t/fonts/enc/dvips/lm/lm-mathit.enc}{/usr/share/texmf-dist/fonts/enc/dvips/lm/lm
+-rm.enc}{/usr/share/texmf-dist/fonts/enc/dvips/lm/lm-mathex.enc}{/usr/share/tex
+mf-dist/fonts/enc/dvips/lm/lm-ts1.enc}</usr/share/texmf-dist/fonts/type1/public
 /lm/lmbx12.pfb></usr/share/texmf-dist/fonts/type1/public/lm/lmex10.pfb></usr/sh
 are/texmf-dist/fonts/type1/public/lm/lmmi10.pfb></usr/share/texmf-dist/fonts/ty
 pe1/public/lm/lmmi12.pfb></usr/share/texmf-dist/fonts/type1/public/lm/lmmi6.pfb
@@ -878,10 +905,10 @@ lm/lmri12.pfb></usr/share/texmf-dist/fonts/type1/public/lm/lmsy10.pfb></usr/sha
 re/texmf-dist/fonts/type1/public/lm/lmsy6.pfb></usr/share/texmf-dist/fonts/type
 1/public/lm/lmsy8.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/symbol
 s/msbm10.pfb></usr/share/texmf-dist/fonts/type1/public/stmaryrd/stmary10.pfb>
-Output written on thesis.pdf (20 pages, 576252 bytes).
+Output written on thesis.pdf (23 pages, 577966 bytes).
 PDF statistics:
- 379 PDF objects out of 1000 (max. 8388607)
- 312 compressed objects within 4 object streams
- 115 named destinations out of 1000 (max. 500000)
- 114 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 422 PDF objects out of 1000 (max. 8388607)
+ 352 compressed objects within 4 object streams
+ 131 named destinations out of 1000 (max. 500000)
+ 146 words of extra memory for PDF output out of 10000 (max. 10000000)
 

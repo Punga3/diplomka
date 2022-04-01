@@ -1,0 +1,80 @@
+
+mozna struktura prace
+----------------------
+
+$.intro: 
+   - motivace, viz slidy z 25.5.21
+   - existuji ruzne log.konstrukce limit konecnych struktur
+     (ultraproduct, nestand.analyza,...) a jejich pouziti
+     pro dukazy vlastnosti konec. struktur: napr. 0-1 law 
+   - nedavne uziti limit v extremalni t.grafu (studuje vzajemne
+     vztahy mezi asymptotickymi hustotami ruznych podgrafu)
+   - v teto praci:
+       - konstrukce limity konecnych trid konecnych struktur
+       - misto studia hustot souvislost s vypocetni slozitosti
+         dosvedcovani existencnich kvantifikatoru
+       - metoda - forcing w/random var's
+
+$.prelim:
+   - pripomenuti oracle p-time stroju a dec.trees, 
+     a NP search problemu (PPA, PPAD)
+   - logicke pojmy jako nestandardni model, etc. 
+
+   (oboje jen pripomenout "kvuli terminologii", ale pro definice
+     dat reference - neopakovat)
+
+$.Forcing w/random var's:
+   - definice modelu
+   - lehke priklady:
+     - Omega=vsechny grafy   [[Gamma ma tr0juhelnik]]=1
+            = 1 trojuhelnik                          =0
+     - Omega - sparse --> [[Gamma bez hran]] = 1
+     - Omega - vse --> hustoty podstruktur = mira [[T najde podstr.]]
+                        pro T hl0ubky 0
+
+$ Dense case (ci Families of dense graphs):
+   - Omega - 1 n/2 klika
+   - Omega - obsahuje n/2 kliku
+     ...
+
+$ Sparse case: 
+   - Omega = 1 cesta, [[Gamma nema reseni]]=1 , souvisi
+                    s PPA neni p-time oracle resitelna
+   - Omega = directed path, ..... PPAD
+
+  to do, bude-li cas: ukazat, ze v modelu pro PPA ma
+           kazda def.instance PPAD reseni (to odpovida tomu, ze
+           PPA nelze redukovat na PPAD). Intuitivni duvod je, ze
+           tam lze def. je trivi PPAD instance.
+
+$ Zaver:
+   - co se dokazalo
+   - open problems/further research: 
+       - charakterizovat nejake Gamma nezavisle
+         a tim neco dokazat o slozitosti dosvedcovani
+       - mira [[..]] dava sentencim hodnotu v [0,1] a splnuje 
+         to continuus (fuzzy) logic: souvislost s continuuous model 
+         theory?
+
+$ Biblio:
+1)
+Golbring - pro nestand.analyzu
+Elek-Szegedy - pro konstrukci grafonu via ultraprodukt
+Nesetril - Ossosona de Mendez - jina model th a limity
+
+presne ref na:
+https://www2.karlin.mff.cuni.cz/~krajicek/liter14a.html
+
+2)
+J.K. - forcing book, presna ref.: viz druha kniha na
+
+https://www2.karlin.mff.cuni.cz/~krajicek/biblio.html#knihy
+
+4)
+Kruckman's thesis - obec. prehled ruznych log.limit:
+
+https://akruckman.faculty.wesleyan.edu/files/2019/07/thesis.pdf
+
+5) 
+Beame et.al. - pro def. oracle NP search problemu
+- viz priloha k emailu
