@@ -14,11 +14,156 @@ Let $\{\mathcal{G}_k\}_{k>0}$ be a sequence of finite sets of finite graphs. We 
 \end{itemize}
 \end{defi}
 
-The second condition guarantees that $\mathcal{G}_n$ is an infinite set for $n>\mathbb{N}$. Almost all interesting classes of graphs form a wide sequence if we restrict the vertex-sets to $\set{g_k}$. 
+The second condition guarantees that $\mathcal{G}_n$ is an infinite set for $n>\mathbb{N}$. Many interesting classes of graphs form a wide sequence if we restrict the vertex-sets to $\set{g_k}$, where $\{g_k\}_{k>0}$ can be taken as the increasing sequence of all cardinalities in such a class.
 
 \begin{exam}
 TODO: Add some examples!
 \end{exam}
 
-\begin{thrm}
-\end{thrm}
+\section{The first order limit}
+
+Let $\mathcal{M}$ be the $\aleph_1$-saturated model of true arithmetic discussed in the previous chapter and let $\mathcal{G}_k$ be a wide sequence of graphs and $\Omega:=\mathcal{G}_n$ for $n\in\mathcal{M}\setminus \mathbb{N}$.
+
+The model $\M$ treats all its elements (including those which represent sets) as ``finite objects'' which lets us define uniform probability even on sets which are infinite from the set-theoretical perspective.
+
+
+\begin{defi}
+Let $\mathcal{A}:=\{A\in\mathcal{M};A\subseteq \Omega\}$ the set of all subsets of $\Omega$ represented by an element in $\M$.
+
+We define the \textbf{counting measure} as the uniform probability of $A$ when we sample $\Omega$ uniformly, so we have
+\[A\in\A \to \abs{A}/\abs{\Omega},\]
+the counting measure takes values in $\M$-rationals.
+\end{defi}
+
+One can check that $\A$ is a boolean algebra, but not a $\sigma$-algebra as it is not closed under all countable unions. Indeed all singleton sets are part of $\A$ but the set of all elements with standardly many predecessors in $\Omega$ is not in $\A$.
+
+\begin{defi}
+We call an $\M$-rational \textbf{infinitesimal} if it is smaller than all standard fractions $\frac{1}{k},k\in\N$.
+
+Define an ideal in $\A$ as $\I:=\{A\in\A;\abs{A}/\abs{\Omega}\text{ is infinitesimal}\}$. Define the boolean algebra $\B:=\A/\I$. The induced measure on $\B$ is a real-valued measure and can be written as \[\mu(A/\I)=\st(\abs{A}/\abs{\Omega}).\]
+\end{defi}
+
+We can also check, that now $\mu$ is a measure in the ordinary sense and that $\B$ is an $\sigma$-algebra. In fact the following key lemma holds.
+
+\begin{lemm}
+$\B$ is a complete boolean algebra.
+\end{lemm}
+
+Now we define a $\B$-valued arithmetical model through which we define the $\B$-valued first order limit of $\G_k$ relative to a family of arithmetical functions. 
+
+\begin{defi}
+Let $L\subseteq L_{all}$ and let $F$ be a non-empty set of functions in $\M$. We call it an \textbf{$L$-closed family} if it satisfies the following:
+\begin{itemize}
+\item The domain of any function in $F$ is $\Omega$ and the range is $\M$.
+\item $F$ is closed under all $L$-functions and contains all $L$ constants, where the $L$-functions are interpreted by composition
+\[f(\alpha_1,\dots,\alpha_k)(\omega):=f(\alpha_1(\omega),\dots,\alpha_k(\omega)),\]
+for $k\in\N$, $f\in L$ $k$-ary and $\alpha_1,\dots,\alpha_k\in F$.
+\end{itemize}
+\end{defi}
+
+Note that while every $\alpha\in F$ is represented by some element in $\M$ this need not be the case for the whole family $F$.
+
+\begin{defi}
+Let $F$ be an $L$-closed family for some $L\subseteq L_{all}$. Then $K(F)$ will denote a $\B$-valued $L$-structure defined as follows.
+
+The universe of $K(F)$ is $F$. The boolean evaluations of $L$-sentences are defined by the following inductive conditions:
+
+\begin{itemize}
+\item $\bbl \alpha=\beta \bbr := \{\omega\in\Omega; \alpha(\omega)=\beta(\omega)\}/\I.$
+\item $\bbl R(\alpha_1,\dots,\alpha_k) \bbr := \{\omega\in\Omega; R(\alpha_1,\dots,\alpha_k)\}/\I$ for any $k$-ary $L$-relation $R$.
+\item $\bbl-\bbr$ commutes with $\land$,$\lor$,$\lnot$.
+\item $\bbl(\exists x)A(x)\bbr:=\Lor_{\alpha\in F}\bbl A(\alpha)\bbr$.
+\item $\bbl(\forall x)A(x)\bbr:=\Land_{\alpha\in F}\bbl A(\alpha)\bbr$.
+\end{itemize}
+\end{defi}
+
+Finally, using $K(F)$ we can define the first order limit of $\G_k$ using the following notions.
+
+\begin{defi}
+We call a function $\alpha\in F$ an $F$-vertex if ${\alpha:\Omega\to\set{g_n}}.$
+
+We define a $\B$-valued graph $\lim_{k\to n}^{F}G_k$ as an $\{\Gamma\}$-structure, where $\Gamma$ is a binary relation symbol, with universe $\{\alpha\in F; \alpha\text{ is an $F$-vertex}\}$ and $\Gamma$-sentences being evaluated by the following inductive conditions:
+\begin{itemize}
+\item $\bbl \alpha=\beta \bbr := \{\omega\in\Omega; \alpha(\omega)=\beta(\omega)\}/\I.$
+\item $\bbl \Gamma(\alpha,\beta) \bbr := \{\omega\in\Omega; E_G(\alpha,\beta))\}/\I$.
+\item $\bbl-\bbr$ commutes with $\land$,$\lor$,$\lnot$.
+\item $\bbl(\exists x)A(x)\bbr:=\Lor_{\alpha\in F}\bbl A(\alpha)\bbr$.
+\item $\bbl(\forall x)A(x)\bbr:=\Land_{\alpha\in F}\bbl A(\alpha)\bbr$.
+\end{itemize}
+\end{defi}
+
+\section{The second order limit}
+
+While we can find a truth value of a sentence in the language of graphs in the limit $\lim_{F}\G_n$, we will encounter situations where this is not sufficient to analyze the wide sequence $\{\G_k\}_{k>0}$. 
+
+In Chapter \ref{chapdense} we will investigate how does existence of large cliques correspond to the size of cliques in the limit graph. But we cannot just measure the set-theoretical cardinality of any such clique, for specific $n$ we could very well have $\card(\set{\floor{\log{n}}})=\card(\set{\floor{\frac{n}{2}}})$ but from the point of view of complexity theory cliques of size $\floor{\log n}$ and $\floor{\frac{n}{2}}$ are dramatically different. In other words, our goal is also to have means to count the number elements of subsets or relations with values in (random variables in) $\M$.
+
+\begin{defi}
+Let $L\subseteq L_{all}$, we call a set of functions $G\subseteq \M$ an $F$-closed \textbf{functional family} if every $\Theta\in G$ assigns to every $\omega\in\Omega$ a function $\Theta_\omega\in\M$ and after we define
+\[\Theta(\alpha)(\omega):=
+\begin{cases}\Theta_\omega(\alpha(\omega))&\alpha(\omega)\in\dom(\Theta_\omega)\\0&\text{otherwise,}
+\end{cases}\]
+we have that for every $\alpha \in F$ and $\Theta \in G$ we have $\Theta(\alpha)\in F$.
+
+We call $\Theta\in G$ a (graph) $G$-\textbf{relation} if for every $\omega\in\Omega$ we have for some $k>0$ that $\dom \Theta_\omega \supseteq \set{g_n}^k$ and $\Theta_\omega:\dom \Theta_\omega \to \{0,1\}$.
+\end{defi}
+
+\begin{defi}
+Let $L\subseteq L_{all}$, $F$ an $L$-closed family and $G$ an $F$-compatible functional family. We define the $L^2$-structure $K(F,G)$ as a two sorted $L$-structure with sorts $F$ and $G$ interpreting $L$-sentences as $K(F)$ and treating the sort $G$ as follows. First for equality we let
+\[\bbl\Theta=\Xi \bbr := \{\omega\in \Omega;\Theta_\omega=\Xi_\omega\}/\I\]
+and for the second order quantifiers we have the following inductive clauses
+\begin{itemize}
+\item $\bbl(\exists X)A(X)\bbr:=\Lor_{\Theta\in G}\bbl A(\Theta)\bbr$
+\item $\bbl(\forall X)A(X)\bbr:=\Land_{\Theta\in G}\bbl A(\Theta)\bbr.$
+\end{itemize}
+
+If there is a $\Gamma\in G$ such that for every $\alpha,\beta\in F$ we have
+\[\Gamma(\alpha,\beta)(\omega):=\chi_{E_\omega}(\alpha(\omega),\beta(\omega)),\]
+where $\chi_{E_\omega}$ is the characteristic function of $E_\omega$, we call $K(F,G)$ the \textbf{underlying arithmetic of a second order wide limit}.
+
+We define $\lim_{F,n}^G\{\G_k\}_{k>0}$ as the $L^2$-substructure with universe consisting of all $F$-vertices and all $G$-relations. By abuse of notation we will mostly use the notation $\lim_F^G\G_n$.
+\end{defi}
+ 
+\section{The $L$-closed family $F_{rud}$ and $G_{rud}$}
+
+Throughout this thesis we will mostly work with the $L$-closed family $F_{rud}$ which ties the properties of $\lim_F \G_n$ with decision tree complexity.
+
+After we choose the sequence $\{\G_k\}_{k>0}$ and $n>\N$ we again put $\Omega:=\G_n$ and define $F_{rud}$ as follows.
+
+\begin{defi}
+We define a \textbf{decision tree} to be a binary tree $T\in\M$ with a labelling of vertices and edges $\ell$. The non-leaf vertices are labeled by pairs of numbers $(u,v)$, where $u,v\in\set{g_n}$ and each edge is labeled either by $1$ or $0$. Each leaf vertex is then labeled by some element of $\M$.
+
+Each $\omega\in\Omega$ uniquely determines a path in $(T,\ell)$ by interpreting the vertex labels as ``is $(u,v)\in E_\omega$?'' and the edge labels as true $(1)$ and false $(0)$. The path then uniquely determines an output.
+
+We define $F_{rud}$ to be the set of all functions computed by some $(T,\ell)$ of depth at most $n^{1/t}$.
+\end{defi}
+
+One can verify that $F_{rud}$ is an $L$-closed family for any $L\subseteq L_{all}$.
+
+The definition of $G_{rud}$ is a bit more involved. The functionals in it will be computed by tuples of elements from $F_{rud}$ in the following sense.
+
+\begin{defi}
+Let $\hat\beta=(\beta_0,\dots,\beta_{m-1})\in\M$ be a $m$-tuple of elements in $F_{rud}$, for any $\alpha\in F_{rud}$ and $\omega\in\Omega$ we define
+\[\hat\beta(\omega)=
+\begin{cases}
+\beta_{\alpha(\omega)}(\omega)&\alpha(\omega)<m\\
+0&\text{otherwise.}
+\end{cases}\]
+\end{defi}
+
+\begin{defi}
+The family $G_{rud}$ consists of all functionals $\Theta$ such that there is $m\in\M$ and some $\hat \beta=(\beta_0,\dots,\beta_{m-1})$ that computes it.
+\end{defi}
+
+\begin{lemm}
+$G_{rud}$ is $(F_{rud})$-compatible.
+\end{lemm}
+\begin{proof}
+By induction in $\M$ we have that all the depth of all the trees is bounded by $n^{1/t}$ for some $t>\N$.
+
+If we take some $\Theta\in G_{rud}$ and $\alpha\in F_{rud}$ we can compute $\Theta(\alpha)$ also by a tree in $F_{rud}$ by concatenating the trees computing $\alpha$ and $\beta_i$s.
+\end{proof}
+
+\section{Different choices of $n$}
+
+Even though we pose no requirements on $n>\N$ there are examples of wide sequences 

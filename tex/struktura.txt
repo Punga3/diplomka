@@ -78,3 +78,23 @@ https://akruckman.faculty.wesleyan.edu/files/2019/07/thesis.pdf
 5) 
 Beame et.al. - pro def. oracle NP search problemu
 - viz priloha k emailu
+
+
+
+------------------------
+
+Další přínosy
+chap Forcing: 
+- choice of n (sudé liché)
+chap Basic examples:
+iso closed categorical - 0,1 pro sentence
+- game theoretic lower bounds for searching trees
+reverse:
+- (\exists! trojuhelník) není F_tree-limita pro žádnou iso closed G_k
+chap Dense:
+- (exists klika)
+- Assumption => (not exists klika)
+- iso closed - exists -> there exists a lot
+chap Sprase case and TFNP:
+- pDPath_n
+- pPathl_n

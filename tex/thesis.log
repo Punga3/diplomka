@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.22 (TeX Live 2021/Arch Linux) (preloaded format=pdflatex 2021.12.12)  1 APR 2022 07:54
+This is pdfTeX, Version 3.141592653-2.6-1.40.22 (TeX Live 2021/Arch Linux) (preloaded format=pdflatex 2021.12.12)  8 APR 2022 14:06
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -625,7 +625,7 @@ LaTeX Info: Redefining \nameref on input line 135.
 
  (../tex/title.tex
 Package hyperref Info: Option `pageanchor' set `false' on input line 6.
-<../img/logo-en.pdf, id=71, 506.4591pt x 156.49065pt>
+<../img/logo-en.pdf, id=87, 506.4591pt x 156.49065pt>
 File: ../img/logo-en.pdf Graphic file (type pdf)
 <use ../img/logo-en.pdf>
 Package pdftex.def Info: ../img/logo-en.pdf  used on input line 9.
@@ -715,20 +715,65 @@ LaTeX Font Info:    Trying to load font information for TS1+lmr on input line 1
 2.
 (/usr/share/texmf-dist/tex/latex/lm/ts1lmr.fd
 File: ts1lmr.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
-)) [4
+) [4
 
 
 
 
-]
+] [5]
+LaTeX Font Info:    External font `lmex10' loaded for size
+(Font)              <17.28> on input line 127.
+LaTeX Font Info:    External font `lmex10' loaded for size
+(Font)              <10> on input line 127.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `math shift' on input line 127.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `math shift' on input line 127.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `math shift' on input line 127.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `subscript' on input line 127.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `math shift' on input line 127.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `math shift' on input line 127.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `subscript' on input line 127.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `math shift' on input line 127.
+
+[6]
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `math shift' on input line 167.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `math shift' on input line 167.
+
+) [7]
 \openout2 = `chapModel.aux'.
 
  (../tex/chapModel.tex
 Chapter 2.
 LaTeX Font Info:    External font `lmex10' loaded for size
 (Font)              <14.4> on input line 3.
-LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <10> on input line 3.
 LaTeX Font Info:    External font `lmex10' loaded for size
 (Font)              <7> on input line 3.
 
@@ -759,15 +804,12 @@ Package hyperref Warning: Token not allowed in a PDF string (Unicode):
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
 (hyperref)                removing `math shift' on input line 32.
 
-[5
+[8
 
 
 
 
-] [6] [7]
-LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <17.28> on input line 140.
-
+] [9] [10]
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
 (hyperref)                removing `math shift' on input line 140.
@@ -780,7 +822,7 @@ Package hyperref Warning: Token not allowed in a PDF string (Unicode):
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
 (hyperref)                removing `math shift' on input line 140.
 
-[8]) [9]
+[11]) [12]
 \openout2 = `chapSb.aux'.
 
  (../tex/chapSb.tex
@@ -801,7 +843,7 @@ LaTeX Font Info:    External font `lmex10' loaded for size
 (Font)              <24.88> on input line 1.
 LaTeX Font Info:    External font `lmex10' loaded for size
 (Font)              <20.74> on input line 1.
-[10
+[13
 
 
 
@@ -823,7 +865,7 @@ Package hyperref Warning: Token not allowed in a PDF string (Unicode):
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
 (hyperref)                removing `math shift' on input line 82.
 
-[11] [12]
+[14] [15]
 Chapter 4.
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
@@ -853,12 +895,12 @@ Package hyperref Warning: Token not allowed in a PDF string (Unicode):
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
 (hyperref)                removing `math shift' on input line 109.
 
-[13
+[16
 
-] [14] [15]) [16] [17]
+] [17] [18]) [19] [20]
 \openout2 = `epilog.aux'.
 
- (../tex/epilog.tex) [18
+ (../tex/epilog.tex) [21
 
 
 
@@ -871,7 +913,7 @@ Package hyperref Warning: Token not allowed in a PDF string (Unicode):
 
 Package natbib Warning: Empty `thebibliography' environment on input line 8.
 
-)) [19
+)) [22
 
 
 
@@ -880,19 +922,19 @@ Package natbib Warning: Empty `thebibliography' environment on input line 8.
 (../tex/preliminaries.aux) (../tex/chapForcing.aux) (../tex/chapModel.aux)
 (../tex/chapSb.aux) (../tex/epilog.aux) (../tex/bibliography.aux))
 Package rerunfilecheck Info: File `thesis.out' has not changed.
-(rerunfilecheck)             Checksum: B00383DF1ECA8DE9A83315D9C4B49C81;1867.
+(rerunfilecheck)             Checksum: 9AB8A467443F6C4D0EC17C8834FA31B2;2619.
  ) 
 Here is how much of TeX's memory you used:
- 15340 strings out of 478994
- 217077 string characters out of 5864750
- 519391 words of memory out of 5000000
- 32322 multiletter control sequences out of 15000+600000
+ 15367 strings out of 478994
+ 217330 string characters out of 5864750
+ 519496 words of memory out of 5000000
+ 32331 multiletter control sequences out of 15000+600000
  486776 words of font info for 121 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  88i,14n,90p,728b,2364s stack positions out of 5000i,500n,10000p,200000b,80000s
 {/usr/share/texmf-dist/fonts/enc/dvips/lm/lm-mathsy.enc}{/usr/share/texmf-dis
-t/fonts/enc/dvips/lm/lm-mathit.enc}{/usr/share/texmf-dist/fonts/enc/dvips/lm/lm
--rm.enc}{/usr/share/texmf-dist/fonts/enc/dvips/lm/lm-mathex.enc}{/usr/share/tex
+t/fonts/enc/dvips/lm/lm-rm.enc}{/usr/share/texmf-dist/fonts/enc/dvips/lm/lm-mat
+hit.enc}{/usr/share/texmf-dist/fonts/enc/dvips/lm/lm-mathex.enc}{/usr/share/tex
 mf-dist/fonts/enc/dvips/lm/lm-ts1.enc}</usr/share/texmf-dist/fonts/type1/public
 /lm/lmbx12.pfb></usr/share/texmf-dist/fonts/type1/public/lm/lmex10.pfb></usr/sh
 are/texmf-dist/fonts/type1/public/lm/lmmi10.pfb></usr/share/texmf-dist/fonts/ty
@@ -905,10 +947,10 @@ lm/lmri12.pfb></usr/share/texmf-dist/fonts/type1/public/lm/lmsy10.pfb></usr/sha
 re/texmf-dist/fonts/type1/public/lm/lmsy6.pfb></usr/share/texmf-dist/fonts/type
 1/public/lm/lmsy8.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/symbol
 s/msbm10.pfb></usr/share/texmf-dist/fonts/type1/public/stmaryrd/stmary10.pfb>
-Output written on thesis.pdf (23 pages, 577966 bytes).
+Output written on thesis.pdf (26 pages, 595418 bytes).
 PDF statistics:
- 422 PDF objects out of 1000 (max. 8388607)
- 352 compressed objects within 4 object streams
- 131 named destinations out of 1000 (max. 500000)
- 146 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 471 PDF objects out of 1000 (max. 8388607)
+ 398 compressed objects within 4 object streams
+ 149 named destinations out of 1000 (max. 500000)
+ 178 words of extra memory for PDF output out of 10000 (max. 10000000)
 
