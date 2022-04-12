@@ -152,8 +152,12 @@ Let $T_0$ be a tree that always outputs $0$ and $T_1$ be a tree that always outp
 
 For the case of isomorphism closed $\mathcal{G}_k$ we prove that every $\{E\}$-sentence has truth value either $\0$ or $\1$. We start with the existential case.
 
+\begin{exam}
+NOT TRUE! Consider all graphs with one edge, or one non-edge. $\mu(\bbl(\exists x)(\exists y)\Gamma(x,y)\bbr)=\frac{1}{2}.$
+\end{exam}
+
 \begin{thrm}
-Let $\varphi(\overline x)$ be an $\{E\}$-formula, and let $\mathcal{G}_k$ be isomorphism closed then
+Let $\varphi(\overline x)$ be an open $\{E\}$-formula, and let $\mathcal{G}_k$ be isomorphism closed and categorical then
 \[\bbl(\exists \overline x)\varphi(\overline x)\bbr\in\{\0,\1\}.\]
 \end{thrm}
 
@@ -163,6 +167,3 @@ Let $\overline T$ be a tuple of trees computing $\overline \alpha$ such that
 
 We want to iterate $\overline T$ to amplify the probability of success.
 \end{proof}
-\begin{exam}
-NOT TRUE! Consider all graphs with one edge, or one non-edge. $\mu(\bbl(\exists x)(\exists y)\Gamma(x,y)\bbr)=\frac{1}{2}.$
-\end{exam}
