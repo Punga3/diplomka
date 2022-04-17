@@ -1,8 +1,41 @@
-\begin{thebibliography}{0}
-\providecommand{\natexlab}[1]{#1}
-\providecommand{\url}[1]{\texttt{#1}}
-\expandafter\ifx\csname urlstyle\endcsname\relax
-  \providecommand{\doi}[1]{doi: #1}\else
-  \providecommand{\doi}{doi: \begingroup \urlstyle{rm}\Url}\fi
+\begin{thebibliography}{NDM13}
+
+\bibitem[Fag76]{Fagin1976}
+Ronald Fagin.
+\newblock Probabilities on finite models.
+\newblock {\em The Journal of Symbolic Logic}, 41(1):50--58, 1976.
+
+\bibitem[Gol14]{goldbring2014lecture}
+I~Goldbring.
+\newblock Lecture notes on nonstandard analysis.
+\newblock {\em Ucla summer school in logic}, 2014.
+
+\bibitem[Kay91]{kaye1991pa}
+Richard Kaye.
+\newblock {\em Models of {P}eano arithmetic}, volume~15 of {\em Oxford Logic
+  Guides}.
+\newblock The Clarendon Press, Oxford University Press, New York, 1991.
+\newblock Oxford Science Publications.
+
+\bibitem[Kra10]{krajicek2010forcing}
+Jan Kraj{\'\i}{\v{c}}ek.
+\newblock {\em Forcing with random variables and proof complexity}, volume 382.
+\newblock Cambridge University Press, 2010.
+
+\bibitem[LS06]{lovasz2006limits}
+L{\'a}szl{\'o} Lov{\'a}sz and Bal{\'a}zs Szegedy.
+\newblock Limits of dense graph sequences.
+\newblock {\em Journal of Combinatorial Theory, Series B}, 96(6):933--957,
+  2006.
+
+\bibitem[NDM13]{Nesetril2013}
+Jaroslav Nesetril and Patrice~Ossona De~Mendez.
+\newblock A model theory approach to structural limits.
+\newblock {\em arXiv preprint arXiv:1303.2865}, 2013.
+
+\bibitem[Raz07]{razborov2007flag}
+Alexander~A Razborov.
+\newblock Flag algebras.
+\newblock {\em The Journal of Symbolic Logic}, 72(4):1239--1282, 2007.
 
 \end{thebibliography}

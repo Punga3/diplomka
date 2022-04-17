@@ -157,13 +157,15 @@ NOT TRUE! Consider all graphs with one edge, or one non-edge. $\mu(\bbl(\exists 
 \end{exam}
 
 \begin{thrm}
-Let $\varphi(\overline x)$ be an open $\{E\}$-formula, and let $\mathcal{G}_k$ be isomorphism closed and categorical then
-\[\bbl(\exists \overline x)\varphi(\overline x)\bbr\in\{\0,\1\}.\]
+Let $\varphi_0(\overline x)$ be an open $\{E\}$-formula, and let $\mathcal{G}_k$ be isomorphism closed and categorical then
+\[\bbl(\exists \overline x)\varphi_0^\Gamma(\overline x)\bbr\in\{\0,\1\}.\]
 \end{thrm}
 
 \begin{proof}
 Let $\overline T$ be a tuple of trees computing $\overline \alpha$ such that 
-\[p:=\mu(\bbl\varphi(\overline \alpha)\bbr)>\0.\]
+\[p:=\mu(\bbl\varphi_0(\overline \alpha)\bbr)>\0.\]
 
-We want to iterate $\overline T$ to amplify the probability of success.
+We want to iterate $\overline T$ to amplify the probability of success. Let 
+\[A=\{\omega \in \Omega; \omega \models \varphi_0(\overline\alpha(\omega)) \}\]
+and $\pi\in S_{\abs{\G_n}}$ with maximal $\abs{\pi[A]\setminus A}$. Let $\pi(\overline T)$ be a tuple of relabeled trees computing $\pi(\overline \alpha)$.
 \end{proof}

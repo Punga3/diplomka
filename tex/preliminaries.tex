@@ -1,2 +1,54 @@
 \chapter*{Preliminaries}
 \addcontentsline{toc}{chapter}{Preliminaries}
+
+In this chapter we recall a few important notions which we will use in the next chapter to define the central construction we study. We do not review the notions formally but always provide a reference for the reader unfamiliar with these topics. Throughout this thesis we assume a basic knowledge of mathematical logic, model theory and measure theory. Important concept for us are the nonstandard models of true arithmetic. 
+
+\section*{The ambient model $\M$}
+
+We call a model of $\Th(\N)$ nonstandard if it is not isomorphic to $\N$. Every model of $\Th(\N)$ of course contains an initial segment isomorphic to $\N$ so we can view nonstandard models as those which also contain `infinite natural numbers', if we assume $\M\models \Th(\N)$ contains $\N$ as an initial segment then the elements $\M\setminus \N$ are called nonstandard. We recommend the introduction of \cite{kaye1991pa} for a review of this topic. In the appendix of \cite{krajicek2010forcing} there is an explicting ultraproduct construction of a model $\M\models \Th(\N)$ which is $\aleph_1$-saturated.
+
+This $\aleph_1$-saturated model $\M$ is used throughout this thesis and we call it the ambient model of arithmetic. For our applications we just need to know that the model is nonstandard and the following property holds because of the $\aleph_1$-saturation.
+
+\begin{prope}
+If $\{a_k\}_{k\geq 0}$ is a sequence with elements in $\N$ then there is an element $t\in \M \setminus \N$ and a sequence $\{b_k\}_{k<t}\in \M$ with $a_k=b_k$ for all $k\in \N$.
+\end{prope}
+
+By overspill in $\M$ if some definable property $P$ holds for any $a_k$ with high enough index then there is also some nonstandard $s<t$ such that $b_s$ satisfies the property $P$. 
+
+\section*{Nonstandard analysis}
+
+The reader can refer to \cite{goldbring2014lecture} for more formal treatment of topics discussed in this section including proofs. To use the method of forcing with random variables we need to consider the concept of so-called $\M$-rationals. To define them we start by simply adjoining all negative elements to the semiring $\M$ to obtain the integral domain $\overline \M$. $\M$-rationals are then simply the ordered field of fractions $\Frac(\overline \M)$ which we denote $\Q^\M$.
+
+There is a canonical injection $\Q \xhookrightarrow{} \Q^\M$ whose image consist exactly of the `standard fractions'. We call a $q\in\Q^\M$ finite if there is a standard $k$ such that $\abs{q}<\frac{k}{1}$ otherwise we call it infinite. We call $q\in\Q^\M$ infinitesimal if $q$ is infinite. One can check that $\Q^\M$ fulfills the axioms of hyperreal numbers which can be used as an alternative foundation to the concepts of mathematical analysis. The following is an important results which we use throughout the thesis.
+
+\begin{thrm*}
+Let $q\in\Q^\M$ finite. Then there exist unique $r\in \R$ and an infinitesimal $m\in\Q^\M$ such that
+$q=r+m.$
+
+We use the notation $\st(q):=r$ and call $r$ it the \textbf{standard part of} $q$.
+\end{thrm*}
+
+The following result characterizes convergence of a sequence of rational numbers in the language of nonstandard analysis.
+
+\begin{thrm*}
+Let $\{c_k\}_{k\geq 0}$ be a sequence of rational numbers. Then \[\lim_{k\to\infty}c_k = r \in \R\]
+if and only if for any nonstandard $n\in \M$ we have that
+$\st(c_n)=r.$
+\end{thrm*}
+
+We close this section with two inequalities heavily used in the proofs throughout the thesis.
+
+\begin{thrm*}[Bernoulli's inequality]
+Let $y \in \M$ and $x\in \Q^\M, x\geq -1$, then
+\[(1+x)^y \geq 1+yx.\]
+\end{thrm*}
+
+\begin{thrm*}[Exponential inequality]
+Let $y \in \M$ and $x\in \Q^\M, x\geq 0$, then
+\[\left(1-\frac{x}{y}\right)^y \leq e^{-x}.\]
+\end{thrm*}
+
+\section*{Total $\NP$ search problems and polynomial oracle time}
+
+
+
