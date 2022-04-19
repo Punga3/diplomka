@@ -1,0 +1,165 @@
+\chapter{Sparse case and $\TFNP$}
+
+\section{$\mathcal{G}_k=*\text{PATH}_k$}
+
+\begin{defi}
+We define $\pPATH_k$ (the pointed paths on $k$ vertices) as the set of all (undirected) graphs $G$ on the vertex set $[k]$, where $G$ is isomorphic to the path on $n$ vertices and $\deg_G(0)=1$.
+\end{defi}
+
+\begin{defi}
+After we fix $n$, we define $F_{nbtree}$ as the set of all functions computed by some some labeled tree with the following shape:
+
+\begin{itemize}
+\item Each non-leaf node is labeled by some $v\in[n]$. 
+\item For each $\{u,v\} \subseteq [n]$ and a node $N$ there is an outgoing edge from $N$ labeled $A$.
+\item Each leaf is labeled by some $m\in \mathcal{M}_n$.
+\item The depth of the tree is at most $n^{1/t}$ for some $t>\mathbb{N}$.
+\end{itemize}
+
+Computation of such a tree on a undirected graph $G$ goes as follows. We interpret the non-leaf nodes as questions "what is the neighbour set of $v$?" and the edges as answers from our graph $G$, and thus we follow a path determined by $G$ until we find a vertex for which the answer is not an edge (in which case the computation returns $0$) or until we find a leaf, in which case the computation returns the label of the leaf.
+\end{defi}
+
+We now shift out focus to analysing the ability of trees from $F_{nbtree}$ to find the non-zero degree 1 vertex in $G\in \pPATH_n$. We say a tree $T\in F_{nbtree}$ fails at a graph $G$ if $T(G)$ is not a non-zero vertex of degree one in $G$.
+
+\begin{defi}
+Let $m\leq n$ and $v\in [w]$ and $U\subseteq [w]$ with $\abs{U}\leq 2$, then we define 
+
+\[\mathcal{G}_m^{v?=U}:=\{G\in\mathcal{G}_m;N_G(v)=U\},\]
+where $N_G$ is the neighbour-set function of $G$.
+\end{defi}
+\begin{lemm}
+There are bijections for all nonstandard $m\leq n$ and distinct $u,v,w\in [m]\setminus\{0\}$:
+
+\begin{align}
+\mathcal{G}_m^{v?=\{u,w\}}&\cong\mathcal{G}_{m-2}\times [2] \label{pPathfirstbij}\\
+\mathcal{G}_m^{v?=\{u,0\}}&\cong\mathcal{G}_{m-2}\label{pPathsecbij}\\
+\mathcal{G}_m^{0?=\{u\}}&\cong\mathcal{G}_{m-1}\label{pPaththrdbij}.
+\end{align}
+\end{lemm}
+\begin{proof} (sketch)
+For \eqref{pPathfirstbij} we can just contract all of {u,v,w} into one vertex and relabel the rest of the graph, leaving the orientation as a one remaining bit of information. This is obviously reversible and a bijection.
+
+For \eqref{pPathsecbij} we can do the same, but the orientation is given by $0$.
+\end{proof}
+
+\begin{lemm}\label{lemmrelabeltree}
+Let $T\in F_{nbtree}$, with root labeled $v\in[m]\setminus{0}$, we have for each $T_{v?=\{u,w\}}$ a tree $\tilde T_{v?=\{u,w\}}$ of the same depth, such that
+\begin{align}
+P_m(T_{v?=\{u,w\}}\text{ fails}|v?=\{u,w\})=P_{m-2}(\tilde T_{v?=\{u,w\}}).
+\end{align}
+For a tree $T$ with the root labeled $0$, we have a tree $\tilde T_{v?=\{u,w\}}$ of the same depth, such that
+\begin{align}
+P_m(T_{v?=\{u\}}\text{ fails}|v?=\{u\})=P_{m-1}(\tilde T_{v?=\{u\}}).
+\end{align}
+\end{lemm}
+\begin{proof}(sketch) To construct the tree, we just replace all vertices in labels of $T_{v?=\{u,w\}}$ by there renumbering from the bijection in \eqref{pPathfirstbij}.
+
+(TODO: Elaborate) One can then check that the trees $T_{v?=\{u,w\}}$ and $\tilde T_{v?=\{u,w\}}$ are isomorphic in a sense that their computation of a graph $G$ and $\tilde G$ respectively, $\tilde G$ being the corresponding $(m-2)$-vertex graph, agree with the structure of the path and that correctness of leaves is preserved under the renumbering. Essentially they emulate the same computation but on a smaller graph.
+\end{proof}
+
+
+\begin{lemm}
+For all nonstandard $t>\mathbb{N},m\geq n-2n^{1/t}$ and $k\in [n^{1/t}+1]$ for all trees $T\in F_{nbtree}$ of depth $k$ we have
+\[
+P_m(\text{$T$ fails})\geq \prod_{i=0}^k\left (1-\frac{2}{m-2i-2}\right ).
+\]
+\end{lemm}
+\begin{proof}
+We proceed by induction on $k$. 
+
+$k=0:$ We have that the probability of success of a straight guess is at most $\frac{1}{m-1}$. Therefore
+
+\begin{align}
+P(\text{$T$ fails})\geq \left (1-\frac{1}{m-1}\right ) \geq \left(1-\frac{2}{m-2}\right).
+\end{align}
+
+$(k-1) \Rightarrow k:$ First we assume that the root is labeled $0$. Then we have 
+
+\begin{align}
+P(\text{$T$ fails})&=\sum_{u\in V\setminus\{0\}}P_{m-1}(0Eu)P_{m-1}(T_{0?=\{u\}}\text{ fails}|0Eu)\\
+&\geq P_{m-1}(T_{0?=\{u\}}\text{ fails}|0Eu)\\
+&= P_{m-1}(\tilde T_{0?=\{u\}}\text{ fails})\\
+&\geq \prod_{i=0}^{k-1}\left(1-\frac{2}{m-2i-2}\right)\\
+&\geq \prod_{i=0}^{k}\left(1-\frac{2}{m-2i-2}\right).
+\end{align}
+
+Now we assume that the root is labeled $v\not= 0$. First we notice that
+
+\begin{align}
+P_m(vE0)&=\frac{1}{m-1}\\
+P_m(N(V)=1)&=\frac{1}{m-1}\\
+P_m(\abs{N(V)\setminus\{0\}}=2)&=1-\frac{2}{m-1},\label{pmmiddle}
+\end{align}
+the first two probabilities are obviously $\frac{1}{m-1}$ because they correspond to $v$ being positioned on one of the ends of the non-zero segment which has length $m-1$. The event in \eqref{pmmiddle} is the complement of the union of the first two events, which have empty intersetion, giving us that stated probability.
+
+Then we have
+\begin{align}
+P_m(\text{$T$ fails})&=P_m(vE0)P_m(\text{$T$ fails}|vE0)\\
+&\:\phantom{=}\:+P_m(\abs{N(v)\setminus\{0\}}=2)P_m(\text{$T$ fails}|\abs{N(v)\setminus\{0\}}=2)\\
+&\:\phantom{=}\:+P_m(\abs{N(v)}=1)P_m(vE0)P_m(\text{$T$ fails}|\abs{N(v)}=1)\\
+&\geq P_m(\abs{N(v)\setminus\{0\}}=2)P_m(\text{$T$ fails}|\abs{N(v)\setminus\{0\}}=2)\\
+&\geq (1-\frac{2}{m-1})\\
+&\:\phantom{=}\:\cdot\sum_{\substack{u,w\in V\setminus \{0\} \\ u\not= w}}P_m(v?=\{u,w\})P_m(T_{v?=\{u,w\}}\text{ fails}|v?=\{u,w\})\\
+&\geq(1-\frac{2}{m-1})P_m(T_{v?=\{u_0,w_0\}}\text{ fails}|v?=\{u_0,w_0\})\label{pmfailchoice}\\
+&\geq(1-\frac{2}{m-1})P_{m-2}(\tilde T_{v?=\{u_0,w_0\}}\text{ fails})\label{pmfaillemma}\\
+&\geq(1-\frac{2}{m-1})\prod_{i=0}^{k-1}(1-\frac{2}{m-2i-4})\label{pmfailih}\\
+&\geq(1-\frac{2}{m-2})\prod_{i=1}^{k}(1-\frac{2}{m-2i-2})\\
+&\geq\prod_{i=0}^{k}(1-\frac{2}{m-2i-2}).
+\end{align}
+where in \eqref{pmfailchoice} we choose $u_0,w_0$ with the lowest value of \[P_m(\text{$T_{v?=\{u_0,w_0\}}|v?=\{u_0,w_0\}$}),\] the bound follows the fact that all $P_m(v?=\{u,w\})$ are the same for distinct non-zero $u,w$. In \eqref{pmfaillemma} we use the lemma \ref{lemmrelabeltree} and in \eqref{pmfailih} we use the induction hypothesis.
+\end{proof}
+
+\begin{crll}\label{crllpPathtreefail}
+For a tree $T\in F_{nbtree}$ we have that
+\[P_n(T\text{ fails})\approx 1.\]
+\end{crll}
+\begin{proof}
+Since $T$ has depth at most $n^{1/t}$ for some $t>\mathbb{N}$ we by the previous lemma that
+\begin{align}
+P_n(\text{$T$ fails})&\geq \prod_{i=0}^{n^{1/t}}\left(1-\frac{2}{n-2i-2}\right)\\
+&\geq \left(1-\frac{2n^{1/t}}{n-2n^{1/t}-2}\right)\\
+&\approx 1.
+\end{align}
+\end{proof}
+
+Finally we can prove the following theorem.
+
+\begin{thrm}
+\[\bbl(\exists v)(\exists u)(\forall w)((v\not=0)\land (\Gamma(v,u)) \land(\Gamma(v,w) \to u=w))\bbr=\0\]
+\end{thrm}
+\begin{proof}
+Expanding the value of the formula in the statement we get
+\[\Lor_{\alpha}\Lor_{\beta}\Land_{\gamma}\bbl(\alpha\not=0)\land (\Gamma(\alpha,\beta)) \land(\Gamma(\alpha,\gamma) \to \beta=\gamma)\bbr,\]
+to prove it evalues to $\0$ we need to find for every $\alpha,\beta$ some $\gamma$ such that
+\[\bbl(\alpha\not=0)\land (\Gamma(\alpha,\beta)) \land(\Gamma(\alpha,\gamma) \to \beta=\gamma)\bbr=\0.\]
+For any $\alpha,\beta$ we define
+\[\gamma(\omega):=\begin{cases}v&N(\alpha(\omega))=\{v\}\\w&w\in N(\alpha(\omega))\setminus\{\beta(\omega)\},\end{cases}\]
+such a function can be computed by a tree in $F_{nbtree}$ which we can construct by concatenation of trees computing $\alpha$ and $\beta$.
+
+Let $T$ be the tree computing $\alpha$. Now we proceed by contradiction, let
+\[\epsilon:=\mu(\bbl(\alpha\not=0)\land (\Gamma(\alpha,\beta)) \land(\Gamma(\alpha,\gamma) \to \beta=\gamma)\bbr)>0,\]
+by definition this means that
+\[\epsilon=\st(P_n[(\alpha\not=0)\land (\Gamma(\alpha,\beta)) \land(\Gamma(\alpha,\gamma) \to \beta=\gamma)])>0.\]
+Expanding the value of the formula in the statement we get
+\[\Lor_{\alpha}\Lor_{\beta}\Land_{\gamma}\bbl(\alpha\not=0)\land (\Gamma(\alpha,\beta)) \land(\Gamma(\alpha,\gamma) \to \beta=\gamma)\bbr,\]
+to prove it evalues to $\0$ we need to find for every $\alpha,\beta$ some $\gamma$ such that
+\[\bbl(\alpha\not=0)\land (\Gamma(\alpha,\beta)) \land(\Gamma(\alpha,\gamma) \to \beta=\gamma)\bbr=\0.\]
+For any $\alpha,\beta$ we define
+\[\gamma(\omega):=\begin{cases}v&N(\alpha(\omega))=\{v\}\\w&w\in N(\alpha(\omega))\setminus\{\beta(\omega)\},\end{cases}\]
+such a function can be computed by a tree in $F_{nbtree}$ which we can construct by concatenation of trees computing $\alpha$ and $\beta$.
+
+Let $T$ be the tree computing $\alpha$. Now we proceed by contradiction, let
+\[\epsilon:=\mu(\bbl(\alpha\not=0)\land (\Gamma(\alpha,\beta)) \land(\Gamma(\alpha,\gamma) \to \beta=\gamma)\bbr)>0,\]
+by definition this means that
+\[\epsilon=\st(P_n[(\alpha\not=0)\land (\Gamma(\alpha,\beta)) \land(\Gamma(\alpha,\gamma) \to \beta=\gamma)])>0.\]
+But by definition of $\gamma$ and Corollary \ref{crllpPathtreefail} we have
+\begin{align*}
+0&<\epsilon\\
+&=\st(P_n[(\alpha\not=0)\land (\Gamma(\alpha,\beta)) \land(\Gamma(\alpha,\gamma) \to \beta=\gamma)])\\
+&\leq\st(P_n[(\alpha\not=0)\land (\Gamma(\alpha,\beta)) \land \abs{N(\alpha)}=1])\\
+&\leq\st(P_n[(\alpha\not=0)\land \abs{N(\alpha)}=1])\\
+&=\st(P_n[T\text{ does not fail}])\\
+&=0.
+\end{align*}
+A contradiction.
+\end{proof}
