@@ -1,4 +1,13 @@
-\begin{thebibliography}{NDM13}
+\newcommand{\etalchar}[1]{$^{#1}$}
+\begin{thebibliography}{BCE{\etalchar{+}}95}
+
+\bibitem[BCE{\etalchar{+}}95]{beame1995rel}
+Paul Beame, Stephen Cook, Jeff Edmonds, Russell Impagliazzo, and Toniann
+  Pitassi.
+\newblock The relative complexity of np search problems.
+\newblock In {\em Proceedings of the Twenty-Seventh Annual ACM Symposium on
+  Theory of Computing}, STOC '95, page 303–314, New York, NY, USA, 1995.
+  Association for Computing Machinery.
 
 \bibitem[Fag76]{Fagin1976}
 Ronald Fagin.
@@ -9,6 +18,11 @@ Ronald Fagin.
 I~Goldbring.
 \newblock Lecture notes on nonstandard analysis.
 \newblock {\em Ucla summer school in logic}, 2014.
+
+\bibitem[GP18]{goldberg2018tfnp}
+Paul~W. Goldberg and Christos~H. Papadimitriou.
+\newblock Towards a unified complexity theory of total functions.
+\newblock {\em J. Comput. System Sci.}, 94:167--192, 2018.
 
 \bibitem[Kay91]{kaye1991pa}
 Richard Kaye.
@@ -27,6 +41,11 @@ L{\'a}szl{\'o} Lov{\'a}sz and Bal{\'a}zs Szegedy.
 \newblock Limits of dense graph sequences.
 \newblock {\em Journal of Combinatorial Theory, Series B}, 96(6):933--957,
   2006.
+
+\bibitem[MP91]{megiddo1991total}
+Nimrod Megiddo and Christos~H Papadimitriou.
+\newblock On total functions, existence theorems and computational complexity.
+\newblock {\em Theoretical Computer Science}, 81(2):317--324, 1991.
 
 \bibitem[NDM13]{Nesetril2013}
 Jaroslav Nesetril and Patrice~Ossona De~Mendez.

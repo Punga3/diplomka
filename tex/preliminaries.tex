@@ -4,6 +4,7 @@
 In this chapter we recall a few important notions which we will use in the next chapter to define the central construction we study. We do not review the notions formally but always provide a reference for the reader unfamiliar with these topics. Throughout this thesis we assume a basic knowledge of mathematical logic, model theory and measure theory. Important concept for us are the nonstandard models of true arithmetic. 
 
 \section*{The ambient model $\M$}
+\addcontentsline{toc}{section}{The ambient model $\M$}
 
 We call a model of $\Th(\N)$ nonstandard if it is not isomorphic to $\N$. Every model of $\Th(\N)$ of course contains an initial segment isomorphic to $\N$ so we can view nonstandard models as those which also contain `infinite natural numbers', if we assume $\M\models \Th(\N)$ contains $\N$ as an initial segment then the elements $\M\setminus \N$ are called nonstandard. We recommend the introduction of \cite{kaye1991pa} for a review of this topic. In the appendix of \cite{krajicek2010forcing} there is an explicting ultraproduct construction of a model $\M\models \Th(\N)$ which is $\aleph_1$-saturated.
 
@@ -16,6 +17,7 @@ If $\{a_k\}_{k\geq 0}$ is a sequence with elements in $\N$ then there is an elem
 By overspill in $\M$ if some definable property $P$ holds for any $a_k$ with high enough index then there is also some nonstandard $s<t$ such that $b_s$ satisfies the property $P$. 
 
 \section*{Nonstandard analysis}
+\addcontentsline{toc}{section}{Nonstandard analysis}
 
 The reader can refer to \cite{goldbring2014lecture} for more formal treatment of topics discussed in this section including proofs. To use the method of forcing with random variables we need to consider the concept of so-called $\M$-rationals. To define them we start by simply adjoining all negative elements to the semiring $\M$ to obtain the integral domain $\overline \M$. $\M$-rationals are then simply the ordered field of fractions $\Frac(\overline \M)$ which we denote $\Q^\M$.
 
@@ -49,6 +51,16 @@ Let $y \in \M$ and $x\in \Q^\M, x\geq 0$, then
 \end{thrm*}
 
 \section*{Total $\NP$ search problems and polynomial oracle time}
+\addcontentsline{toc}{section}{Total $\NP$ search problems and polynomial oracle time}
 
+Our goal is to tie the properties of the wide limit with some complexity theoretic statements. We will recall several notions used later on.
 
+The class of total $\NP$ search problems $\TFNP$, first defined in \cite{megiddo1991total}, consist of all relations on binary strings $P(x,y)$ such that: a) There is a polynomial time machine $M$ which, given $x,y$, can decide whether $P(x,y)$ holds. b) For every $x$ there exists at least one $y$ which is at most polynomially longer than $x$ such that $P(x,y)$ holds.
 
+While the definition of the class $\TFNP$ seems natural, the inner structure looks more arbitrary and the class is generally studied through its semantic subclasses. For example it is conjectured that there is no complete problem for $\TFNP$ \cite{goldberg2018tfnp}.
+
+The semantic subclasses are defined as all problems reducible to some problem corresponding to a combinatorial lemma, for some appropriate definition of `reduction'. Two main subclasses are relevant for us. The class $\PPA$, polynomial parity argument, corresponds to all problems reducible to $\LEAF$, the problem formulated as follows. Given a graph $G$ on the vertex set $\set{k}$ such that $\deg_G(0)=1$ and $\forall v: \deg_G(v)\leq 2$, find some nonzero $v$ with $\deg_G(v)=2$. The corresponding combinatorial principle being the handshaking lemma, which assures the problem is total. And the class $\PPAD$, directed polynomial parity argument, with the complete problem $\SOURCEORSINK$ formulated as follows. Given a directed graph $G$ on the vertex set $\set{k}$ such that the vertex $0$ is a source and $\forall v: \deg_G^+(v),\deg_G^-(v)\leq 1$ find some nonzero vertex $v$ which is a source or a sink. The corresponding combinatorial principle here being the directed version of the handshaking lemma.
+
+So far, we presented what is called `type 1' problem in \cite{beame1995rel}. The ones we are interested in are `type 2' problems which replace the input graph $G$ with a pair $(\alpha,x)$ an oracle $\alpha$ describing the neighbourhood function $N_G(-)$ (or both $N_G^+(-)$ and $N_G^-(-)$ in the directed case) on binary string of length at most $\abs{x}$. While the goal to solve these problems remains the same, suddenly the situation is quite different, the graphs given by oracles are exponential in size and thus easily separated from $\FP^2$, the type 2 version of polynomial time functions. More importantly we have that $\PPAD\subsetneq \PPA$ as type 2 complexity classes. Intuitively one can forget the orientation to get the undirected version, but cannot consistently assign orientation to an undirected edges of a large graph.
+
+The traditional model of computation are the Turing machines and for the type 2 problems oracle Turing machines. But to prove separations in the type 2 case, we can abstract the computation of an oracle Turing machine into a decision tree which describes the queries to an oracle. This is

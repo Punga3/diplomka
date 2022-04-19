@@ -1,271 +1,79 @@
-\chapter{$F=F_{tree}$}\label{chapdense}
+\chapter{Dense case}\label{chapdense}
 
-\section{Basic observations}
+\section{$\G_k=\SK_k^{1/2}$}
 
-\begin{exam}
-Let \[\mathcal{G}_k=\{([k],E);\text{$E$ consists of exactly one $n/2$-clique}\},\] and $F=F_{tree}$.
+Now we turn to analyze dense wide sequences in the second order case. In this chapter we assume $F=F_{rud}$ and $G=G_{rud}$. Specifically we will consider the problem of finding a large clique in a graph. 
 
-We will prove that for every $t>\mathbb{N}$: 
+Generally it is considered a computatinally hard problem to find a large clique in a graph. From complexity theoretical perspective it is an $\NP$-complete problem and thus it is conjectured that is cannot be solved in polynomial time. We first turn to the following wide sequence.
 
-\begin{align}
-&\bbl\text{$\Gamma$ has an $n^{1/t}$-clique}\bbr\\
-&=\bbl(\exists \Lambda)(\forall u)(\forall v)(((u,v \leq n^{1/t})\to\Gamma(\Lambda(u),\Lambda(v)))\land(\Lambda:[n^{1/t}]\hookrightarrow\mathcal{M}))\bbr\\
-&=\Lor_\Lambda\Land_u\Land_v\bbl(u\not=v < n^{1/t})\to(\Gamma(\Lambda(u),\Lambda(v))\land\Lambda(u)\not=\Lambda(v))\bbr\\
-&=\textbf{1}.
-\end{align}
+\begin{defi}
+Let \[\SK_k^{1/2}=\{(\set{k},E);\text{$E$ consists of exactly one $k/2$-clique}\}.\]
+\end{defi}
 
-For $j\in[n^{1/t}]$ let $\Lambda_j$ to be a tree of depth $j\cdot (n^{1/t})^2$ which first tries to find an edge $1\leftrightarrow k$ for $k\in[n^{1/t}]$ if it fails than it tries to find $2\leftrightarrow k$ and so on. Once it finds some edge $(i,k)$, then it starts again but from $i+1$ until it finds the first $j$ elelements of $\Delta_\omega$ and responds with the $j$-th element. Since $j$ is always bounded by $n^{1/t}$, $\Lambda$ really sends $F$ to $F$.
+Limiting inputs to $\SK_k^{1/2}$ makes the problem less complex, because for a vertex $v$ to a part of the biggest clique it is enough that is had nonzero degree. Naturally we want to see whether there is a large clique in $\lim_F^G \SK_n^{1/2}$, every sample has a clique of size $n/2$, but is there a tuple of $F$-verticies witnessing that? 
 
-\end{exam}
+Here to measure the size of such a clique the second order wide limit  by iteself is not a sufficient object. Instead we need to turn to the underlying arithmetic $K(F,G)$ to find an injective function from some large initial segment into a clique in the graph $\Gamma$. It is not hard to prove the following result.
 
-\begin{exam}
-Let \[\mathcal{G}_k=\{([k],E);\text{$E$ consists of exactly one edge}\}\]
-and $F=F_{tree}$.
-
-
-\end{exam}
-
-\begin{thrm}\label{thrmusbv}
-Let $\varphi=(\forall \overline x)\varphi_0(\overline x)$ be a universal $\{E\}$-sentence, such that
-
-\[\lim_{k\to\infty}\Pr_{G\in\mathcal{G}_k}(G\models\varphi)=1.\]
-
-Then $\varphi$ is valid in the b.v. structure.
-
+\begin{thrm}\label{thrmsk1}For every $t>\N$ we have
+\[K(\SK_k^{1/2},F,G)\bbl\text{$\Gamma$ has a clique of size $n^{1/t}$}\bbr=\1.\]
 
 \end{thrm}
 
-\begin{proof}
-
-From $\aleph_1$-saturation of $\mathcal{M}$ and our assumption, we know that for each $m\in\mathbb{N}$ there exists a $k_0\in\mathbb{N}$ such that \[\mathcal{M}\models(\forall k>k_0)\left(\Pr_{G\in\mathcal{G}_k}(G\models \varphi)>1-1/m\right).\]
-Therefore, since $n>\mathbb{N}$, we have that $\st(\Pr_{G\in\mathcal{G}_n}(G\models\varphi))=1$ and therefore $\bbl\varphi_0(\overline\alpha)\bbr=\1$ for each tuple $\overline\alpha$ in $F$.
-
-Therefore
+\begin{proof}(Sketch) We need to analyze the value
 \begin{align}
-\bbl\varphi\bbr&=\Land_{\overline\alpha}\bbl\varphi_0(\overline\alpha)\bbr\\
-&=\Land_{\overline\alpha}\1\\
-&=\1.
+&\bbl(\exists \Lambda)(\forall u)(\forall v)(((u,v \leq n^{1/t})\to\Gamma(\Lambda(u),\Lambda(v)))\land(\Lambda:[n^{1/t}]\hookrightarrow\mathcal{M}))\bbr
 \end{align}
+which is equal to
+\begin{align}
+\Lor_\Lambda\Land_u\Land_v\bbl(u\not=v < n^{1/t})\to(\Gamma(\Lambda(u),\Lambda(v))\land\Lambda(u)\not=\Lambda(v))\bbr.
+\end{align}
+So we want to find some $n^{1/t}$-tuple of trees computing some $\Lambda$ which is injective on $\set{n^{1/t}}$ and its $\set{n^{1/t}}$ range is a clique in $\Gamma$.
+
+We define $(\Lambda_0,\dots,\Lambda_{n^{1/t}-1})$ as follows. The tree $T_0$ computing $\Lambda_0$ inspects all the edges $(u,v)\in\set{n^{1/t}}\times\set{n^{1/t}}$ in some specified order and outputs the first vertex it finds with an edge. The tree $T_i$ computing $\Lambda_i$ extends the previous order to $\set{in^{1/t}}\times\set{in^{1/t}}$ searches it and outputs the $i$-th vertex with an edge. Also every such tree has depth at most $n^{1/t}\cdot n^{1/t}=n^{2/t}=n^{1/(t/2)}$.
+
+One can check that the probability the tree $\Lambda_i$ does not find $i$ vertices with an edge is infinitesimal and therefore it always outputs a vertex in the clique of $\omega$. Moreover, every $\Lambda_i$ outputs the $i$-th element element of the ordering and thus it is injective.
 \end{proof}
 
-\begin{thrm}\label{mutindfind}
-Let $F=F_{tree}$. Let $\varphi_0(x_0,\dots,x_{l-1})$ be a q.f. $\{E\}$-formula. Let $0<p\leq 1$, consider subset $A\subseteq[g_k]^l$ such that for all $\overline a \in A$ 
+At first glance the lower bound $n^{1/t}$ for every nonstandard $t$ may seem optimal given the proof method we used, but there is a way to radically improve it. The idea is to partition the set of vertices into many smaller ones and let $\Lambda_i$ search only in the $i$-th set. First we need the following lemmas.
 
-\[\Pr_{G\in\mathcal{G}_k}(G\models \varphi_0(\overline a))\geq p\]
-
-and
-
-\[\text{$\{\{G\models\varphi_0(\overline a)\}\subseteq \mathcal{G}_k;\overline a \in A\}$ are mutually independent.}\]
-moreover let $A_k$ be the set with the largest cardinality that  has this property.
-
-If $\lim_{k\to\infty} \abs{A_k}=\infty$, then $\bbl(\exists \overline x)\varphi_0(\overline x)\bbr=\1$.
-\end{thrm}
-
+(TODO: Comment notation somewhere especially set and abs)
+\begin{lemm}\label{lemmmiss}
+Let $S\subseteq \set{n}$ such that $\abs{S}=m > \N$, then
+\[\st\left(\Pr_{G\in\G_n}[\text{$S$ contains no vertices in the clique of $G$}]\right)=0.\]
+\end{lemm}
 \begin{proof}
-Let $\overline x = (x_0,\dots,x_{l-1})$. Let $T_{\overline a}$ be a tree of some standard depth $d$, that tests whether $G\models\varphi_0(\overline a)$.
-
-From $\aleph_1$-saturation of $\mathcal{M}$ we have $n'>\mathbb{N}$ many tuples \(\overline a_0,\dots,\overline a_{n'-1}\in A_n\), such that \(\Pr_{G\in\mathcal{G}_k}(G\models\varphi_0(\overline a_i))\geq p\), we can assume $n'<n^{1/t_0}$ for some $t_0>\mathbb{N}$.
-
-
-For $j\in[l]$ construct a tree $T_j$ inductively as follows: Start with $T_{\overline a_0}$. Replace the label of every accepting leaf by $(\overline a_0)_j$ and remove the label of every rejecting leaf. Call this tree $T_j^0$. Assume we have already constructed $T_j^{m}$. Construct $T_j^{i+1}$ by appending $T_{\overline a_{m+1}}$ to every undefined leaf, relabeling every satisfied leaf to $(\overline a_{i+1})_j$ and removing labels from every rejecting leaf. We will define $T_j$ as $T_j^{n'}$ with undefined leafs labeled by $0$. (This can be done, because all instances of induction are in $\Th(\mathbb{N})$.) Note that $\dpt(T_j)=d\cdot n' < n^{1/t}$ for some $t>\mathbb{N}$. 
-
-Call $\overline \alpha$ the tuple computed by $T_0,\dots,T_{l-1}$. We will prove that probability of $\overline \alpha$ being a witness to $\varphi_0(\overline x)$ is 1. For each $\overline a_i$ we have, that the probability of $G\models\varphi_0(\overline a_i)$ is at least $p$. The mutual independence of ${\{G\models\varphi_0(\overline a_i);i\in[n']\}}$ and the construction of $T_j$ implies that $T_j$ has a probability of $(1-p)^{n'}$ of failing, which is obviously almost $0$.
+There are $\binom{n-m}{\floor{\frac{n}{2}}}$ different graphs in $\SK_n^{1/2}$ in which the clique does not intersect $S$. We then bound the probability as
+\begin{align}
+\frac{\binom{n-m}{\floor{\frac{n}{2}}}}{\binom{n}{\floor{\frac{n}{2}}}}&=\frac{(n-m)!(n-\floor{\frac{n}{2}})!}{(n)!(n-\floor{\frac{n}{2}}-c)!}\\
+&=\prod_{i=0}^{m-1}\frac{(n-i-\floor{\frac{n}{2}})}{(n-i)}\\
+&=\prod_{i=0}^{m-1}\left(1-\frac{\floor{\frac{n}{2}}}{n-i}\right)\\
+&\leq \left(1-\frac{\floor{\frac{n}{2}}}{n}\right)^m\\
+&\leq \left(1-\frac{\floor{\frac{n}{2}}}{n}\right)^{n \cdot \frac{m}{n}}\\
+&\leq e^{-\floor{\frac{n}{2}}\frac{m}{n}}.
+\end{align}
+But $\floor{\frac{n}{2}} \frac{m}{n}$ is infinite therefore the bound is infinitesimal.
 \end{proof}
 
-\begin{exam}
-Let \[\mathcal{G}_k=\{([k],E);\text{$E$ at least one edge, and may have exactly $k/2$ more from start}\}\]
-
-and let $F=F_{tree}$. Then $\mu(\bbl(\exists x)(\exists y)\Gamma(x,y)\bbr)=\frac{1}{2}$.
-\end{exam}
-
-
-\section{$\mathcal{G}_k=\text{ALL}_k$}
-
-\begin{thrm}[Everything exists]
-Let $\varphi(\overline x,\overline y)=\Land_{i=0}^{m-1}\psi_i(\overline x,\overline y)\land \Land_{i=0}^{l-1}\vartheta_i(\overline y)$, where $\psi_i,\vartheta_i$ are literals and $\psi_i$ are not of the form $(y_i=y_j)^b$, $E(y_i,y_j)^b$, $x_i\not= x_i$, $E(x_i,x_i)$, $b\in\{0,1\}$.
-
-Let $\overline \beta$ be a tuple of vertices computed by $F_{tree}$ of the same length as $\overline y$. Then $\bbl(\exists \overline x)\varphi^\Gamma(\overline x,\overline \beta)\bbr=\bbl\Land_{i=0}^{l-1}\vartheta_i(\overline \beta)\bbr$, specifically if $l=0$ then $(\exists \overline x)\phi_0(\overline x,\overline \beta)$ is valid in the b.v. graph.
-\end{thrm}
-\begin{proof} We will construct one tree $T$ computing the whole tuple of witnesses $\overline \alpha$, such a construction can be straightforwardly split into a tuple of tree each computing the specific element.
-
-First we concatenate all the trees used to compute $\overline \beta$. At each leave we can now proceed knowing the value of $\overline \beta$ at the specific $\omega\in\Omega$. Now we just construct a tree as in Theorem \ref{mutindfind} but searching only over edges not checked previously and only to fulfill each $\psi_i$. Luckily we have so far searched only an infinitesimal part of the edges and since we assume $\mathcal{G}_k=\text{ALL}_k$ both of the conditions of the theorem are satisfied, so by analogous argument, we have a tree that finds a witness all of the $\psi_i(\overline x,\overline \beta)$ with probability infinitesimally close to 1.
-
-Therefore
-\begin{align}
-\bbl(\exists \overline x)\varphi^\Gamma(\overline x,\overline \beta)\bbr&=\bbl(\exists \overline x)\Land_{i=0}^{m-1}\psi_i(\overline x,\overline \beta)\bbr \land \bbl\Land_{i=0}^{l-1}\vartheta_i(\overline \beta)\bbr\\
-&=\bbl\Land_{i=0}^{l-1}\vartheta_i(\overline \beta)\bbr.
-\end{align}
+\begin{lemm}
+For every $v\in\set{n}$ there exists a tree $T_v$ such that
+\[\st\left(\Pr_{\omega\in\Omega}[(v,T_v(\omega))\in E_{\omega}|\text{$v$ is in the clique}]\right)=1.\]
+\end{lemm}
+\begin{proof}
+Let $T_v$ be a tree which inspects the edges $(v,i)$ for $i\in\set{n^{1/t}}$ and $t>\N$, if it finds one it outputs $i$ or else it fails and outputs 0. By Lemma \ref{lemmmiss} we have that only infinitesimal number of graphs have their clique not intersect $\set{n^{1/t}}$ so $T_v$ succeeds on all but infinitesimally small portion of $\Omega$.
 \end{proof}
 
 \begin{crll}
-For each $\varphi(\overline x)$ that is not a tautology in the theory of graphs we have that $\bbl(\forall \overline x)\varphi^\Gamma(\overline x)\bbr=\0$.
+Let $S_0,\dots,S_{a-1}\subseteq\set{n}$ sets of size $a\in \M$ for $i\in \M$ then
+\[\Pr_{\omega\in\Omega}\left[\bigcup_{i=0}^{a-1}[\text{$S_i$ contains no vertices in the clique of $\omega$}]\right]\leq a\cdot e^{-\floor{\frac{n}{2}}\frac{m}{n}}.\]
+
 \end{crll}
-\begin{crll}
-For each $\varphi(\overline x,\overline y)$ that is not falsifiable by $\overline y$ in the theory of graphs we have that $\bbl(\forall \overline y)(\exists \overline x)\varphi^\Gamma(\overline x)\bbr=\1$.
-\end{crll}
 
-\chapter{$F=F_{nbtree}$}
-
-\section{$\mathcal{G}_k=*\text{PATH}_k$}
-
-\begin{defi}
-We define $\pPATH_k$ (the pointed paths on $k$ vertices) as the set of all (undirected) graphs $G$ on the vertex set $[k]$, where $G$ is isomorphic to the path on $n$ vertices and $\deg_G(0)=1$.
-\end{defi}
-
-\begin{defi}
-After we fix $n$, we define $F_{nbtree}$ as the set of all functions computed by some some labeled tree with the following shape:
-
-\begin{itemize}
-\item Each non-leaf node is labeled by some $v\in[n]$. 
-\item For each $\{u,v\} \subseteq [n]$ and a node $N$ there is an outgoing edge from $N$ labeled $A$.
-\item Each leaf is labeled by some $m\in \mathcal{M}_n$.
-\item The depth of the tree is at most $n^{1/t}$ for some $t>\mathbb{N}$.
-\end{itemize}
-
-Computation of such a tree on a undirected graph $G$ goes as follows. We interpret the non-leaf nodes as questions "what is the neighbour set of $v$?" and the edges as answers from our graph $G$, and thus we follow a path determined by $G$ until we find a vertex for which the answer is not an edge (in which case the computation returns $0$) or until we find a leaf, in which case the computation returns the label of the leaf.
-\end{defi}
-
-We now shift out focus to analysing the ability of trees from $F_{nbtree}$ to find the non-zero degree 1 vertex in $G\in \pPATH_n$. We say a tree $T\in F_{nbtree}$ fails at a graph $G$ if $T(G)$ is not a non-zero vertex of degree one in $G$.
-
-\begin{defi}
-Let $m\leq n$ and $v\in [w]$ and $U\subseteq [w]$ with $\abs{U}\leq 2$, then we define 
-
-\[\mathcal{G}_m^{v?=U}:=\{G\in\mathcal{G}_m;N_G(v)=U\},\]
-where $N_G$ is the neighbour-set function of $G$.
-\end{defi}
-\begin{lemm}
-There are bijections for all nonstandard $m\leq n$ and distinct $u,v,w\in [m]\setminus\{0\}$:
-
-\begin{align}
-\mathcal{G}_m^{v?=\{u,w\}}&\cong\mathcal{G}_{m-2}\times [2] \label{pPathfirstbij}\\
-\mathcal{G}_m^{v?=\{u,0\}}&\cong\mathcal{G}_{m-2}\label{pPathsecbij}\\
-\mathcal{G}_m^{0?=\{u\}}&\cong\mathcal{G}_{m-1}\label{pPaththrdbij}.
-\end{align}
-\end{lemm}
-\begin{proof} (sketch)
-For \eqref{pPathfirstbij} we can just contract all of {u,v,w} into one vertex and relabel the rest of the graph, leaving the orientation as a one remaining bit of information. This is obviously reversible and a bijection.
-
-For \eqref{pPathsecbij} we can do the same, but the orientation is given by $0$.
-\end{proof}
-
-\begin{lemm}\label{lemmrelabeltree}
-Let $T\in F_{nbtree}$, with root labeled $v\in[m]\setminus{0}$, we have for each $T_{v?=\{u,w\}}$ a tree $\tilde T_{v?=\{u,w\}}$ of the same depth, such that
-\begin{align}
-P_m(T_{v?=\{u,w\}}\text{ fails}|v?=\{u,w\})=P_{m-2}(\tilde T_{v?=\{u,w\}}).
-\end{align}
-For a tree $T$ with the root labeled $0$, we have a tree $\tilde T_{v?=\{u,w\}}$ of the same depth, such that
-\begin{align}
-P_m(T_{v?=\{u\}}\text{ fails}|v?=\{u\})=P_{m-1}(\tilde T_{v?=\{u\}}).
-\end{align}
-\end{lemm}
-\begin{proof}(sketch) To construct the tree, we just replace all vertices in labels of $T_{v?=\{u,w\}}$ by there renumbering from the bijection in \eqref{pPathfirstbij}.
-
-(TODO: Elaborate) One can then check that the trees $T_{v?=\{u,w\}}$ and $\tilde T_{v?=\{u,w\}}$ are isomorphic in a sense that their computation of a graph $G$ and $\tilde G$ respectively, $\tilde G$ being the corresponding $(m-2)$-vertex graph, agree with the structure of the path and that correctness of leaves is preserved under the renumbering. Essentially they emulate the same computation but on a smaller graph.
-\end{proof}
-
-
-\begin{lemm}
-For all nonstandard $t>\mathbb{N},m\geq n-2n^{1/t}$ and $k\in [n^{1/t}+1]$ for all trees $T\in F_{nbtree}$ of depth $k$ we have
-\[
-P_m(\text{$T$ fails})\geq \prod_{i=0}^k\left (1-\frac{2}{m-2i-2}\right ).
-\]
-\end{lemm}
-\begin{proof}
-We proceed by induction on $k$. 
-
-$k=0:$ We have that the probability of success of a straight guess is at most $\frac{1}{m-1}$. Therefore
-
-\begin{align}
-P(\text{$T$ fails})\geq \left (1-\frac{1}{m-1}\right ) \geq \left(1-\frac{2}{m-2}\right).
-\end{align}
-
-$(k-1) \Rightarrow k:$ First we assume that the root is labeled $0$. Then we have 
-
-\begin{align}
-P(\text{$T$ fails})&=\sum_{u\in V\setminus\{0\}}P_{m-1}(0Eu)P_{m-1}(T_{0?=\{u\}}\text{ fails}|0Eu)\\
-&\geq P_{m-1}(T_{0?=\{u\}}\text{ fails}|0Eu)\\
-&= P_{m-1}(\tilde T_{0?=\{u\}}\text{ fails})\\
-&\geq \prod_{i=0}^{k-1}\left(1-\frac{2}{m-2i-2}\right)\\
-&\geq \prod_{i=0}^{k}\left(1-\frac{2}{m-2i-2}\right).
-\end{align}
-
-Now we assume that the root is labeled $v\not= 0$. First we notice that
-
-\begin{align}
-P_m(vE0)&=\frac{1}{m-1}\\
-P_m(N(V)=1)&=\frac{1}{m-1}\\
-P_m(\abs{N(V)\setminus\{0\}}=2)&=1-\frac{2}{m-1},\label{pmmiddle}
-\end{align}
-the first two probabilities are obviously $\frac{1}{m-1}$ because they correspond to $v$ being positioned on one of the ends of the non-zero segment which has length $m-1$. The event in \eqref{pmmiddle} is the complement of the union of the first two events, which have empty intersetion, giving us that stated probability.
-
-Then we have
-\begin{align}
-P_m(\text{$T$ fails})&=P_m(vE0)P_m(\text{$T$ fails}|vE0)\\
-&\:\phantom{=}\:+P_m(\abs{N(v)\setminus\{0\}}=2)P_m(\text{$T$ fails}|\abs{N(v)\setminus\{0\}}=2)\\
-&\:\phantom{=}\:+P_m(\abs{N(v)}=1)P_m(vE0)P_m(\text{$T$ fails}|\abs{N(v)}=1)\\
-&\geq P_m(\abs{N(v)\setminus\{0\}}=2)P_m(\text{$T$ fails}|\abs{N(v)\setminus\{0\}}=2)\\
-&\geq (1-\frac{2}{m-1})\\
-&\:\phantom{=}\:\cdot\sum_{\substack{u,w\in V\setminus \{0\} \\ u\not= w}}P_m(v?=\{u,w\})P_m(T_{v?=\{u,w\}}\text{ fails}|v?=\{u,w\})\\
-&\geq(1-\frac{2}{m-1})P_m(T_{v?=\{u_0,w_0\}}\text{ fails}|v?=\{u_0,w_0\})\label{pmfailchoice}\\
-&\geq(1-\frac{2}{m-1})P_{m-2}(\tilde T_{v?=\{u_0,w_0\}}\text{ fails})\label{pmfaillemma}\\
-&\geq(1-\frac{2}{m-1})\prod_{i=0}^{k-1}(1-\frac{2}{m-2i-4})\label{pmfailih}\\
-&\geq(1-\frac{2}{m-2})\prod_{i=1}^{k}(1-\frac{2}{m-2i-2})\\
-&\geq\prod_{i=0}^{k}(1-\frac{2}{m-2i-2}).
-\end{align}
-where in \eqref{pmfailchoice} we choose $u_0,w_0$ with the lowest value of \[P_m(\text{$T_{v?=\{u_0,w_0\}}|v?=\{u_0,w_0\}$}),\] the bound follows the fact that all $P_m(v?=\{u,w\})$ are the same for distinct non-zero $u,w$. In \eqref{pmfaillemma} we use the lemma \ref{lemmrelabeltree} and in \eqref{pmfailih} we use the induction hypothesis.
-\end{proof}
-
-\begin{crll}\label{crllpPathtreefail}
-For a tree $T\in F_{nbtree}$ we have that
-\[P_n(T\text{ fails})\approx 1.\]
-\end{crll}
-\begin{proof}
-Since $T$ has depth at most $n^{1/t}$ for some $t>\mathbb{N}$ we by the previous lemma that
-\begin{align}
-P_n(\text{$T$ fails})&\geq \prod_{i=0}^{n^{1/t}}\left(1-\frac{2}{n-2i-2}\right)\\
-&\geq \left(1-\frac{2n^{1/t}}{n-2n^{1/t}-2}\right)\\
-&\approx 1.
-\end{align}
-\end{proof}
-
-Finally we can prove the following theorem.
+Now we are ready to improve on Theorem \ref{thrmsk1}.
 
 \begin{thrm}
-\[\bbl(\exists v)(\exists u)(\forall w)((v\not=0)\land (\Gamma(v,u)) \land(\Gamma(v,w) \to u=w))\bbr=\0\]
+Let $m$ infinitesimal, then
+\[K(\SK_k^{1/2},F,G)\bbl\text{$\Gamma$ has a clique of size $\floor{n/m}$}\bbr=\1.\]
 \end{thrm}
 \begin{proof}
-Expanding the value of the formula in the statement we get
-\[\Lor_{\alpha}\Lor_{\beta}\Land_{\gamma}\bbl(\alpha\not=0)\land (\Gamma(\alpha,\beta)) \land(\Gamma(\alpha,\gamma) \to \beta=\gamma)\bbr,\]
-to prove it evalues to $\0$ we need to find for every $\alpha,\beta$ some $\gamma$ such that
-\[\bbl(\alpha\not=0)\land (\Gamma(\alpha,\beta)) \land(\Gamma(\alpha,\gamma) \to \beta=\gamma)\bbr=\0.\]
-For any $\alpha,\beta$ we define
-\[\gamma(\omega):=\begin{cases}v&N(\alpha(\omega))=\{v\}\\w&w\in N(\alpha(\omega))\setminus\{\beta(\omega)\},\end{cases}\]
-such a function can be computed by a tree in $F_{nbtree}$ which we can construct by concatenation of trees computing $\alpha$ and $\beta$.
-
-Let $T$ be the tree computing $\alpha$. Now we proceed by contradiction, let
-\[\epsilon:=\mu(\bbl(\alpha\not=0)\land (\Gamma(\alpha,\beta)) \land(\Gamma(\alpha,\gamma) \to \beta=\gamma)\bbr)>0,\]
-by definition this means that
-\[\epsilon=\st(P_n[(\alpha\not=0)\land (\Gamma(\alpha,\beta)) \land(\Gamma(\alpha,\gamma) \to \beta=\gamma)])>0.\]
-Expanding the value of the formula in the statement we get
-\[\Lor_{\alpha}\Lor_{\beta}\Land_{\gamma}\bbl(\alpha\not=0)\land (\Gamma(\alpha,\beta)) \land(\Gamma(\alpha,\gamma) \to \beta=\gamma)\bbr,\]
-to prove it evalues to $\0$ we need to find for every $\alpha,\beta$ some $\gamma$ such that
-\[\bbl(\alpha\not=0)\land (\Gamma(\alpha,\beta)) \land(\Gamma(\alpha,\gamma) \to \beta=\gamma)\bbr=\0.\]
-For any $\alpha,\beta$ we define
-\[\gamma(\omega):=\begin{cases}v&N(\alpha(\omega))=\{v\}\\w&w\in N(\alpha(\omega))\setminus\{\beta(\omega)\},\end{cases}\]
-such a function can be computed by a tree in $F_{nbtree}$ which we can construct by concatenation of trees computing $\alpha$ and $\beta$.
-
-Let $T$ be the tree computing $\alpha$. Now we proceed by contradiction, let
-\[\epsilon:=\mu(\bbl(\alpha\not=0)\land (\Gamma(\alpha,\beta)) \land(\Gamma(\alpha,\gamma) \to \beta=\gamma)\bbr)>0,\]
-by definition this means that
-\[\epsilon=\st(P_n[(\alpha\not=0)\land (\Gamma(\alpha,\beta)) \land(\Gamma(\alpha,\gamma) \to \beta=\gamma)])>0.\]
-But by definition of $\gamma$ and Corollary \ref{crllpPathtreefail} we have
-\begin{align*}
-0&<\epsilon\\
-&=\st(P_n[(\alpha\not=0)\land (\Gamma(\alpha,\beta)) \land(\Gamma(\alpha,\gamma) \to \beta=\gamma)])\\
-&\leq\st(P_n[(\alpha\not=0)\land (\Gamma(\alpha,\beta)) \land \abs{N(\alpha)}=1])\\
-&\leq\st(P_n[(\alpha\not=0)\land \abs{N(\alpha)}=1])\\
-&=\st(P_n[T\text{ does not fail}])\\
-&=0.
-\end{align*}
-A contradiction.
+Partition 
 \end{proof}

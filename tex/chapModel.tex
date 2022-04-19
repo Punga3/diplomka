@@ -163,9 +163,90 @@ Let $\varphi_0(\overline x)$ be an open $\{E\}$-formula, and let $\mathcal{G}_k$
 
 \begin{proof}
 Let $\overline T$ be a tuple of trees computing $\overline \alpha$ such that 
-\[p:=\mu(\bbl\varphi_0(\overline \alpha)\bbr)>\0.\]
+\[p:=\mu(\bbl\varphi_0(\overline \alpha)\bbr)>\0,\]
+moreover we can assume $p<1$ otherwise we are done. We can also assume $\overline T$ is represented just by one tree $T$ which outputs the whole tuple $\overline \alpha$.
 
-We want to iterate $\overline T$ to amplify the probability of success. Let 
-\[A=\{\omega \in \Omega; \omega \models \varphi_0(\overline\alpha(\omega)) \}\]
-and $\pi\in S_{\abs{\G_n}}$ with maximal $\abs{\pi[A]\setminus A}$. Let $\pi(\overline T)$ be a tuple of relabeled trees computing $\pi(\overline \alpha)$.
+We want to iterate $T$ to amplify the probability of success. For every leaf $l$ in $T$ and put 
+\[A_l=\{\omega \in \Omega; T(\omega) \text{ ends up at $l$ and } \omega \models \varphi_0(\overline\alpha(\omega)) \}\]
+and pick some $G\in A$ and some $G'\in \Omega\setminus A$. From the categoricity we have that there exists a permutation $\rho\in S_{\set{g_n}}$ such that $\rho[G]=G'$.
 \end{proof}
+
+\section{Dense $\G_k$}
+\begin{thrm}\label{thrmusbv}
+Let $\varphi=(\forall \overline x)\varphi_0(\overline x)$ be a universal $\{E\}$-sentence, such that
+
+\[\lim_{k\to\infty}\Pr_{G\in\mathcal{G}_k}(G\models\varphi)=1.\]
+
+Then $\varphi$ is valid in the b.v. structure.
+
+
+\end{thrm}
+
+\begin{proof}
+
+From $\aleph_1$-saturation of $\mathcal{M}$ and our assumption, we know that for each $m\in\mathbb{N}$ there exists a $k_0\in\mathbb{N}$ such that \[\mathcal{M}\models(\forall k>k_0)\left(\Pr_{G\in\mathcal{G}_k}(G\models \varphi)>1-1/m\right).\]
+Therefore, since $n>\mathbb{N}$, we have that $\st(\Pr_{G\in\mathcal{G}_n}(G\models\varphi))=1$ and therefore $\bbl\varphi_0(\overline\alpha)\bbr=\1$ for each tuple $\overline\alpha$ in $F$.
+
+Therefore
+\begin{align}
+\bbl\varphi\bbr&=\Land_{\overline\alpha}\bbl\varphi_0(\overline\alpha)\bbr\\
+&=\Land_{\overline\alpha}\1\\
+&=\1.
+\end{align}
+\end{proof}
+
+\begin{thrm}\label{mutindfind}
+Let $F=F_{tree}$. Let $\varphi_0(x_0,\dots,x_{l-1})$ be a q.f. $\{E\}$-formula. Let $0<p\leq 1$, consider subset $A\subseteq[g_k]^l$ such that for all $\overline a \in A$ 
+
+\[\Pr_{G\in\mathcal{G}_k}(G\models \varphi_0(\overline a))\geq p\]
+
+and
+
+\[\text{$\{\{G\models\varphi_0(\overline a)\}\subseteq \mathcal{G}_k;\overline a \in A\}$ are mutually independent.}\]
+moreover let $A_k$ be the set with the largest cardinality that  has this property.
+
+If $\lim_{k\to\infty} \abs{A_k}=\infty$, then $\bbl(\exists \overline x)\varphi_0(\overline x)\bbr=\1$.
+\end{thrm}
+
+\begin{proof}
+Let $\overline x = (x_0,\dots,x_{l-1})$. Let $T_{\overline a}$ be a tree of some standard depth $d$, that tests whether $G\models\varphi_0(\overline a)$.
+
+From $\aleph_1$-saturation of $\mathcal{M}$ we have $n'>\mathbb{N}$ many tuples \(\overline a_0,\dots,\overline a_{n'-1}\in A_n\), such that \(\Pr_{G\in\mathcal{G}_k}(G\models\varphi_0(\overline a_i))\geq p\), we can assume $n'<n^{1/t_0}$ for some $t_0>\mathbb{N}$.
+
+
+For $j\in[l]$ construct a tree $T_j$ inductively as follows: Start with $T_{\overline a_0}$. Replace the label of every accepting leaf by $(\overline a_0)_j$ and remove the label of every rejecting leaf. Call this tree $T_j^0$. Assume we have already constructed $T_j^{m}$. Construct $T_j^{i+1}$ by appending $T_{\overline a_{m+1}}$ to every undefined leaf, relabeling every satisfied leaf to $(\overline a_{i+1})_j$ and removing labels from every rejecting leaf. We will define $T_j$ as $T_j^{n'}$ with undefined leafs labeled by $0$. (This can be done, because all instances of induction are in $\Th(\mathbb{N})$.) Note that $\dpt(T_j)=d\cdot n' < n^{1/t}$ for some $t>\mathbb{N}$. 
+
+Call $\overline \alpha$ the tuple computed by $T_0,\dots,T_{l-1}$. We will prove that probability of $\overline \alpha$ being a witness to $\varphi_0(\overline x)$ is 1. For each $\overline a_i$ we have, that the probability of $G\models\varphi_0(\overline a_i)$ is at least $p$. The mutual independence of ${\{G\models\varphi_0(\overline a_i);i\in[n']\}}$ and the construction of $T_j$ implies that $T_j$ has a probability of $(1-p)^{n'}$ of failing, which is obviously almost $0$.
+\end{proof}
+
+\begin{exam}
+Let \[\mathcal{G}_k=\{([k],E);\text{$E$ at least one edge, and may have exactly $k/2$ more from start}\}\]
+
+and let $F=F_{tree}$. Then $\mu(\bbl(\exists x)(\exists y)\Gamma(x,y)\bbr)=\frac{1}{2}$.
+\end{exam}
+
+
+\section{$\mathcal{G}_k=\text{ALL}_k$}
+
+\begin{thrm}[Everything exists]
+Let $\varphi(\overline x,\overline y)=\Land_{i=0}^{m-1}\psi_i(\overline x,\overline y)\land \Land_{i=0}^{l-1}\vartheta_i(\overline y)$, where $\psi_i,\vartheta_i$ are literals and $\psi_i$ are not of the form $(y_i=y_j)^b$, $E(y_i,y_j)^b$, $x_i\not= x_i$, $E(x_i,x_i)$, $b\in\{0,1\}$.
+
+Let $\overline \beta$ be a tuple of vertices computed by $F_{tree}$ of the same length as $\overline y$. Then $\bbl(\exists \overline x)\varphi^\Gamma(\overline x,\overline \beta)\bbr=\bbl\Land_{i=0}^{l-1}\vartheta_i(\overline \beta)\bbr$, specifically if $l=0$ then $(\exists \overline x)\phi_0(\overline x,\overline \beta)$ is valid in the b.v. graph.
+\end{thrm}
+\begin{proof} We will construct one tree $T$ computing the whole tuple of witnesses $\overline \alpha$, such a construction can be straightforwardly split into a tuple of tree each computing the specific element.
+
+First we concatenate all the trees used to compute $\overline \beta$. At each leave we can now proceed knowing the value of $\overline \beta$ at the specific $\omega\in\Omega$. Now we just construct a tree as in Theorem \ref{mutindfind} but searching only over edges not checked previously and only to fulfill each $\psi_i$. Luckily we have so far searched only an infinitesimal part of the edges and since we assume $\mathcal{G}_k=\text{ALL}_k$ both of the conditions of the theorem are satisfied, so by analogous argument, we have a tree that finds a witness all of the $\psi_i(\overline x,\overline \beta)$ with probability infinitesimally close to 1.
+
+Therefore
+\begin{align}
+\bbl(\exists \overline x)\varphi^\Gamma(\overline x,\overline \beta)\bbr&=\bbl(\exists \overline x)\Land_{i=0}^{m-1}\psi_i(\overline x,\overline \beta)\bbr \land \bbl\Land_{i=0}^{l-1}\vartheta_i(\overline \beta)\bbr\\
+&=\bbl\Land_{i=0}^{l-1}\vartheta_i(\overline \beta)\bbr.
+\end{align}
+\end{proof}
+
+\begin{crll}
+For each $\varphi(\overline x)$ that is not a tautology in the theory of graphs we have that $\bbl(\forall \overline x)\varphi^\Gamma(\overline x)\bbr=\0$.
+\end{crll}
+\begin{crll}
+For each $\varphi(\overline x,\overline y)$ that is not falsifiable by $\overline y$ in the theory of graphs we have that $\bbl(\forall \overline y)(\exists \overline x)\varphi^\Gamma(\overline x)\bbr=\1$.
+\end{crll}
