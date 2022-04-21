@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.22 (TeX Live 2021/Arch Linux) (preloaded format=pdflatex 2021.12.12)  21 APR 2022 12:01
+This is pdfTeX, Version 3.141592653-2.6-1.40.22 (TeX Live 2021/Arch Linux) (preloaded format=pdflatex 2021.12.12)  21 APR 2022 18:04
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -555,15 +555,9 @@ File: l3backend-pdftex.def 2021-03-18 L3 backend support: PDF output (pdfTeX)
 \l__pdf_internal_box=\box53
 )
 (../tex/thesis.aux (../tex/title.aux) (../tex/preface.aux)
-(../tex/preliminaries.aux) (../tex/chapForcing.aux) (../tex/chapModel.aux
-
-LaTeX Warning: Label `thrmuni' multiply defined.
-
-
-LaTeX Warning: Label `thrmexists' multiply defined.
-
-) (../tex/chapSb.aux) (../tex/chapSp.aux) (../tex/scraps.aux)
-(../tex/epilog.aux) (../tex/bibliography.aux))
+(../tex/preliminaries.aux) (../tex/chapForcing.aux) (../tex/chapModel.aux)
+(../tex/chapSb.aux) (../tex/chapSp.aux) (../tex/scraps.aux) (../tex/epilog.aux)
+(../tex/bibliography.aux))
 \openout1 = `thesis.aux'.
 
 LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 139.
@@ -632,7 +626,7 @@ LaTeX Info: Redefining \nameref on input line 139.
 
  (../tex/title.tex
 Package hyperref Info: Option `pageanchor' set `false' on input line 6.
-<../img/logo-en.pdf, id=107, 506.4591pt x 156.49065pt>
+<../img/logo-en.pdf, id=103, 506.4591pt x 156.49065pt>
 File: ../img/logo-en.pdf Graphic file (type pdf)
 <use ../img/logo-en.pdf>
 Package pdftex.def Info: ../img/logo-en.pdf  used on input line 9.
@@ -847,37 +841,20 @@ Package hyperref Warning: Token not allowed in a PDF string (Unicode):
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
 (hyperref)                removing `math shift' on input line 151.
 
-[15] [16]
+[15] [16] [17] [18]
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 258.
-
-
-Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `subscript' on input line 258.
+(hyperref)                removing `math shift' on input line 312.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `subscript' on input line 258.
+(hyperref)                removing `subscript' on input line 312.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 258.
+(hyperref)                removing `math shift' on input line 312.
 
-[17]
-
-Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 283.
-
-
-Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `subscript' on input line 283.
-
-
-Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 283.
-
-) [18] [19]
+[19]) [20]
 \openout2 = `chapSb.aux'.
 
  (../tex/chapSb.tex
@@ -902,12 +879,12 @@ Package hyperref Warning: Token not allowed in a PDF string (Unicode):
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
 (hyperref)                removing `math shift' on input line 3.
 
-[20
+[21
 
 
 
 
-] [21]
+] [22]
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
 (hyperref)                removing `math shift' on input line 105.
@@ -928,7 +905,7 @@ Package hyperref Warning: Token not allowed in a PDF string (Unicode):
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
 (hyperref)                removing `math shift' on input line 105.
 
-[22]) [23]
+[23]) [24]
 \openout2 = `chapSp.aux'.
 
  (../tex/chapSp.tex
@@ -961,12 +938,12 @@ Package hyperref Warning: Token not allowed in a PDF string (Unicode):
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
 (hyperref)                removing `math shift' on input line 3.
 
-[24
+[25
 
 
 
 
-] [25] [26]) [27] [28]
+] [26] [27]) [28] [29]
 \openout2 = `scraps.aux'.
 
  (../tex/scraps.tex
@@ -974,15 +951,15 @@ Package hyperref Warning: Token not allowed in a PDF string (Unicode):
 Package amsthm Warning: The \qedhere command may not work correctly here on inp
 ut line 19.
 
-[29
+[30
 
 
 
 
-] [30]) [31]
+] [31]) [32]
 \openout2 = `epilog.aux'.
 
- (../tex/epilog.tex) [32
+ (../tex/epilog.tex) [33
 
 
 
@@ -991,7 +968,7 @@ ut line 19.
 \openout2 = `bibliography.aux'.
 
  (../tex/bibliography.tex
-(../tex/thesis.bbl)) [33
+(../tex/thesis.bbl)) [34
 
 
 
@@ -1001,16 +978,16 @@ ut line 19.
 (../tex/chapModel.aux) (../tex/chapSb.aux) (../tex/chapSp.aux)
 (../tex/scraps.aux) (../tex/epilog.aux) (../tex/bibliography.aux))
 
-LaTeX Warning: There were multiply-defined labels.
+LaTeX Warning: Label(s) may have changed. Rerun to get cross-references right.
 
 Package rerunfilecheck Info: File `thesis.out' has not changed.
-(rerunfilecheck)             Checksum: A1F32914614C0D5A678D2FAD15E2A66A;3562.
+(rerunfilecheck)             Checksum: F15AF1FB4D7B45C970C4B05074A8F6FA;3472.
  ) 
 Here is how much of TeX's memory you used:
- 15513 strings out of 478994
- 219351 string characters out of 5864750
- 524062 words of memory out of 5000000
- 32400 multiletter control sequences out of 15000+600000
+ 15520 strings out of 478994
+ 219457 string characters out of 5864750
+ 525051 words of memory out of 5000000
+ 32404 multiletter control sequences out of 15000+600000
  486776 words of font info for 121 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  88i,14n,90p,1077b,2364s stack positions out of 5000i,500n,10000p,200000b,80000s
@@ -1029,10 +1006,10 @@ lm/lmri12.pfb></usr/share/texmf-dist/fonts/type1/public/lm/lmsy10.pfb></usr/sha
 re/texmf-dist/fonts/type1/public/lm/lmsy6.pfb></usr/share/texmf-dist/fonts/type
 1/public/lm/lmsy8.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/symbol
 s/msbm10.pfb></usr/share/texmf-dist/fonts/type1/public/stmaryrd/stmary10.pfb>
-Output written on thesis.pdf (37 pages, 663822 bytes).
+Output written on thesis.pdf (38 pages, 668959 bytes).
 PDF statistics:
- 624 PDF objects out of 1000 (max. 8388607)
- 538 compressed objects within 6 object streams
- 212 named destinations out of 1000 (max. 500000)
- 218 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 630 PDF objects out of 1000 (max. 8388607)
+ 543 compressed objects within 6 object streams
+ 215 named destinations out of 1000 (max. 500000)
+ 210 words of extra memory for PDF output out of 10000 (max. 10000000)
 

@@ -17,45 +17,45 @@ Illegal, another \bibstyle command---line 3 of file bibliography.aux
  :          {plainnat}
 I'm skipping whatever remains of this command
 Database file #1: bibliography.bib
-You've used 10 entries,
+You've used 11 entries,
             2543 wiz_defined-function locations,
-            639 strings with 6052 characters,
-and the built_in function-call counts, 3812 in all, are:
-= -- 389
-> -- 151
-< -- 8
-+ -- 49
-- -- 47
-* -- 261
-:= -- 626
-add.period$ -- 32
-call.type$ -- 10
-change.case$ -- 56
-chr.to.int$ -- 10
-cite$ -- 10
-duplicate$ -- 168
-empty$ -- 280
-format.name$ -- 61
-if$ -- 780
+            646 strings with 6168 characters,
+and the built_in function-call counts, 4141 in all, are:
+= -- 424
+> -- 159
+< -- 9
++ -- 51
+- -- 49
+* -- 285
+:= -- 679
+add.period$ -- 35
+call.type$ -- 11
+change.case$ -- 61
+chr.to.int$ -- 11
+cite$ -- 11
+duplicate$ -- 183
+empty$ -- 307
+format.name$ -- 65
+if$ -- 846
 int.to.chr$ -- 1
 int.to.str$ -- 0
-missing$ -- 12
-newline$ -- 55
-num.names$ -- 30
-pop$ -- 49
+missing$ -- 13
+newline$ -- 60
+num.names$ -- 33
+pop$ -- 52
 preamble$ -- 1
-purify$ -- 68
+purify$ -- 74
 quote$ -- 0
-skip$ -- 141
+skip$ -- 152
 stack$ -- 0
-substring$ -- 215
-swap$ -- 32
-text.length$ -- 8
-text.prefix$ -- 5
+substring$ -- 238
+swap$ -- 33
+text.length$ -- 9
+text.prefix$ -- 6
 top$ -- 0
-type$ -- 72
+type$ -- 80
 warning$ -- 0
-while$ -- 36
-width$ -- 13
-write$ -- 136
+while$ -- 40
+width$ -- 14
+write$ -- 149
 (There was 1 error message)

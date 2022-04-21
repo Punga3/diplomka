@@ -215,8 +215,8 @@ and let
 Which says that if $a,b,c,d$ are distinct then there is an edge between one of them. The universal closure is valid on all graphs in $\G_k^B$ and none of the graphs in $\G_k^A$. Since $\binom{\binom{n}{2}}{2}/\binom{\binom{n}{2}}{n-3}$ is infinitesimal we have that $\lim_{k\to\infty} \binom{\binom{k}{2}}{2}/\binom{\binom{k}{2}}{k-3}=0$ we have by Theorem \ref{thrmuni} that $\lim_F \G_n \bbl(\forall a,b,c,d)\varphi_0^\Gamma(a,b,c,d)\bbr=\1$ for any $F$ containing all constants.
 \end{exam}
 
-It is natural to ask whether we can weaken the assumption of Theorem \label{thrmuni} to an assumption analogous to Theorem \label{thrmexists}. In other words, is
-\[\lim_{k\to\infty}\Pr_{\substack{G\in\G_k\\\overline a\in \set{g_k}^l}}[G\models\varphi_0(\overline a)]=1.\]
+It is natural to ask whether we can weaken the assumption of Theorem \ref{thrmuni} to an assumption analogous to Theorem \ref{thrmexists}. In other words, is
+\[\lim_{k\to\infty}\Pr_{\substack{G\in\G_k\\\overline a\in \set{g_k}^l}}[G\models\varphi_0(\overline a)]=1\]
 enough to imply $\lim_F\G_n\bbl(\forall x)\varphi_0^\Gamma(\overline x)\bbr=\1$? Unfortunately no, as we can see in the following example.
 
 \begin{exam}Recall Example \ref{examsparseedge} where $\G_k$ consists of all graphs on $\set{k}$ with exactly $\floor{\frac{k(k-2)}{2\log k}}$ edges. One can easily check that
@@ -224,14 +224,13 @@ enough to imply $\lim_F\G_n\bbl(\forall x)\varphi_0^\Gamma(\overline x)\bbr=\1$?
 but we proved that $\lim_{F_{rud}}\G_n \bbl(\exists x,y)E(x,y)\bbr=\1$ in other words we have \[\lim_{F_{rud}}\bbl(\forall x,y)\lnot E(x,y)\bbr=\0.\]
 \end{exam}
 
+Now we return to $F=F_{rud}$ and prove a theorem with a more limited use which however forces the truth value of the existential sentence in the wide limit to be $\1$.
+
 \begin{thrm}\label{mutindfind}
-Let $F=F_{tree}$. Let $\varphi_0(x_0,\dots,x_{l-1})$ be a q.f. $\{E\}$-formula. Let $0<p\leq 1$, consider subset $A\subseteq[g_k]^l$ such that for all $\overline a \in A$ 
-
+Let $F=F_{rud}$ and let $\varphi_0(x_0,\dots,x_{l-1})$ be an open $\{E\}$-formula. Furthermore for $0<p\leq 1$, consider subsets $A\subseteq\set{g_k}^l$ with the property that for all for all $\overline a \in A$ we have
 \[\Pr_{G\in\mathcal{G}_k}(G\models \varphi_0(\overline a))\geq p\]
-
 and
-
-\[\text{$\{\{G\models\varphi_0(\overline a)\}\subseteq \mathcal{G}_k;\overline a \in A\}$ are mutually independent.}\]
+\[\text{$\{\{G\models\varphi_0(\overline a)\}\subseteq \mathcal{G}_k;\overline a \in A\}$ are mutually independent,}\]
 moreover let $A_k$ be the set with the largest cardinality that  has this property.
 
 If $\lim_{k\to\infty} \abs{A_k}=\infty$, then $\bbl(\exists \overline x)\varphi_0(\overline x)\bbr=\1$.
@@ -254,13 +253,22 @@ Let \[\mathcal{G}_k=\{([k],E);\text{$E$ at least one edge, and may have exactly 
 and let $F=F_{tree}$. Then $\mu(\bbl(\exists x)(\exists y)\Gamma(x,y)\bbr)=\frac{1}{2}$.
 \end{exam}
 
+We now use this theorem to characterize the theory of another wide limit. We denote
+\[\ALL_k=\{G \text{ undirected graph, }V_G=\set{k}\}.\]
 
-\section{$\mathcal{G}_k=\text{ALL}_k$}
+Note that if we consider an open $\{E\}$-formula $\varphi(\overline x)$ and convert it to DNF we get a disjunction of conjuctions. Each such conjuction says which first order literals should be satisfied on the variables $\overline x$, the following theorem is proved for conjunctons of literals. By the fact that $\bbl\dots\bbr$ commutes with disjunctions, we can find out a value of any existential sentence.
 
 \begin{thrm}[Everything exists]
-Let $\varphi(\overline x,\overline y)=\Land_{i=0}^{m-1}\psi_i(\overline x,\overline y)\land \Land_{i=0}^{l-1}\vartheta_i(\overline y)$, where $\psi_i,\vartheta_i$ are literals and $\psi_i$ are not of the form $(y_i=y_j)^b$, $E(y_i,y_j)^b$, $x_i\not= x_i$, $E(x_i,x_i)$, $b\in\{0,1\}$.
+Let $\varphi(\overline x,\overline y)=\Land_{i=0}^{m-1}\psi_i(\overline x,\overline y)\land \Land_{i=0}^{l-1}\vartheta_i(\overline y)$, where $\psi_i,\vartheta_i$ are literals and $\psi_i$ are not of the form $(y_i=y_j)^b$, $E(y_i,y_j)^b$, $x_i\not= x_i$, $E(x_i,x_i)$, $b\in\{0,1\}$ such that
+\begin{itemize}
+\item each $\psi_i$ are not of the form $(y_i=y_j)^b,E(y_i,y_j)^b,x_i\not = x_i, E(x_i,x_i)$ for $b\in\{0,1\}$
+\item if $\psi_i$ is of the form $(x_i=z)^b$ for $z$ in $\overline x$ or $\overline y$ then no other $\psi_j$ is of the form $(x_i=z)^{1-b}$ or $(z=x_i)^{1-b}$
+\item if $\psi_i$ is of the form $E(x_i,z)^b$ for $z$ in $\overline x$ or $\overline y$ then no other $\psi_j$ is of the form $E(x_i,z)^{1-b}$ or $E(z,x_i)^{1-b}$.
+\end{itemize}
 
-Let $\overline \beta$ be a tuple of vertices computed by $F_{tree}$ of the same length as $\overline y$. Then $\bbl(\exists \overline x)\varphi^\Gamma(\overline x,\overline \beta)\bbr=\bbl\Land_{i=0}^{l-1}\vartheta_i(\overline \beta)\bbr$, specifically if $l=0$ then $(\exists \overline x)\phi_0(\overline x,\overline \beta)$ is valid in the b.v. graph.
+If $\overline \beta$ is a tuple of vertices computed by $F_{tree}$ of the same length as $\overline y$ then \[\lim_{F_{rud}}\G_n\bbl(\exists \overline x)\varphi^\Gamma(\overline x,\overline \beta)\bbr=\lim_{F_{rud}}\G_n\bbl\Land_{i=0}^{l-1}\vartheta_i(\overline \beta)\bbr,\] specifically if $l=0$ then
+
+\[\lim_{F_{rud}}\G_n\bbl(\exists \overline x)\phi_0(\overline x,\overline \beta)\bbr=\1.\]
 \end{thrm}
 \begin{proof} We will construct one tree $T$ computing the whole tuple of witnesses $\overline \alpha$, such a construction can be straightforwardly split into a tuple of tree each computing the specific element.
 
@@ -273,11 +281,32 @@ Therefore
 \end{align}
 \end{proof}
 
-\begin{crll}
-For each $\varphi(\overline x)$ that is not a tautology in the theory of graphs we have that $\bbl(\forall \overline x)\varphi^\Gamma(\overline x)\bbr=\0$.
+The statement of the theorem was rather technical, but we can now use it to prove a few corollaries.
+
+\begin{crll}For each $\varphi(\overline x)$ that is not a contradiction in the theory of graphs we have that $\bbl(\exists \overline x)\varphi^\Gamma(\overline x)\bbr=1.$
 \end{crll}
-\begin{crll}
+\begin{proof}
+The conditions on $\psi_i$ are exactly saying that the conjunction is not a contradiction. Every other formula can be rewritten as a disjunction of such conjunctions and by the theorem we can satisfy at least one (in fact all of those which are not contradictions).
+\end{proof}
+\begin{crll}\label{crllev2}
 For each $\varphi(\overline x,\overline y)$ that is not falsifiable by $\overline y$ in the theory of graphs we have that $\bbl(\forall \overline y)(\exists \overline x)\varphi^\Gamma(\overline x)\bbr=\1$.
+\end{crll}
+\begin{proof}
+No $\overline \beta$ can falsify $(\exists \overline x)\varphi(\overline x,\overline \beta)$, this means we can invoke the theorem on one of the non-falsifiable conjuncts.
+\end{proof}
+
+\begin{thrm}
+The theory \[\Th(\lim_{F_{rud}}\ALL_n)\] is the theory of the Rado graph and therefore complete.
+\end{thrm}
+\begin{proof}
+In \cite{gaifman1964rado} it is proved that the theory of the Rado graph is axiomatized by the theory of undirected graphs and the sentences $E_{i,j}$ which say that if we have a set $A$ of $i$ distinct vertices nad a set $B$ of $j$ distinct vertices such that $A\cap B=\varnothing$, then there is a vertex $v$ which has an edge with all vertices from $A$ and no vertices from $B$.
+
+Each $E_{i,j}$ satisfies the statement of Corollary \ref{crllev2} and because it is also an complete theory we have proved the theorem.
+\end{proof}
+
+\begin{crll}(0-1 law for $\ALL_k$)
+For every $\{E\}$-sentence $\varphi$ we have that
+\[\lim_{F_{rud}}\G_n\bbl\varphi^\Gamma\bbr\in\{\0,\1\}.\]
 \end{crll}
 
 \section{Isomorphism closed categorical $\mathcal{G}_k$}
