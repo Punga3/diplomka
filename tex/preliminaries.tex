@@ -16,12 +16,14 @@ If $\{a_k\}_{k\geq 0}$ is a sequence with elements in $\N$ then there is an elem
 
 By overspill in $\M$ if some definable property $P$ holds for any $a_k$ with high enough index then there is also some nonstandard $s<t$ such that $b_s$ satisfies the property $P$. 
 
+(TODO: Mention induction)
+
 \section*{Nonstandard analysis}
 \addcontentsline{toc}{section}{Nonstandard analysis}
 
 The reader can refer to \cite{goldbring2014lecture} for more formal treatment of topics discussed in this section including proofs. To use the method of forcing with random variables we need to consider the concept of so-called $\M$-rationals. To define them we start by simply adjoining all negative elements to the semiring $\M$ to obtain the integral domain $\overline \M$. $\M$-rationals are then simply the ordered field of fractions $\Frac(\overline \M)$ which we denote $\Q^\M$.
 
-There is a canonical injection $\Q \xhookrightarrow{} \Q^\M$ whose image consist exactly of the `standard fractions'. We call a $q\in\Q^\M$ finite if there is a standard $k$ such that $\abs{q}<\frac{k}{1}$ otherwise we call it infinite. We call $q\in\Q^\M$ infinitesimal if $q$ is infinite. One can check that $\Q^\M$ fulfills the axioms of hyperreal numbers which can be used as an alternative foundation to the concepts of mathematical analysis. The following is an important results which we use throughout the thesis.
+There is a canonical injection $\Q \xhookrightarrow{} \Q^\M$ whose image consist exactly of the `standard fractions'. We call a $q\in\Q^\M$ finite if there is a standard $k$ such that $\abs{q}<\frac{k}{1}$ otherwise we call it infinite. We call $q\in\Q^\M$ infinitesimal if $q$ is infinite. One can check that $\Q^\M$ fulfills the axioms of hyperreal numbers which can be used as an alternative foundation to the concepts of mathematical analysis. This implies that there is a canonical injection $\R\hookrightarrow \Q^\M$ of ordered fields. The following is an important result which we use throughout the thesis.
 
 \begin{thrm*}
 Let $q\in\Q^\M$ finite. Then there exist unique $r\in \R$ and an infinitesimal $m\in\Q^\M$ such that

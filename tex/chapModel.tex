@@ -103,7 +103,7 @@ which proves the theorem.
 
 The assumption $\lim_{k\to \infty} k^{1/k_0}b_k=0$ for some $k_0$ may seem unintuitive at first. However, it precisely reflects what is ``sparse" for the trees in $T_{tree}$. The following example shows that without the assumption the theorem fails.
 
-\begin{exam}
+\begin{exam}\label{examsparseedge}
 Let $\mathcal{G}_k$ consist of all graphs on the vertex set $\set{k}$ with precisely $\lceil\frac{k(k-1)}{2\log k}\rceil$ edges.
 
 Then we claim that
@@ -137,63 +137,92 @@ So $\st(\Pr_{G\in\mathcal{G}_n}[T\text{ fails}])=0$ and we get
 \end{align}
 \end{exam}
 
-\section{Isomorphism closed $\mathcal{G}_k$}
-
-So far the measure of every truth value we encountered was either $0$ or $1$. Is there a sequence $\mathcal{G}_k$ whose $F_{tree}$-limit and an $\{E\}$-sentence $\varphi$ such that ${0<\bbl\varphi^\Gamma\bbr<1?}$ As in the case of edge existance for a limit of sparse graphs, it is not hard to come up with an example if we allow distiguishing elements in $\mathcal{G}_k$.
-
-\begin{exam}
-Let \[\mathcal{G}_k=\{(\set{k},E);\text{$E$ has exactly two edges, one of them being $\{0,1\}$}\},\]
-
-and let $F=F_{tree}$. Then $\mu(\bbl(\exists x)(\exists y)\Gamma(x,y)\bbr)=\frac{1}{2}$.
-\end{exam}
-\begin{proof}
-Let $T_0$ be a tree that always outputs $0$ and $T_1$ be a tree that always outputs $1$. We can prove that $\bbl\Gamma(0,1)\bbr\geq\bbl\Gamma(\alpha,\beta)\bbr$ for any $\alpha,\beta$. 
-\end{proof}
-
-For the case of isomorphism closed $\mathcal{G}_k$ we prove that every $\{E\}$-sentence has truth value either $\0$ or $\1$. We start with the existential case.
-
-\begin{exam}
-NOT TRUE! Consider all graphs with one edge, or one non-edge. $\mu(\bbl(\exists x)(\exists y)\Gamma(x,y)\bbr)=\frac{1}{2}.$
-\end{exam}
+A similar result also helps us understand the behaviour witnessing formulas over an isomorphism closed sequence.
 
 \begin{thrm}
-Let $\varphi_0(\overline x)$ be an open $\{E\}$-formula, and let $\mathcal{G}_k$ be isomorphism closed and categorical then
-\[\bbl(\exists \overline x)\varphi_0^\Gamma(\overline x)\bbr\in\{\0,\1\}.\]
+Let $\G_k$ isomorphism closed, let $\varphi_0(\overline x)$ quantifier free and let 
+\[\lim_{F_{tree}}\G_n\bbl(\exists \overline x)\varphi_0^\Gamma(\overline x)\bbr=\1.\]
+
+Then in $K(\G_n,F_{rud},G_{rud})$ we have
+\[\bbl(\exists F)(F:\set{\floor{n/m}}\hookrightarrow\M)\land(\forall w<\floor{n/m})(\varphi_0^\Gamma(F(w)))\bbr=\1.\]
+
 \end{thrm}
-
-\begin{proof}
-Let $\overline T$ be a tuple of trees computing $\overline \alpha$ such that 
-\[p:=\mu(\bbl\varphi_0(\overline \alpha)\bbr)>\0,\]
-moreover we can assume $p<1$ otherwise we are done. We can also assume $\overline T$ is represented just by one tree $T$ which outputs the whole tuple $\overline \alpha$.
-
-We want to iterate $T$ to amplify the probability of success. For every leaf $l$ in $T$ and put 
-\[A_l=\{\omega \in \Omega; T(\omega) \text{ ends up at $l$ and } \omega \models \varphi_0(\overline\alpha(\omega)) \}\]
-and pick some $G\in A$ and some $G'\in \Omega\setminus A$. From the categoricity we have that there exists a permutation $\rho\in S_{\set{g_n}}$ such that $\rho[G]=G'$.
-\end{proof}
 
 \section{Dense $\G_k$}
-\begin{thrm}\label{thrmusbv}
-Let $\varphi=(\forall \overline x)\varphi_0(\overline x)$ be a universal $\{E\}$-sentence, such that
 
+Let us now consider how the density of a specific kind of substructure in the wide sequence corresponds to that substructure existing in the wide limit. Let $\varphi(\overline x)$ be an $\{E\}$-formula determining the isomorphism type of $\overline x$, note that for a constant tuple $\overline \alpha\in F_{rud}$ (computed by trees of depth 0) we have
+\[\mu(\bbl\varphi(\overline \alpha)\bbr)=\st(\Pr_{\omega\in\Omega}[\omega\models \varphi(\overline \alpha)]).\]
+
+\begin{thrm}\label{thrmexists}
+Let $F$ contain all constants, $\G_k$ be a wide sequence and let $(\forall \overline x)\varphi_0(\overline x)$ be an open $\{E\}$-formula such that
+\[\lim_{k\to\infty}\Pr_{\substack{G\in\mathcal{G}_k\\\overline a \in \set{g_k}^l}}(G\models\varphi_0(\overline a))=p.\]
+Then $\mu(\bbl(\exists x)\varphi_0(x)\bbr)\geq p.$
+\end{thrm}
+
+\begin{proof}
+We define a matrix with components 
+\[C_{G,\overline a}=\begin{cases}1&G\models\varphi_0(\overline a)\\0&\text{otherwise}.\end{cases}\]
+
+By $\aleph_1$-saturation we have that
+\[\st\left (\frac{1}{\abs{\G_n}g_k^l}\sum_{G\in\G_n}\sum_{\overline a \in \set{g_k}^l}C_{G,\overline \alpha}\right )=1.\]
+
+We claim that there is one $\overline a$ such that $\st(\Pr_{G\in\G_k}(G\models\varphi_0(\overline a)))=1$. Assume for contradiction, that for all $\overline a$ we have $\frac{1}{\abs{\G_n}}\sum_{G\in \G_n}\leq p$ for some $q<p$. Then
+\begin{align}
+\frac{1}{\abs{\G_n}g_k^l}\sum_{G\in\G_n}\sum_{\overline a \in \set{g_n}^l}C_{G,\overline \alpha}&=
+\frac{1}{g_k^l}\sum_{\overline a\in\set{g_n}^l}\frac{1}{\abs{\G_n}}\sum_{G\in\G_n}C_{G,\overline \alpha}\\
+&\leq q,
+\end{align}
+which is a contradiction after taking the standard part of each value.
+
+Therefore there is a tuple $\overline a$ such that $\mu(\bbl\varphi_0(\overline\alpha)\bbr)\geq p$, let $\gamma_{\overline a}$ be the constant function $\omega \mapsto \overline \alpha$ in $F$ and
+\begin{align}
+\bbl\varphi\bbr&=\Lor_{\overline\alpha}\bbl\varphi_0(\overline\alpha)\bbr\\
+&\geq \bbl\varphi_0(\overline \gamma_{\overline a})\bbr.
+\end{align}
+By taking $\mu$ of both sides we prove the theorem.
+\end{proof}
+
+(TODO: Add example of easy lower bound and existance of substructure.)
+
+\begin{thrm}\label{thrmuni}
+Let $F$ contain all constants, let $\G_k$ a wide sequence and let $\varphi_0(\overline x)$ be an open $\{E\}$-sentence, such that
 \[\lim_{k\to\infty}\Pr_{G\in\mathcal{G}_k}(G\models\varphi)=1.\]
 
-Then $\varphi$ is valid in the b.v. structure.
+Then $\lim_F \G_n \bbl(\forall \overline x)\varphi_0(\overline x)\bbr=\1.$
 
 
 \end{thrm}
 
 \begin{proof}
-
-From $\aleph_1$-saturation of $\mathcal{M}$ and our assumption, we know that for each $m\in\mathbb{N}$ there exists a $k_0\in\mathbb{N}$ such that \[\mathcal{M}\models(\forall k>k_0)\left(\Pr_{G\in\mathcal{G}_k}(G\models \varphi)>1-1/m\right).\]
-Therefore, since $n>\mathbb{N}$, we have that $\st(\Pr_{G\in\mathcal{G}_n}(G\models\varphi))=1$ and therefore $\bbl\varphi_0(\overline\alpha)\bbr=\1$ for each tuple $\overline\alpha$ in $F$.
-
-Therefore
+We have that $\st(\Pr_{G\in\mathcal{G}_n}(G\models\varphi))=1$ and therefore $\bbl\varphi_0(\overline\alpha)\bbr=\1$ for each tuple $\overline\alpha$ in $F$. Therefore
 \begin{align}
 \bbl\varphi\bbr&=\Land_{\overline\alpha}\bbl\varphi_0(\overline\alpha)\bbr\\
 &=\Land_{\overline\alpha}\1\\
 &=\1.
 \end{align}
 \end{proof}
+
+\begin{exam}
+Let us define
+\begin{align}
+\G_k^{A}&:=\{(\set{k},E);\abs{E}=2\},\\
+\G_k^{B}&:=\{(\set{k},E);\abs{E}=(k\cdot(k-1)/2)-3\},\\
+\G_k&:=\G_k^{A}\cup\G_k^{B},
+\end{align}
+and let 
+\[\varphi_0(a,b,c,d):=\left(\Land_{\substack{x, y\in\{a,b,c,d\}\\\text{$x,y$ distinct}}}(x\not=y)\right)\to\left(\Lor_{\substack{x, y\in\{a,b,c,d\}\\\text{$x,y$ distinct}}}E(x,y)\right),\]
+
+Which says that if $a,b,c,d$ are distinct then there is an edge between one of them. The universal closure is valid on all graphs in $\G_k^B$ and none of the graphs in $\G_k^A$. Since $\binom{\binom{n}{2}}{2}/\binom{\binom{n}{2}}{n-3}$ is infinitesimal we have that $\lim_{k\to\infty} \binom{\binom{k}{2}}{2}/\binom{\binom{k}{2}}{k-3}=0$ we have by Theorem \ref{thrmuni} that $\lim_F \G_n \bbl(\forall a,b,c,d)\varphi_0^\Gamma(a,b,c,d)\bbr=\1$ for any $F$ containing all constants.
+\end{exam}
+
+It is natural to ask whether we can weaken the assumption of Theorem \label{thrmuni} to an assumption analogous to Theorem \label{thrmexists}. In other words, is
+\[\lim_{k\to\infty}\Pr_{\substack{G\in\G_k\\\overline a\in \set{g_k}^l}}[G\models\varphi_0(\overline a)]=1.\]
+enough to imply $\lim_F\G_n\bbl(\forall x)\varphi_0^\Gamma(\overline x)\bbr=\1$? Unfortunately no, as we can see in the following example.
+
+\begin{exam}Recall Example \ref{examsparseedge} where $\G_k$ consists of all graphs on $\set{k}$ with exactly $\floor{\frac{k(k-2)}{2\log k}}$ edges. One can easily check that
+\[\Pr_{\substack{G\in\G_k\\u,v \in \set{k}^2}}[G\models \lnot E(u,v)]=1,\]
+but we proved that $\lim_{F_{rud}}\G_n \bbl(\exists x,y)E(x,y)\bbr=\1$ in other words we have \[\lim_{F_{rud}}\bbl(\forall x,y)\lnot E(x,y)\bbr=\0.\]
+\end{exam}
 
 \begin{thrm}\label{mutindfind}
 Let $F=F_{tree}$. Let $\varphi_0(x_0,\dots,x_{l-1})$ be a q.f. $\{E\}$-formula. Let $0<p\leq 1$, consider subset $A\subseteq[g_k]^l$ such that for all $\overline a \in A$ 
@@ -250,3 +279,38 @@ For each $\varphi(\overline x)$ that is not a tautology in the theory of graphs 
 \begin{crll}
 For each $\varphi(\overline x,\overline y)$ that is not falsifiable by $\overline y$ in the theory of graphs we have that $\bbl(\forall \overline y)(\exists \overline x)\varphi^\Gamma(\overline x)\bbr=\1$.
 \end{crll}
+
+\section{Isomorphism closed categorical $\mathcal{G}_k$}
+
+So far the measure of every truth value we encountered was either $0$ or $1$. Is there a sequence $\mathcal{G}_k$ whose $F_{tree}$-limit and an $\{E\}$-sentence $\varphi$ such that ${0<\bbl\varphi^\Gamma\bbr<1?}$ As in the case of edge existence for a limit of sparse graphs, it is not hard to come up with an example if we allow distinguishing elements in $\mathcal{G}_k$.
+
+\begin{exam}
+Let \[\mathcal{G}_k=\{(\set{k},E);\text{$E$ has exactly two edges, one of them being $\{0,1\}$}\},\]
+
+and let $F=F_{tree}$. Then $\mu(\bbl(\exists x)(\exists y)\Gamma(x,y)\bbr)=\frac{1}{2}$.
+\end{exam}
+\begin{proof}
+Let $T_0$ be a tree that always outputs $0$ and $T_1$ be a tree that always outputs $1$. We can prove that $\bbl\Gamma(0,1)\bbr\geq\bbl\Gamma(\alpha,\beta)\bbr$ for any $\alpha,\beta$. 
+\end{proof}
+
+For the case of isomorphism closed $\mathcal{G}_k$ we prove that every $\{E\}$-sentence has truth value either $\0$ or $\1$. We start with the existential case.
+
+\begin{exam}
+NOT TRUE! Consider all graphs with one edge, or one non-edge. $\mu(\bbl(\exists x)(\exists y)\Gamma(x,y)\bbr)=\frac{1}{2}.$
+\end{exam}
+
+\begin{thrm}
+Let $\varphi_0(\overline x)$ be an open $\{E\}$-formula, and let $\mathcal{G}_k$ be isomorphism closed and categorical then
+\[\bbl(\exists \overline x)\varphi_0^\Gamma(\overline x)\bbr\in\{\0,\1\}.\]
+\end{thrm}
+
+\begin{proof}
+Let $\overline T$ be a tuple of trees computing $\overline \alpha$ such that 
+\[p:=\mu(\bbl\varphi_0(\overline \alpha)\bbr)>\0,\]
+moreover we can assume $p<1$ otherwise we are done. We can also assume $\overline T$ is represented just by one tree $T$ which outputs the whole tuple $\overline \alpha$.
+
+We want to iterate $T$ to amplify the probability of success. For every leaf $l$ in $T$ and put 
+\[A_l=\{\omega \in \Omega; T(\omega) \text{ ends up at $l$ and } \omega \models \varphi_0(\overline\alpha(\omega)) \}\]
+and pick some $G\in A$ and some $G'\in \Omega\setminus A$. From the categoricity we have that there exists a permutation $\rho\in S_{\set{g_n}}$ such that $\rho[G]=G'$.
+\end{proof}
+

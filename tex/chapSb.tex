@@ -54,26 +54,74 @@ There are $\binom{n-m}{\floor{\frac{n}{2}}}$ different graphs in $\SK_n^{1/2}$ i
 But $\floor{\frac{n}{2}} \frac{m}{n}$ is infinite therefore the bound is infinitesimal.
 \end{proof}
 
-\begin{lemm}
-For every $v\in\set{n}$ there exists a tree $T_v$ such that
-\[\st\left(\Pr_{\omega\in\Omega}[(v,T_v(\omega))\in E_{\omega}|\text{$v$ is in the clique}]\right)=1.\]
+\begin{lemm}\label{lemmfindtree}
+Let $a\in\M$ with some property, let $v_0,\dots,v_{a-1}\in \set{n}$ distinct vertices, then there exist trees $T_{v_i}$ such that
+\[\st\left(\Pr_{\omega\in\Omega}[\forall i: (v_i,T_{v_i}(\omega))\in E_\omega|\forall i: \text{$v_i$ is in the clique}]\right)=1.\]
 \end{lemm}
+
 \begin{proof}
-Let $T_v$ be a tree which inspects the edges $(v,i)$ for $i\in\set{n^{1/t}}$ and $t>\N$, if it finds one it outputs $i$ or else it fails and outputs 0. By Lemma \ref{lemmmiss} we have that only infinitesimal number of graphs have their clique not intersect $\set{n^{1/t}}$ so $T_v$ succeeds on all but infinitesimally small portion of $\Omega$.
+The tree $T_{v_i}$ inspects all the edges $(v_i,j)$ where $j$ ranges over $\set{n^{1/t}}$ for some $t>\N$ and outputs $j$ if $(v_i,j)\in E_\omega$. By Lemma \ref{lemmmiss} we have that only infinitesimal number of graphs have their clique not intersect $\set{n^{1/t}}$ so each $T_{v_i}$ succeeds on all but infinitesimally small portion of $\Omega$. But if one $T_{v_i}$ finds a neighbour of $v_i$ then all do since nonzero degree vertices in every $\omega$ form a clique and the same $w\in\set{n^{1/t}}$ is a neighbour of all $v_i$s.
 \end{proof}
 
-\begin{crll}
+\begin{lemm}\label{lemmmiss2}
 Let $S_0,\dots,S_{a-1}\subseteq\set{n}$ sets of size $a\in \M$ for $i\in \M$ then
 \[\Pr_{\omega\in\Omega}\left[\bigcup_{i=0}^{a-1}[\text{$S_i$ contains no vertices in the clique of $\omega$}]\right]\leq a\cdot e^{-\floor{\frac{n}{2}}\frac{m}{n}}.\]
-
-\end{crll}
+\end{lemm}
+\begin{proof}Follows from the proof of Lemma \ref{lemmmiss} and union bound.
+\end{proof}
 
 Now we are ready to improve on Theorem \ref{thrmsk1}.
 
 \begin{thrm}
-Let $m$ infinitesimal, then
+Let $m\geq 2 \ln n$ infinitesimal, then
 \[K(\SK_k^{1/2},F,G)\bbl\text{$\Gamma$ has a clique of size $\floor{n/m}$}\bbr=\1.\]
 \end{thrm}
 \begin{proof}
-Partition 
+Partition a subset of $\set{n}$ to sets $S_{0},\dots,S_{\floor{n/m}-1}$ each of size at least $m$. Specifically if $m$ divides $n$ then we partition the whole $\set{n}$.
+
+By Lemma \ref{lemmmiss2} we have that with probability that we do not sample $\omega$ which have the clique intersect all $S_i$s 
+\begin{align}
+\floor{\frac{n}{m}}\cdot e^{-\floor{\frac{n}{2}}\frac{m}{n}} = e^{\ln\floor{\frac{n}{m}}-\floor{\frac{n}{2}}\frac{m}{n},}\label{eqpr}
+\end{align}
+we can bound the exponent as
+\begin{align}
+\ln\floor{\frac{n}{m}}-\floor{\frac{n}{2}}\frac{m}{n}&\leq\ln\frac{n}{m}-\frac{n}{2}\cdot\frac{m}{n}+\frac{m}{n}\\
+&\leq\ln n - \ln m - \frac{m}{2} + \frac{m}{n}1\\
+&\leq \ln n - \ln \ln n - \ln n+\frac{2\ln n}{n}\\
+&\leq - \ln \ln n + \frac{2\ln n}{n}
+\end{align}
+which is negative and infinite, because $\frac{\ln x}{x}\overset{x\to \infty}{\to} 0$ as  and therefore \eqref{eqpr} is infinitesimal.
+
+So with probability infinitesimally close to 1 we have in each $S_i$ a vertex $v_i$ which is also a part of the clique. By Lemma \ref{lemmfindtree} we have that there exists a tree verifying whether a given vertex is in the clique and since $m\leq n^{1/t}$ for some $t$ we can concatenate the trees to get a tree $T_{S_i}$ which finds in $S_i$ an element of the clique with probability infinitesimally close to $1$.
+
+Finally we can have a function $\Lambda\in G$ computed by $(\Lambda_0,\dots,\Lambda_{\floor{n/m}-1})$ by letting $\Lambda_i$ be computed by $T_{S_i}$ we have already verified $\bbl\Lambda\text{ is a clique}\bbr=\1.$
+
+Because $T_{S_i}(\omega)\in S_i$ when $S_i$ succeeds, and $S_i$ are disjoint we have \[\bbl\Lambda:\set{\floor{n/m}}\xhookrightarrow{} \M\bbr=\1. \]
+Which proves the theorem.
 \end{proof}
+
+Even though the size of the clique has radically increased we still did not find a clique in $\Gamma$ of size $n/2$. One can verify that with the method provided one cannot obtain such a clique because the probability that any of $\floor{n/2}$ two-element sets does not intersect the clique is too large. Once can also check that for $\SK_{k}^{1/l}$, the graphs whose edges are exactly one $\floor{k/l}$ clique, the wide limit has a clique of size $\floor{n/m}$ for any $m\geq l\cdot \ln(m)$ by the same technique.
+
+\section{$\G_k=\CK_k^{1/2}$}
+
+Now let us mention the more complex case of the wide sequence $\CK_k^{1/2}$
+\[\CK_k^{1/2}=\{(\set{k},E);E\text{ contains a $\floor{k/2}$ clique.}\}\]
+
+We are still guaranteed that every $\omega$ contains a large clique but there is no easy way to check whether a given vertex $v$ is contained in the large clique. 
+
+One can notice that standardly large cliques should exists in $\Gamma$.
+
+\begin{conj}
+Let $c\in\N$ then 
+\[K(\CK_k^{1/2},F,G)\bbl\text{$\Gamma$ has a clique of size $c$}\bbr=\1.\]
+\end{conj}
+
+What about nonstandardly large cliques?
+
+\begin{thrm}(?)
+If for every sequence of elements $\{v_k\in \set{g_k}\}_{k>0}$ and sequence of trees $T_k$ such that $T_n$ has depth at most $n^{1/t}$ for some $t>\N$ we have that
+\[\lim_{k\to\infty} \Pr_{G\in \CK_k^{1/2}}[T_k(v_k)=1\Leftrightarrow \text{$v_k$ is in some $\floor{k/2}$ clique}]=0.\]
+\end{thrm}
+\begin{proof}
+\end{proof}
+
