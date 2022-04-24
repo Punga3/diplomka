@@ -137,17 +137,6 @@ So $\st(\Pr_{G\in\mathcal{G}_n}[T\text{ fails}])=0$ and we get
 \end{align}
 \end{exam}
 
-A similar result also helps us understand the behaviour witnessing formulas over an isomorphism closed sequence.
-
-\begin{thrm}
-Let $\G_k$ isomorphism closed, let $\varphi_0(\overline x)$ quantifier free and let 
-\[\lim_{F_{tree}}\G_n\bbl(\exists \overline x)\varphi_0^\Gamma(\overline x)\bbr=\1.\]
-
-Then in $K(\G_n,F_{rud},G_{rud})$ we have
-\[\bbl(\exists F)(F:\set{\floor{n/m}}\hookrightarrow\M)\land(\forall w<\floor{n/m})(\varphi_0^\Gamma(F(w)))\bbr=\1.\]
-
-\end{thrm}
-
 \section{Dense $\G_k$}
 
 Let us now consider how the density of a specific kind of substructure in the wide sequence corresponds to that substructure existing in the wide limit. Let $\varphi(\overline x)$ be an $\{E\}$-formula determining the isomorphism type of $\overline x$, note that for a constant tuple $\overline \alpha\in F_{rud}$ (computed by trees of depth 0) we have
@@ -183,6 +172,40 @@ By taking $\mu$ of both sides we prove the theorem.
 \end{proof}
 
 (TODO: Add example of easy lower bound and existance of substructure.)
+
+\begin{exam}
+Recall Example \ref{examsparseedge} it is not hard to notice that for a $\G_k$ which consists of graphs with exactly $\floor{\frac{k(k-1)}{2\log k}}$ edges we have
+\[\lim_{k\to\infty}\Pr_{\substack{G\in \G_k}\\\overline (u,v) \in \set{k}^2}[\lnot E(u,v)]=1,\]
+by the theorem it follows that we have
+\[\lim_{F}\G_n\bbl(\exists x)(\exists y)\lnot E(x,y)\bbr=\1.\]
+\end{exam}
+
+We follow with a less straightforward use of the theorem.
+
+\begin{exam}\label{examskhalf}
+Consider
+\begin{align*}
+\SK_k^{1/2}&:=\{(\set{k},E);\text{$E$ has a clique of size $\floor{k/2}$}, \abs{E}=\abs{E_{K_{\floor{k/2}}}}\},
+\end{align*}
+a wide sequence of all graphs with exactly one $\floor{k/2}$ clique and no other edges. One can check that for any $\{E\}$-formula $\varphi_l(\overline x)$ stating that $\overline x$ form a clique of size $l$ we claim that 
+\[\lim_{k\to\infty} \Pr_{\substack{G\in\SK_k^{1/2}\\\overline a \in \set{k}^l}}[G\models \varphi(\overline a)]\geq(1/2)^l,\]
+first notice that we can compute the probability for fixed $\overline a$ because $\SK_k^{1/2}$ is isomorphism closed. So we have
+\begin{align}
+\Pr_{G\in\SK_k^{1/2}}[G\models \varphi_l(\overline a)]&=\frac{\binom{k-l}{\floor{k/2}-l}}{\binom{k}{\floor{k/2}}}\\
+&=\prod_{i=0}^l\frac{k-\floor{k/2}-i}{k-i}\\
+&=\prod_{i=0}^l\left(1-\frac{\floor{k/2}}{k-i}\right)\\
+&\geq\prod_{i=0}^l\left(1-\frac{k/2}{k-i}+\frac{1}{k-i}\right)\\
+&\geq\left(1-\frac{k/2}{k-l}\right)^l\\
+&\geq\left(1-\frac{1}{2(1-l/k)}\right)^l,
+\end{align}
+and
+\begin{align}
+\lim_{k\to\infty}1-l/k=1.
+\end{align}
+
+This proves that for any $F$ that contains all constants we have
+\[\lim_{F}\SK_{n}^{1/2}\bbl(\exists \overline x)\varphi_l(\overline x)\bbr>\0.\]
+\end{exam}
 
 \begin{thrm}\label{thrmuni}
 Let $F$ contain all constants, let $\G_k$ a wide sequence and let $\varphi_0(\overline x)$ be an open $\{E\}$-sentence, such that
@@ -220,7 +243,7 @@ It is natural to ask whether we can weaken the assumption of Theorem \ref{thrmun
 enough to imply $\lim_F\G_n\bbl(\forall x)\varphi_0^\Gamma(\overline x)\bbr=\1$? Unfortunately no, as we can see in the following example.
 
 \begin{exam}Recall Example \ref{examsparseedge} where $\G_k$ consists of all graphs on $\set{k}$ with exactly $\floor{\frac{k(k-2)}{2\log k}}$ edges. One can easily check that
-\[\Pr_{\substack{G\in\G_k\\u,v \in \set{k}^2}}[G\models \lnot E(u,v)]=1,\]
+\[\lim_{k\to\infty}\Pr_{\substack{G\in\G_k\\u,v \in \set{k}}}[G\models \lnot E(u,v)]=1,\]
 but we proved that $\lim_{F_{rud}}\G_n \bbl(\exists x,y)E(x,y)\bbr=\1$ in other words we have \[\lim_{F_{rud}}\bbl(\forall x,y)\lnot E(x,y)\bbr=\0.\]
 \end{exam}
 
@@ -299,47 +322,119 @@ No $\overline \beta$ can falsify $(\exists \overline x)\varphi(\overline x,\over
 The theory \[\Th(\lim_{F_{rud}}\ALL_n)\] is the theory of the Rado graph and therefore complete.
 \end{thrm}
 \begin{proof}
-In \cite{gaifman1964rado} it is proved that the theory of the Rado graph is axiomatized by the theory of undirected graphs and the sentences $E_{i,j}$ which say that if we have a set $A$ of $i$ distinct vertices nad a set $B$ of $j$ distinct vertices such that $A\cap B=\varnothing$, then there is a vertex $v$ which has an edge with all vertices from $A$ and no vertices from $B$.
+In \cite{gaifman1964rado} it is proved that the theory of the Rado graph is axiomatized by the theory of undirected graphs and the sentences $E_{i,j}$ which say that if we have a set $A$ of $i$ distinct vertices and a set $B$ of $j$ distinct vertices such that $A\cap B=\varnothing$, then there is a vertex $v$ which has an edge with all vertices from $A$ and no vertices from $B$.
 
 Each $E_{i,j}$ satisfies the statement of Corollary \ref{crllev2} and because it is also an complete theory we have proved the theorem.
 \end{proof}
 
 \begin{crll}(0-1 law for $\ALL_k$)
 For every $\{E\}$-sentence $\varphi$ we have that
-\[\lim_{F_{rud}}\G_n\bbl\varphi^\Gamma\bbr\in\{\0,\1\}.\]
+\[\lim_{F_{rud}}\ALL_n\bbl\varphi^\Gamma\bbr\in\{\0,\1\}.\]
 \end{crll}
+
+
+(TODO: 0-1 laws for subsequences of $\ALL_k$, Portions, Large portions)
+
+The wide sequence $\ALL_k$ is maximal in the sense that for every $\G_k$ we have that $\G_{k}\subseteq \ALL_{g_k}$. Since we proved 0-1 law for $\ALL_k$ we can ask whether this tells us anything about the subobjects of $\ALL_k$ since they consist in some some of all other wide sequences.
+
+\begin{defi}
+Let $\G_k$ be a wide sequence, we say that $\G_k'$ is a \textbf{portion} of $\G_k$ if we have $\G_k'\subseteq \G_k$ for all $k$ big enough, we write $\G_k'\leq G_k$. We say it is a \textbf{large portion} if we have
+\[\lim_{k\to\infty}\frac{\abs{\G_k'}}{\abs{\G_k}}>0,\]
+which we denote $\G_k' \leqp \G_k$.
+\end{defi}
+
+\begin{lemm} 
+Let $\G_k'\leqp \G_k$ be wide sequence and let $\varphi$ be an $\{E\}$-sentence such that
+\[\lim_{F}\G_n\bbl\varphi\bbr\in\{\0,\1\}\]
+then
+\[\lim_{F}\G_n'\bbl\varphi\bbr = \lim_{F}\G_n\bbl\varphi\bbr.\]
+\end{lemm}
+\begin{proof} 
+Assume $\varphi$ is of the form $(\forall \overline x_1)(\exists \overline x_2)\dots (\exists \overline x_l)\varphi(\overline x_1,\dots,\overline x_l)$ so we have
+\begin{align*}
+\lim_{F}\G_n\bbl\varphi\bbr &= \Land_{\overline \alpha_1}\Lor_{\overline \alpha_2}\dots \Lor_{\overline \alpha_l}\lim_{F}\G_n\bbl\varphi(\overline \alpha_1,\dots,{\overline \alpha_l})\bbr\\
+\lim_{F}\G_n'\bbl\varphi\bbr &= \Land_{\overline \alpha_1}\Lor_{\overline \alpha_2}\dots \Lor_{\overline \alpha_l}\lim_{F}\G_n'\bbl\varphi(\overline \alpha_1,\dots,{\overline \alpha_l})\bbr,
+\end{align*}
+so we just need to establish equality of the substituted open kernel.
+
+Since $\G_n'$ is a large portion we have $p:=\lim_{k\to\infty}\abs{\G_n'}/\abs{\G_n}$. Denote an event
+\[A_G:=[G\models \varphi^{\Gamma}(\overline\alpha_1(G),\dots\overline \alpha_l(G)],\]
+we have that 
+\begin{align}
+\Pr_{G\in\G_n}[A_G]&=\Pr_{G\in \G_n}[A_G|G\in\G_n']\Pr_{G\in\G_n}[G\in\G_n']\\
+&\phantom{\:=\:}+\Pr_{G\in\G_n}[A_G|G\in\G_n\setminus\G_n']\Pr_{G\in\G_n'}[G\in\G_n \setminus \G_n'].
+\end{align}
+If $\Pr_{G\in\G_n}[A_G]=1$ and $q:=\Pr_{G\in\G_n'}[A_G]<1$ we have by taking standard parts
+\begin{align}
+1&=p\cdot q + (1-p)\cdot q'\\
+&< p + (1-p)\cdot q'\\
+&\leq1,
+\end{align}
+a contradiction. The second case where $\lim_F\G_n\bbl\varphi\bbr=\0$ then follows from $\lim_F\G_n\bbl\lnot\varphi\bbr=\1.$ 
+\end{proof}
+
+In other words if $\G_n$ admits a 0-1 law, then all its large portions do and their theories are the same.
+
+\begin{crll}
+Let $\G_k$ be a wide sequence such that 
+\[\lim_{k\to\infty}\frac{\abs{\G_k}}{2^{\binom{g_k}{2}}}>0\] then $\Th(\lim_{F_{rud}}\G_n)$ is the theory of Rado graph.
+\end{crll}
+\begin{proof}
+The condition on the limit assures that $\G_k\leqp \ALL_{g_k}$.
+\end{proof}
 
 \section{Isomorphism closed categorical $\mathcal{G}_k$}
 
-So far the measure of every truth value we encountered was either $0$ or $1$. Is there a sequence $\mathcal{G}_k$ whose $F_{tree}$-limit and an $\{E\}$-sentence $\varphi$ such that ${0<\bbl\varphi^\Gamma\bbr<1?}$ As in the case of edge existence for a limit of sparse graphs, it is not hard to come up with an example if we allow distinguishing elements in $\mathcal{G}_k$.
+Take a isomorphism closed wide sequence $\G_k$, what are its isomorphism closed portions? It turns out its easy to classify them, any such portion can be constructed as a union of those wide sequences which always one isomorphism type of each $\G_k$ and those precisely match the isomorphism closed sequences which satisfy the following property.
 
-\begin{exam}
-Let \[\mathcal{G}_k=\{(\set{k},E);\text{$E$ has exactly two edges, one of them being $\{0,1\}$}\},\]
+\begin{defi}
+We say that $\{\mathcal{G}_k\}_{k=0}^\infty$ is \textbf{categorical} if there is $k_0$ such that for every $k>k_0$ if we have $G_1,G_2\in\mathcal{G}_k$ then $G_1\cong G_2$. For a categorical wide sequence $\{G_k\}_{k=0}^\infty$ we denote $G_k$ the lexicographically minimal element of $\mathcal{G}_k$.
+\end{defi}
 
-and let $F=F_{tree}$. Then $\mu(\bbl(\exists x)(\exists y)\Gamma(x,y)\bbr)=\frac{1}{2}$.
-\end{exam}
+One can see isomorphism closed $\G_k$ as the natural wide sequences and categorical isomorphism closed wide sequences as their building blocks. The concept of isomorphism closed categorical wide sequences can be already limiting the form of the sequence. We have the following lemma which limits sizes of $\G_k$ to specific values.
+
+\begin{lemm}
+Let $\{\mathcal{G}_k\}_{k=0}^\infty$ be categorical and isomorphism closed, then for large enough $k$
+\[\abs{\mathcal{G}_k}=\frac{g_k!}{\abs{\Aut(G_k)}}.\]
+\end{lemm}
 \begin{proof}
-Let $T_0$ be a tree that always outputs $0$ and $T_1$ be a tree that always outputs $1$. We can prove that $\bbl\Gamma(0,1)\bbr\geq\bbl\Gamma(\alpha,\beta)\bbr$ for any $\alpha,\beta$. 
+Every $\rho\in S_{g_k}$ defines an isomorphism $\rho:G_k\to\rho(G_k)$, where $\rho(G_k)$ is a graph obtained from $G_k$ by renaming every vertex $v$ to $\rho(v)$.
+
+{}
+\textbf{Claim:} For any $\rho,\pi\in S_{g_k}$:
+\[\rho(G_k)=\pi(G_k)\iff\exists \tau\in\Aut(G_k):\rho\circ\tau=\pi.\]
+\textit{Proof of claim.} ``$\Rightarrow$" Let $\rho(G_k)=\pi(G_k)$, therefore $\tau:=\rho^{-1}\circ\pi\in\Aut(G_k)$ and $\rho\circ\tau=\rho\circ\rho^{-1}\circ\pi=\pi.$
+
+``$\Leftarrow$" Let $\rho\circ\tau=\pi$. Then $\pi(G_k)=\rho(\tau(G_k))=\rho(G_k).$ \qedhere
+
+Notice that the $\tau$ in the statement of the claim is uniquely determinted by $\rho^{-1}\circ\pi$. Therefore if we defined a quotient set $S_{g_k}/\sim$ with $\rho\sim\pi\iff\rho(G_k)=\pi(G_k)$ then $\abs{S_{g_k}/\sim}=\frac{g_k!}{\abs{\Aut(G_k)}}$.
+
+The Lemma follows from noticing that if we start with $\{G_k\}$ and then we build $\mathcal{G}_k$ by finding isomorphic graphs on the vertex set $[g_k]$ we can only do so by trying different permutation from $S_{g_k}$ and these permutations find the same graph if and only if they are in the same $\sim$-class. Therefore there is a bijection between $S_{g_k}/\sim$ and $\mathcal{G}_k$. \qed
 \end{proof}
 
-For the case of isomorphism closed $\mathcal{G}_k$ we prove that every $\{E\}$-sentence has truth value either $\0$ or $\1$. We start with the existential case.
-
+So far we did not encounter an isomorphism closed wide sequence $\G_k$ and a $\{E\}$-sentence $\varphi$ such that $\0<\lim_{F_{rud}}\G_n\bbl\varphi^\Gamma\bbr<\1$. One can use isomorphism closed categorical wide sequences to construct such a wide sequence.
 \begin{exam}
-NOT TRUE! Consider all graphs with one edge, or one non-edge. $\mu(\bbl(\exists x)(\exists y)\Gamma(x,y)\bbr)=\frac{1}{2}.$
+Let
+\begin{align}
+\nEDGE_k&:=\{(\set{k},E);\abs{E}=(k(k-1)/2)-1\}\\
+\G_k&:=\EDGE_k\cup\nEDGE_k,
+\end{align}
+
+Then one can see that $\mu(\lim_{F_{rud}}\G_n\bbl(\exists x)(\exists y)\Gamma(x,y)\bbr)=\frac{1}{2}$.
 \end{exam}
+
+However each $\EDGE_k$ and $\nEDGE_k$ have complete theories. So natural follow up to this question whether 0-1 law holds for all isomorphism closed categorical wide sequences. We present a partial result.
+
+(TODO: Requirements for a counterexample - non-sparse, non-dense, automorphisms)
 
 \begin{thrm}
-Let $\varphi_0(\overline x)$ be an open $\{E\}$-formula, and let $\mathcal{G}_k$ be isomorphism closed and categorical then
-\[\bbl(\exists \overline x)\varphi_0^\Gamma(\overline x)\bbr\in\{\0,\1\}.\]
+Most isocats are 0-1.
 \end{thrm}
-
 \begin{proof}
-Let $\overline T$ be a tuple of trees computing $\overline \alpha$ such that 
-\[p:=\mu(\bbl\varphi_0(\overline \alpha)\bbr)>\0,\]
-moreover we can assume $p<1$ otherwise we are done. We can also assume $\overline T$ is represented just by one tree $T$ which outputs the whole tuple $\overline \alpha$.
-
-We want to iterate $T$ to amplify the probability of success. For every leaf $l$ in $T$ and put 
-\[A_l=\{\omega \in \Omega; T(\omega) \text{ ends up at $l$ and } \omega \models \varphi_0(\overline\alpha(\omega)) \}\]
-and pick some $G\in A$ and some $G'\in \Omega\setminus A$. From the categoricity we have that there exists a permutation $\rho\in S_{\set{g_n}}$ such that $\rho[G]=G'$.
+Partition $\ALL_k$.
 \end{proof}
 
+\begin{ques}
+Is there a isomorphism closed categorical wide sequence $\G_k$ and an $\{E\}$-sentence $\varphi$ such that
+\[\0<\lim_{F_{rud}}\G_n\bbl\varphi^\Gamma\bbr<\1?\]
+\end{ques}

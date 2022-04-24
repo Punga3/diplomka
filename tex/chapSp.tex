@@ -2,9 +2,13 @@
 
 \section{$\mathcal{G}_k=*\text{PATH}_k$}
 
+Now we turn our attention to a wide sequence which is made up of `hardest instances in $\LEAF$'. That is, if we are given a degree 1 vertex labeled $0$ and search for another degree 1 vertex it is the hardest if there are only two degree 1 vertices and the path from $0$ to the solution is as long as possible.
+
 \begin{defi}
 We define $\pPATH_k$ (the pointed paths on $k$ vertices) as the set of all (undirected) graphs $G$ on the vertex set $[k]$, where $G$ is isomorphic to the path on $n$ vertices and $\deg_G(0)=1$.
 \end{defi}
+
+One can also see that it is not fruitful to analyze the $F_{rud}$ limit, because there are only $k-1$ edges in each $G\in\pPATH_k$ and so by Theorem \ref{thrmsparse} we have that $\lim_{F_{rud}}\pPATH_k\bbl(\exists x)(\exists y)\Gamma(x,y)\bbr=\0.$ Moreover in the type 2 version of the problem the graph is presented by an oracle which gives us the neighbour set for each vertex, so we define a new family $F$ as follows.
 
 \begin{defi}
 After we fix $n$, we define $F_{nbtree}$ as the set of all functions computed by some some labeled tree with the following shape:

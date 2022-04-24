@@ -107,21 +107,40 @@ Even though the size of the clique has radically increased we still did not find
 Now let us mention the more complex case of the wide sequence $\CK_k^{1/2}$
 \[\CK_k^{1/2}=\{(\set{k},E);E\text{ contains a $\floor{k/2}$ clique.}\}\]
 
-We are still guaranteed that every $\omega$ contains a large clique but there is no easy way to check whether a given vertex $v$ is contained in the large clique. 
+We are still guaranteed that every $\omega$ contains a large clique but there is no easy way to check whether a given vertex $v$ is contained in the large clique. To prove the following theorem we can use that $\CK_k^{1/2}$ is isomorphism closed to translate the case for $\SK_k^{1/2}$ at least for the case of cliques of standard size.
 
-One can notice that standardly large cliques should exist in $\Gamma$.
-
-\begin{conj}
+\begin{thrm}
 Let $c\in\N$ then 
-\[K(\CK_k^{1/2},F,G)\bbl\text{$\Gamma$ has a clique of size $c$}\bbr=\1.\]
-\end{conj}
-
-What about nonstandardly large cliques?
-
-\begin{thrm}(?)
-If for every sequence of elements $\{v_k\in \set{g_k}\}_{k>0}$ and sequence of trees $T_k$ such that $T_n$ has depth at most $n^{1/t}$ for some $t>\N$ we have that
-\[\lim_{k\to\infty} \Pr_{G\in \CK_k^{1/2}}[T_k(v_k)=1\Leftrightarrow \text{$v_k$ is in some $\floor{k/2}$ clique}]=0.\]
+\[K(\CK_k^{1/2},F,G)\bbl\text{$\Gamma$ has a clique of size $c$}\bbr>\0.\]
 \end{thrm}
 \begin{proof}
+Consider the set \[\G_n^+=\{(G,U);\text{$G\in \G_n$ and $U\subseteq \set{n}$ is a $\floor{n/2}$ clique in $G$ }\}\]
+and projections
+\begin{align*}
+\pi_1:\G_n^+&\to\G_n,(G,U)\mapsto G.\\
+\pi_2:\G_n^+&\to\Po(\set{n}),(G,U)\mapsto U
+\end{align*}
+
+From the fact that $\CK_k^{1/2}$ is isomorphism closed, we have that $\abs{\pi_2^{-1}[U_1]}=\abs{\pi_2^{-1}[U_2]}$. We will set $\nu:=\abs{\pi_2^{-1}[U]}$ for some clique $U$ of size $\floor{n/2}$ so we have $\nu\abs{\G_n}=\G_n^+$. Denote an event in the sample space $\G_n$
+\[A_{\overline a} :=\{G\in\G_n;G\models \varphi_c(\overline a)\}.\]
+and in the sample space $\G_n^+$
+\[A_{\overline a}^+ :=\{(G,U)\in\G_n^+;\overline a\text{ is a subclique of $U$}\}\]
+notice that if $(G,U)\in A_{\overline a}^+$ then $G\in A_{\overline a}$ which implies (TODO: Check!)
+\[\nu\cdot\abs{A_{\overline a}}\geq \abs{A_{\overline a}^+}\]
+so in conjunction with Example \ref{examskhalf} we have
+\begin{align*}
+\Pr_{G\in\G_n}[A_{\overline a}]&\geq \frac{\abs{A_{\overline a}^+}}{\abs{\G_n^+}}\\
+&= \Pr_{G\in\SK_{k}^{1/2}}[\overline a \text{ is in the clique}]\\
+&>(1/2)^c
+\end{align*}
+and since $c$ is constant we have $\Pr_{G\in\G_n}[A_{\overline a}]>0$.
 \end{proof}
 
+Of course it remains to show that using trees can actually increase the value all the way to $\1$, we did not get to prove that.
+
+Finally one can return to cliques of nonstandard size and intuitively one excepts this to be hard. For a clique of size greater than $n^{1/t}$ for any $t>\N$ one has to check more than $n^{1/t}$ edges to even know given set is a clique and the counting argument used in the previous theorem implies that just guessing the clique of nonstandard size is not enough. We therefore present the following conjecture.
+
+\begin{conj}
+Let $m\leq c \ln n$ for any $c\in\N$, then
+\[K(\CK_k^{1/2},F,G)\bbl\text{$\Gamma$ has a clique of size $\floor{n/m}$}\bbr=\0.\]
+\end{conj}
