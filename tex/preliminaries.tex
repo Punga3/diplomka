@@ -6,17 +6,17 @@ In this chapter we recall a few important notions which we will use in the next 
 \section*{The ambient model $\M$}
 \addcontentsline{toc}{section}{The ambient model $\M$}
 
-We call a model of $\Th(\N)$ nonstandard if it is not isomorphic to $\N$. Every model of $\Th(\N)$ of course contains an initial segment isomorphic to $\N$ so we can view nonstandard models as those which also contain `infinite natural numbers', if we assume $\M\models \Th(\N)$ contains $\N$ as an initial segment then the elements $\M\setminus \N$ are called nonstandard. We recommend the introduction of \cite{kaye1991pa} for a review of this topic. In the appendix of \cite{krajicek2010forcing} there is an explicting ultraproduct construction of a model $\M\models \Th(\N)$ which is $\aleph_1$-saturated.
+Let $L_{all}$ be the language consisting of function symbols for all function on $\N$, all relations and all constants. We call a model of $\Th_{L_{all}}(\N)$ nonstandard if it is not isomorphic to $\N$. Every model of $\Th(\N)$ of course contains an initial segment isomorphic to $\N$ so we can view nonstandard models as those which also contain `infinite natural numbers', if we assume $\M\models \Th(\N)$ contains $\N$ as an initial segment then the elements $\M\setminus \N$ are called nonstandard. We recommend the introduction of \cite{kaye1991pa} for a review of this topic. In the appendix of \cite{krajicek2010forcing} there is an explict ultraproduct construction of a model $\M\models \Th(\N)$ which is $\aleph_1$-saturated.
 
-This $\aleph_1$-saturated model $\M$ is used throughout this thesis and we call it the ambient model of arithmetic. For our applications we just need to know that the model is nonstandard and the following property holds because of the $\aleph_1$-saturation.
+This $\aleph_1$-saturated model $\M$ is used throughout this thesis and we call it the ambient model of arithmetic. For our applications we just need to know that the model is nonstandard and the following property holds because of the $\aleph_1$-saturation. (Note that we can encode finite sequences and sets in $\N$ which lets us state the property.)
 
 \begin{prope}
 If $\{a_k\}_{k\geq 0}$ is a sequence with elements in $\N$ then there is an element $t\in \M \setminus \N$ and a sequence $\{b_k\}_{k<t}\in \M$ with $a_k=b_k$ for all $k\in \N$.
 \end{prope}
 
-By overspill in $\M$ if some definable property $P$ holds for any $a_k$ with high enough index then there is also some nonstandard $s<t$ such that $b_s$ satisfies the property $P$. 
+By overspill in $\M$ if some definable property $P$ holds for any $a_k$ with high enough index then there is also some nonstandard $n<t$ such that $b_s$ satisfies the property $P$. Moreover, if some definable property $P$ holds for all $b_k$ with $k$ above some $k_0$ it has to also hold by induction in $\M$ for all nonstandard $b_n$. These $b_n$ are intuitively the limit elements of the sequence $\{a_k\}_{k\geq0}$.
 
-(TODO: Mention induction)
+Now let us introduce some notation. For $m\in\M$ we denote the set of numbers below $m$ as $\set{m}:=\{0,\dots,m-1\}\in\M$ and $\abs{m}$ as the bit-length of the (possibly-nonstandard) number $m$. These definitions can be easily made rigorous using the $\aleph_1$-saturation of $\M$ and the first order definitions of these functions.
 
 \section*{Nonstandard analysis}
 \addcontentsline{toc}{section}{Nonstandard analysis}
@@ -65,4 +65,4 @@ The semantic subclasses are defined as all problems reducible to some problem co
 
 So far, we presented what is called `type 1' problem in \cite{beame1995rel}. The ones we are interested in are `type 2' problems which replace the input graph $G$ with a pair $(\alpha,x)$ an oracle $\alpha$ describing the neighbourhood function $N_G(-)$ (or both $N_G^+(-)$ and $N_G^-(-)$ in the directed case) on binary string of length at most $\abs{x}$. While the goal to solve these problems remains the same, suddenly the situation is quite different, the graphs given by oracles are exponential in size and thus easily separated from $\FP^2$, the type 2 version of polynomial time functions. More importantly we have that $\PPAD\subsetneq \PPA$ as type 2 complexity classes. Intuitively one can forget the orientation to get the undirected version, but cannot consistently assign orientation to an undirected edges of a large graph.
 
-The traditional model of computation are the Turing machines and for the type 2 problems oracle Turing machines. But to prove separations in the type 2 case, we can abstract the computation of an oracle Turing machine into a decision tree which describes the queries to an oracle. This is
+The traditional model of computation are the Turing machines and for the type 2 problems oracle Turing machines. But to prove separations in the type 2 case, we can abstract the computation of an oracle Turing machine into a decision tree which describes the queries to an oracle. This abstraction is what to keep in mind in the following chapter when we define the class of functions $F_{rud}$.

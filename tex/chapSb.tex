@@ -36,7 +36,6 @@ One can check that the probability the tree $\Lambda_i$ does not find $i$ vertic
 
 At first glance the lower bound $n^{1/t}$ for every nonstandard $t$ may seem optimal given the proof method we used, but there is a way to radically improve it. The idea is to partition the set of vertices into many smaller ones and let $\Lambda_i$ search only in the $i$-th set. First we need the following lemmas.
 
-(TODO: Comment notation somewhere especially set and abs)
 \begin{lemm}\label{lemmmiss}
 Let $S\subseteq \set{n}$ such that $\abs{S}=m > \N$, then
 \[\st\left(\Pr_{G\in\G_n}[\text{$S$ contains no vertices in the clique of $G$}]\right)=0.\]
@@ -121,11 +120,11 @@ and projections
 \pi_2:\G_n^+&\to\Po(\set{n}),(G,U)\mapsto U
 \end{align*}
 
-From the fact that $\CK_k^{1/2}$ is isomorphism closed, we have that $\abs{\pi_2^{-1}[U_1]}=\abs{\pi_2^{-1}[U_2]}$. We will set $\nu:=\abs{\pi_2^{-1}[U]}$ for some clique $U$ of size $\floor{n/2}$ so we have $\nu\abs{\G_n}=\G_n^+$. Denote an event in the sample space $\G_n$
+From the fact that $\CK_k^{1/2}$ is isomorphism closed, we have that $\abs{\pi_2^{-1}[U_1]}=\abs{\pi_2^{-1}[U_2]}$. We will set $\nu:=\abs{\pi_2^{-1}[U]}$ for some clique $U$ of size $\floor{n/2}$ so we have $\nu\abs{\G_n}=\G_n^+$. Let $\varphi_c(\overline x)$ be a $\{E\}$-sentence is satisfied iff $\overline x$ is a $c$ sized clique.  Denote an event in the sample space $\G_n$
 \[A_{\overline a} :=\{G\in\G_n;G\models \varphi_c(\overline a)\}.\]
 and in the sample space $\G_n^+$
 \[A_{\overline a}^+ :=\{(G,U)\in\G_n^+;\overline a\text{ is a subclique of $U$}\}\]
-notice that if $(G,U)\in A_{\overline a}^+$ then $G\in A_{\overline a}$ which implies (TODO: Check!)
+notice that if $(G,U)\in A_{\overline a}^+$ then $G\in A_{\overline a}$ which implies
 \[\nu\cdot\abs{A_{\overline a}}\geq \abs{A_{\overline a}^+}\]
 so in conjunction with Example \ref{examskhalf} we have
 \begin{align*}

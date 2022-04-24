@@ -1,12 +1,10 @@
-\chapter{Forcing with random variables and the limit}
+\chapter{Forcing with random variables and the limit}\label{chapwidelimit}
 \section{Setup}
 
-Our goal in this chapter is to provide a definition of a limit of a set an infinite set of finite graphs in which arbitrarily large graphs occur.
-
-The following definition makes our requirements of such a class of graphs precise.
+Our goal in this chapter is to provide a definition of a limit of a set an infinite set of finite graphs in which arbitrarily large graphs occur. The following definition makes our requirements of such a class of graphs precise. From now on $E$ denotes a binary relational symbol, so formulas in the theory of graphs are $E$-sentences.
 
 \begin{defi}
-Let $\{\mathcal{G}_k\}_{k>0}$ be a sequence of finite sets of finite graphs. We call it a \textbf{wide sequence} if the following hold.
+Let $\{\mathcal{G}_k\}_{k>0}$ be a sequence of finite sets of (directed or undirected) finite graphs. We call it a \textbf{wide sequence} if the following hold.
 
 \begin{itemize}
 \item There is an increasing sequence of positive whole numbers $\{g_k\}_{k>0}$ such that the underlying set of each $G\in\mathcal{G}_k$ is $\set{g_k}$.
@@ -14,17 +12,11 @@ Let $\{\mathcal{G}_k\}_{k>0}$ be a sequence of finite sets of finite graphs. We 
 \end{itemize}
 \end{defi}
 
-The second condition guarantees that $\mathcal{G}_n$ is an infinite set for $n>\mathbb{N}$. Many interesting classes of graphs form a wide sequence if we restrict the vertex-sets to $\set{g_k}$, where $\{g_k\}_{k>0}$ can be taken as the increasing sequence of all cardinalities in such a class.
+The second condition guarantees that $\mathcal{G}_n$ is an infinite set for $n>\mathbb{N}$. In fact the condition is not strictly important to proceed with this chapter, but it more closely describes what sort of sequences we are interested in. Many interesting classes of graphs form a wide sequence if we restrict the vertex-sets to $\set{g_k}$, where $\{g_k\}_{k>0}$ can be taken as the increasing sequence of all cardinalities in such a class. For example graphs with exactly one edge, graphs with bounded degree and so on, we will get to explore many examples in depth after we define the wide limit.
 
-\begin{exam}
-TODO: Add some examples!
-\end{exam}
+\section{The first order wide limit}
 
-\section{The first order limit}
-
-Let $\mathcal{M}$ be the $\aleph_1$-saturated model of true arithmetic discussed in the previous chapter and let $\mathcal{G}_k$ be a wide sequence of graphs and $\Omega:=\mathcal{G}_n$ for $n\in\mathcal{M}\setminus \mathbb{N}$.
-
-The model $\M$ treats all its elements (including those which represent sets) as ``finite objects'' which lets us define uniform probability even on sets which are infinite from the set-theoretical perspective.
+From now on we closely follow Chapter 1 of \cite{krajicek2010forcing}. Let $\mathcal{M}$ be the $\aleph_1$-saturated model of true arithmetic discussed in the previous chapter and let $\mathcal{G}_k$ be a wide sequence of graphs and $\Omega:=\mathcal{G}_n$ for $n\in\mathcal{M}\setminus \mathbb{N}$. One can check that graphs in $\Omega$ are all pseudofinite. The model $\M$ treats all its elements (including those which represent sets) as ``finite objects'' which lets us define uniform probability even on sets which are infinite from the set-theoretical perspective. We provide the definition generally for any $L$-reduct of $\M$, where $L\subseteq L_{all}$, but in the rest of the thesis we assume $L=L_{all}$ even though some finite sublanguage would suffice.
 
 
 \begin{defi}
@@ -61,28 +53,25 @@ for $k\in\N$, $f\in L$ $k$-ary and $\alpha_1,\dots,\alpha_k\in F$.
 \end{itemize}
 \end{defi}
 
-Note that while every $\alpha\in F$ is represented by some element in $\M$ this need not be the case for the whole family $F$.
+Note that while every $\alpha\in F$ is represented by some element in $\M$ this need not be the case for the whole family $F$. From now on $\Gamma$ denotes a binary relational symbol which we understand as `limit edge relation'. For a $\{E\}$-formula $\varphi$ we denote its translation to a $\{\Gamma\}$-formula by rewriting every $E$ to $\Gamma$ as $\varphi^{\Gamma}$.
 
 \begin{defi}
-Let $F$ be an $L$-closed family for some $L\subseteq L_{all}$. Then $K(F)$ will denote a $\B$-valued $L$-structure defined as follows.
-
-The universe of $K(F)$ is $F$. The boolean evaluations of $L$-sentences are defined by the following inductive conditions:
+Let $F$ be an $L$-closed family for some $L\subseteq L_{all}$. Then $K(\G_n,F)$ will denote a $\B$-valued $L\cup\{\Gamma\}$-structure defined as follows. The universe of $K(F)$ is $F$. The boolean evaluations of $L$-sentences are defined by the following inductive rules:
 
 \begin{itemize}
 \item $\bbl \alpha=\beta \bbr := \{\omega\in\Omega; \alpha(\omega)=\beta(\omega)\}/\I.$
 \item $\bbl R(\alpha_1,\dots,\alpha_k) \bbr := \{\omega\in\Omega; R(\alpha_1,\dots,\alpha_k)\}/\I$ for any $k$-ary $L$-relation $R$.
+\item $\bbl \Gamma(\alpha,\beta) \bbr := \{\omega\in\Omega; E_G(\alpha(\omega),\beta(\omega))\text{ and }\alpha(\omega),\beta(\omega)\in\set{g_n})\}/\I$.
 \item $\bbl-\bbr$ commutes with $\land$,$\lor$,$\lnot$.
 \item $\bbl(\exists x)A(x)\bbr:=\Lor_{\alpha\in F}\bbl A(\alpha)\bbr$.
 \item $\bbl(\forall x)A(x)\bbr:=\Land_{\alpha\in F}\bbl A(\alpha)\bbr$.
 \end{itemize}
+
+We call $F(\G_n,F)$ the \textbf{underlying arithmetic of the first order wide limit}.
 \end{defi}
 
-Finally, using $K(F)$ we can define the first order limit of $\G_k$ using the following notions.
-
 \begin{defi}
-We call a function $\alpha\in F$ an $F$-vertex if ${\alpha:\Omega\to\set{g_n}}.$
-
-We define a $\B$-valued graph $\lim_{k\to n}^{F}G_k$ as an $\{\Gamma\}$-structure, where $\Gamma$ is a binary relation symbol, with universe $\{\alpha\in F; \alpha\text{ is an $F$-vertex}\}$ and $\Gamma$-sentences being evaluated by the following inductive conditions:
+We call a function $\alpha\in F$ an $F$-vertex if ${\alpha:\Omega\to\set{g_n}}.$ We define a $\B$-valued graph $\lim_{k\to n}^{F}G_k$ as an $\{\Gamma\}$-structure, where $\Gamma$ is a binary relation symbol, with universe $\{\alpha\in F; \alpha\text{ is an $F$-vertex}\}$ and $\Gamma$-sentences being evaluated by the following inductive conditions:
 \begin{itemize}
 \item $\bbl \alpha=\beta \bbr := \{\omega\in\Omega; \alpha(\omega)=\beta(\omega)\}/\I.$
 \item $\bbl \Gamma(\alpha,\beta) \bbr := \{\omega\in\Omega; E_G(\alpha,\beta))\}/\I$.
@@ -90,6 +79,8 @@ We define a $\B$-valued graph $\lim_{k\to n}^{F}G_k$ as an $\{\Gamma\}$-structur
 \item $\bbl(\exists x)A(x)\bbr:=\Lor_{\alpha\in F}\bbl A(\alpha)\bbr$.
 \item $\bbl(\forall x)A(x)\bbr:=\Land_{\alpha\in F}\bbl A(\alpha)\bbr$.
 \end{itemize}
+
+By abuse of notation we will usually denote the limit $\lim_{F}\G_n$.
 \end{defi}
 
 \section{The second order limit}
@@ -97,6 +88,8 @@ We define a $\B$-valued graph $\lim_{k\to n}^{F}G_k$ as an $\{\Gamma\}$-structur
 While we can find a truth value of a sentence in the language of graphs in the limit $\lim_{F}\G_n$, we will encounter situations where this is not sufficient to analyze the wide sequence $\{\G_k\}_{k>0}$. 
 
 In Chapter \ref{chapdense} we will investigate how does existence of large cliques correspond to the size of cliques in the limit graph. But we cannot just measure the set-theoretical cardinality of any such clique, for specific $n$ we could very well have $\card(\set{\floor{\log{n}}})=\card(\set{\floor{\frac{n}{2}}})$ but from the point of view of complexity theory cliques of size $\floor{\log n}$ and $\floor{\frac{n}{2}}$ are dramatically different. In other words, our goal is also to have means to count the number elements of subsets or relations with values in (random variables in) $\M$.
+
+When we say second order we mean by it two-sorted first order structures where one sort represents the usual elements (the `first order' sort) and the other represents functions on those elements (the `second order sort'). The `second order' here can also represent sets and relations by \{0,1\} valued functions.
 
 \begin{defi}
 Let $L\subseteq L_{all}$, we call a set of functions $G\subseteq \M$ an $F$-closed \textbf{functional family} if every $\Theta\in G$ assigns to every $\omega\in\Omega$ a function $\Theta_\omega\in\M$ and after we define
@@ -109,7 +102,7 @@ We call $\Theta\in G$ a (graph) $G$-\textbf{relation} if for every $\omega\in\Om
 \end{defi}
 
 \begin{defi}
-Let $L\subseteq L_{all}$, $F$ an $L$-closed family and $G$ an $F$-compatible functional family. We define the $L^2$-structure $K(F,G)$ as a two sorted $L$-structure with sorts $F$ and $G$ interpreting $L$-sentences as $K(F)$ and treating the sort $G$ as follows. First for equality we let
+Let $L\subseteq L_{all}$, $F$ an $L$-closed family and $G$ an $F$-compatible functional family. We define the structure $K(\G_n,F,G)$ as a two sorted $L$-structure with sorts $F$ and $G$ interpreting $L$-sentences as $K(\G_n,F)$ and treating the sort $G$ as follows. First for equality we let
 \[\bbl\Theta=\Xi \bbr := \{\omega\in \Omega;\Theta_\omega=\Xi_\omega\}/\I\]
 and for the second order quantifiers we have the following inductive clauses
 \begin{itemize}
@@ -123,6 +116,8 @@ where $\chi_{E_\omega}$ is the characteristic function of $E_\omega$, we call $K
 
 We define $\lim_{F,n}^G\{\G_k\}_{k>0}$ as the $L^2$-substructure with universe consisting of all $F$-vertices and all $G$-relations. By abuse of notation we will mostly use the notation $\lim_F^G\G_n$.
 \end{defi}
+
+Let us note that if we have multiple boolean valued structures $\M_1,\M_2,\dots$ we may add the name of the structure as a prefix to the valuation function to get $\M_1\bbl-\bbr$ and $\M_2\bbl-\bbr$ to avoid ambiguity or to emphasize the structure where the valuation takes place.
  
 \section{The $L$-closed family $F_{rud}$ and $G_{rud}$}\label{secFrud}
 
@@ -135,7 +130,7 @@ We define a \textbf{decision tree} to be a binary tree $T\in\M$ with a labelling
 
 Each $\omega\in\Omega$ uniquely determines a path in $(T,\ell)$ by interpreting the vertex labels as ``is $(u,v)\in E_\omega$?'' and the edge labels as true $(1)$ and false $(0)$. The path then uniquely determines an output.
 
-We define $F_{rud}$ to be the set of all functions computed by some $(T,\ell)$ of depth at most $n^{1/t}$.
+We define $F_{rud}$ to be the set of all functions computed by some $(T,\ell)$ of depth at most $g_n^{1/t}$.
 \end{defi}
 
 One can verify that $F_{rud}$ is an $L$-closed family for any $L\subseteq L_{all}$.
@@ -159,7 +154,7 @@ The family $G_{rud}$ consists of all functionals $\Theta$ such that there is $m\
 $G_{rud}$ is $(F_{rud})$-compatible.
 \end{lemm}
 \begin{proof}
-By induction in $\M$ we have that all the depth of all the trees is bounded by $n^{1/t}$ for some $t>\N$.
+By induction in $\M$ we have that all the depth of all the trees is bounded by $g_n^{1/t}$ for some $t>\N$.
 
 If we take some $\Theta\in G_{rud}$ and $\alpha\in F_{rud}$ we can compute $\Theta(\alpha)$ also by a tree in $F_{rud}$ by concatenating the trees computing $\alpha$ and $\beta_i$s.
 \end{proof}
@@ -190,4 +185,14 @@ but
 Even though the concrete wide limits we will investigate in the following chapters do not depend on the specific $n$, it is important to note that we cannot generally remove the parameter $n$ from the definition of the limit.
 \end{exam}
 
-(TODO: Theory of graphs, theory of a wide limit)
+\section{Theories of wide limits}
+
+If $\lim_F\G_n$ is the first order wide limit we will be interested in which exact $\{\Gamma\}$-sentences are valid in it.
+
+\begin{defi}
+We define $\Th(\lim_F\G_n)$ as the set of all valid $\Gamma$-sentences in $\lim_{F}\G_n$.
+\end{defi}
+
+In the next chapter (Theorem \ref{thrmuni}) we will see that if an universal $\{E\}$-sentence $\varphi$ holds for all $G\in\G_k$ for $k$ big enough then $\lim_F\G_n\bbl\varphi^\Gamma\bbr=\1$. In particular, a wide limit of undirected graphs in a boolean valued undirected graph and a wide limit of directed graphs is a boolean valued directed graph.
+
+Lastly, let as recall the concept of 0-1 laws which say that a certain probability is always $0$ or always $1$ with no intermediate value. Here instead of probability we can think about the boolean values $\0$ and $\1$ and ask when does it happen that $\lim_F\G_n\bbl\varphi\bbr\in\{\0,\1\}$ for every $\{\Gamma\}$-sentence $\varphi$. This is exactly equivalent to the situation where the theory $\Th(\lim_G \G_n)$ is complete. Throughout the thesis we prove such 0-1 law for several wide limits.

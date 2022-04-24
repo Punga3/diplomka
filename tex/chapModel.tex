@@ -1,6 +1,5 @@
-\chapter{The limit}
-\section{Basic examples}
-\subsection{$\mathcal{G}_k=\EDGE_k$}
+\chapter{General theory}\label{chapgeneraltheory}
+\section{$\mathcal{G}_k=\EDGE_k$}
 We consider the classes of graphs
 \[\EDGE_k:=\{\text{$(k,E); \abs{E}=1$}\},\]
 and we let $\mathcal{G}_k=\EDGE_k$ and $F=F_{tree}$.
@@ -29,7 +28,7 @@ The probability that any of those graphs is sampled is
 And one can clearly see that $\st(1-\frac{4n^{1/t}-4}{n})=1$. This proves that the boolean value we are considering is $\textbf{0}$ since we can the two witnesses for $x$ and $y$ into a tree that could find an edge with depth $n^{1/t}$ for some $t>\mathbb{N}$.
 \end{proof}
 
-\subsection{Sparse $\mathcal{G}_k$}
+\section{Sparse $\mathcal{G}_k$}
 
 One can see that in Theorem \ref{thrmedge} the exact shape of graphs in $\mathcal{G}_k$ does not play a crucial role. If $\mathcal{G}_k$ consisted of all graphs on $k$ verticies containing say exactly one triangle, or any other fixed subgraph of constant size, and no other edges, we would still find that the non-existence is valid in the limit graph.
 
@@ -170,8 +169,6 @@ Therefore there is a tuple $\overline a$ such that $\mu(\bbl\varphi_0(\overline\
 \end{align}
 By taking $\mu$ of both sides we prove the theorem.
 \end{proof}
-
-(TODO: Add example of easy lower bound and existance of substructure.)
 
 \begin{exam}
 Recall Example \ref{examsparseedge} it is not hard to notice that for a $\G_k$ which consists of graphs with exactly $\floor{\frac{k(k-1)}{2\log k}}$ edges we have
@@ -333,17 +330,15 @@ For every $\{E\}$-sentence $\varphi$ we have that
 \end{crll}
 
 
-(TODO: 0-1 laws for subsequences of $\ALL_k$, Portions, Large portions)
-
-The wide sequence $\ALL_k$ is maximal in the sense that for every $\G_k$ we have that $\G_{k}\subseteq \ALL_{g_k}$. Since we proved 0-1 law for $\ALL_k$ we can ask whether this tells us anything about the subobjects of $\ALL_k$ since they consist in some some of all other wide sequences.
+The wide sequence $\ALL_k$ is maximal in the sense that for every $\G_k$ with $g_k=k$ we have that $\G_{k}\subseteq \ALL_{k}$. Since we proved 0-1 law for $\ALL_k$ we can ask whether this tells us anything about the subobjects of $\ALL_k$ since they consist in some sense of all other wide sequences.
 
 \begin{defi}
-Let $\G_k$ be a wide sequence, we say that $\G_k'$ is a \textbf{portion} of $\G_k$ if we have $\G_k'\subseteq \G_k$ for all $k$ big enough, we write $\G_k'\leq G_k$. We say it is a \textbf{large portion} if we have
-\[\lim_{k\to\infty}\frac{\abs{\G_k'}}{\abs{\G_k}}>0,\]
+Let $\G_k$ be a wide sequence, we say that $\G_k'$ is a \textbf{portion} of $\G_k$ if we have $\G_k'\subseteq \G_k$ for all $k$ big enough which we denote $\G_k'\leq G_k$. We say it is a \textbf{large portion} if we have
+\[p:=\lim_{k\to\infty}\frac{\abs{\G_k'}}{\abs{\G_k}}>0,\]
 which we denote $\G_k' \leqp \G_k$.
 \end{defi}
 
-\begin{lemm} 
+\begin{lemm}\label{lemmhere}
 Let $\G_k'\leqp \G_k$ be wide sequence and let $\varphi$ be an $\{E\}$-sentence such that
 \[\lim_{F}\G_n\bbl\varphi\bbr\in\{\0,\1\}\]
 then
@@ -375,7 +370,7 @@ a contradiction. The second case where $\lim_F\G_n\bbl\varphi\bbr=\0$ then follo
 
 In other words if $\G_n$ admits a 0-1 law, then all its large portions do and their theories are the same.
 
-\begin{crll}
+\begin{crll}\label{crlltoobig}
 Let $\G_k$ be a wide sequence such that 
 \[\lim_{k\to\infty}\frac{\abs{\G_k}}{2^{\binom{g_k}{2}}}>0\] then $\Th(\lim_{F_{rud}}\G_n)$ is the theory of Rado graph.
 \end{crll}
@@ -387,7 +382,7 @@ The condition on the limit assures that $\G_k\leqp \ALL_{g_k}$.
 
 Take a isomorphism closed wide sequence $\G_k$, what are its isomorphism closed portions? It turns out its easy to classify them, any such portion can be constructed as a union of those wide sequences which always one isomorphism type of each $\G_k$ and those precisely match the isomorphism closed sequences which satisfy the following property.
 
-\begin{defi}
+\begin{defi}\label{lemmisocat}
 We say that $\{\mathcal{G}_k\}_{k=0}^\infty$ is \textbf{categorical} if there is $k_0$ such that for every $k>k_0$ if we have $G_1,G_2\in\mathcal{G}_k$ then $G_1\cong G_2$. For a categorical wide sequence $\{G_k\}_{k=0}^\infty$ we denote $G_k$ the lexicographically minimal element of $\mathcal{G}_k$.
 \end{defi}
 
@@ -423,16 +418,9 @@ Let
 Then one can see that $\mu(\lim_{F_{rud}}\G_n\bbl(\exists x)(\exists y)\Gamma(x,y)\bbr)=\frac{1}{2}$.
 \end{exam}
 
-However each $\EDGE_k$ and $\nEDGE_k$ have complete theories. So natural follow up to this question whether 0-1 law holds for all isomorphism closed categorical wide sequences. We present a partial result.
+However each $\EDGE_k$ and $\nEDGE_k$ have complete theories. So natural follow up to this question whether 0-1 law holds for all isomorphism closed categorical wide sequences. 
 
-(TODO: Requirements for a counterexample - non-sparse, non-dense, automorphisms)
-
-\begin{thrm}
-Most isocats are 0-1.
-\end{thrm}
-\begin{proof}
-Partition $\ALL_k$.
-\end{proof}
+Theorem \ref{thrmsparse}, Corollary \ref{crlltoobig} and Lemma \ref{lemmisocat} already give some conditions on what any counterexample would have to satisfy. However we did not find any nor did we rule out its existance. 
 
 \begin{ques}
 Is there a isomorphism closed categorical wide sequence $\G_k$ and an $\{E\}$-sentence $\varphi$ such that
