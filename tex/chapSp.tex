@@ -110,12 +110,12 @@ p&=\Pr_{G\in\G_m}[E(v,0)]\Pr_{G\in\G_m}[\text{$T$ fails}|E(v,0)]\\
 &\geq(1-\frac{2}{m-2})\prod_{i=1}^{k}(1-\frac{2}{m-2i-2})\\
 &\geq\prod_{i=0}^{k}(1-\frac{2}{m-2i-2}).
 \end{align}
-where in \eqref{pmfailchoice} we choose $u_0,w_0$ with the lowest value of \[P_m(\text{$T_{v?=\{u_0,w_0\}}|v?=\{u_0,w_0\}$}),\] the bound follows the fact that all $P_m(v?=\{u,w\})$ are the same for distinct non-zero $u,w$. In \eqref{pmfaillemma} we use the lemma \ref{lemmrelabeltree} and in \eqref{pmfailih} we use the induction hypothesis.
+where in \eqref{pmfailchoice} we choose $u_0,w_0$ with the lowest value of \[\Pr_{G\in\G_m}(\text{$T_{v?=\{u_0,w_0\}}|v?=\{u_0,w_0\}$}),\] the bound follows the fact that all $\Pr_{G\in\G_m}(v?=\{u,w\})$ are the same for distinct non-zero $u,w$. In \eqref{pmfaillemma} we use the lemma \ref{lemmrelabeltree} and in \eqref{pmfailih} we use the induction hypothesis.
 \end{proof}
 
 \begin{crll}\label{crllpPathtreefail}
 For a tree $T\in F_{nbtree}$ and $c\in \N$ we have that
-\[\st\left(\Pr_{G\in\G_{n-c}}[T\text{ fails}]\right)\approx 1.\]
+\[\st\left(\Pr_{G\in\G_{n-c}}[T\text{ fails}]\right)= 1.\]
 \end{crll}
 \begin{proof}
 Since $T$ has depth at most $n^{1/t}$ for some $t>\mathbb{N}$ we by the previous lemma that
@@ -168,7 +168,7 @@ But by definition of $\gamma$ and Corollary \ref{crllpPathtreefail} we have
 A contradiction.
 \end{proof}
 
-\begin{crll}
+\begin{crll}\label{crllpPATH}
 $\Th(\lim_{F_{nbtree}}\pPATH_n)$ is complete.
 \end{crll}
 \begin{proof}
@@ -185,7 +185,7 @@ So far we have proved that the hardest instances of $\LEAF$ do not have a soluti
 We define $\pPATHl_k$ (the pointed paths on $k$ vertices of length at most $k$) as the set of all (undirected) graphs $G$ on the vertex set $\set{k}$, where $G$ has a subgraph isomorphic to the path on $l\leq k$ vertices, $\deg_G(0)=1$ and no other edges.
 \end{defi}
 
-Imediatelly we have that $\pPATH_k$ is a portion of $\pPATHl_k,$ we can prove even more.
+Immediately we have that $\pPATH_k$ is a portion of $\pPATHl_k,$ we can prove even more.
 
 \begin{defi}
 We define $\pPATH_k^{\leq l}$ as the portion of $\pPATHl_k$ where the path subgraph is of length at most $l$. And we define $\pPATH_k^{l}=\pPATH_k^{\leq l}\setminus \pPATH_k^{\leq l-1}$.
@@ -213,7 +213,7 @@ and the denominator tends to $ec!$ as $k\to\infty$.
 Let $T\in F_{nbtree}$ be a tree, then
 \[\st\left(\Pr_{G\in\pPATH_{n-c}}[\text{$T$ fails}]\right )=\st\left(\Pr_{G\in\pPATH_{n}^{n-c}}[\text{$T$ fails}]\right).\]
 \end{lemm}
-\begin{proof}(Sketch)
+\begin{proof}(sketch)
 If $T$ computing on a $G\in\pPATH_n^{n-c}$ does not inspect a degree 0 vertex, then it can be relabeled to compute on a graph $G\in\pPATH_{n-c}$ and probability of inspecting a degree 0 vertex is infinitesimal for all $c\in \N$.
 \end{proof}
 
@@ -239,17 +239,18 @@ which tends to $1$ as $k\to\infty$.
 By Lemma \ref{lemmpathmaj} we have that $\G_k$ is a major portion with decomposition $\pPATH_k^{k-c}$. Each of them with a wide limit that has no nonzero vertices of degree 1 by Lemma \ref{lemmpathnnc} and \ref{crllpPathtreefail}. We can lower bound the probability of a substituted open kernel (which is enough as in the proof of Lemma \ref{lemmhere}) of any $\Gamma$-sentence $\varphi$ with a nonstandardly large sum of conditional probabilities each conditioned by $[G\in\pPATH_k^{k-c}]$ and all of which agree on the value.
 \end{proof}
 
-So we have for a larger set of instances that their wide limit has no solution relative to $F_{nbtre}$.
+So we have for a larger set of instances that their wide limit has no solution relative to $F_{nbtree}$. Moreover, we have the following.
 
-We did not get to describe $\Th(\lim_{F_{nbtree}}\pPATHl_n)$. However, we suspect that if $T$ fails to find the end of the path in $\pPATHl_n$ with probability infinitesimally close to 1 then it should also fail to find any degree 0 vertex. Which leads us to the following.
-
-\begin{conj}
+\begin{crll}\label{crllpPATHl}
 \[\Th\left(\lim_{F_{nbtree}}\pPATHl_n\right)=\Th\left(\lim_{F_{nbtree}}\pPATH_n\right)\]
-\end{conj}
+\end{crll}
+\begin{proof}
+Since the wide sequences $\pPATH_k^{k-c}$, for $c\in\N$, partition a major portion of $\pPATHl_k$, and in each of them the probability of a tree in $F_{nbtree}$ inspecting a degree 0 vertex is infinitesimal, we have that the wide limit of the major portion $\G_k'$ satisfies the theory $\Th(\lim_{F_{nbtree}}\pPATH_n)$ and therefore so does $\lim_{F_{nbtree}}\pPATHl_n$ .
+\end{proof}
 
 
 
-\section{$\G_k=\pDPATH$}
+\section{$\G_k=\pDPATH$}\label{secpDPATH}
 
 As $\pPATH_k$ was the wide sequence consisting of the hardest instances of $\LEAF$ the complete problem for $\PPA$, we define $\pDPATH_k$ analogously but in the directed case so it consists of the hardest instances of $\SOURCEORSINK$ the complete problem for $\PPAD$.
 
@@ -276,16 +277,16 @@ Computation of such a tree on a undirected graph $G$ goes as follows. We interpr
 We will not cover details, but analysis of these trees in $F_{dtree}$ finding the nonzero sink is more or less the same as the $F_{nbtree}$ case for $\pPATH_k$, so we have the following.
 
 \begin{thrm}
-\[\lim_{F_{nbtree}}\pDPATH_n\bbl(\exists v)(\exists u)(\forall w)((v\not=0)\land (\Gamma(v,u)) \land(\Gamma(v,w) \to u=w))\bbr=\0\]
+\[\lim_{F_{nbtree}}\pDPATH_n\bbl(\exists v)(\forall w)((v\not=0)\land \lnot\Gamma(v,w))\bbr=\0\]
 \end{thrm}
 
-\begin{crll}
-$\Th(\lim_{F_{nbtree}}\pPATH_n)$ is complete.
+\begin{crll}\label{crllpDPATH}
+$\Th(\lim_{F_{nbtree}}\pDPATH_n)$ is complete.
 \end{crll}
 
 In the type 2 complexity theory of $\TFNP^2$ of the problems $\LEAF$ and $\SOURCEORSINK$ we know that there is no (oracle polynomial time) reduction from $\LEAF$ to $\SOURCEORSINK$. An important question arises -- does this reflect in the arithmetic $K(\pPATH_n,F_{nbtree})$? More specifically we ask the following.
 
 \begin{ques}
-Is it true that
-\[K(\pPATH_n,F_{nbtree})\bbl\text{Every $\SOURCEORSINK$ instance has a solution.}\bbr=\0?\]
+Is it true that if $\varphi$ is an $L$-sentence formalizing that every $\SOURCEORSINK$ instance has a solution then
+$K(\pPATH_n,F_{nbtree})\bbl\varphi\bbr=\0?$
 \end{ques}

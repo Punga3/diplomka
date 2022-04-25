@@ -1,16 +1,19 @@
 \chapter{General theory}\label{chapgeneraltheory}
 \section{$\mathcal{G}_k=\EDGE_k$}
-We consider the classes of graphs
-\[\EDGE_k:=\{\text{$(k,E); \abs{E}=1$}\},\]
-and we let $\mathcal{G}_k=\EDGE_k$ and $F=F_{tree}$.
+The first and simplest wide sequence one can think of is the class of graphs with exactly one edge. We put
+\[\EDGE_k:=\{\text{$(\set{k},E); \abs{E}=1$}\},\]
+and one can check that this is indeed a wide sequence because $\abs{\EDGE_k}=\binom{k}{2}$ which tends to infinity as $k$ does.
 
-Intuitivelly one should not be able to find the edge on a significant i.e. non-infinitesimal fraction of samples with a tree that is allowed to explore only an infinitesimal fraction of edges.
+Now every graph $G\in\EDGE_k$ has an edge. How does this reflect in the $F_{rud}$ wide limit? The first guess could be that there should also be an edge but another view lets us see this should not be the case. The limit encompasses the procedure of randomly sampling an exponentially large graph and then inspecting a subexponential part of its edges. In the pseudofinite case this means that we search for one edge in the nonstandard set of vertices but only search through infinitesimally small portion and so we should almost always fail.
+
+This is exactly how we prove in the following theorem.
 
 \begin{thrm}\label{thrmedge}
-We will prove that \[\bbl(\exists x)(\exists y)\Gamma(x,y)\bbr=\textbf{0}.\]
+We will prove that \[\lim_{F_{rud}}\EDGE_n\bbl(\exists x)(\exists y)\Gamma(x,y)\bbr=\textbf{0}.\]
 \end{thrm}
 \begin{proof}
-Let $T\in F_{tree}$ be a tree of depth $n^{1/t}$, for some $t>\mathbb{N}$ that outputs a pair of numbers less than $n$.
+If any two trees $T_\alpha$ and $T_\beta$ computed the witnesses $\alpha,\beta$ of the formula $\Gamma(x,y)$ on some subset of $\Omega$ we can combine then into one tree that outputs an edge one the same subsets $\Omega$, so we can just analyze the case where the witnesses are computed by the same tree. Let $T\in F_{rud}$ be a tree of depth $n^{1/t}$, for some $t>\mathbb{N}$, that outputs a pair vertices.
+
 
 Start from the root of $T$ and always choose the path that corresponds to an edge not existing. At the end we obtain some answer, that gives us a set of at most $2 \cdot n^{1/t}+2$ vertices. Now we can find at least: 
 \begin{align}
@@ -30,19 +33,17 @@ And one can clearly see that $\st(1-\frac{4n^{1/t}-4}{n})=1$. This proves that t
 
 \section{Sparse $\mathcal{G}_k$}
 
-One can see that in Theorem \ref{thrmedge} the exact shape of graphs in $\mathcal{G}_k$ does not play a crucial role. If $\mathcal{G}_k$ consisted of all graphs on $k$ verticies containing say exactly one triangle, or any other fixed subgraph of constant size, and no other edges, we would still find that the non-existence is valid in the limit graph.
+One can see that in Theorem \ref{thrmedge} the exact shape of graphs in $\mathcal{G}_k$ does not play a crucial role. If $\mathcal{G}_k$ consisted of all graphs on $k$ vertices containing say exactly one triangle, or any other fixed subgraph of constant size, and no other edges, we would still find that the non-existence is valid in the $F_{rud}$ wide limit.
 
-A more general case would be to consider a family of graphs in which there is an infinitesimally small chance that two independent uniformly random verticies have an edge between. However, this is not sufficient.
+A more general case would be to consider a family of graphs in which there is an infinitesimally small chance that two independent uniformly random vertices have an edge between. However, this is not sufficient.
 
 \begin{exam}
-Let $\mathcal{G}_k$ consist of those graphs on the vertex-set $k$ which contain the edge $E(0,1)$ and then has exactly one other edge. 
-
-As $k$ increases, the number of edges get smaller than any standard positive fraction. But
-\[\bbl(\exists x)(\exists y)E(x,y)\bbr=\1,\]
+Let $\mathcal{G}_k$ consist of those graphs on the vertex-set $k$ which contain the edge $E(0,1)$ and then has exactly one other edge. As $k$ increases, the fraction of edges gets smaller than any standard positive fraction. But
+\[\bbl(\exists x)(\exists y)\Gamma(x,y)\bbr=\1,\]
 as witnessed by $x$ being the constant $0$ and $y$ the constant $1$ both of which are computable by a tree of depth $0$.
 \end{exam}
 
-One can see that having distinguished verticies can ruin the sparseness implying the non-existence of edges in the limit graph. We want to distiguish from this situation by considering the sequences $\mathcal{G}_k$ satisfying the following natural definition.
+One can see that having distinguished vertices can result in the edge being found. We want to distinguish from this situation by considering the sequences $\mathcal{G}_k$ satisfying the following natural definition.
 
 \begin{defi}
 We say that $\{\mathcal{G}_k\}_{k=0}^\infty$ is \textbf{isomorphism closed}, if there is $k_0$ such that for every $k>k_0$ if we have that $G_1\in\mathcal{G}_k$, $V_{G_2}=g_k$ and $G_1\cong G_2$ then $G_2\in\mathcal{G}_k$.
@@ -54,7 +55,7 @@ Let an isomorphism closed $\mathcal{G}_k$ have the following property. There is 
 \[\Pr[E_G(u,v)]\leq b_k,\]
 and some $k_0$ such that $\lim_{k\to\infty}k^{1/k_0}b_k = 0.$ Then
 
-\[\bbl(\exists x)(\exists y)\Gamma(x,y)\bbr=\0.\]
+\[\lim_{F_{rud}}\bbl(\exists x)(\exists y)\Gamma(x,y)\bbr=\0.\]
 \end{thrm}
 \begin{proof}
 Let us define the number $c_{u,v}:=\abs{\{G\in\mathcal{G}_k; E_G(u,v)\}}$, which is the number of graphs $G$ in $\mathcal{G}_k$ satisfying $E_G(u,v)$. Of course $c_{u,u}=0$ for every $u$.
@@ -100,7 +101,7 @@ We use the fact that $p\leq b_n$ to derive
 which proves the theorem.
 \end{proof}
 
-The assumption $\lim_{k\to \infty} k^{1/k_0}b_k=0$ for some $k_0$ may seem unintuitive at first. However, it precisely reflects what is ``sparse" for the trees in $T_{tree}$. The following example shows that without the assumption the theorem fails.
+The assumption $\lim_{k\to \infty} k^{1/k_0}b_k=0$ for some $k_0$ may seem unintuitive at first. However, it precisely captures what is ``too sparse" for the trees in $F_{rud}$. The following example shows that without the assumption the theorem fails.
 
 \begin{exam}\label{examsparseedge}
 Let $\mathcal{G}_k$ consist of all graphs on the vertex set $\set{k}$ with precisely $\lceil\frac{k(k-1)}{2\log k}\rceil$ edges.
@@ -138,8 +139,7 @@ So $\st(\Pr_{G\in\mathcal{G}_n}[T\text{ fails}])=0$ and we get
 
 \section{Dense $\G_k$}
 
-Let us now consider how the density of a specific kind of substructure in the wide sequence corresponds to that substructure existing in the wide limit. Let $\varphi(\overline x)$ be an $\{E\}$-formula determining the isomorphism type of $\overline x$, note that for a constant tuple $\overline \alpha\in F_{rud}$ (computed by trees of depth 0) we have
-\[\mu(\bbl\varphi(\overline \alpha)\bbr)=\st(\Pr_{\omega\in\Omega}[\omega\models \varphi(\overline \alpha)]).\]
+Let us now consider how the density of a specific kind of substructure in the wide sequence corresponds to that substructure existing in the wide limit. The following theorem presents a sufficient condition for nonexistance to be invalid. Furthermore, this condition holds generally for all $F$ which contain all constants.
 
 \begin{thrm}\label{thrmexists}
 Let $F$ contain all constants, $\G_k$ be a wide sequence and let $(\forall \overline x)\varphi_0(\overline x)$ be an open $\{E\}$-formula such that
@@ -177,18 +177,18 @@ by the theorem it follows that we have
 \[\lim_{F}\G_n\bbl(\exists x)(\exists y)\lnot E(x,y)\bbr=\1.\]
 \end{exam}
 
-We follow with a less straightforward use of the theorem.
+We follow with an application of the theorem on a more complex wide sequence.
 
 \begin{exam}\label{examskhalf}
 Consider
 \begin{align*}
 \SK_k^{1/2}&:=\{(\set{k},E);\text{$E$ has a clique of size $\floor{k/2}$}, \abs{E}=\abs{E_{K_{\floor{k/2}}}}\},
 \end{align*}
-a wide sequence of all graphs with exactly one $\floor{k/2}$ clique and no other edges. One can check that for any $\{E\}$-formula $\varphi_l(\overline x)$ stating that $\overline x$ form a clique of size $l$ we claim that 
-\[\lim_{k\to\infty} \Pr_{\substack{G\in\SK_k^{1/2}\\\overline a \in \set{k}^l}}[G\models \varphi(\overline a)]\geq(1/2)^l,\]
+a wide sequence of all graphs with exactly one $\floor{k/2}$ clique and no other edges. One can check that for any $\{E\}$-formula $\varphi_l(\overline x)$ stating that $\overline x$ forms a clique of size $l$ we claim that 
+\[\lim_{k\to\infty} \Pr_{\substack{G\in\SK_k^{1/2}\\\overline a \in \set{k}^l}}[G\models \varphi^\Gamma(\overline a)]\geq(1/2)^l,\]
 first notice that we can compute the probability for fixed $\overline a$ because $\SK_k^{1/2}$ is isomorphism closed. So we have
 \begin{align}
-\Pr_{G\in\SK_k^{1/2}}[G\models \varphi_l(\overline a)]&=\frac{\binom{k-l}{\floor{k/2}-l}}{\binom{k}{\floor{k/2}}}\\
+\Pr_{G\in\SK_k^{1/2}}[G\models \varphi_l^\Gamma(\overline a)]&=\frac{\binom{k-l}{\floor{k/2}-l}}{\binom{k}{\floor{k/2}}}\\
 &=\prod_{i=0}^l\frac{k-\floor{k/2}-i}{k-i}\\
 &=\prod_{i=0}^l\left(1-\frac{\floor{k/2}}{k-i}\right)\\
 &\geq\prod_{i=0}^l\left(1-\frac{k/2}{k-i}+\frac{1}{k-i}\right)\\
@@ -204,11 +204,13 @@ This proves that for any $F$ that contains all constants we have
 \[\lim_{F}\SK_{n}^{1/2}\bbl(\exists \overline x)\varphi_l(\overline x)\bbr>\0.\]
 \end{exam}
 
+Now the following theorem describes sufficient conditions for a universal sentence to hold in the wide limit for \textit{any} $F$.
+
 \begin{thrm}\label{thrmuni}
-Let $F$ contain all constants, let $\G_k$ a wide sequence and let $\varphi_0(\overline x)$ be an open $\{E\}$-sentence, such that
+Let $F$ by any $L$-closed class of function, let $\G_k$ a wide sequence and let $\varphi_0(\overline x)$ be an open $\{E\}$-sentence, such that
 \[\lim_{k\to\infty}\Pr_{G\in\mathcal{G}_k}(G\models\varphi)=1.\]
 
-Then $\lim_F \G_n \bbl(\forall \overline x)\varphi_0(\overline x)\bbr=\1.$
+Then $\lim_F \G_n \bbl(\forall \overline x)\varphi_0^{\Gamma}(\overline x)\bbr=\1.$
 
 
 \end{thrm}
@@ -235,14 +237,22 @@ and let
 Which says that if $a,b,c,d$ are distinct then there is an edge between one of them. The universal closure is valid on all graphs in $\G_k^B$ and none of the graphs in $\G_k^A$. Since $\binom{\binom{n}{2}}{2}/\binom{\binom{n}{2}}{n-3}$ is infinitesimal we have that $\lim_{k\to\infty} \binom{\binom{k}{2}}{2}/\binom{\binom{k}{2}}{k-3}=0$ we have by Theorem \ref{thrmuni} that $\lim_F \G_n \bbl(\forall a,b,c,d)\varphi_0^\Gamma(a,b,c,d)\bbr=\1$ for any $F$ containing all constants.
 \end{exam}
 
+The Theorem \ref{thrmuni} also implies that since all $G\in\G_k$ satisfy that $E_G$ is antireflexive then so does $\lim_{F}\G_n$ and if $E_G$ are all symmetrical then so it the wide limit edge relation $\Gamma$. This combined with Theorem \ref{thrmsparse} to prove the following.
+
+\begin{crll}[0-1 law for too sparse $F_{rud}$ sequence]\label{crlltoosparse}
+Let $\G_k$ be any wide sequence satisfying the statement of the Theorem \ref{thrmsparse}. Then $\Th(\lim_{F_{rud}})\G_n)$ is the theory of the empty graph and therefore complete. 
+\end{crll}
+
 It is natural to ask whether we can weaken the assumption of Theorem \ref{thrmuni} to an assumption analogous to Theorem \ref{thrmexists}. In other words, is
 \[\lim_{k\to\infty}\Pr_{\substack{G\in\G_k\\\overline a\in \set{g_k}^l}}[G\models\varphi_0(\overline a)]=1\]
 enough to imply $\lim_F\G_n\bbl(\forall x)\varphi_0^\Gamma(\overline x)\bbr=\1$? Unfortunately no, as we can see in the following example.
 
 \begin{exam}Recall Example \ref{examsparseedge} where $\G_k$ consists of all graphs on $\set{k}$ with exactly $\floor{\frac{k(k-2)}{2\log k}}$ edges. One can easily check that
 \[\lim_{k\to\infty}\Pr_{\substack{G\in\G_k\\u,v \in \set{k}}}[G\models \lnot E(u,v)]=1,\]
-but we proved that $\lim_{F_{rud}}\G_n \bbl(\exists x,y)E(x,y)\bbr=\1$ in other words we have \[\lim_{F_{rud}}\bbl(\forall x,y)\lnot E(x,y)\bbr=\0.\]
+but we proved that $\lim_{F_{rud}}\G_n \bbl(\exists x,y)\Gamma(x,y)\bbr=\1$ in other words we have \[\lim_{F_{rud}}\bbl(\forall x,y)\lnot \Gamma(x,y)\bbr=\0.\]
 \end{exam}
+
+\section{$\G_k=\ALL_k$}
 
 Now we return to $F=F_{rud}$ and prove a theorem with a more limited use which however forces the truth value of the existential sentence in the wide limit to be $\1$.
 
@@ -267,16 +277,10 @@ For $j\in[l]$ construct a tree $T_j$ inductively as follows: Start with $T_{\ove
 Call $\overline \alpha$ the tuple computed by $T_0,\dots,T_{l-1}$. We will prove that probability of $\overline \alpha$ being a witness to $\varphi_0(\overline x)$ is 1. For each $\overline a_i$ we have, that the probability of $G\models\varphi_0(\overline a_i)$ is at least $p$. The mutual independence of ${\{G\models\varphi_0(\overline a_i);i\in[n']\}}$ and the construction of $T_j$ implies that $T_j$ has a probability of $(1-p)^{n'}$ of failing, which is obviously almost $0$.
 \end{proof}
 
-\begin{exam}
-Let \[\mathcal{G}_k=\{([k],E);\text{$E$ at least one edge, and may have exactly $k/2$ more from start}\}\]
-
-and let $F=F_{tree}$. Then $\mu(\bbl(\exists x)(\exists y)\Gamma(x,y)\bbr)=\frac{1}{2}$.
-\end{exam}
-
 We now use this theorem to characterize the theory of another wide limit. We denote
 \[\ALL_k=\{G \text{ undirected graph, }V_G=\set{k}\}.\]
 
-Note that if we consider an open $\{E\}$-formula $\varphi(\overline x)$ and convert it to DNF we get a disjunction of conjuctions. Each such conjuction says which first order literals should be satisfied on the variables $\overline x$, the following theorem is proved for conjunctons of literals. By the fact that $\bbl\dots\bbr$ commutes with disjunctions, we can find out a value of any existential sentence.
+Note that if we consider an open $\{E\}$-formula $\varphi(\overline x)$ and convert it to DNF we get a disjunction of conjunctions. We can do this in a way that each disjunct fully describes which variables $x_i$ should be equal. Each such conjunction says which first order literals should be satisfied on the variables $\overline x$, the following theorem is proved for conjunctions of literals. By the fact that $\bbl\dots\bbr$ commutes with disjunctions, we can find out a value of any existential sentence.
 
 \begin{thrm}[Everything exists]
 Let $\varphi(\overline x,\overline y)=\Land_{i=0}^{m-1}\psi_i(\overline x,\overline y)\land \Land_{i=0}^{l-1}\vartheta_i(\overline y)$, where $\psi_i,\vartheta_i$ are literals and $\psi_i$ are not of the form $(y_i=y_j)^b$, $E(y_i,y_j)^b$, $x_i\not= x_i$, $E(x_i,x_i)$, $b\in\{0,1\}$ such that
@@ -286,7 +290,7 @@ Let $\varphi(\overline x,\overline y)=\Land_{i=0}^{m-1}\psi_i(\overline x,\overl
 \item if $\psi_i$ is of the form $E(x_i,z)^b$ for $z$ in $\overline x$ or $\overline y$ then no other $\psi_j$ is of the form $E(x_i,z)^{1-b}$ or $E(z,x_i)^{1-b}$.
 \end{itemize}
 
-If $\overline \beta$ is a tuple of vertices computed by $F_{tree}$ of the same length as $\overline y$ then \[\lim_{F_{rud}}\G_n\bbl(\exists \overline x)\varphi^\Gamma(\overline x,\overline \beta)\bbr=\lim_{F_{rud}}\G_n\bbl\Land_{i=0}^{l-1}\vartheta_i(\overline \beta)\bbr,\] specifically if $l=0$ then
+If $\overline \beta$ is a tuple of vertices computed by $F_{rud}$ of the same length as $\overline y$ then \[\lim_{F_{rud}}\G_n\bbl(\exists \overline x)\varphi^\Gamma(\overline x,\overline \beta)\bbr=\lim_{F_{rud}}\G_n\bbl\Land_{i=0}^{l-1}\vartheta_i(\overline \beta)\bbr,\] specifically if $l=0$ then
 
 \[\lim_{F_{rud}}\G_n\bbl(\exists \overline x)\phi_0(\overline x,\overline \beta)\bbr=\1.\]
 \end{thrm}
@@ -301,7 +305,7 @@ Therefore
 \end{align}
 \end{proof}
 
-The statement of the theorem was rather technical, but we can now use it to prove a few corollaries.
+The statement of the theorem was rather technical, but we can now use it to prove the following corollaries.
 
 \begin{crll}For each $\varphi(\overline x)$ that is not a contradiction in the theory of graphs we have that $\bbl(\exists \overline x)\varphi^\Gamma(\overline x)\bbr=1.$
 \end{crll}
@@ -312,14 +316,14 @@ The conditions on $\psi_i$ are exactly saying that the conjunction is not a cont
 For each $\varphi(\overline x,\overline y)$ that is not falsifiable by $\overline y$ in the theory of graphs we have that $\bbl(\forall \overline y)(\exists \overline x)\varphi^\Gamma(\overline x)\bbr=\1$.
 \end{crll}
 \begin{proof}
-No $\overline \beta$ can falsify $(\exists \overline x)\varphi(\overline x,\overline \beta)$, this means we can invoke the theorem on one of the non-falsifiable conjuncts.
+No $\overline \beta$ can falsify $(\exists \overline x)\varphi(\overline x,\overline \beta)$, this means we can invoke the theorem on one of the non-falsifiable disjuncts.
 \end{proof}
 
-\begin{thrm}
+\begin{thrm}\label{thrmall}
 The theory \[\Th(\lim_{F_{rud}}\ALL_n)\] is the theory of the Rado graph and therefore complete.
 \end{thrm}
 \begin{proof}
-In \cite{gaifman1964rado} it is proved that the theory of the Rado graph is axiomatized by the theory of undirected graphs and the sentences $E_{i,j}$ which say that if we have a set $A$ of $i$ distinct vertices and a set $B$ of $j$ distinct vertices such that $A\cap B=\varnothing$, then there is a vertex $v$ which has an edge with all vertices from $A$ and no vertices from $B$.
+In \cite{gaifman1964rado} it was proved that the theory of the Rado graph is axiomatized by the theory of undirected graphs and the sentences $E_{i,j}$ which say that if we have a set $A$ of $i$ distinct vertices and a set $B$ of $j$ distinct vertices such that $A\cap B=\varnothing$, then there is a vertex $v$ which has an edge with all vertices from $A$ and no vertices from $B$.
 
 Each $E_{i,j}$ satisfies the statement of Corollary \ref{crllev2} and because it is also an complete theory we have proved the theorem.
 \end{proof}
@@ -338,7 +342,7 @@ Let $\G_k$ be a wide sequence, we say that $\G_k'$ is a \textbf{portion} of $\G_
 which we denote $\G_k' \leqp \G_k$.
 \end{defi}
 
-\begin{lemm}\label{lemmhere}
+\begin{lemm}[The hereditary property of 0-1 sentences]\label{lemmhere}
 Let $\G_k'\leqp \G_k$ be wide sequence and let $\varphi$ be an $\{E\}$-sentence such that
 \[\lim_{F}\G_n\bbl\varphi\bbr\in\{\0,\1\}\]
 then

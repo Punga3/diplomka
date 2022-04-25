@@ -71,8 +71,8 @@ Let $S_0,\dots,S_{a-1}\subseteq\set{n}$ sets of size $a\in \M$ for $i\in \M$ the
 
 Now we are ready to improve on Theorem \ref{thrmsk1}.
 
-\begin{thrm}
-Let $m\geq 2 \ln n$ infinitesimal, then
+\begin{thrm}\label{thrmsk}
+Let $m = 2 \ln n$. Then
 \[K(\SK_k^{1/2},F,G)\bbl\text{$\Gamma$ has a clique of size $\floor{n/m}$}\bbr=\1.\]
 \end{thrm}
 \begin{proof}
@@ -99,7 +99,14 @@ Because $T_{S_i}(\omega)\in S_i$ when $S_i$ succeeds, and $S_i$ are disjoint we 
 Which proves the theorem.
 \end{proof}
 
-Even though the size of the clique has radically increased we still did not find a clique in $\Gamma$ of size $n/2$. One can verify that with the method provided one cannot obtain such a clique because the probability that any of $\floor{n/2}$ two-element sets does not intersect the clique is too large. Once can also check that for $\SK_{k}^{1/l}$, the graphs whose edges are exactly one $\floor{k/l}$ clique, the wide limit has a clique of size $\floor{n/m}$ for any $m\geq l\cdot \ln(m)$ by the same technique.
+Once can also check that for $\SK_{k}^{1/l}$, the graphs whose edges are exactly one $\floor{k/l}$ clique, the wide limit has a clique of size $\floor{n/m}$ for $m=l\cdot \ln(m)$ by the same technique.
+
+Even though the size of the clique has radically increased we still did not find a clique in $\Gamma$ of size $n/2$. One can verify that with the method provided one cannot obtain such a clique because the probability that any of $\floor{n/2}$ two-element sets does not intersect the clique is too large. 
+
+\begin{ques}
+Is $\floor{n/(2\ln n)}$ the clique number in the boolean valued graph $\lim_{F_{rud}}^{G_{rud}}\SK_n^{1/2}$, measured in $K(\SK_k^{1/2},F,G)$?
+\end{ques}
+
 
 \section{$\G_k=\CK_k^{1/2}$}
 
@@ -108,7 +115,7 @@ Now let us mention the more complex case of the wide sequence $\CK_k^{1/2}$
 
 We are still guaranteed that every $\omega$ contains a large clique but there is no easy way to check whether a given vertex $v$ is contained in the large clique. To prove the following theorem we can use that $\CK_k^{1/2}$ is isomorphism closed to translate the case for $\SK_k^{1/2}$ at least for the case of cliques of standard size.
 
-\begin{thrm}
+\begin{thrm}\label{thrmck}
 Let $c\in\N$ then 
 \[K(\CK_k^{1/2},F,G)\bbl\text{$\Gamma$ has a clique of size $c$}\bbr>\0.\]
 \end{thrm}
@@ -124,7 +131,7 @@ From the fact that $\CK_k^{1/2}$ is isomorphism closed, we have that $\abs{\pi_2
 \[A_{\overline a} :=\{G\in\G_n;G\models \varphi_c(\overline a)\}.\]
 and in the sample space $\G_n^+$
 \[A_{\overline a}^+ :=\{(G,U)\in\G_n^+;\overline a\text{ is a subclique of $U$}\}\]
-notice that if $(G,U)\in A_{\overline a}^+$ then $G\in A_{\overline a}$ which implies
+notice that if $(G,U)\in A_{\overline a}^+$ then $G\in A_{\overline a}$ which implies (by another argument with projections) that
 \[\nu\cdot\abs{A_{\overline a}}\geq \abs{A_{\overline a}^+}\]
 so in conjunction with Example \ref{examskhalf} we have
 \begin{align*}

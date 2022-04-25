@@ -20,7 +20,7 @@ From now on we closely follow Chapter 1 of \cite{krajicek2010forcing}. Let $\mat
 
 
 \begin{defi}
-Let $\mathcal{A}:=\{A\in\mathcal{M};A\subseteq \Omega\}$ the set of all subsets of $\Omega$ represented by an element in $\M$.
+Let $\mathcal{A}:=\{A\in\mathcal{M};A\subseteq \Omega\}$ be the set of all subsets of $\Omega$ represented by an element in $\M$.
 
 We define the \textbf{counting measure} as the uniform probability of $A$ when we sample $\Omega$ uniformly, so we have
 \[A\in\A \to \abs{A}/\abs{\Omega},\]
@@ -41,7 +41,7 @@ We can also check, that now $\mu$ is a measure in the ordinary sense and that $\
 $\B$ is a complete boolean algebra.
 \end{lemm}
 
-Now we define a $\B$-valued arithmetical model through which we define the $\B$-valued first order limit of $\G_k$ relative to a family of arithmetical functions. 
+We now define what we require of the family of functions $F$ we already mentioned.
 
 \begin{defi}
 Let $L\subseteq L_{all}$ and let $F$ be a non-empty set of functions in $\M$. We call it an \textbf{$L$-closed family} if it satisfies the following:
@@ -53,7 +53,22 @@ for $k\in\N$, $f\in L$ $k$-ary and $\alpha_1,\dots,\alpha_k\in F$.
 \end{itemize}
 \end{defi}
 
+Now we can finally define the wide limit and its underlying arithmetic. We will touch on the arithmetic in Section \ref{secpDPATH} and as we only consider the wide limit itself in Chapter \ref{chapgeneraltheory}.
+
 Note that while every $\alpha\in F$ is represented by some element in $\M$ this need not be the case for the whole family $F$. From now on $\Gamma$ denotes a binary relational symbol which we understand as `limit edge relation'. For a $\{E\}$-formula $\varphi$ we denote its translation to a $\{\Gamma\}$-formula by rewriting every $E$ to $\Gamma$ as $\varphi^{\Gamma}$.
+
+\begin{defi}
+We call a function $\alpha\in F$ an $F$-vertex if ${\alpha:\Omega\to\set{g_n}}.$ We define a $\B$-valued graph $\lim_{k\to n}^{F}G_k$ as an $\{\Gamma\}$-structure, where $\Gamma$ is a binary relation symbol, with universe $\{\alpha\in F; \alpha\text{ is an $F$-vertex}\}$ and $\Gamma$-sentences being evaluated by the following inductive conditions:
+\begin{itemize}
+\item $\bbl \alpha=\beta \bbr := \{\omega\in\Omega; \alpha(\omega)=\beta(\omega)\}/\I.$
+\item $\bbl \Gamma(\alpha,\beta) \bbr := \{\omega\in\Omega; E_G(\alpha,\beta))\}/\I$.
+\item $\bbl-\bbr$ commutes with $\land$,$\lor$,$\lnot$.
+\item $\bbl(\exists x)A(x)\bbr:=\Lor_{\alpha\in F}\bbl A(\alpha)\bbr$.
+\item $\bbl(\forall x)A(x)\bbr:=\Land_{\alpha\in F}\bbl A(\alpha)\bbr$.
+\end{itemize}
+
+By abuse of notation we will usually denote the limit $\lim_{F}\G_n$.
+\end{defi}
 
 \begin{defi}
 Let $F$ be an $L$-closed family for some $L\subseteq L_{all}$. Then $K(\G_n,F)$ will denote a $\B$-valued $L\cup\{\Gamma\}$-structure defined as follows. The universe of $K(F)$ is $F$. The boolean evaluations of $L$-sentences are defined by the following inductive rules:
@@ -70,26 +85,14 @@ Let $F$ be an $L$-closed family for some $L\subseteq L_{all}$. Then $K(\G_n,F)$ 
 We call $F(\G_n,F)$ the \textbf{underlying arithmetic of the first order wide limit}.
 \end{defi}
 
-\begin{defi}
-We call a function $\alpha\in F$ an $F$-vertex if ${\alpha:\Omega\to\set{g_n}}.$ We define a $\B$-valued graph $\lim_{k\to n}^{F}G_k$ as an $\{\Gamma\}$-structure, where $\Gamma$ is a binary relation symbol, with universe $\{\alpha\in F; \alpha\text{ is an $F$-vertex}\}$ and $\Gamma$-sentences being evaluated by the following inductive conditions:
-\begin{itemize}
-\item $\bbl \alpha=\beta \bbr := \{\omega\in\Omega; \alpha(\omega)=\beta(\omega)\}/\I.$
-\item $\bbl \Gamma(\alpha,\beta) \bbr := \{\omega\in\Omega; E_G(\alpha,\beta))\}/\I$.
-\item $\bbl-\bbr$ commutes with $\land$,$\lor$,$\lnot$.
-\item $\bbl(\exists x)A(x)\bbr:=\Lor_{\alpha\in F}\bbl A(\alpha)\bbr$.
-\item $\bbl(\forall x)A(x)\bbr:=\Land_{\alpha\in F}\bbl A(\alpha)\bbr$.
-\end{itemize}
-
-By abuse of notation we will usually denote the limit $\lim_{F}\G_n$.
-\end{defi}
 
 \section{The second order limit}
 
 While we can find a truth value of a sentence in the language of graphs in the limit $\lim_{F}\G_n$, we will encounter situations where this is not sufficient to analyze the wide sequence $\{\G_k\}_{k>0}$. 
 
-In Chapter \ref{chapdense} we will investigate how does existence of large cliques correspond to the size of cliques in the limit graph. But we cannot just measure the set-theoretical cardinality of any such clique, for specific $n$ we could very well have $\card(\set{\floor{\log{n}}})=\card(\set{\floor{\frac{n}{2}}})$ but from the point of view of complexity theory cliques of size $\floor{\log n}$ and $\floor{\frac{n}{2}}$ are dramatically different. In other words, our goal is also to have means to count the number elements of subsets or relations with values in (random variables in) $\M$.
+In Chapter \ref{chapdense} we will investigate how does existence of large cliques correspond to the size of cliques in the limit graph. First we need some way to witness subsets of vertices -- this leads us to the second order wide limit. For it however the underlying arithmetic is much more important because we cannot just measure the set-theoretical cardinality of any such clique, for specific $n$ we could very well have $\card(\set{\floor{\log{n}}})=\card(\set{\floor{\frac{n}{2}}})$ but from the point of view of complexity theory cliques of size $\floor{\log n}$ and $\floor{\frac{n}{2}}$ are dramatically different. In other words, our goal is also to have means to count the number elements of subsets or relations with values in (random variables in) $\M$.
 
-When we say second order we mean by it two-sorted first order structures where one sort represents the usual elements (the `first order' sort) and the other represents functions on those elements (the `second order sort'). The `second order' here can also represent sets and relations by \{0,1\} valued functions.
+When we say second order we mean by it two-sorted first order structures where one sort represents the usual elements (the `first order' sort) and the other represents functions on those elements (the `second order' sort). The `second order' here can also represent sets and relations by \{0,1\} valued functions.
 
 \begin{defi}
 Let $L\subseteq L_{all}$, we call a set of functions $G\subseteq \M$ an $F$-closed \textbf{functional family} if every $\Theta\in G$ assigns to every $\omega\in\Omega$ a function $\Theta_\omega\in\M$ and after we define
@@ -112,26 +115,28 @@ and for the second order quantifiers we have the following inductive clauses
 
 If there is a $\Gamma\in G$ such that for every $\alpha,\beta\in F$ we have
 \[\Gamma(\alpha,\beta)(\omega):=\chi_{E_\omega}(\alpha(\omega),\beta(\omega)),\]
-where $\chi_{E_\omega}$ is the characteristic function of $E_\omega$, we call $K(F,G)$ the \textbf{underlying arithmetic of a second order wide limit}.
+where $\chi_{E_\omega}$ is the characteristic function of $E_\omega$, we call $K(F,G)$ the \textbf{underlying arithmetic of the second order wide limit}.
 
-We define $\lim_{F,n}^G\{\G_k\}_{k>0}$ as the $L^2$-substructure with universe consisting of all $F$-vertices and all $G$-relations. By abuse of notation we will mostly use the notation $\lim_F^G\G_n$.
+We define \textbf{the second order wide limit} $\lim_{F,n}^G\{\G_k\}_{k>0}$ as the two sorted substructure with universe consisting of all $F$-vertices and all $G$-relations. By abuse of notation we will mostly use the notation $\lim_F^G\G_n$.
 \end{defi}
 
-Let us note that if we have multiple boolean valued structures $\M_1,\M_2,\dots$ we may add the name of the structure as a prefix to the valuation function to get $\M_1\bbl-\bbr$ and $\M_2\bbl-\bbr$ to avoid ambiguity or to emphasize the structure where the valuation takes place.
+Let us note that if we have multiple boolean valued structures $\M_1,\M_2,\dots$ we may add the name of the structure as a prefix to the evaluation function to get $\M_1\bbl-\bbr$ and $\M_2\bbl-\bbr$ to avoid ambiguity or to emphasize the structure where the evaluation takes place.
  
 \section{The $L$-closed family $F_{rud}$ and $G_{rud}$}\label{secFrud}
 
-Throughout this thesis we will mostly work with the $L$-closed family $F_{rud}$ which ties the properties of $\lim_F \G_n$ with decision tree complexity.
+Throughout this thesis we will mostly work with the $L$-closed family $F_{rud}$ which ties the properties of $\lim_F \G_n$ with decision tree complexity -- but decision tress can be also seen as an abstraction of oracle machine time we mentioned in the Introduction.
 
 After we choose the sequence $\{\G_k\}_{k>0}$ and $n>\N$ we again put $\Omega:=\G_n$ and define $F_{rud}$ as follows.
 
 \begin{defi}
 We define a \textbf{decision tree} to be a binary tree $T\in\M$ with a labelling of vertices and edges $\ell$. The non-leaf vertices are labeled by pairs of numbers $(u,v)$, where $u,v\in\set{g_n}$ and each edge is labeled either by $1$ or $0$. Each leaf vertex is then labeled by some element of $\M$.
 
-Each $\omega\in\Omega$ uniquely determines a path in $(T,\ell)$ by interpreting the vertex labels as ``is $(u,v)\in E_\omega$?'' and the edge labels as true $(1)$ and false $(0)$. The path then uniquely determines an output.
+Every sample $\omega\in\Omega$ uniquely determines a path in $(T,\ell)$ by interpreting the vertex labels as ``is $(u,v)\in E_\omega$?'' and the edge labels as true $(1)$ and false $(0)$ and the path then uniquely determines an output.
 
 We define $F_{rud}$ to be the set of all functions computed by some $(T,\ell)$ of depth at most $g_n^{1/t}$.
 \end{defi}
+
+Note that if we are given a graph $G\in G_k$ on $g_k$ vertices, we need $l:=2\log g_n$ bits to represent it. In the pseudofinite case $k=n$ if we are restricted to inspect/query at most $g_n^{1/t}$ edges then it corresponds to $2^{O(l/t)}$ many queries or the subexponential oracle time.
 
 One can verify that $F_{rud}$ is an $L$-closed family for any $L\subseteq L_{all}$.
 
