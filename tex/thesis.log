@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.22 (TeX Live 2021/Arch Linux) (preloaded format=pdflatex 2021.12.12)  25 APR 2022 16:06
+This is pdfTeX, Version 3.141592653-2.6-1.40.22 (TeX Live 2021/Arch Linux) (preloaded format=pdflatex 2021.12.12)  25 APR 2022 16:39
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -987,18 +987,22 @@ Package hyperref Warning: Token not allowed in a PDF string (Unicode):
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
 (hyperref)                removing `math shift' on input line 180.
 
-[33] [34]
+[33]
+
+LaTeX Warning: Command \l invalid in math mode on input line 191.
+
+[34]
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 253.
+(hyperref)                removing `math shift' on input line 252.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `subscript' on input line 253.
+(hyperref)                removing `subscript' on input line 252.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 253.
+(hyperref)                removing `math shift' on input line 252.
 
 [35]) [36]
 \openout2 = `scraps.aux'.
@@ -1029,12 +1033,12 @@ Package hyperref Warning: Token not allowed in a PDF string (Unicode):
 (../tex/chapSp.aux) (../tex/scraps.aux) (../tex/epilog.aux)
 (../tex/bibliography.aux))
 Package rerunfilecheck Info: File `thesis.out' has not changed.
-(rerunfilecheck)             Checksum: DEE1269060A329B76469481E7C0838CF;3903.
+(rerunfilecheck)             Checksum: 5B5463D4BF5271D2B6E7F6C183E47519;3959.
  ) 
 Here is how much of TeX's memory you used:
  15589 strings out of 478994
  220292 string characters out of 5864750
- 527460 words of memory out of 5000000
+ 526576 words of memory out of 5000000
  32437 multiletter control sequences out of 15000+600000
  471129 words of font info for 103 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
@@ -1055,7 +1059,7 @@ e/texmf-dist/fonts/type1/public/lm/lmsy8.pfb></usr/share/texmf-dist/fonts/type1
 /public/amsfonts/symbols/msam10.pfb></usr/share/texmf-dist/fonts/type1/public/a
 msfonts/symbols/msbm10.pfb></usr/share/texmf-dist/fonts/type1/public/stmaryrd/s
 tmary10.pfb>
-Output written on thesis.pdf (42 pages, 703716 bytes).
+Output written on thesis.pdf (42 pages, 703871 bytes).
 PDF statistics:
  738 PDF objects out of 1000 (max. 8388607)
  646 compressed objects within 7 object streams

@@ -188,8 +188,7 @@ We define $\pPATHl_k$ (the pointed paths on $k$ vertices of length at most $k$) 
 Immediately we have that $\pPATH_k$ is a portion of $\pPATHl_k,$ we can prove even more.
 
 \begin{defi}
-We define $\pPATH_k^{\leq l}$ as the portion of $\pPATHl_k$ where the path subgraph is of length at most $l$. And we define $\pPATH_k^{l}=\pPATH_k^{\leq l}\setminus \pPATH_k^{\leq l-1}$.
-
+We define $\pPATH_k^{\l}$ as the portion of $\pPATHl_k$ where the path subgraph is of length exactly $l$. 
 \end{defi}
 
 
@@ -284,7 +283,7 @@ We will not cover details, but analysis of these trees in $F_{dtree}$ finding th
 $\Th(\lim_{F_{nbtree}}\pDPATH_n)$ is complete.
 \end{crll}
 
-In the type 2 complexity theory of $\TFNP^2$ of the problems $\LEAF$ and $\SOURCEORSINK$ we know that there is no (oracle polynomial time) reduction from $\LEAF$ to $\SOURCEORSINK$. An important question arises -- does this reflect in the arithmetic $K(\pPATH_n,F_{nbtree})$? More specifically we ask the following.
+In the type 2 complexity theory of $\TFNP^2$ we know that there is no (oracle polynomial time) reduction from $\LEAF$ to $\SOURCEORSINK$. An important question arises -- is this reflected in the arithmetic $K(\pPATH_n,F_{nbtree})$? More specifically we ask the following.
 
 \begin{ques}
 Is it true that if $\varphi$ is an $L$-sentence formalizing that every $\SOURCEORSINK$ instance has a solution then
