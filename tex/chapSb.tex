@@ -4,15 +4,15 @@
 
 Now we turn to analyze dense wide sequences in the second order case. In this chapter we assume $F=F_{rud}$ and $G=G_{rud}$. Specifically we will consider the problem of finding a large clique in a graph. 
 
-Generally it is considered a computatinally hard problem to find a large clique in a graph. From complexity theoretical perspective it is an $\NP$-complete problem and thus it is conjectured that is cannot be solved in polynomial time. We first turn to the following wide sequence.
+Generally it is considered a computationally hard problem to find a large clique in a graph. It is an $\NP$-complete problem and thus it is conjectured that it cannot be solved in polynomial time. We first turn to the following wide sequence.
 
 \begin{defi}
 Let \[\SK_k^{1/2}=\{(\set{k},E);\text{$E$ consists of exactly one $k/2$-clique}\}.\]
 \end{defi}
 
-Limiting inputs to $\SK_k^{1/2}$ makes the problem less complex, because for a vertex $v$ to a part of the biggest clique it is enough that is had nonzero degree. Naturally we want to see whether there is a large clique in $\lim_F^G \SK_n^{1/2}$, every sample has a clique of size $n/2$, but is there a tuple of $F$-verticies witnessing that? 
+Limiting inputs to $\SK_k^{1/2}$ makes the problem less complex, because for a vertex $v$ to be a part of the biggest clique it is enough that is had nonzero degree. Naturally we want to see whether there is a large clique in $\lim_F^G \SK_n^{1/2}$, every sample has a clique of size $n/2$, but is there a tuple of $F$-vertices witnessing that? 
 
-Here to measure the size of such a clique the second order wide limit  by iteself is not a sufficient object. Instead we need to turn to the underlying arithmetic $K(F,G)$ to find an injective function from some large initial segment into a clique in the graph $\Gamma$. It is not hard to prove the following result.
+Here to measure the size of such a clique, the second order wide limit  by itself is not a sufficient object. Instead we need to turn to the underlying arithmetic $K(F,G)$ to find an injective function from some large initial segment into a clique in the graph $\Gamma$. It is not hard to prove the following result.
 
 \begin{thrm}\label{thrmsk1}For every $t>\N$ we have
 \[K(\SK_k^{1/2},F,G)\bbl\text{$\Gamma$ has a clique of size $n^{1/t}$}\bbr=\1.\]
@@ -59,7 +59,7 @@ Let $a\in\M$ with some property, let $v_0,\dots,v_{a-1}\in \set{n}$ distinct ver
 \end{lemm}
 
 \begin{proof}
-The tree $T_{v_i}$ inspects all the edges $(v_i,j)$ where $j$ ranges over $\set{n^{1/t}}$ for some $t>\N$ and outputs $j$ if $(v_i,j)\in E_\omega$. By Lemma \ref{lemmmiss} we have that only infinitesimal number of graphs have their clique not intersect $\set{n^{1/t}}$ so each $T_{v_i}$ succeeds on all but infinitesimally small portion of $\Omega$. But if one $T_{v_i}$ finds a neighbour of $v_i$ then all do since nonzero degree vertices in every $\omega$ form a clique and the same $w\in\set{n^{1/t}}$ is a neighbour of all $v_i$s.
+The tree $T_{v_i}$ inspects all the edges $(v_i,j)$ where $j$ ranges over $\set{n^{1/t}}$ for some $t>\N$ and outputs $j$ if $(v_i,j)\in E_\omega$. By Lemma \ref{lemmmiss} we have that only an infinitesimal number of graphs have their clique not intersect $\set{n^{1/t}}$ so each $T_{v_i}$ succeeds on all but an infinitesimally small portion of $\Omega$. But if one $T_{v_i}$ finds a neighbour of $v_i$, then all do, since nonzero degree vertices in every $\omega$ form a clique and the same $w\in\set{n^{1/t}}$ is a neighbour of all $v_i$s.
 \end{proof}
 
 \begin{lemm}\label{lemmmiss2}
@@ -99,7 +99,7 @@ Because $T_{S_i}(\omega)\in S_i$ when $S_i$ succeeds, and $S_i$ are disjoint we 
 Which proves the theorem.
 \end{proof}
 
-Once can also check that for $\SK_{k}^{1/l}$, the graphs whose edges are exactly one $\floor{k/l}$ clique, the wide limit has a clique of size $\floor{n/m}$ for $m=l\cdot \ln(m)$ by the same technique.
+One can also check that for $\SK_{k}^{1/l}$, the graphs whose edges are exactly one $\floor{k/l}$ clique, the wide limit has a clique of size $\floor{n/m}$ for $m=l\cdot \ln(m)$ by the same technique.
 
 Even though the size of the clique has radically increased we still did not find a clique in $\Gamma$ of size $n/2$. One can verify that with the method provided one cannot obtain such a clique because the probability that any of $\floor{n/2}$ two-element sets does not intersect the clique is too large. 
 
@@ -113,7 +113,7 @@ Is $\floor{n/(2\ln n)}$ the clique number in the boolean valued graph $\lim_{F_{
 Now let us mention the more complex case of the wide sequence $\CK_k^{1/2}$
 \[\CK_k^{1/2}=\{(\set{k},E);E\text{ contains a $\floor{k/2}$ clique.}\}\]
 
-We are still guaranteed that every $\omega$ contains a large clique but there is no easy way to check whether a given vertex $v$ is contained in the large clique. To prove the following theorem we can use that $\CK_k^{1/2}$ is isomorphism closed to translate the case for $\SK_k^{1/2}$ at least for the case of cliques of standard size.
+We are still guaranteed that every $\omega$ contains a large clique, but there is no easy way to check whether a given vertex $v$ is contained in the large clique. To prove the following theorem we can use that $\CK_k^{1/2}$ is isomorphism closed to translate the case for $\SK_k^{1/2}$ at least for the case of cliques of standard size.
 
 \begin{thrm}\label{thrmck}
 Let $c\in\N$ then 
@@ -144,7 +144,7 @@ and since $c$ is constant we have $\Pr_{G\in\G_n}[A_{\overline a}]>0$.
 
 Of course it remains to show that using trees can actually increase the value all the way to $\1$, we did not get to prove that.
 
-Finally one can return to cliques of nonstandard size and intuitively one excepts this to be hard. For a clique of size greater than $n^{1/t}$ for any $t>\N$ one has to check more than $n^{1/t}$ edges to even know given set is a clique and the counting argument used in the previous theorem implies that just guessing the clique of nonstandard size is not enough. We therefore present the following conjecture.
+Finally one can return to cliques of nonstandard size and intuitively one expects this to be hard. For a clique of size greater than $n^{1/t}$ for any $t>\N$ one has to check more than $n^{1/t}$ edges to even know whether a given set is a clique and the counting argument used in the previous theorem implies that just guessing the clique of nonstandard size is not enough. We therefore present the following conjecture.
 
 \begin{conj}
 Let $m\leq c \ln n$ for any $c\in\N$, then

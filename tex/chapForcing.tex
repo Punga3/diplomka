@@ -1,10 +1,10 @@
 \chapter{Forcing with random variables and the wide Limit}\label{chapwidelimit}
 \section{Setup}
 
-Our goal in this chapter is to provide a definition of a limit of a set an infinite set of finite graphs in which arbitrarily large graphs occur. The following definition makes our requirements of such a class of graphs precise. From now on $E$ denotes a binary relational symbol, so formulas in the theory of graphs are $E$-sentences.
+Our goal in this chapter is to provide a definition of a limit of a set an infinite set of finite graphs in which arbitrarily large graphs occur. The following definition makes our requirements of such a class of graphs precise. From now on $E$ denotes a binary relational symbol, so that formulas in the theory of graphs are precisely $E$-sentences.
 
 \begin{defi}
-Let $\{\mathcal{G}_k\}_{k>0}$ be a sequence of finite sets of (directed or undirected) finite graphs. We call it a \textbf{wide sequence} if the following hold.
+Let $\{\mathcal{G}_k\}_{k>0}$ be a sequence of finite sets of (directed or undirected) finite graphs. We call it a \textbf{wide sequence} if the following holds.
 
 \begin{itemize}
 \item There is an increasing sequence of positive whole numbers $\{g_k\}_{k>0}$ such that the underlying set of each $G\in\mathcal{G}_k$ is $\set{g_k}$.
@@ -12,7 +12,7 @@ Let $\{\mathcal{G}_k\}_{k>0}$ be a sequence of finite sets of (directed or undir
 \end{itemize}
 \end{defi}
 
-The second condition guarantees that $\mathcal{G}_n$ is an infinite set for $n>\mathbb{N}$. In fact the condition is not strictly important to proceed with this chapter, but it more closely describes what sort of sequences we are interested in. Many interesting classes of graphs form a wide sequence if we restrict the vertex-sets to $\set{g_k}$, where $\{g_k\}_{k>0}$ can be taken as the increasing sequence of all cardinalities in such a class. For example graphs with exactly one edge, graphs with bounded degree and so on, we will get to explore many examples in depth after we define the wide limit.
+The second condition guarantees that $\mathcal{G}_n$ is an infinite set for $n>\mathbb{N}$. In fact, the condition is not strictly important to proceed with this chapter, but it more closely describes what sort of sequences we are interested in. Many interesting classes of graphs form a wide sequence if we restrict the vertex-sets to $\set{g_k}$, where $\{g_k\}_{k>0}$ can be taken as the increasing sequence of all cardinalities in such a class. For example graphs with exactly one edge, graphs with bounded degree and so on. We will get to explore many examples in depth after we define the wide limit.
 
 \section{The first order wide limit}
 
@@ -35,7 +35,7 @@ We call an $\M$-rational \textbf{infinitesimal} if it is smaller than all standa
 Define an ideal in $\A$ as $\I:=\{A\in\A;\abs{A}/\abs{\Omega}\text{ is infinitesimal}\}$. Define the boolean algebra $\B:=\A/\I$. The induced measure on $\B$ is a real-valued measure and can be written as \[\mu(A/\I)=\st(\abs{A}/\abs{\Omega}).\]
 \end{defi}
 
-We can also check, that now $\mu$ is a measure in the ordinary sense and that $\B$ is an $\sigma$-algebra. In fact the following key lemma holds.
+We can also check, that now $\mu$ is a measure in the ordinary sense and that $\B$ is an $\sigma$-algebra. In fact, the following key lemma holds.
 
 \begin{lemm}
 $\B$ is a complete boolean algebra.
@@ -55,7 +55,7 @@ for $k\in\N$, $f\in L$ $k$-ary and $\alpha_1,\dots,\alpha_k\in F$.
 
 Now we can finally define the wide limit and its underlying arithmetic. We will touch on the arithmetic in Section \ref{secpDPATH} and as we only consider the wide limit itself in Chapter \ref{chapgeneraltheory}.
 
-Note that while every $\alpha\in F$ is represented by some element in $\M$ this need not be the case for the whole family $F$. From now on $\Gamma$ denotes a binary relational symbol which we understand as `limit edge relation'. For a $\{E\}$-formula $\varphi$ we denote its translation to a $\{\Gamma\}$-formula by rewriting every $E$ to $\Gamma$ as $\varphi^{\Gamma}$.
+Note that while every $\alpha\in F$ is represented by some element in $\M$, this need not be the case for the whole family $F$. From now on $\Gamma$ denotes a binary relational symbol which we understand as `limit edge relation'. For a $\{E\}$-formula $\varphi$ we denote its translation to a $\{\Gamma\}$-formula by rewriting every $E$ to $\Gamma$ as $\varphi^{\Gamma}$.
 
 \begin{defi}
 We call a function $\alpha\in F$ an $F$-vertex if ${\alpha:\Omega\to\set{g_n}}.$ We define a $\B$-valued graph $\lim_{k\to n}^{F}G_k$ as an $\{\Gamma\}$-structure, where $\Gamma$ is a binary relation symbol, with universe $\{\alpha\in F; \alpha\text{ is an $F$-vertex}\}$ and $\Gamma$-sentences being evaluated by the following inductive conditions:
@@ -90,9 +90,9 @@ We call $F(\G_n,F)$ the \textbf{underlying arithmetic of the first order wide li
 
 While we can find a truth value of a sentence in the language of graphs in the limit $\lim_{F}\G_n$, we will encounter situations where this is not sufficient to analyze the wide sequence $\{\G_k\}_{k>0}$. 
 
-In Chapter \ref{chapdense} we will investigate how does existence of large cliques correspond to the size of cliques in the limit graph. First we need some way to witness subsets of vertices -- this leads us to the second order wide limit. For it however the underlying arithmetic is much more important because we cannot just measure the set-theoretical cardinality of any such clique, for specific $n$ we could very well have $\card(\set{\floor{\log{n}}})=\card(\set{\floor{\frac{n}{2}}})$ but from the point of view of complexity theory cliques of size $\floor{\log n}$ and $\floor{\frac{n}{2}}$ are dramatically different. In other words, our goal is also to have means to count the number elements of subsets or relations with values in (random variables in) $\M$.
+In Chapter \ref{chapdense} we will investigate how the existence of large cliques corresponds to the size of cliques in the limit graph. First we need some way to witness subsets of vertices -- this leads us to the second order wide limit. However, in the second order case the underlying arithmetic is much more important because we cannot just measure the set-theoretical cardinality of any such clique. For specific $n$ we could very well have $\card(\set{\floor{\log{n}}})=\card(\set{\floor{\frac{n}{2}}})$ but from the point of view of complexity theory, cliques of size $\floor{\log n}$ and $\floor{\frac{n}{2}}$ are dramatically different. In other words, our goal is also to have means to count the number elements of subsets or relations with values in (random variables in) $\M$.
 
-When we say second order we mean by it two-sorted first order structures where one sort represents the usual elements (the `first order' sort) and the other represents functions on those elements (the `second order' sort). The `second order' here can also represent sets and relations by \{0,1\} valued functions.
+When we say second order we mean two-sorted first order structures where one sort represents the usual elements (the `first order' sort) and the other represents functions on those elements (the `second order' sort). The `second order' here can also represent sets and relations by \{0,1\} valued functions.
 
 \begin{defi}
 Let $L\subseteq L_{all}$, we call a set of functions $G\subseteq \M$ an $F$-closed \textbf{functional family} if every $\Theta\in G$ assigns to every $\omega\in\Omega$ a function $\Theta_\omega\in\M$ and after we define
@@ -124,19 +124,19 @@ Let us note that if we have multiple boolean valued structures $\M_1,\M_2,\dots$
  
 \section{The $L$-closed family $F_{rud}$ and $G_{rud}$}\label{secFrud}
 
-Throughout this thesis we will mostly work with the $L$-closed family $F_{rud}$ which ties the properties of $\lim_F \G_n$ with decision tree complexity -- but decision tress can be also seen as an abstraction of oracle machine time we mentioned in the Introduction.
+Throughout this thesis we will mostly work with the $L$-closed family $F_{rud}$ which ties the properties of $\lim_F \G_n$ with decision tree complexity -- but decision trees can also be seen as an abstraction of oracle machine time we mentioned in the Introduction.
 
 After we choose the sequence $\{\G_k\}_{k>0}$ and $n>\N$ we again put $\Omega:=\G_n$ and define $F_{rud}$ as follows.
 
 \begin{defi}
-We define a \textbf{decision tree} to be a binary tree $T\in\M$ with a labelling of vertices and edges $\ell$. The non-leaf vertices are labeled by pairs of numbers $(u,v)$, where $u,v\in\set{g_n}$ and each edge is labeled either by $1$ or $0$. Each leaf vertex is then labeled by some element of $\M$.
+We define a \textbf{decision tree} to be a binary tree $T\in\M$ with a labeling of vertices and edges $\ell$. The non-leaf vertices are labeled by pairs of numbers $(u,v)$, where $u,v\in\set{g_n}$ and each edge is labeled either by $1$ or $0$. Each leaf vertex is then labeled by some element of $\M$.
 
 Every sample $\omega\in\Omega$ uniquely determines a path in $(T,\ell)$ by interpreting the vertex labels as ``is $(u,v)\in E_\omega$?'' and the edge labels as true $(1)$ and false $(0)$ and the path then uniquely determines an output.
 
 We define $F_{rud}$ to be the set of all functions computed by some $(T,\ell)$ of depth at most $g_n^{1/t}$.
 \end{defi}
 
-Note that if we are given a graph $G\in G_k$ on $g_k$ vertices, we need $l:=2\log g_n$ bits to represent it. In the pseudofinite case $k=n$ if we are restricted to inspect/query at most $g_n^{1/t}$ edges then it corresponds to $2^{O(l/t)}$ many queries or the subexponential oracle time.
+Note that if we are given a graph $G\in G_k$ on $g_k$ vertices, we need $l:=2\log g_n$ bits to represent it. In the pseudofinite case, $k=n$, if we are restricted to inspect/query at most $g_n^{1/t}$ edges then it corresponds to $2^{O(l/t)}$ many queries or the subexponential oracle time.
 
 One can verify that $F_{rud}$ is an $L$-closed family for any $L\subseteq L_{all}$.
 
@@ -198,6 +198,6 @@ If $\lim_F\G_n$ is the first order wide limit we will be interested in which exa
 We define $\Th(\lim_F\G_n)$ as the set of all valid $\Gamma$-sentences in $\lim_{F}\G_n$.
 \end{defi}
 
-In the next chapter (Theorem \ref{thrmuni}) we will see that if an universal $\{E\}$-sentence $\varphi$ holds for all $G\in\G_k$ for $k$ big enough then $\lim_F\G_n\bbl\varphi^\Gamma\bbr=\1$. In particular, a wide limit of undirected graphs in a boolean valued undirected graph and a wide limit of directed graphs is a boolean valued directed graph.
+In the next chapter (Theorem \ref{thrmuni}) we will see that if a universal $\{E\}$-sentence $\varphi$ holds for all $G\in\G_k$ for $k$ big enough then $\lim_F\G_n\bbl\varphi^\Gamma\bbr=\1$. In particular, a wide limit of undirected graphs in a boolean valued undirected graph and a wide limit of directed graphs is a boolean valued directed graph.
 
-Lastly, let as recall the concept of 0-1 laws which say that a certain probability is always $0$ or always $1$ with no intermediate value. Here instead of probability we can think about the boolean values $\0$ and $\1$ and ask when does it happen that $\lim_F\G_n\bbl\varphi\bbr\in\{\0,\1\}$ for every $\{\Gamma\}$-sentence $\varphi$. This is exactly equivalent to the situation where the theory $\Th(\lim_G \G_n)$ is complete. Throughout the thesis we prove such 0-1 law for several wide limits.
+Lastly, let us recall the concept of 0-1 laws which say that a certain probability is always $0$ or always $1$ with no intermediate value. Here, instead of probability, we can think about the boolean values $\0$ and $\1$ and ask when does it happen that $\lim_F\G_n\bbl\varphi\bbr\in\{\0,\1\}$ for every $\{\Gamma\}$-sentence $\varphi$. This is exactly equivalent to the situation where the theory $\Th(\lim_G \G_n)$ is complete. Throughout the thesis we prove such 0-1 law for several wide limits.
