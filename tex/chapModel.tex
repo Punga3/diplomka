@@ -12,10 +12,10 @@ This is exactly how we prove in the following theorem.
 We will prove that \[\lim_{F_{rud}}\EDGE_n\bbl(\exists x)(\exists y)\Gamma(x,y)\bbr=\textbf{0}.\]
 \end{thrm}
 \begin{proof}
-If any two trees $T_\alpha$ and $T_\beta$ computed the witnesses $\alpha,\beta$ of the formula $\Gamma(x,y)$ on some subset of $\Omega$ we can combine then into one tree that outputs an edge one the same subsets $\Omega$, so we can just analyze the case where the witnesses are computed by the same tree. Let $T\in F_{rud}$ be a tree of depth $n^{1/t}$, for some $t>\mathbb{N}$, that outputs a pair vertices.
+If any two trees $T_\alpha$ and $T_\beta$ computed potential witnesses $\alpha,\beta$ of the formula $\Gamma(x,y)$ on some subset of $\Omega$ we can combine then into one tree that outputs an edge one the same subsets $\Omega$, so we can just analyze the case where the witnesses are computed by the same tree. Let $T\in F_{rud}$ be a tree of depth $n^{1/t}$, for some $t>\mathbb{N}$, that outputs a pair vertices.
 
 
-Start from the root of $T$ and always choose the path that corresponds to an nonexistence of an edge. At the end we obtain some answer, that gives us a set of at most $2 \cdot n^{1/t}+2$ vertices. Now we can find at least: 
+Start from the root of $T$ and always choose the path that corresponds to the nonexistence of an edge. At the end we obtain some answer, that gives us a set of at most $2 \cdot n^{1/t}+2$ vertices. Now we can find at least: 
 \begin{align}
 \binom{n-2n^{1/t}-2}{2}&=\frac{(n-2n^{1/t}-2)(n-2n^{1/t}-3)}{2}
 \end{align}
@@ -46,7 +46,7 @@ as witnessed by $x$ being the constant $0$ and $y$ the constant $1$ both of whic
 One can see that having distinguished vertices can result in the edge being found. We want to distinguish from this situation by considering the sequences $\mathcal{G}_k$ satisfying the following natural definition.
 
 \begin{defi}
-We say that $\{\mathcal{G}_k\}_{k=0}^\infty$ is \textbf{isomorphism closed}, if there is $k_0$ such that for every $k>k_0$ if we have that $G_1\in\mathcal{G}_k$, $V_{G_2}=g_k$ and $G_1\cong G_2$ then $G_2\in\mathcal{G}_k$.
+We say that $\{\mathcal{G}_k\}_{k=0}^\infty$ is \textbf{isomorphism closed}, if there is $k_0$ such that for every $k>k_0$ if we have that $G_1\in\mathcal{G}_k$, $V_{G_2}=\set{g_k}$ and $G_1\cong G_2$ then $G_2\in\mathcal{G}_k$.
 \end{defi}
 
 
@@ -142,7 +142,7 @@ So $\st(\Pr_{G\in\mathcal{G}_n}[T\text{ fails}])=0$ and we get
 Let us now consider how the density of a specific kind of substructure in the wide sequence corresponds to that substructure existing in the wide limit. The following theorem presents a sufficient condition for nonexistance to be invalid. Furthermore, this condition holds generally for all $F$ which contain all constants.
 
 \begin{thrm}\label{thrmexists}
-Let $F$ contain all constants, $\G_k$ be a wide sequence and let $(\forall \overline x)\varphi_0(\overline x)$ be an open $\{E\}$-formula such that
+Let $F$ contain all constants, $\G_k$ be a wide sequence and let $\varphi_0(\overline x)$ be an open $\{E\}$-formula such that
 \[\lim_{k\to\infty}\Pr_{\substack{G\in\mathcal{G}_k\\\overline a \in \set{g_k}^l}}(G\models\varphi_0(\overline a))=p.\]
 Then $\mu(\bbl(\exists x)\varphi_0(x)\bbr)\geq p.$
 \end{thrm}
@@ -151,7 +151,7 @@ Then $\mu(\bbl(\exists x)\varphi_0(x)\bbr)\geq p.$
 We define a matrix with components 
 \[C_{G,\overline a}=\begin{cases}1&G\models\varphi_0(\overline a)\\0&\text{otherwise}.\end{cases}\]
 
-By $\aleph_1$-saturation we have that
+By overspill in $\M$ we have that
 \[\st\left (\frac{1}{\abs{\G_n}g_k^l}\sum_{G\in\G_n}\sum_{\overline a \in \set{g_k}^l}C_{G,\overline \alpha}\right )=1.\]
 
 We claim that there is one $\overline a$ such that $\st(\Pr_{G\in\G_k}(G\models\varphi_0(\overline a)))=1$. Assume for contradiction, that for all $\overline a$ we have $\frac{1}{\abs{\G_n}}\sum_{G\in \G_n}\leq p$ for some $q<p$. Then
@@ -259,8 +259,8 @@ Now we return to $F=F_{rud}$ and prove a theorem with a more limited use which h
 Let $F=F_{rud}$ and let $\varphi_0(x_0,\dots,x_{l-1})$ be an open $\{E\}$-formula. Furthermore for $0<p\leq 1$, consider subsets $A\subseteq\set{g_k}^l$ with the property that for all for all $\overline a \in A$ we have
 \[\Pr_{G\in\mathcal{G}_k}(G\models \varphi_0(\overline a))\geq p\]
 and
-\[\text{$\{\{G\models\varphi_0(\overline a)\}\subseteq \mathcal{G}_k;\overline a \in A\}$ are mutually independent,}\]
-moreover let $A_k$ be the set with the largest cardinality that  has this property.
+\[\text{$\{\{G\models\varphi_0(\overline a)\}\subseteq \mathcal{G}_k;\overline a \in A\}$ are mutually independent.}\]
+Moreover let $A_k$ be the set with the largest cardinality that has this property.
 
 If $\lim_{k\to\infty} \abs{A_k}=\infty$, then $\bbl(\exists \overline x)\varphi_0(\overline x)\bbr=\1$.
 \end{thrm}
@@ -282,7 +282,7 @@ We now use this theorem to characterize the theory of another wide limit. We den
 Note that if we consider an open $\{E\}$-formula $\varphi(\overline x)$ and convert it to DNF, we get a disjunction of conjunctions. Each such conjunction says which first order literals should be satisfied on the variables $\overline x$, the following theorem is proved for conjunctions of literals. By the fact that $\bbl\dots\bbr$ commutes with disjunctions, we can find out a value of any existential sentence.
 
 \begin{thrm}[Everything exists]
-Let $\varphi(\overline x,\overline y)=\Land_{i=0}^{m-1}\psi_i(\overline x,\overline y)\land \Land_{i=0}^{l-1}\vartheta_i(\overline y)$, where $\psi_i,\vartheta_i$ are literals and $\psi_i$ are not of the form $(y_i=y_j)^b$, $E(y_i,y_j)^b$, $x_i\not= x_i$, $E(x_i,x_i)$, $b\in\{0,1\}$ such that
+Let $\varphi(\overline x,\overline y)=\Land_{i=0}^{m-1}\psi_i(\overline x,\overline y)\land \Land_{i=0}^{l-1}\vartheta_i(\overline y)$, where $\psi_i,\vartheta_i$ are basic formulas and $\psi_i$ are not of the form $(y_i=y_j)^b$, $E(y_i,y_j)^b$, $x_i\not= x_i$, $E(x_i,x_i)$, $b\in\{0,1\}$ such that
 \begin{itemize}
 \item each $\psi_i$ are not of the form $(y_i=y_j)^b,E(y_i,y_j)^b,x_i\not = x_i, E(x_i,x_i)$ for $b\in\{0,1\}$
 \item if $\psi_i$ is of the form $(x_i=z)^b$ for $z$ in $\overline x$ or $\overline y$ then no other $\psi_j$ is of the form $(x_i=z)^{1-b}$ or $(z=x_i)^{1-b}$
@@ -295,7 +295,7 @@ If $\overline \beta$ is a tuple of vertices computed by $F_{rud}$ of the same le
 \end{thrm}
 \begin{proof} We will construct one tree $T$ computing the whole tuple of witnesses $\overline \alpha$, such a construction can be straightforwardly split into a tuple of trees with each computing the specific element.
 
-First we concatenate all the trees used to compute $\overline \beta$. At each leave we can now proceed knowing the value of $\overline \beta$ at the specific $\omega\in\Omega$. Now we simply construct a tree as in Theorem \ref{mutindfind} but searching only over edges not checked previously and only to fulfill each $\psi_i$. Luckily we have so far searched only an infinitesimal part of the edges and since we assume $\mathcal{G}_k=\text{ALL}_k$ both of the conditions of the theorem are satisfied. So by analogous argument, we have a tree that finds a witness for all of the $\psi_i(\overline x,\overline \beta)$ with probability infinitesimally close to 1.
+First we concatenate all the trees used to compute $\overline \beta$. At each leaf we can now proceed knowing the value of $\overline \beta$ at the specific $\omega\in\Omega$. Now we simply construct a tree as in Theorem \ref{mutindfind} but searching only over edges not checked previously and only to fulfill each $\psi_i$. Luckily we have so far searched only an infinitesimal part of the edges and since we assume $\mathcal{G}_k=\text{ALL}_k$ both of the conditions of the theorem are satisfied. So by analogous argument, we have a tree that finds a witness for all of the $\psi_i(\overline x,\overline \beta)$ with probability infinitesimally close to 1.
 
 Therefore
 \begin{align}
@@ -322,7 +322,7 @@ No $\overline \beta$ can falsify $(\exists \overline x)\varphi(\overline x,\over
 The theory \[\Th(\lim_{F_{rud}}\ALL_n)\] is the theory of the Rado graph and therefore complete.
 \end{thrm}
 \begin{proof}
-In \cite{gaifman1964rado} it was proved that the theory of the Rado graph is axiomatized by the theory of undirected graphs and the sentences $E_{i,j}$ which say that if we have a set $A$ of $i$ distinct vertices and a set $B$ of $j$ distinct vertices such that $A\cap B=\varnothing$, then there is a vertex $v$ which has an edge with all vertices from $A$ and no vertices from $B$.
+In \cite{gaifman1964rado} it was proved that the theory of the Rado graph is axiomatized by the theory of undirected graphs and the sentences $E_{i,j}$ which say that if we have a set $A$ of $i$ distinct vertices and a set $B$ of $j$ distinct vertices such that $A\cap B=\varnothing$, then there is a vertex $v$ which has an edge with all vertices from $A$ and with no vertices from $B$.
 
 Each $E_{i,j}$ satisfies the statement of Corollary \ref{crllev2} and because it is also a complete theory, we have proved the theorem.
 \end{proof}
@@ -336,7 +336,7 @@ For every $\{E\}$-sentence $\varphi$ we have that
 The wide sequence $\ALL_k$ is maximal in the sense that for every $\G_k$ with $g_k=k$ we have that $\G_{k}\subseteq \ALL_{k}$. Since we proved 0-1 law for $\ALL_k$ we can ask whether this tells us anything about the subobjects of $\ALL_k$ since they consist in some sense of all other wide sequences.
 
 \begin{defi}
-Let $\G_k$ be a wide sequence. We say that $\G_k'$ is a \textbf{portion} of $\G_k$ if we have $\G_k'\subseteq \G_k$ for all $k$ big enough which we denote $\G_k'\leq G_k$. We say it is a \textbf{large portion} if we have
+Let $\G_k$ be a wide sequence. We say that $\G_k'$ is a \textbf{portion} of $\G_k$ if we have $\G_k'\subseteq \G_k$ for all $k$ big enough which we denote $\G_k'\leq \G_k$. We say it is a \textbf{large portion} if we have
 \[p:=\lim_{k\to\infty}\frac{\abs{\G_k'}}{\abs{\G_k}}>0,\]
 which we denote $\G_k' \leqp \G_k$.
 \end{defi}

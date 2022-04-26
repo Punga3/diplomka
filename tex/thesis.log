@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.22 (TeX Live 2021/Arch Linux) (preloaded format=pdflatex 2021.12.12)  25 APR 2022 23:00
+This is pdfTeX, Version 3.141592653-2.6-1.40.22 (TeX Live 2021/Arch Linux) (preloaded format=pdflatex 2021.12.12)  26 APR 2022 16:53
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -746,57 +746,57 @@ File: ts1lmr.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
 
 
 ] [7]
-LaTeX Font Info:    Trying to load font information for OMS+lmr on input line 9
-5.
+LaTeX Font Info:    Trying to load font information for OMS+lmr on input line 1
+15.
 
 (/usr/share/texmf-dist/tex/latex/lm/omslmr.fd
 File: omslmr.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
 )
 LaTeX Font Info:    Font shape `OMS/lmr/m/n' in size <12> not available
-(Font)              Font shape `OMS/lmsy/m/n' tried instead on input line 95.
+(Font)              Font shape `OMS/lmsy/m/n' tried instead on input line 115.
  [8]
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 125.
+(hyperref)                removing `math shift' on input line 145.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 125.
+(hyperref)                removing `math shift' on input line 145.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 125.
+(hyperref)                removing `math shift' on input line 145.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `subscript' on input line 125.
+(hyperref)                removing `subscript' on input line 145.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 125.
+(hyperref)                removing `math shift' on input line 145.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 125.
+(hyperref)                removing `math shift' on input line 145.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `subscript' on input line 125.
+(hyperref)                removing `subscript' on input line 145.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 125.
+(hyperref)                removing `math shift' on input line 145.
 
 [9]
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 167.
+(hyperref)                removing `math shift' on input line 187.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 167.
+(hyperref)                removing `math shift' on input line 187.
 
-) [10] [11]
+[10]) [11]
 \openout2 = `chapModel.aux'.
 
  (../tex/chapModel.tex
@@ -1036,10 +1036,10 @@ Package rerunfilecheck Info: File `thesis.out' has not changed.
 (rerunfilecheck)             Checksum: 5B5463D4BF5271D2B6E7F6C183E47519;3959.
  ) 
 Here is how much of TeX's memory you used:
- 15589 strings out of 478994
- 220292 string characters out of 5864750
- 527576 words of memory out of 5000000
- 32437 multiletter control sequences out of 15000+600000
+ 15590 strings out of 478994
+ 220311 string characters out of 5864750
+ 527634 words of memory out of 5000000
+ 32438 multiletter control sequences out of 15000+600000
  471129 words of font info for 103 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  88i,14n,90p,1097b,2364s stack positions out of 5000i,500n,10000p,200000b,80000s
@@ -1059,10 +1059,10 @@ e/texmf-dist/fonts/type1/public/lm/lmsy8.pfb></usr/share/texmf-dist/fonts/type1
 /public/amsfonts/symbols/msam10.pfb></usr/share/texmf-dist/fonts/type1/public/a
 msfonts/symbols/msbm10.pfb></usr/share/texmf-dist/fonts/type1/public/stmaryrd/s
 tmary10.pfb>
-Output written on thesis.pdf (42 pages, 704112 bytes).
+Output written on thesis.pdf (42 pages, 704640 bytes).
 PDF statistics:
- 738 PDF objects out of 1000 (max. 8388607)
- 646 compressed objects within 7 object streams
+ 739 PDF objects out of 1000 (max. 8388607)
+ 647 compressed objects within 7 object streams
  253 named destinations out of 1000 (max. 500000)
  234 words of extra memory for PDF output out of 10000 (max. 10000000)
 

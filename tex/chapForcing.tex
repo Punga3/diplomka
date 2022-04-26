@@ -4,7 +4,7 @@
 Our goal in this chapter is to provide a definition of a limit of a set an infinite set of finite graphs in which arbitrarily large graphs occur. The following definition makes our requirements of such a class of graphs precise. From now on $E$ denotes a binary relational symbol, so that formulas in the theory of graphs are precisely $E$-sentences.
 
 \begin{defi}
-Let $\{\mathcal{G}_k\}_{k>0}$ be a sequence of finite sets of (directed or undirected) finite graphs. We call it a \textbf{wide sequence} if the following holds.
+Let $\{\mathcal{G}_k\}_{k>0}$ be a sequence of non-empty finite sets of (directed or undirected) finite graphs, i.e. structures of in the first order language consisting of the binary function $\{E\}$. We call it a \textbf{wide sequence} if the following holds.
 
 \begin{itemize}
 \item There is an increasing sequence of positive whole numbers $\{g_k\}_{k>0}$ such that the underlying set of each $G\in\mathcal{G}_k$ is $\set{g_k}$.
@@ -13,6 +13,26 @@ Let $\{\mathcal{G}_k\}_{k>0}$ be a sequence of finite sets of (directed or undir
 \end{defi}
 
 The second condition guarantees that $\mathcal{G}_n$ is an infinite set for $n>\mathbb{N}$. In fact, the condition is not strictly important to proceed with this chapter, but it more closely describes what sort of sequences we are interested in. Many interesting classes of graphs form a wide sequence if we restrict the vertex-sets to $\set{g_k}$, where $\{g_k\}_{k>0}$ can be taken as the increasing sequence of all cardinalities in such a class. For example graphs with exactly one edge, graphs with bounded degree and so on. We will get to explore many examples in depth after we define the wide limit.
+
+ The limit is defined by specifying a nonstandard prolongation $\{G_n\}_{n<t}$ of the original wide sequence, non standard n < t and a certain Boolean valued extension $K(F)$ of $\cal M$. 
+
+When the original sequence is definable in N (as it is always the case in this
+thesis) then we can take for the prolongation the sequence defined
+in the same way in M (and it is, in fact, also unbounded); hence
+we will not refer explicitly to the choice of the prolongation.
+
+On $K(F)$ we define a particular binary Boolean valued relation
+$\Gamma$ (depending on n). Our aim is to relate first-order properties
+of $\Gamma$ to various combinatorial and complexity-theoretic
+properties of the wide sequence. In this case we shall talk about 
+first order limit.
+
+ We shall be also interested in second order properties of $\Gamma$,
+for example the existence of a large clique. For this we expand
+$K(F)$ to $K(F,G)$ with $G$ being second order objects (relations, functions).
+In this case we shall talk about second order limit.
+
+ 
 
 \section{The first order wide limit}
 
@@ -27,9 +47,9 @@ We define the \textbf{counting measure} as the uniform probability of $A$ when w
 the counting measure takes values in $\M$-rationals.
 \end{defi}
 
-One can check that $\A$ is a boolean algebra, but not a $\sigma$-algebra as it is not closed under all countable unions. Indeed all singleton sets are part of $\A$ but the set of all elements with standardly many predecessors in $\Omega$ is not in $\A$.
+One can check that $\A$ is a Boolean algebra, but not a $\sigma$-algebra as it is not closed under all countable unions. Indeed all singleton sets are part of $\A$ but the set of all elements with standardly many predecessors in $\Omega$ is not in $\A$.
 
-\begin{defi}
+\begin{defi}\label{defiinfinitesimal}
 We call an $\M$-rational \textbf{infinitesimal} if it is smaller than all standard fractions $\frac{1}{k},k\in\N$.
 
 Define an ideal in $\A$ as $\I:=\{A\in\A;\abs{A}/\abs{\Omega}\text{ is infinitesimal}\}$. Define the boolean algebra $\B:=\A/\I$. The induced measure on $\B$ is a real-valued measure and can be written as \[\mu(A/\I)=\st(\abs{A}/\abs{\Omega}).\]
@@ -44,9 +64,9 @@ $\B$ is a complete boolean algebra.
 We now define what we require of the family of functions $F$ we already mentioned.
 
 \begin{defi}
-Let $L\subseteq L_{all}$ and let $F$ be a non-empty set of functions in $\M$. We call it an \textbf{$L$-closed family} if it satisfies the following:
+Let $L\subseteq L_{all}$ and let $F$ be a non-empty set of $\M$-finite functions which are elements in $\M$. We call it an \textbf{$L$-closed family} if it satisfies the following:
 \begin{itemize}
-\item The domain of any function in $F$ is $\Omega$ and the range is $\M$.
+\item The domain of any function $\alpha\in F$ is $\Omega$ and the range is $\M$.
 \item $F$ is closed under all $L$-functions and contains all $L$ constants, where the $L$-functions are interpreted by composition
 \[f(\alpha_1,\dots,\alpha_k)(\omega):=f(\alpha_1(\omega),\dots,\alpha_k(\omega)),\]
 for $k\in\N$, $f\in L$ $k$-ary and $\alpha_1,\dots,\alpha_k\in F$.
@@ -136,7 +156,7 @@ Every sample $\omega\in\Omega$ uniquely determines a path in $(T,\ell)$ by inter
 We define $F_{rud}$ to be the set of all functions computed by some $(T,\ell)$ of depth at most $g_n^{1/t}$.
 \end{defi}
 
-Note that if we are given a graph $G\in G_k$ on $g_k$ vertices, we need $l:=2\log g_n$ bits to represent it. In the pseudofinite case, $k=n$, if we are restricted to inspect/query at most $g_n^{1/t}$ edges then it corresponds to $2^{O(l/t)}$ many queries or the subexponential oracle time.
+%Note that if we are given a graph $G\in G_k$ on $g_k$ vertices, we need $l:=2\log g_n$ bits to represent it. In the pseudofinite case, $k=n$, if we are restricted to inspect/query at most $g_n^{1/t}$ edges then it corresponds to $2^{O(l/t)}$ many queries or the subexponential oracle time.
 
 One can verify that $F_{rud}$ is an $L$-closed family for any $L\subseteq L_{all}$.
 
@@ -152,7 +172,7 @@ Let $\hat\beta=(\beta_0,\dots,\beta_{m-1})\in\M$ be a $m$-tuple of elements in $
 \end{defi}
 
 \begin{defi}
-The family $G_{rud}$ consists of all functionals $\Theta$ such that there is $m\in\M$ and some $\hat \beta=(\beta_0,\dots,\beta_{m-1})$ that computes it.
+The family $G_{rud}$ consists of all functionals $\Theta$ such that there is $m\in\M$ and some $\hat \beta=(\beta_0,\dots,\beta_{m-1})\in\M$ that computes it.
 \end{defi}
 
 \begin{lemm}
@@ -192,7 +212,7 @@ Even though the concrete wide limits we will investigate in the following chapte
 
 \section{Theories of wide limits}
 
-If $\lim_F\G_n$ is the first order wide limit we will be interested in which exact $\{\Gamma\}$-sentences are valid in it.
+If $\lim_F\G_n$ is the first order wide limit we will be interested in which exact $\{\Gamma\}$-sentences are valid in it. By \textbf{valid} we mean that their $\bbl\dots\bbr$ value is $\1$.
 
 \begin{defi}
 We define $\Th(\lim_F\G_n)$ as the set of all valid $\Gamma$-sentences in $\lim_{F}\G_n$.
@@ -200,4 +220,4 @@ We define $\Th(\lim_F\G_n)$ as the set of all valid $\Gamma$-sentences in $\lim_
 
 In the next chapter (Theorem \ref{thrmuni}) we will see that if a universal $\{E\}$-sentence $\varphi$ holds for all $G\in\G_k$ for $k$ big enough then $\lim_F\G_n\bbl\varphi^\Gamma\bbr=\1$. In particular, a wide limit of undirected graphs in a boolean valued undirected graph and a wide limit of directed graphs is a boolean valued directed graph.
 
-Lastly, let us recall the concept of 0-1 laws which say that a certain probability is always $0$ or always $1$ with no intermediate value. Here, instead of probability, we can think about the boolean values $\0$ and $\1$ and ask when does it happen that $\lim_F\G_n\bbl\varphi\bbr\in\{\0,\1\}$ for every $\{\Gamma\}$-sentence $\varphi$. This is exactly equivalent to the situation where the theory $\Th(\lim_G \G_n)$ is complete. Throughout the thesis we prove such 0-1 law for several wide limits.
+Lastly, let us recall the concept of 0-1 laws which say that a certain probability tends either to $0$ or $1$ and not to any intermediate value. Here, instead of probability, we can think about the boolean values $\0$ and $\1$ and ask when does it happen that $\lim_F\G_n\bbl\varphi\bbr\in\{\0,\1\}$ for every $\{\Gamma\}$-sentence $\varphi$. This is exactly equivalent to the situation where the theory $\Th(\lim_G \G_n)$ is complete. Later in the thesis we prove such 0-1 law for several wide limits.
