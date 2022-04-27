@@ -14,6 +14,8 @@ Let $\{\mathcal{G}_k\}_{k>0}$ be a sequence of non-empty finite sets of (directe
 
 The second condition guarantees that $\mathcal{G}_n$ is an infinite set for $n>\mathbb{N}$. In fact, the condition is not strictly important to proceed with this chapter, but it more closely describes what sort of sequences we are interested in. Many interesting classes of graphs form a wide sequence if we restrict the vertex-sets to $\set{g_k}$, where $\{g_k\}_{k>0}$ can be taken as the increasing sequence of all cardinalities in such a class. For example graphs with exactly one edge, graphs with bounded degree and so on. We will get to explore many examples in depth after we define the wide limit.
 
+(TODO: wide sequence <-> class of structures)
+
  The limit is defined by specifying a nonstandard prolongation $\{G_n\}_{n<t}$ of the original wide sequence, non standard n < t and a certain Boolean valued extension $K(F)$ of $\cal M$. 
 
 When the original sequence is definable in N (as it is always the case in this
@@ -64,24 +66,21 @@ $\B$ is a complete boolean algebra.
 We now define what we require of the family of functions $F$ we already mentioned.
 
 \begin{defi}
-Let $L\subseteq L_{all}$ and let $F$ be a non-empty set of $\M$-finite functions which are elements in $\M$. We call it an \textbf{$L$-closed family} if it satisfies the following:
+Let $F$ be a non-empty set of $\M$-finite function which are elements in $\M$. We call it a \textbf{random vertex family} if it satisfies the following:
 \begin{itemize}
-\item The domain of any function $\alpha\in F$ is $\Omega$ and the range is $\M$.
-\item $F$ is closed under all $L$-functions and contains all $L$ constants, where the $L$-functions are interpreted by composition
-\[f(\alpha_1,\dots,\alpha_k)(\omega):=f(\alpha_1(\omega),\dots,\alpha_k(\omega)),\]
-for $k\in\N$, $f\in L$ $k$-ary and $\alpha_1,\dots,\alpha_k\in F$.
+\item The domain of any function $\alpha\in F$ is $\Omega$ and the range is $\set{g_n}$.
 \end{itemize}
 \end{defi}
 
-Now we can finally define the wide limit and its underlying arithmetic. We will touch on the arithmetic in Section \ref{secpDPATH} and as we only consider the wide limit itself in Chapter \ref{chapgeneraltheory}.
-
 Note that while every $\alpha\in F$ is represented by some element in $\M$, this need not be the case for the whole family $F$. From now on $\Gamma$ denotes a binary relational symbol which we understand as `limit edge relation'. For a $\{E\}$-formula $\varphi$ we denote its translation to a $\{\Gamma\}$-formula by rewriting every $E$ to $\Gamma$ as $\varphi^{\Gamma}$.
 
+Now we can finally define the first order wide limit.
+
 \begin{defi}
-We call a function $\alpha\in F$ an $F$-vertex if ${\alpha:\Omega\to\set{g_n}}.$ We define a $\B$-valued graph $\lim_{k\to n}^{F}G_k$ as an $\{\Gamma\}$-structure, where $\Gamma$ is a binary relation symbol, with universe $\{\alpha\in F; \alpha\text{ is an $F$-vertex}\}$ and $\Gamma$-sentences being evaluated by the following inductive conditions:
+We define a $\B$-valued $\Gamma$-structure $\lim_{k\to n}^{F}G_k$, where $\Gamma$ is a binary relation symbol, with universe $F$ and $\Gamma$-sentences being evaluated by the following inductive conditions:
 \begin{itemize}
 \item $\bbl \alpha=\beta \bbr := \{\omega\in\Omega; \alpha(\omega)=\beta(\omega)\}/\I.$
-\item $\bbl \Gamma(\alpha,\beta) \bbr := \{\omega\in\Omega; E_G(\alpha,\beta))\}/\I$.
+\item $\bbl \Gamma(\alpha,\beta) \bbr := \{\omega\in\Omega; E_\omega(\alpha,\beta))\}/\I$.
 \item $\bbl-\bbr$ commutes with $\land$,$\lor$,$\lnot$.
 \item $\bbl(\exists x)A(x)\bbr:=\Lor_{\alpha\in F}\bbl A(\alpha)\bbr$.
 \item $\bbl(\forall x)A(x)\bbr:=\Land_{\alpha\in F}\bbl A(\alpha)\bbr$.
@@ -90,19 +89,15 @@ We call a function $\alpha\in F$ an $F$-vertex if ${\alpha:\Omega\to\set{g_n}}.$
 By abuse of notation we will usually denote the limit $\lim_{F}\G_n$.
 \end{defi}
 
+We will also define the structure $K(\G_n,F)$ which is not important in the second order case, but makes the definition of its second order counterpart more manageable. 
+
+
 \begin{defi}
-Let $F$ be an $L$-closed family for some $L\subseteq L_{all}$. Then $K(\G_n,F)$ will denote a $\B$-valued $L\cup\{\Gamma\}$-structure defined as follows. The universe of $K(F)$ is $F$. The boolean evaluations of $L$-sentences are defined by the following inductive rules:
+$K(\G_n,F)$ will denote a $\B$-valued $L_{rel}\cup\{\Gamma\}$-structure defined as an $L_{rel}\cup\{\Gamma\}$-expansion of $\lim_F\G_n$. The boolean evaluations of atomic $L$-sentences are defined by the following inductive rules:
 
 \begin{itemize}
-\item $\bbl \alpha=\beta \bbr := \{\omega\in\Omega; \alpha(\omega)=\beta(\omega)\}/\I.$
-\item $\bbl R(\alpha_1,\dots,\alpha_k) \bbr := \{\omega\in\Omega; R(\alpha_1,\dots,\alpha_k)\}/\I$ for any $k$-ary $L$-relation $R$.
-\item $\bbl \Gamma(\alpha,\beta) \bbr := \{\omega\in\Omega; E_G(\alpha(\omega),\beta(\omega))\text{ and }\alpha(\omega),\beta(\omega)\in\set{g_n})\}/\I$.
-\item $\bbl-\bbr$ commutes with $\land$,$\lor$,$\lnot$.
-\item $\bbl(\exists x)A(x)\bbr:=\Lor_{\alpha\in F}\bbl A(\alpha)\bbr$.
-\item $\bbl(\forall x)A(x)\bbr:=\Land_{\alpha\in F}\bbl A(\alpha)\bbr$.
+\item $\bbl R(\alpha_1,\dots,\alpha_k) \bbr := \{\omega\in\Omega; R(\alpha_1,\dots,\alpha_k)\}/\I$ for any $k$-ary $R\in L_{rel}$.
 \end{itemize}
-
-We call $F(\G_n,F)$ the \textbf{underlying arithmetic of the first order wide limit}.
 \end{defi}
 
 
@@ -115,7 +110,7 @@ In Chapter \ref{chapdense} we will investigate how the existence of large clique
 When we say second order we mean two-sorted first order structures where one sort represents the usual elements (the `first order' sort) and the other represents functions on those elements (the `second order' sort). The `second order' here can also represent sets and relations by \{0,1\} valued functions.
 
 \begin{defi}
-Let $L\subseteq L_{all}$, we call a set of functions $G\subseteq \M$ an $F$-closed \textbf{functional family} if every $\Theta\in G$ assigns to every $\omega\in\Omega$ a function $\Theta_\omega\in\M$ and after we define
+We call a set of functions $G\subseteq \M$ an $F$-compatible \textbf{functional family} if every $\Theta\in G$ assigns to every $\omega\in\Omega$ a function $\Theta_\omega\in\M$ and after we define
 \[\Theta(\alpha)(\omega):=
 \begin{cases}\Theta_\omega(\alpha(\omega))&\alpha(\omega)\in\dom(\Theta_\omega)\\0&\text{otherwise,}
 \end{cases}\]
@@ -125,7 +120,7 @@ We call $\Theta\in G$ a (graph) $G$-\textbf{relation} if for every $\omega\in\Om
 \end{defi}
 
 \begin{defi}
-Let $L\subseteq L_{all}$, $F$ an $L$-closed family and $G$ an $F$-compatible functional family. We define the structure $K(\G_n,F,G)$ as a two sorted $L$-structure with sorts $F$ and $G$ interpreting $L$-sentences as $K(\G_n,F)$ and treating the sort $G$ as follows. First for equality we let
+Let $F$ be a vertex family and $G$ be an $F$-compatible functional family. We define the structure $K(\G_n,F,G)$ as a two sorted $L$-structure with sorts $F$ and $G$ interpreting $L_{rel}$-sentences as $K(\G_n,F)$ and treating the sort $G$ as follows. First for equality we let
 \[\bbl\Theta=\Xi \bbr := \{\omega\in \Omega;\Theta_\omega=\Xi_\omega\}/\I\]
 and for the second order quantifiers we have the following inductive clauses
 \begin{itemize}
@@ -133,18 +128,16 @@ and for the second order quantifiers we have the following inductive clauses
 \item $\bbl(\forall X)A(X)\bbr:=\Land_{\Theta\in G}\bbl A(\Theta)\bbr.$
 \end{itemize}
 
-If there is a $\Gamma\in G$ such that for every $\alpha,\beta\in F$ we have
-\[\Gamma(\alpha,\beta)(\omega):=\chi_{E_\omega}(\alpha(\omega),\beta(\omega)),\]
-where $\chi_{E_\omega}$ is the characteristic function of $E_\omega$, we call $K(F,G)$ the \textbf{underlying arithmetic of the second order wide limit}.
+We define \textbf{the second order wide limit} $\lim_{F,n}^G\{\G_k\}_{k>0}$ as $\{\Gamma\}$-reduct of $K(\G_n,F,G)$. By abuse of notation we will mostly denote it $\lim_F^G\G_n$.
 
-We define \textbf{the second order wide limit} $\lim_{F,n}^G\{\G_k\}_{k>0}$ as the two sorted substructure with universe consisting of all $F$-vertices and all $G$-relations. By abuse of notation we will mostly use the notation $\lim_F^G\G_n$.
+(TODO: Terms)
 \end{defi}
 
-Let us note that if we have multiple boolean valued structures $\M_1,\M_2,\dots$ we may add the name of the structure as a prefix to the evaluation function to get $\M_1\bbl-\bbr$ and $\M_2\bbl-\bbr$ to avoid ambiguity or to emphasize the structure where the evaluation takes place.
+Let us note that if we have multiple boolean valued structures $\A_1,\A_2,\dots$ we may add the name of the structure as a prefix to the evaluation function to get $\A_1\bbl-\bbr$ and $\A_2\bbl-\bbr$ to avoid ambiguity or to emphasize the structure where the evaluation takes place. This is different from the standard notation, which would be including the structure name in the superscript as $\bbl\dots\bbr^{\A_1}$, but it is in our case preferable for typographical reasons.
  
-\section{The $L$-closed family $F_{rud}$ and $G_{rud}$}\label{secFrud}
+\section{The vertex family $F_{rud}$ and $G_{rud}$}\label{secFrud}
 
-Throughout this thesis we will mostly work with the $L$-closed family $F_{rud}$ which ties the properties of $\lim_F \G_n$ with decision tree complexity -- but decision trees can also be seen as an abstraction of oracle machine time we mentioned in the Introduction.
+Throughout this thesis we will mostly work with the vertex family $F_{rud}$ which ties the properties of $\lim_F \G_n$ with decision tree complexity -- but decision trees can also be seen as an abstraction of oracle machine time we mentioned in the Introduction.
 
 After we choose the sequence $\{\G_k\}_{k>0}$ and $n>\N$ we again put $\Omega:=\G_n$ and define $F_{rud}$ as follows.
 
@@ -158,7 +151,7 @@ We define $F_{rud}$ to be the set of all functions computed by some $(T,\ell)$ o
 
 %Note that if we are given a graph $G\in G_k$ on $g_k$ vertices, we need $l:=2\log g_n$ bits to represent it. In the pseudofinite case, $k=n$, if we are restricted to inspect/query at most $g_n^{1/t}$ edges then it corresponds to $2^{O(l/t)}$ many queries or the subexponential oracle time.
 
-One can verify that $F_{rud}$ is an $L$-closed family for any $L\subseteq L_{all}$.
+One can verify that $F_{rud}$ is an vertex family for any $L\subseteq L_{all}$.
 
 The definition of $G_{rud}$ is a bit more involved. The functionals in it will be computed by tuples of elements from $F_{rud}$ in the following sense.
 

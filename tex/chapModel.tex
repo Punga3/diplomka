@@ -341,22 +341,14 @@ Let $\G_k$ be a wide sequence. We say that $\G_k'$ is a \textbf{portion} of $\G_
 which we denote $\G_k' \leqp \G_k$.
 \end{defi}
 
-\begin{lemm}[The hereditary property of 0-1 sentences]\label{lemmhere}
-Let $\G_k'\leqp \G_k$ be wide sequence and let $\varphi$ be an $\{E\}$-sentence such that
-\[\lim_{F}\G_n\bbl\varphi\bbr\in\{\0,\1\}\]
+\begin{lemm}[The hereditary property of open sentences]\label{lemmhere}
+Let $\G_k'\leqp \G_k$ be wide sequences, let $\varphi(\overline x)$ be an open $\{E\}$-sentence and $\alpha\in F$ such that
+\[\lim_{F}\G_n(\overline \alpha)\bbl\varphi^\Gamma\bbr\in\{\0,\1\}\]
 then
-\[\lim_{F}\G_n'\bbl\varphi\bbr = \lim_{F}\G_n\bbl\varphi\bbr.\]
+\[\lim_{F}\G_n'\bbl\varphi(\overline \alpha)\bbr = \lim_{F}\G_n\bbl\varphi(\overline \alpha)\bbr.\]
 \end{lemm}
-\begin{proof} 
-Assume $\varphi$ is of the form $(\forall \overline x_1)(\exists \overline x_2)\dots (\exists \overline x_l)\varphi(\overline x_1,\dots,\overline x_l)$ so we have
-\begin{align*}
-\lim_{F}\G_n\bbl\varphi\bbr &= \Land_{\overline \alpha_1}\Lor_{\overline \alpha_2}\dots \Lor_{\overline \alpha_l}\lim_{F}\G_n\bbl\varphi(\overline \alpha_1,\dots,{\overline \alpha_l})\bbr\\
-\lim_{F}\G_n'\bbl\varphi\bbr &= \Land_{\overline \alpha_1}\Lor_{\overline \alpha_2}\dots \Lor_{\overline \alpha_l}\lim_{F}\G_n'\bbl\varphi(\overline \alpha_1,\dots,{\overline \alpha_l})\bbr,
-\end{align*}
-so we just need to establish equality of the substituted open kernel.
-
-Since $\G_n'$ is a large portion we have $p:=\lim_{k\to\infty}\abs{\G_n'}/\abs{\G_n}$. Denote an event
-\[A_G:=[G\models \varphi^{\Gamma}(\overline\alpha_1(G),\dots\overline \alpha_l(G)],\]
+\begin{proof} Since $\G_k'$ is a large portion we have $p:=\lim_{k\to\infty}\abs{\G_n'}/\abs{\G_n}$. Denote an event
+\[A_{\overline \alpha}:=[\omega \models \varphi^{\Gamma}(\overline\alpha_1(G),\dots\overline \alpha_l(G)],\]
 we have that 
 \begin{align}
 \Pr_{G\in\G_n}[A_G]&=\Pr_{G\in \G_n}[A_G|G\in\G_n']\Pr_{G\in\G_n}[G\in\G_n']\\
@@ -371,15 +363,9 @@ If $\Pr_{G\in\G_n}[A_G]=1$ and $q:=\Pr_{G\in\G_n'}[A_G]<1$ we have by taking sta
 a contradiction. The second case where $\lim_F\G_n\bbl\varphi\bbr=\0$ then follows from $\lim_F\G_n\bbl\lnot\varphi\bbr=\1.$ 
 \end{proof}
 
-In other words if $\G_n$ admits a 0-1 law, then all its large portions do and their theories are the same.
+(TODO: Example?, Major portion, decomposition)
 
-\begin{crll}\label{crlltoobig}
-Let $\G_k$ be a wide sequence such that 
-\[\lim_{k\to\infty}\frac{\abs{\G_k}}{2^{\binom{g_k}{2}}}>0\] then $\Th(\lim_{F_{rud}}\G_n)$ is the theory of Rado graph.
-\end{crll}
-\begin{proof}
-The condition on the limit assures that $\G_k\leqp \ALL_{g_k}$.
-\end{proof}
+We will use this lemma in Chapter \ref{chapsparse} that.
 
 \section{Isomorphism closed categorical $\mathcal{G}_k$}
 
