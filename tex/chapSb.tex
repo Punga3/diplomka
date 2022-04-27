@@ -2,7 +2,7 @@
 
 \section{$\G_k=\SK_k^{1/2}$}
 
-Now we turn to analyze dense wide sequences in the second order case. In this chapter we assume $F=F_{rud}$ and $G=G_{rud}$. Specifically we will consider the problem of finding a large clique in a graph. 
+Now we turn to analyze dense wide sequences in the second order case; that is the case when we shall be interested in second order properties of the wide limit. In this chapter we assume $F=F_{rud}$ and $G=G_{rud}$. Specifically we will consider the problem of finding a large clique in a graph. 
 
 Generally it is considered a computationally hard problem to find a large clique in a graph. It is an $\NP$-complete problem and thus it is conjectured that it cannot be solved in polynomial time. We first turn to the following wide sequence.
 
@@ -10,9 +10,9 @@ Generally it is considered a computationally hard problem to find a large clique
 Let \[\SK_k^{1/2}=\{(\set{k},E);\text{$E$ consists of exactly one $k/2$-clique}\}.\]
 \end{defi}
 
-Limiting inputs to $\SK_k^{1/2}$ makes the problem less complex, because for a vertex $v$ to be a part of the biggest clique it is enough that is had nonzero degree. Naturally we want to see whether there is a large clique in $\lim_F^G \SK_n^{1/2}$, every sample has a clique of size $n/2$, but is there a tuple of $F$-vertices witnessing that? 
+Limiting inputs to $\SK_k^{1/2}$ makes the problem less complex, because for a vertex $v$ to be a part of the biggest clique it is enough that it has nonzero degree. Naturally we want to see whether there is a large clique in $\lim_F^G \SK_n^{1/2}$, every sample has a clique of size $n/2$, but is there a set of $F$-vertices witnessing that? 
 
-Here to measure the size of such a clique, the second order wide limit  by itself is not a sufficient object. Instead we need to turn to the underlying arithmetic $K(F,G)$ to find an injective function from some large initial segment into a clique in the graph $\Gamma$. It is not hard to prove the following result.
+Here to measure the size of such a clique, the second order wide limit  by itself is not a sufficient object. (TODO - wednesday dissc) Instead we need to turn to the underlying arithmetic $K(F,G)$ to find an injective function from some large initial segment into a clique in the graph $\Gamma$. It is not hard to prove the following result.
 
 \begin{thrm}\label{thrmsk1}For every $t>\N$ we have
 \[K(\SK_k^{1/2},F,G)\bbl\text{$\Gamma$ has a clique of size $n^{1/t}$}\bbr=\1.\]
@@ -21,13 +21,15 @@ Here to measure the size of such a clique, the second order wide limit  by itsel
 
 \begin{proof}(Sketch) We need to analyze the value
 \begin{align}
-&\bbl(\exists \Lambda)(\forall u)(\forall v)(((u,v \leq n^{1/t})\to\Gamma(\Lambda(u),\Lambda(v)))\land(\Lambda:[n^{1/t}]\hookrightarrow\mathcal{M}))\bbr
+&\bbl(\exists \Lambda)(\forall u)(\forall v)(((u\not = v \leq n^{1/t})\to\Gamma(\Lambda(u),\Lambda(v)))\land(\Lambda:[n^{1/t}]\hookrightarrow\mathcal{M}))\bbr
 \end{align}
 which is equal to
 \begin{align}
 \Lor_\Lambda\Land_u\Land_v\bbl(u\not=v < n^{1/t})\to(\Gamma(\Lambda(u),\Lambda(v))\land\Lambda(u)\not=\Lambda(v))\bbr.
 \end{align}
 So we want to find some $n^{1/t}$-tuple of trees computing some $\Lambda$ which is injective on $\set{n^{1/t}}$ and its $\set{n^{1/t}}$ range is a clique in $\Gamma$.
+
+(TODO: rewrite the following paragraph)
 
 We define $(\Lambda_0,\dots,\Lambda_{n^{1/t}-1})$ as follows. The tree $T_0$ computing $\Lambda_0$ inspects all the edges $(u,v)\in\set{n^{1/t}}\times\set{n^{1/t}}$ in some specified order and outputs the first vertex it finds with an edge. The tree $T_i$ computing $\Lambda_i$ extends the previous order to $\set{in^{1/t}}\times\set{in^{1/t}}$ searches it and outputs the $i$-th vertex with an edge. Also every such tree has depth at most $n^{1/t}\cdot n^{1/t}=n^{2/t}=n^{1/(t/2)}$.
 
@@ -54,7 +56,7 @@ But $\floor{\frac{n}{2}} \frac{m}{n}$ is infinite therefore the bound is infinit
 \end{proof}
 
 \begin{lemm}\label{lemmfindtree}
-Let $a\in\M$ with some property, let $v_0,\dots,v_{a-1}\in \set{n}$ distinct vertices, then there exist trees $T_{v_i}$ such that
+Let $a\in\M$, let $v_0,\dots,v_{a-1}\in \set{n}$ distinct vertices, then there exist trees $T_{v_i}$ such that
 \[\st\left(\Pr_{\omega\in\Omega}[\forall i: (v_i,T_{v_i}(\omega))\in E_\omega|\forall i: \text{$v_i$ is in the clique}]\right)=1.\]
 \end{lemm}
 
@@ -99,7 +101,7 @@ Because $T_{S_i}(\omega)\in S_i$ when $S_i$ succeeds, and $S_i$ are disjoint we 
 Which proves the theorem.
 \end{proof}
 
-One can also check that for $\SK_{k}^{1/l}$, the graphs whose edges are exactly one $\floor{k/l}$ clique, the wide limit has a clique of size $\floor{n/m}$ for $m=l\cdot \ln(m)$ by the same technique.
+One can also check that for $\SK_{k}^{1/l}$, the graphs whose edges are exactly one $\floor{k/l}$ clique for some $l\in \N$, the wide limit has a clique of size $\floor{n/m}$ for $m=l\cdot \ln(m)$ by the same technique.
 
 Even though the size of the clique has radically increased we still did not find a clique in $\Gamma$ of size $n/2$. One can verify that with the method provided one cannot obtain such a clique because the probability that any of $\floor{n/2}$ two-element sets does not intersect the clique is too large. 
 

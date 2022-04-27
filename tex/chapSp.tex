@@ -14,13 +14,13 @@ One can also see that it is not fruitful to analyze the $F_{rud}$ limit, because
 After we fix $n$, we define $F_{nbtree}$ as the set of all functions computed by some some labeled tree with the following shape:
 
 \begin{itemize}
-\item Each non-leaf node is labeled by some $v\in\set{n}$. 
-\item For each $\{u,v\} \subseteq \set{n}$ and a node $N$ there is an outgoing edge from $N$ labeled $A$.
+\item Each non-leaf node is labeled by some $w\in\set{n}$. 
+\item For each $\{u,v\} \subseteq \set{n}$ and a node $w$ there is an outgoing edge from $w$ labeled $\{u,v\}$.
 \item Each leaf is labeled by some $m\in \mathcal{M}$.
 \item The depth of the tree is at most $g_n^{1/t}$ for some $t>\mathbb{N}$.
 \end{itemize}
 
-Computation of such a tree on an undirected graph $G$ goes as follows. We interpret the non-leaf nodes as questions "what is the neighbour set of $v$?" and the edges as answers from our graph $G$, and thus we follow a path determined by $G$ until we find a leaf, in which case the computation returns the label of the leaf.
+Computation of such a tree on an undirected graph $G$ goes as follows. We interpret the non-leaf nodes as questions "what is the neighbour set of $w$?" and the edges as answers from our graph $\omega$, and thus we follow a path in the computation tree determined by $\omega$ until we find a leaf, in which case the computation returns the label of the leaf.
 \end{defi}
 
 We now shift our focus to analyzing the ability of trees from $F_{nbtree}$ to find the non-zero degree 1 vertex in $G\in \pPATH_n$. We say that a tree $T\in F_{nbtree}$ fails at a graph $G$ if $T(G)$ is not a non-zero vertex of degree one in $G$.
@@ -174,7 +174,7 @@ $\Th(\lim_{F_{nbtree}}\pPATH_n)$ is complete.
 \begin{proof}
 By applying Theorem \ref{thrmuni} we have that the sentences $\lnot C_k$ stating that there are not cycles of length $k\in\N$ are valid all in $\lim_{F_{nbtree}}\pPATH_n$, the sentence $D^{1,2}_{1,rest}$ stating that there is exactly one vertex of degree $1$ and all other vertices have degree $2$ is valid by Theorem \ref{thrmnoend}. 
 
-Let $T=\{\lnot C_k,k\in\N\}\cup\{D_{1,rest}^{1,2}\}$, and let $\M_1,\M_2\models T$, then we can see by the handshaking lemma that $\M_1$ and $\M_2$ are both infinite. And we can see that they can be decomposed into one path starting at $0$ with no end, and then more infinite paths which have the order type of $\Z$. One can see that the duplicator of Ehrenfeucht-Fraïssé game has a winning strategy by responding to any element on the order type $\Z$ with a far enough element on the path of the order $\N$.
+Let $T=\{\lnot C_k,k\in\N\}\cup\{D_{1,rest}^{1,2}\}$, and let $\A_1,\A_2\models T$, then we can see by the handshaking lemma that $\M_1$ and $\M_2$ are both infinite. And we can see that they can be decomposed into one path starting at $0$ with no end, and then more infinite paths which have the order type of $\Z$. One can see that the duplicator of Ehrenfeucht-Fraïssé game has a winning strategy by responding to any element on the order type $\Z$ with a far enough element on the path of the order $\N$.
 \end{proof}
 
 \section{$\G_k=\pPATHl_k$}
@@ -265,7 +265,7 @@ After we fix $n$, we define $F_{dtree}$ as the set of all functions computed by 
 
 \begin{itemize}
 \item Each non-leaf node is labeled by some $v\in\set{n}$ and a symbol $\diamond\in\{+,-\}$. 
-\item For each $v \in \set{n}$ and a node $N$ there is an outgoing edge from $N$ labeled $\{v\}$ and also an outgoing edge labeled $\varnothing$.
+\item For each $v \in \set{n}$ and a node $N$ there is an outgoing edge from $w$ labeled $\{v\}$ and also an outgoing edge labeled $\varnothing$.
 \item Each leaf is labeled by some $m\in \mathcal{M}$.
 \item The depth of the tree is at most $g_n^{1/t}$ for some $t>\mathbb{N}$.
 \end{itemize}
