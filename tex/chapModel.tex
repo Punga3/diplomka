@@ -335,37 +335,23 @@ For every $\{E\}$-sentence $\varphi$ we have that
 
 The wide sequence $\ALL_k$ is maximal in the sense that for every $\G_k$ with $g_k=k$ we have that $\G_{k}\subseteq \ALL_{k}$. Since we proved 0-1 law for $\ALL_k$ we can ask whether this tells us anything about the subobjects of $\ALL_k$ since they consist in some sense of all other wide sequences.
 
-\begin{defi}
+\begin{defi}\label{defiportion}
 Let $\G_k$ be a wide sequence. We say that $\G_k'$ is a \textbf{portion} of $\G_k$ if we have $\G_k'\subseteq \G_k$ for all $k$ big enough which we denote $\G_k'\leq \G_k$. We say it is a \textbf{large portion} if we have
 \[p:=\lim_{k\to\infty}\frac{\abs{\G_k'}}{\abs{\G_k}}>0,\]
-which we denote $\G_k' \leqp \G_k$.
+which we denote $\G_k' \leqp \G_k$. Moreover, if the limits tends to $1$ we call $\G_k'$ a \textbf{major portion}.
 \end{defi}
 
-\begin{lemm}[The hereditary property of open sentences]\label{lemmhere}
-Let $\G_k'\leqp \G_k$ be wide sequences, let $\varphi(\overline x)$ be an open $\{E\}$-sentence and $\alpha\in F$ such that
-\[\lim_{F}\G_n(\overline \alpha)\bbl\varphi^\Gamma\bbr\in\{\0,\1\}\]
-then
-\[\lim_{F}\G_n'\bbl\varphi(\overline \alpha)\bbr = \lim_{F}\G_n\bbl\varphi(\overline \alpha)\bbr.\]
-\end{lemm}
-\begin{proof} Since $\G_k'$ is a large portion we have $p:=\lim_{k\to\infty}\abs{\G_n'}/\abs{\G_n}$. Denote an event
-\[A_{\overline \alpha}:=[\omega \models \varphi^{\Gamma}(\overline\alpha_1(G),\dots\overline \alpha_l(G)],\]
-we have that 
-\begin{align}
-\Pr_{G\in\G_n}[A_G]&=\Pr_{G\in \G_n}[A_G|G\in\G_n']\Pr_{G\in\G_n}[G\in\G_n']\\
-&\phantom{\:=\:}+\Pr_{G\in\G_n}[A_G|G\in\G_n\setminus\G_n']\Pr_{G\in\G_n'}[G\in\G_n \setminus \G_n'].
-\end{align}
-If $\Pr_{G\in\G_n}[A_G]=1$ and $q:=\Pr_{G\in\G_n'}[A_G]<1$ we have by taking standard parts
-\begin{align}
-1&=p\cdot q + (1-p)\cdot q'\\
-&< p + (1-p)\cdot q'\\
-&\leq1,
-\end{align}
-a contradiction. The second case where $\lim_F\G_n\bbl\varphi\bbr=\0$ then follows from $\lim_F\G_n\bbl\lnot\varphi\bbr=\1.$ 
+By elementary probability theory if some property holds with probability $1$ in $\G_n$ then it also does in every large portion. Similarly, if something holds in a major portion with probability one, then it has to hold in the original wide sequence.
+
+\begin{crll}\label{crlltoobig}
+Let $\G_k$ be a wide sequence such that 
+\[\lim_{k\to\infty}\frac{\abs{\G_k}}{2^{\binom{g_k}{2}}}>0\] then $\Th(\lim_{F_{rud}}\G_n)$ is the theory of Rado graph.
+\end{crll}
+\begin{proof}
+The condition on the limit assures that $\G_k\leqp \ALL_{g_k}$. Which is enough to replicate the proof for $\ALL_{g_k}$.
 \end{proof}
 
-(TODO: Example?, Major portion, decomposition)
-
-We will use this lemma in Chapter \ref{chapsparse} that.
+We will use a similar argument in Chapter \ref{chapsparse} to instead prove something about a wide sequence by first proving it for its portion.
 
 \section{Isomorphism closed categorical $\mathcal{G}_k$}
 

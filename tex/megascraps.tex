@@ -141,3 +141,43 @@ Then in $K(\G_n,F_{rud},G_{rud})$ we have
 
 \end{thrm}
 
+
+
+\begin{lemm}[The hereditary property of open sentences]\label{lemmhere}
+Let $\G_k'\leqp \G_k$ be wide sequences, let $\varphi(\overline x)$ be an open $\{E\}$-sentence and $\alpha\in F$ such that
+\[\lim_{F}\G_n\bbl\varphi^\Gamma(\overline \alpha)\bbr\in\{\0,\1\}\]
+then
+\[\lim_{F}\G_n'\bbl\varphi^\Gamma(\overline \alpha)\bbr = \lim_{F}\G_n\bbl\varphi^\Gamma(\overline \alpha)\bbr.\]
+\end{lemm}
+\begin{proof} Since $\G_k'$ is a large portion we have $p:=\lim_{k\to\infty}\abs{\G_n'}/\abs{\G_n}$. Denote an event
+\[A_{\overline \alpha}:=[\omega \models \varphi^{\Gamma}(\overline\alpha_1(G),\dots\overline \alpha_l(G)],\]
+we have that 
+\begin{align}
+\Pr_{G\in\G_n}[A_G]&=\Pr_{G\in \G_n}[A_G|G\in\G_n']\Pr_{G\in\G_n}[G\in\G_n']\\
+&\phantom{\:=\:}+\Pr_{G\in\G_n}[A_G|G\in\G_n\setminus\G_n']\Pr_{G\in\G_n'}[G\in\G_n \setminus \G_n'].
+\end{align}
+If $\Pr_{G\in\G_n}[A_G]=1$ and $q:=\Pr_{G\in\G_n'}[A_G]<1$ we have by taking standard parts
+\begin{align}
+1&=p\cdot q + (1-p)\cdot q'\\
+&< p + (1-p)\cdot q'\\
+&\leq1,
+\end{align}
+a contradiction. The second case where $\lim_F\G_n\bbl\varphi\bbr=\0$ then follows from $\lim_F\G_n\bbl\lnot\varphi\bbr=\1.$ 
+\end{proof}
+
+\begin{lemm}\label{lemmporup}
+Let $\G_k'\leqp \G_k$ be a wide sequence with large portion $\G_k'$ and 
+\[p:=\lim_{k\to\infty}\frac{\abs{\G_k'}}{\abs{\G_k}}.\]
+Let $\varphi(\overline x)$ be an open $\{\Gamma\}$-sentence and $\overline \alpha\in\Gamma$ and $q>0$. Then if 
+\[\lim_F\G_n'\bbl\varphi(\overline \alpha)\bbr\geq q \]
+then
+\[\lim_F\G_n\bbl\varphi(\overline \alpha)\bbr\geq qp.\]
+\end{lemm}
+\begin{proof}
+Let $A_{\overline \alpha}$ as in the proof of the previous lemma. We have that
+\begin{align}
+\st\left(\Pr_{\omega\in\G_n}[A_{\overline \alpha}]\right)&\geq
+\st\left(\Pr_{\omega\in\G_n}[A_{\overline \alpha}|\omega\in\G_n']\right)\st\left(\Pr_{\omega\in\G_n}[\omega \in \G_n']\right)\\
+&\geq qp.
+\end{align}
+\end{proof}

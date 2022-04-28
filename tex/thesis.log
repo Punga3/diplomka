@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.22 (TeX Live 2021/Arch Linux) (preloaded format=pdflatex 2021.12.12)  27 APR 2022 18:32
+This is pdfTeX, Version 3.141592653-2.6-1.40.22 (TeX Live 2021/Arch Linux) (preloaded format=pdflatex 2021.12.12)  28 APR 2022 21:42
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -725,11 +725,11 @@ Package hyperref Warning: Token not allowed in a PDF string (Unicode):
 ]
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 56.
+(hyperref)                removing `math shift' on input line 55.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 56.
+(hyperref)                removing `math shift' on input line 55.
 
 [4]) [5]
 \openout2 = `chapForcing.aux'.
@@ -747,46 +747,46 @@ File: ts1lmr.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
 
 ] [7]
 LaTeX Font Info:    Trying to load font information for OMS+lmr on input line 1
-10.
+13.
 
 (/usr/share/texmf-dist/tex/latex/lm/omslmr.fd
 File: omslmr.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
 )
 LaTeX Font Info:    Font shape `OMS/lmr/m/n' in size <12> not available
-(Font)              Font shape `OMS/lmsy/m/n' tried instead on input line 110.
+(Font)              Font shape `OMS/lmsy/m/n' tried instead on input line 113.
  [8]
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 138.
+(hyperref)                removing `math shift' on input line 137.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `subscript' on input line 138.
+(hyperref)                removing `subscript' on input line 137.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 138.
+(hyperref)                removing `math shift' on input line 137.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 138.
+(hyperref)                removing `math shift' on input line 137.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `subscript' on input line 138.
+(hyperref)                removing `subscript' on input line 137.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 138.
+(hyperref)                removing `math shift' on input line 137.
 
 [9]
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 180.
+(hyperref)                removing `math shift' on input line 179.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 180.
+(hyperref)                removing `math shift' on input line 179.
 
 ) [10]
 \openout2 = `chapModel.aux'.
@@ -859,21 +859,17 @@ Package hyperref Warning: Token not allowed in a PDF string (Unicode):
 [17] [18] [19]
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 370.
+(hyperref)                removing `math shift' on input line 356.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `subscript' on input line 370.
+(hyperref)                removing `subscript' on input line 356.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 370.
+(hyperref)                removing `math shift' on input line 356.
 
-[20]
-
-LaTeX Warning: Reference `crlltoobig' on page 21 undefined on input line 412.
-
-[21]) [22]
+[20]) [21]
 \openout2 = `chapSb.aux'.
 
  (../tex/chapSb.tex
@@ -898,12 +894,12 @@ Package hyperref Warning: Token not allowed in a PDF string (Unicode):
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
 (hyperref)                removing `math shift' on input line 3.
 
-[23
+[22
 
 
 
 
-] [24]
+] [23]
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
 (hyperref)                removing `math shift' on input line 113.
@@ -924,7 +920,7 @@ Package hyperref Warning: Token not allowed in a PDF string (Unicode):
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
 (hyperref)                removing `math shift' on input line 113.
 
-[25] [26]) [27]
+[24] [25]) [26]
 \openout2 = `chapSp.aux'.
 
  (../tex/chapSp.tex
@@ -957,12 +953,12 @@ Package hyperref Warning: Token not allowed in a PDF string (Unicode):
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
 (hyperref)                removing `math shift' on input line 3.
 
-[28
+[27
 
 
 
 
-] [29] [30] [31]
+] [28] [29] [30]
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
 (hyperref)                removing `math shift' on input line 180.
@@ -983,11 +979,11 @@ Package hyperref Warning: Token not allowed in a PDF string (Unicode):
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
 (hyperref)                removing `math shift' on input line 180.
 
-[32]
+[31]
 
 LaTeX Warning: Command \l invalid in math mode on input line 191.
 
-[33]
+[32]
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
 (hyperref)                removing `math shift' on input line 252.
@@ -1000,13 +996,17 @@ Package hyperref Warning: Token not allowed in a PDF string (Unicode):
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
 (hyperref)                removing `math shift' on input line 252.
 
-[34]) [35]
+[33]) [34]
 \openout2 = `scraps.aux'.
 
  (../tex/scraps.tex)
 \openout2 = `epilog.aux'.
 
- (../tex/epilog.tex) [36
+ (../tex/epilog.tex
+
+LaTeX Warning: Reference `lemmhere' on page 35 undefined on input line 4.
+
+) [35
 
 
 
@@ -1017,8 +1017,7 @@ Package hyperref Warning: Token not allowed in a PDF string (Unicode):
 ]
 \openout2 = `bibliography.aux'.
 
-
-(../tex/bibliography.tex (../tex/thesis.bbl)) [37
+ (../tex/bibliography.tex (../tex/thesis.bbl)) [36
 
 
 
@@ -1035,13 +1034,13 @@ Package rerunfilecheck Info: File `thesis.out' has not changed.
 (rerunfilecheck)             Checksum: 172C9A3117245B271FB96C11FFA026AE;3949.
  ) 
 Here is how much of TeX's memory you used:
- 15588 strings out of 478994
- 220294 string characters out of 5864750
- 527602 words of memory out of 5000000
- 32438 multiletter control sequences out of 15000+600000
+ 15583 strings out of 478994
+ 220225 string characters out of 5864750
+ 527592 words of memory out of 5000000
+ 32439 multiletter control sequences out of 15000+600000
  471129 words of font info for 103 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 88i,14n,90p,1083b,2364s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 88i,14n,90p,1297b,2364s stack positions out of 5000i,500n,10000p,200000b,80000s
 {/usr/share/texmf-dist/fonts/enc/dvips/lm/lm-mathsy.enc}{/usr/share/texmf-dis
 t/fonts/enc/dvips/lm/lm-rm.enc}{/usr/share/texmf-dist/fonts/enc/dvips/lm/lm-ts1
 .enc}{/usr/share/texmf-dist/fonts/enc/dvips/lm/lm-mathex.enc}{/usr/share/texmf-
@@ -1058,10 +1057,10 @@ e/texmf-dist/fonts/type1/public/lm/lmsy8.pfb></usr/share/texmf-dist/fonts/type1
 /public/amsfonts/symbols/msam10.pfb></usr/share/texmf-dist/fonts/type1/public/a
 msfonts/symbols/msbm10.pfb></usr/share/texmf-dist/fonts/type1/public/stmaryrd/s
 tmary10.pfb>
-Output written on thesis.pdf (41 pages, 701820 bytes).
+Output written on thesis.pdf (40 pages, 701419 bytes).
 PDF statistics:
- 730 PDF objects out of 1000 (max. 8388607)
- 639 compressed objects within 7 object streams
- 251 named destinations out of 1000 (max. 500000)
+ 720 PDF objects out of 1000 (max. 8388607)
+ 630 compressed objects within 7 object streams
+ 245 named destinations out of 1000 (max. 500000)
  234 words of extra memory for PDF output out of 10000 (max. 10000000)
 
