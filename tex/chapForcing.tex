@@ -1,7 +1,7 @@
 \chapter{Forcing with random variables and the wide Limit}\label{chapwidelimit}
 \section{Setup}
 
-Our goal in this chapter is to provide a definition of a limit of a set an infinite set of finite graphs in which arbitrarily large graphs occur. The following definition makes our requirements of such a class of graphs precise. From now on $E$ denotes a binary relational symbol, so that formulas in the theory of graphs are precisely $E$-sentences.
+Our goal in this chapter is to provide a definition of a limit of an infinite class of finite graphs in which arbitrarily large graphs occur and the number of graphs in each cardinality is unbounded. The following definition makes our requirements of such a class of graphs precise. From now on $E$ denotes a binary relational symbol, so that formulas in the theory of graphs are precisely $\{E\}$-sentences.
 
 \begin{defi}
 Let $\{\mathcal{G}_k\}_{k>0}$ be a sequence of non-empty finite sets of (directed or undirected) finite graphs, i.e. structures of in the first order language consisting of the binary function $\{E\}$. We call it a \textbf{wide sequence} if the following holds.
@@ -14,25 +14,15 @@ Let $\{\mathcal{G}_k\}_{k>0}$ be a sequence of non-empty finite sets of (directe
 
 The second condition guarantees that $\mathcal{G}_n$ is an infinite set for $n>\mathbb{N}$. In fact, the condition is not strictly important to proceed with this chapter, but it more closely describes what sort of sequences we are interested in. Many interesting classes of graphs form a wide sequence if we restrict the vertex-sets to $\set{g_k}$, where $\{g_k\}_{k>0}$ can be taken as the increasing sequence of all cardinalities in such a class. For example graphs with exactly one edge, graphs with bounded degree and so on. We will get to explore many examples in depth after we define the wide limit.
 
-(TODO: wide sequence <-> class of structures)
+(!!!) Thus we will sometimes talk about wide limits of a class of finite graphs $\mathcal{C}$ which means that we just construct a sequence $\mathcal{C}_k=\{G\in\mathcal{C}; V_G=\set{g_k}\}$. If this sequence is wide we can proceed as if we started with a wide sequence in the first place.
 
- The limit is defined by specifying a nonstandard prolongation $\{G_n\}_{n<t}$ of the original wide sequence, non standard n < t and a certain Boolean valued extension $K(F)$ of $\cal M$. 
+The limit is defined by specifying a nonstandard prolongation $\{\tilde \G_n\}_{n<t}$ of the original wide sequence and some nonstandard $n < t$. In the next section we will consider a very rich sublanguage of $L_{all}$ which still makes every wide sequence definable in $\M$ and therefore there is a unique nonstandard prolongation which we will denote just $\{\G_n\}_{n\in\M}$ because it is in fact also unbounded.
 
-When the original sequence is definable in N (as it is always the case in this
-thesis) then we can take for the prolongation the sequence defined
-in the same way in M (and it is, in fact, also unbounded); hence
-we will not refer explicitly to the choice of the prolongation.
+In the first order case we will define a boolean valued graph $\lim_F\G_n$ through which we can investigate the first order properties of the limits. We then define its `arithmetical expansion' $K(\G_n,F)$ which interprets all relational symbols from $\M$. 
 
-On $K(F)$ we define a particular binary Boolean valued relation
-$\Gamma$ (depending on n). Our aim is to relate first-order properties
-of $\Gamma$ to various combinatorial and complexity-theoretic
-properties of the wide sequence. In this case we shall talk about 
-first order limit.
-
- We shall be also interested in second order properties of $\Gamma$,
-for example the existence of a large clique. For this we expand
-$K(F)$ to $K(F,G)$ with $G$ being second order objects (relations, functions).
-In this case we shall talk about second order limit.
+We shall be also interested in second order properties of $\Gamma$,
+for example the existence of a large clique.  For this we expand
+$\lim_F\G_n$ to $\lim_F^G\G_n$ and $K(\G_n,F)$ to $K(\G_n,F,G)$ with $G$ being second order objects (relations, functions). Here the arithmetical expansion is essential, because in the (second order) language of graphs we can just express an existance of a clique but only with an ordering on the vertices we can actually express that such a clique is large. In this case we shall talk about second order limit.
 
  
 
@@ -40,7 +30,7 @@ In this case we shall talk about second order limit.
 
 From now on we closely follow Chapter 1 of \cite{krajicek2010forcing}. Let $\mathcal{M}$ be the $\aleph_1$-saturated model of true arithmetic discussed in the previous chapter and let $\mathcal{G}_k$ be a wide sequence of graphs and $\Omega:=\mathcal{G}_n$ for $n\in\mathcal{M}\setminus \mathbb{N}$. One can check that graphs in $\Omega$ are all pseudofinite. The model $\M$ treats all its elements (including those which represent sets) as ``finite objects'' which lets us define uniform probability even on sets which are infinite from the set-theoretical perspective. Unlike in Krajíček's book, we will not define a structure in the arithmetical language $L_{all}$ because for us the families of functions $F$ will have their range restricted to the vertex set $\set{g_n}$ of the pseudofinite member of $\G_n$ as functions from $L_{all}$ could easily generate functions with range outside of this vertex set.
 
-However nothing restricts us to interpret the relations and constants in $L_{all}$ so we define the language $L_{rel}$ to consist precisely of the relational and constant symbols in $L_{all}$
+However nothing restricts us to not interpret the relations and constants in $L_{all}$ so we define the language $L_{rel}$ to consist precisely of the relational and constant symbols in $L_{all}$
 
 \begin{defi}
 Let $\mathcal{A}:=\{A\in\mathcal{M};A\subseteq \Omega\}$ be the set of all subsets of $\Omega$ represented by an element in $\M$.
@@ -78,7 +68,7 @@ Note that while every $\alpha\in F$ is represented by some element in $\M$, this
 Now we can finally define the first order wide limit.
 
 \begin{defi}
-We define a $\B$-valued $\Gamma$-structure $\lim_{k\to n}^{F}G_k$, where $\Gamma$ is a binary relation symbol, with universe $F$ and $\Gamma$-sentences being evaluated by the following inductive conditions:
+We define a $\B$-valued $\{\Gamma\}$-structure $\lim_{k\to n}^{F}G_k$, with universe $F$ and $\{\Gamma\}$-sentences being evaluated by the following inductive conditions:
 \begin{itemize}
 \item $\bbl \alpha=\beta \bbr := \{\omega\in\Omega; \alpha(\omega)=\beta(\omega)\}/\I.$
 \item $\bbl \Gamma(\alpha,\beta) \bbr := \{\omega\in\Omega; E_\omega(\alpha,\beta))\}/\I$.
@@ -108,7 +98,7 @@ We call \textbf{the arithmetical expansion of the (first order) wide limit}.
 
 While we can find a truth value of a sentence in the language of graphs in the limit $\lim_{F}\G_n$, we will encounter situations where this is not sufficient to analyze the wide sequence $\{\G_k\}_{k>0}$. 
 
-In Chapter \ref{chapdense} we will investigate how the existence of large cliques corresponds to the size of cliques in the limit graph. First we need some way to witness subsets of vertices -- this leads us to the second order wide limit. However, in the second order case the underlying arithmetic is much more important because we cannot just measure the set-theoretical cardinality of any such clique. For specific $n$ we could very well have $\card(\set{\floor{\log{n}}})=\card(\set{\floor{\frac{n}{2}}})$ but from the point of view of complexity theory, cliques of size $\floor{\log n}$ and $\floor{\frac{n}{2}}$ are dramatically different. In other words, our goal is also to have means to count the number elements of subsets or relations with values in (random variables in) $\M$.
+In Chapter \ref{chapdense} we will investigate how the existence of large cliques corresponds to the size of cliques in the limit graph. First we need some way to witness subsets of vertices -- this leads us to the second order wide limit. However, in the second order case the arithmetical expansion is much more important because we cannot just measure the set-theoretical cardinality of any such clique. For specific $n$ we could very well have $\card(\set{\floor{\log{n}}})=\card(\set{\floor{\frac{n}{2}}})$ but from the point of view of complexity theory, cliques of size $\floor{\log n}$ and $\floor{\frac{n}{2}}$ are dramatically different. In other words, our goal is also to have means to count the number elements of subsets or relations with values in (random variables in) $\M$.
 
 When we say second order we mean two-sorted first order structures where one sort represents the usual elements (the `first order' sort) and the other represents functions on those elements (the `second order' sort). The `second order' here can also represent sets and relations by \{0,1\} valued functions.
 
@@ -121,7 +111,7 @@ we have that for every $\alpha \in F$ and $\Theta \in G$ we have $\Theta(\alpha)
 \end{defi}
 
 \begin{defi}
-Let $F$ be a vertex family and $G$ be an $F$-compatible functional family. We define the structure $K(\G_n,F,G)$ as a two sorted $L$-structure with sorts $F$ and $G$ interpreting $L_{rel}$-sentences as $K(\G_n,F)$ and treating the sort $G$ as follows. First for equality we let
+(!!!) Let $F$ be a vertex family and $G$ be an $F$-compatible functional family. We define the structure $K(\G_n,F,G)$ as a two sorted $L$-structure with sorts $F$ and $G$ interpreting $L_{rel}$-sentences as $K(\G_n,F)$ and treating the sort $G$ as follows. Variables for $G$ are treated as function symbols and can form terms with variables for $F$ which are evaluated recursively. For equality we let
 \[\bbl\Theta=\Xi \bbr := \{\omega\in \Omega;\Theta_\omega=\Xi_\omega\}/\I\]
 and for the second order quantifiers we have the following inductive clauses
 \begin{itemize}
@@ -136,7 +126,7 @@ Let us note that if we have multiple boolean valued structures $\S_1,\S_2,\dots$
  
 \section{The vertex family $F_{rud}$ and $G_{rud}$}\label{secFrud}
 
-Throughout this thesis we will mostly work with the vertex family $F_{rud}$ which ties the properties of $\lim_F \G_n$ with decision tree complexity -- but decision trees can also be seen as an abstraction of oracle machine time we mentioned in the Introduction.
+Throughout this thesis we will mostly work with the vertex family $F_{rud}$ which ties the properties of $\lim_F \G_n$ with decision tree complexity -- but decision trees can also be seen as an abstraction of oracle machine time we mentioned in the Preliminaries chapter.
 
 After we choose the sequence $\{\G_k\}_{k>0}$ and $n>\N$ we again put $\Omega:=\G_n$ and define $F_{rud}$ as follows.
 
@@ -145,12 +135,10 @@ We define a \textbf{decision tree} to be a binary tree $T\in\M$ with a labeling 
 
 Every sample $\omega\in\Omega$ uniquely determines a path in $(T,\ell)$ by interpreting the vertex labels as ``is $(u,v)\in E_\omega$?'' and the edge labels as true $(1)$ and false $(0)$ and the path then uniquely determines an output.
 
-We define $F_{rud}$ to be the set of all functions computed by some $(T,\ell)$ of depth at most $g_n^{1/t}$.
+We define $\T_{rud}$ to be the set of all $(T,\ell)$ of depth at most $g_n^{1/t}$ and $F_{rud}$ to be the set of all function computed by some $(T,\ell)\in \T_{rud}$. For brevity we will leave out the labeling of the trees out of the notation so a tree in $\T_{rud}$ can be denoted just by $T$.
 \end{defi}
 
-%Note that if we are given a graph $G\in G_k$ on $g_k$ vertices, we need $l:=2\log g_n$ bits to represent it. In the pseudofinite case, $k=n$, if we are restricted to inspect/query at most $g_n^{1/t}$ edges then it corresponds to $2^{O(l/t)}$ many queries or the subexponential oracle time.
-
-One can verify that $F_{rud}$ is an vertex family for any $L\subseteq L_{all}$.
+(!!!) Note that if we are given a graph $G\in G_k$ on $g_k$ vertices, we need a polynomial sized circuit with $l:=\log g_k$ input bits to represent it. In the pseudofinite case, where $k=n$, if we are restricted to inspect/query at most $g_n^{1/t}$ edges then it corresponds to $2^{l/t}$ many queries or the subexponential oracle time.
 
 The definition of $G_{rud}$ is a bit more involved. The functionals in it will be computed by tuples of elements from $F_{rud}$ in the following sense.
 
@@ -177,8 +165,6 @@ If we take some $\Theta\in G_{rud}$ and $\alpha\in F_{rud}$ we can compute $\The
 \end{proof}
 
 \section{Different choices of $n$}
-
-(TODO: nonstandard prolongation)
 
 Even though we generally pose no requirements on $n>\N$ there are examples of wide sequences for which the limit is sensitive on the choice of the non-standard number $n$. 
 

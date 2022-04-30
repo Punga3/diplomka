@@ -12,7 +12,7 @@ Let \[\SK_k^{1/2}=\{(\set{k},E);\text{$E$ consists of exactly one $k/2$-clique}\
 
 Limiting inputs to $\SK_k^{1/2}$ makes the problem less complex, because for a vertex $v$ to be a part of the biggest clique it is enough that it has nonzero degree. Naturally we want to see whether there is a large clique in $\lim_F^G \SK_n^{1/2}$, every sample has a clique of size $n/2$, but is there a set of $F$-vertices witnessing that? 
 
-Here to measure the size of such a clique, the second order wide limit  by itself is not a sufficient object. (TODO - wednesday dissc) Instead we need to turn to the underlying arithmetic $K(F,G)$ to find an injective function from some large initial segment into a clique in the graph $\Gamma$. It is not hard to prove the following result.
+Here to measure the size of such a clique, the second order wide limit  by itself is not a sufficient object. Instead we need to turn to the arithmetical expansion $K(\G_n,F,G)$ to find an injective function from some large initial segment into a clique in the graph $\Gamma$. It is not hard to prove the following result.
 
 \begin{thrm}\label{thrmsk1}For every $t>\N$ we have
 \[K(\SK_k^{1/2},F,G)\bbl\text{$\Gamma$ has a clique of size $n^{1/t}$}\bbr=\1.\]
@@ -29,9 +29,7 @@ which is equal to
 \end{align}
 So we want to find some $n^{1/t}$-tuple of trees computing some $\Lambda$ which is injective on $\set{n^{1/t}}$ and its $\set{n^{1/t}}$ range is a clique in $\Gamma$.
 
-(TODO: rewrite the following paragraph)
-
-We define $(\Lambda_0,\dots,\Lambda_{n^{1/t}-1})$ as follows. The tree $T_0$ computing $\Lambda_0$ inspects all the edges $(u,v)\in\set{n^{1/t}}\times\set{n^{1/t}}$ in some specified order and outputs the first vertex it finds with an edge. The tree $T_i$ computing $\Lambda_i$ extends the previous order to $\set{in^{1/t}}\times\set{in^{1/t}}$ searches it and outputs the $i$-th vertex with an edge. Also every such tree has depth at most $n^{1/t}\cdot n^{1/t}=n^{2/t}=n^{1/(t/2)}$.
+(!!!) We define $(\Lambda_0,\dots,\Lambda_{n^{1/t}-1})$ as follows. The tree $T_0$ computing $\Lambda_0$ inspects all the edges $(u,v)\in\set{n^{1/t}}\times\set{n^{1/t}}$ in some specified order and outputs the first vertex it finds with an edge. The tree $T_i$ computing $\Lambda_i$ extends $T_{i-1}$ by not outputing the $i$-th vertex with the property but instead continues inspecting and outputs the $(i+1)$-th vertex with an edge. Also every such tree has depth at most $n^{1/t}\cdot n^{1/t}=n^{2/t}=n^{1/(t/2)}$.
 
 One can check that the probability the tree $\Lambda_i$ does not find $i$ vertices with an edge is infinitesimal and therefore it always outputs a vertex in the clique of $\omega$. Moreover, every $\Lambda_i$ outputs the $i$-th element element of the ordering and thus it is injective.
 \end{proof}
