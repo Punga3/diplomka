@@ -1,10 +1,10 @@
 \chapter{General theory}\label{chapgeneraltheory}
 \section{$\mathcal{G}_k=\EDGE_k$}
-The first and simplest wide sequence one can think of is the class of graphs with exactly one edge. We put
+The first and simplest wide sequence we will consider of is the class of graphs with exactly one edge. We put
 \[\EDGE_k:=\{\text{$(\set{k},E); \abs{E}=1$}\},\]
 and one can check that this is indeed a wide sequence because $\abs{\EDGE_k}=\binom{k}{2}$ which tends to infinity as $k$ does.
 
-Now every graph $G\in\EDGE_k$ has an edge. How does this reflect in the $F_{rud}$ wide limit? The first guess could be that there should also be an edge but another view lets us see this should not be the case. The limit encompasses the procedure of randomly sampling an exponentially large graph and then inspecting a subexponential part of its edges. In the pseudofinite case this means that we search for one edge in the nonstandard set of vertices but only search through infinitesimally small portion and so we should almost always fail.
+Now every graph $G\in\EDGE_k$ has an edge. How does this reflect in the $F_{rud}$ wide limit? The naive guess could be that there should also be an edge but another view lets us see this should not be the case. The limit encompasses the procedure of randomly sampling an exponentially large graph and then inspecting a subexponential part of its edges. In the pseudofinite case this means that we search for one edge in the nonstandard set of vertices but only search through infinitesimally small portion and so we should almost always fail.
 
 This is exactly how we prove in the following theorem.
 
@@ -12,10 +12,10 @@ This is exactly how we prove in the following theorem.
 We will prove that \[\lim_{F_{rud}}\EDGE_n\bbl(\exists x)(\exists y)\Gamma(x,y)\bbr=\textbf{0}.\]
 \end{thrm}
 \begin{proof}
-If any two trees $T_\alpha$ and $T_\beta$ computed potential witnesses $\alpha,\beta$ of the formula $\Gamma(x,y)$ on some subset of $\Omega$ we can combine then into one tree that outputs an edge one the same subsets $\Omega$, so we can just analyze the case where the witnesses are computed by the same tree. Let $T\in F_{rud}$ be a tree of depth $n^{1/t}$, for some $t>\mathbb{N}$, that outputs a pair vertices.
+If any two trees $T_\alpha$ and $T_\beta$ computing potential witnesses $\alpha,\beta$ of the formula $\Gamma(x,y)$ on some subset of $\Omega$ we can combine then into one tree that outputs an edge one the same subsets $\Omega$, so we can just analyze the case where the witnesses are computed by the same tree. Let $T\in \T_{rud}$ be a tree of depth $n^{1/t}$, for some $t>\mathbb{N}$, that outputs a pair of vertices.
 
 
-Start from the root of $T$ and always choose the path that corresponds to the nonexistence of an edge. At the end we obtain some answer, that gives us a set of at most $2 \cdot n^{1/t}+2$ vertices. Now we can find at least: 
+Start from the root of $T$ and always choose the path that corresponds to the nonexistence of an edge. At the end we obtain some answer, that gives us a set of at most $2 \cdot n^{1/t}+2$ vertices the tree inspected or outputed. Now we can find at least: 
 \begin{align}
 \binom{n-2n^{1/t}-2}{2}&=\frac{(n-2n^{1/t}-2)(n-2n^{1/t}-3)}{2}
 \end{align}
@@ -24,11 +24,11 @@ different $\omega\in\Omega$ such that $T(\omega)$ is not an edge in $\omega$.
 The probability that any of those graphs is sampled is
 \begin{align}
 \frac{\binom{n-2n^{1/t}-2}{2}}{\abs{\mathcal{G}_k}}&=\frac{(n-2n^{1/t}-2)(n-2n^{1/t}-3)}{n(n-1)}\\
-&=\left(1-\frac{2n^{1/t}-2}{n}\right)\cdot\left(1-\frac{2n^{1/t}-3}{n-1}\right)\\
-&\geq \left(1-\frac{2n^{1/t}-2}{n}\right)^2\\
-&\geq 1-\frac{4n^{1/t}-4}{n}.
+&=\left(1-\frac{2n^{1/t}-2}{n}\right)\cdot\left(1-\frac{2n^{1/t}-2}{n-1}\right)\\
+&\geq \left(1-\frac{2n^{1/t}-2}{n-1}\right)^2\\
+&\geq 1-\frac{4n^{1/t}-4}{n-1}.
 \end{align}
-And one can clearly see that $\st(1-\frac{4n^{1/t}-4}{n})=1$. This proves that the boolean value we are considering is $\textbf{0}$ since we can append the two witnesses for $x$ and $y$ into a tree that could find an edge with depth $n^{1/t}$ for some $t>\mathbb{N}$.
+And one can clearly see that $\st(1-\frac{4n^{1/t}-4}{n-1})=1$. This proves that the boolean value we are considering is $\textbf{0}$.
 \end{proof}
 
 \section{Sparse $\mathcal{G}_k$}
@@ -40,10 +40,10 @@ A more general case would be to consider a family of graphs in which there is an
 \begin{exam}
 Let $\mathcal{G}_k$ consist of those graphs on the vertex-set $k$ which contains the edge $E(0,1)$ and then has exactly one other edge. As $k$ increases, the fraction of edges gets smaller than any standard positive fraction. But
 \[\bbl(\exists x)(\exists y)\Gamma(x,y)\bbr=\1,\]
-as witnessed by $x$ being the constant $0$ and $y$ the constant $1$ both of which are computable by a tree of depth $0$.
+as witnessed by $x$ being the constant $0$ and $y$ the constant $1$ both of which are computable by a $\T_{rud}$ tree of depth $0$.
 \end{exam}
 
-One can see that having distinguished vertices can result in the edge being found. We want to distinguish from this situation by considering the sequences $\mathcal{G}_k$ satisfying the following natural definition.
+One can see that having distinguished vertices can result in the edge being found even in the sparse case. We want to distinguish from this situation by considering the sequences $\mathcal{G}_k$ satisfying the following natural definition.
 
 \begin{defi}
 We say that $\{\mathcal{G}_k\}_{k=0}^\infty$ is \textbf{isomorphism closed}, if there is $k_0$ such that for every $k>k_0$ if we have that $G_1\in\mathcal{G}_k$, $V_{G_2}=\set{g_k}$ and $G_1\cong G_2$ then $G_2\in\mathcal{G}_k$.
@@ -101,7 +101,7 @@ We use the fact that $p\leq b_n$ to derive
 which proves the theorem.
 \end{proof}
 
-The assumption $\lim_{k\to \infty} k^{1/k_0}b_k=0$ for some $k_0$ may seem unintuitive at first. However, it precisely captures what is ``too sparse" for the trees in $F_{rud}$. The following example shows that without the assumption the theorem fails.
+The assumption $\lim_{k\to \infty} k^{1/k_0}b_k=0$ for some $k_0$ may seem unintuitive at first. However, it precisely captures what is ``too sparse" for the trees in $\T_{rud}$. The following example shows that without the assumption the theorem fails.
 
 \begin{exam}\label{examsparseedge}
 Let $\mathcal{G}_k$ consist of all graphs on the vertex set $\set{k}$ with precisely $\lceil\frac{k(k-1)}{2\log k}\rceil$ edges.
@@ -118,7 +118,7 @@ Let $T$ be a tree of the same shape, that computes the pair $\{\alpha,\beta\}$ t
 &=\frac{\frac{(m-n^{1/t})!}{\ceil{\frac{n(n-1)}{2\log n}} ! (m-\ceil{ \frac{n(n-1)}{2\log n}}-n^{1/t})!}}{\frac{m!}{\lceil \frac{n(n-1)}{2\log n}\rceil!(m-\ceil{\frac{n(n-1)}{2\log n}})!}}\\
 &=\frac{(m-n^{1/t})!(m-\ceil{ \frac{n(n-1)}{2\log n}})!}{m!(m-\ceil{\frac{n(n-1)}{2\log n}}-n^{1/t})!}\\
 &=\prod_{i=0}^{n^{1/t}-1}\frac{m-\ceil{\frac{n(n-1)}{2}}-i}{m-i}\\
-&=\left(1-\frac{\ceil{\frac{n(n-1)}{2\log n}}}{\frac{n(n-1)}{2}}\right)^{n^{1/t}}\\
+&\leq\left(1-\frac{\ceil{\frac{n(n-1)}{2\log n}}}{\frac{n(n-1)}{2}}\right)^{n^{1/t}}\\
 &\leq\left(1-\frac{\ceil{\frac{n(n-1)}{2\log n}}}{\frac{n(n-1)}{2}}\right)^{n^{1/t}}\\
 &\leq\left(1-\frac{1}{\log n}\right)^{n^{1/t}}
 \end{align}
@@ -143,7 +143,7 @@ Let us now consider how the density of a specific kind of substructure in the wi
 
 \begin{thrm}\label{thrmexists}
 Let $F$ contain all constants, $\G_k$ be a wide sequence and let $\varphi_0(\overline x)$ be an open $\{E\}$-formula such that
-\[\lim_{k\to\infty}\Pr_{\substack{G\in\mathcal{G}_k\\\overline a \in \set{g_k}^l}}(G\models\varphi_0(\overline a))=p.\]
+\[\lim_{k\to\infty}\Pr_{\substack{G\in\mathcal{G}_k\\\overline a \in \set{g_k}^l}}(G\models\varphi_0(\overline a))\geq p.\]
 Then $\mu(\bbl(\exists x)\varphi_0(x)\bbr)\geq p.$
 \end{thrm}
 
@@ -152,13 +152,13 @@ We define a matrix with components
 \[C_{G,\overline a}=\begin{cases}1&G\models\varphi_0(\overline a)\\0&\text{otherwise}.\end{cases}\]
 
 By overspill in $\M$ we have that
-\[\st\left (\frac{1}{\abs{\G_n}g_k^l}\sum_{G\in\G_n}\sum_{\overline a \in \set{g_k}^l}C_{G,\overline \alpha}\right )=1.\]
+\[\st\left (\frac{1}{\abs{\G_n}g_k^l}\sum_{G\in\G_n}\sum_{\overline a \in \set{g_k}^l}C_{G,\overline \alpha}\right )\geq p.\]
 
-We claim that there is one $\overline a$ such that $\st(\Pr_{G\in\G_k}(G\models\varphi_0(\overline a)))=1$. Assume for contradiction, that for all $\overline a$ we have $\frac{1}{\abs{\G_n}}\sum_{G\in \G_n}\leq p$ for some $q<p$. Then
+We claim that there is one $\overline a$ such that $\st(\Pr_{G\in\G_k}(G\models\varphi_0(\overline a)))\geq p$. Assume for contradiction, that for all $\overline a$ we have $\frac{1}{\abs{\G_n}}\sum_{G\in \G_n}<p$. Then
 \begin{align}
 \frac{1}{\abs{\G_n}g_k^l}\sum_{G\in\G_n}\sum_{\overline a \in \set{g_n}^l}C_{G,\overline \alpha}&=
 \frac{1}{g_k^l}\sum_{\overline a\in\set{g_n}^l}\frac{1}{\abs{\G_n}}\sum_{G\in\G_n}C_{G,\overline \alpha}\\
-&\leq q,
+&< p,
 \end{align}
 which is a contradiction after taking the standard part of each value.
 
@@ -191,11 +191,11 @@ First notice that we can compute the probability for fixed $\overline a$ because
 \Pr_{G\in\SK_k^{1/2}}[G\models \varphi_l^\Gamma(\overline a)]&=\frac{\binom{k-l}{\floor{k/2}-l}}{\binom{k}{\floor{k/2}}}\\
 &=\prod_{i=0}^l\frac{k-\floor{k/2}-i}{k-i}\\
 &=\prod_{i=0}^l\left(1-\frac{\floor{k/2}}{k-i}\right)\\
-&\geq\prod_{i=0}^l\left(1-\frac{k/2}{k-i}+\frac{1}{k-i}\right)\\
+&\geq\prod_{i=0}^l\left(1-\frac{k/2}{k-i}\right)\\
 &\geq\left(1-\frac{k/2}{k-l}\right)^l\\
 &\geq\left(1-\frac{1}{2(1-l/k)}\right)^l,
 \end{align}
-and
+and since $l\in \N$, so from the point of view of standard analysis a constant, we can just check that
 \begin{align}
 \lim_{k\to\infty}1-l/k=1.
 \end{align}
@@ -207,8 +207,8 @@ This proves that for any $F$ that contains all constants we have
 Now the following theorem describes sufficient conditions for a universal sentence to hold in the wide limit for \textit{any} $F$.
 
 \begin{thrm}\label{thrmuni}
-Let $F$ by any $L$-closed class of function, let $\G_k$ a wide sequence and let $\varphi_0(\overline x)$ be an open $\{E\}$-sentence, such that
-\[\lim_{k\to\infty}\Pr_{G\in\mathcal{G}_k}(G\models\varphi)=1.\]
+Let $F$ by any vertex family, let $\G_k$ a wide sequence and let $\varphi_0(\overline x)$ be an open $\{E\}$-sentence, such that
+\[\lim_{k\to\infty}\Pr_{G\in\mathcal{G}_k}[G\models\varphi]=1.\]
 
 Then $\lim_F \G_n \bbl(\forall \overline x)\varphi_0^{\Gamma}(\overline x)\bbr=\1.$
 
@@ -216,7 +216,7 @@ Then $\lim_F \G_n \bbl(\forall \overline x)\varphi_0^{\Gamma}(\overline x)\bbr=\
 \end{thrm}
 
 \begin{proof}
-We have that $\st(\Pr_{G\in\mathcal{G}_n}(G\models\varphi))=1$ and therefore $\bbl\varphi_0(\overline\alpha)\bbr=\1$ for each tuple $\overline\alpha$ in $F$. Therefore
+We have that $\st(\Pr_{G\in\mathcal{G}_n}[G\models\varphi])=1$ and therefore $\bbl\varphi_0(\overline\alpha)\bbr=\1$ for each tuple $\overline\alpha$ in $F$. Therefore
 \begin{align}
 \bbl\varphi\bbr&=\Land_{\overline\alpha}\bbl\varphi_0(\overline\alpha)\bbr\\
 &=\Land_{\overline\alpha}\1\\
@@ -236,7 +236,7 @@ and let
 which says that if $a,b,c,d$ are distinct, there is an edge between one of them. The universal closure is valid on all graphs in $\G_k^B$ and none of the graphs in $\G_k^A$. Since $\binom{\binom{n}{2}}{2}/\binom{\binom{n}{2}}{n-3}$ is infinitesimal we have, that $\lim_{k\to\infty} \binom{\binom{k}{2}}{2}/\binom{\binom{k}{2}}{k-3}=0$ we have by Theorem \ref{thrmuni} that $\lim_F \G_n \bbl(\forall a,b,c,d)\varphi_0^\Gamma(a,b,c,d)\bbr=\1$ for any $F$ containing all constants.
 \end{exam}
 
-The Theorem \ref{thrmuni} also implies that since all $G\in\G_k$ satisfy that $E_G$ is antireflexive then so does $\lim_{F}\G_n$ and if $E_G$ are all symmetrical then so it the wide limit edge relation $\Gamma$. This combined with Theorem \ref{thrmsparse} to prove the following.
+The Theorem \ref{thrmuni} also implies that since all $G\in\G_k$ satisfy that $E_G$ is antireflexive then so does $\lim_{F}\G_n$ and if $E_G$ are all symmetrical then so it the wide limit edge relation $\Gamma$. This combined with Theorem \ref{thrmsparse} proves the following.
 
 \begin{crll}[0-1 law for too sparse $F_{rud}$ sequence]\label{crlltoosparse}
 Let $\G_k$ be any wide sequence satisfying the statement of the Theorem \ref{thrmsparse}. Then $\Th(\lim_{F_{rud}})\G_n)$ is the theory of the empty graph and therefore complete. 
@@ -256,7 +256,7 @@ but we proved that $\lim_{F_{rud}}\G_n \bbl(\exists x,y)\Gamma(x,y)\bbr=\1$ in o
 Now we return to $F=F_{rud}$ and prove a theorem with a more limited use which however forces the truth value of the existential sentence in the wide limit to be $\1$.
 
 \begin{thrm}\label{mutindfind}
-Let $F=F_{rud}$ and let $\varphi_0(x_0,\dots,x_{l-1})$ be an open $\{E\}$-formula. Furthermore for $0<p\leq 1$, consider subsets $A\subseteq\set{g_k}^l$ with the property that for all for all $\overline a \in A$ we have
+Let $F=F_{rud}$ and let $\varphi_0(x_0,\dots,x_{l-1})$ be an open $\{\Gamma\}$-formula. Furthermore for $0<p\leq 1$, consider subsets $A\subseteq\set{g_k}^l$ with the property that for all for all $\overline a \in A$ we have
 \[\Pr_{G\in\mathcal{G}_k}(G\models \varphi_0(\overline a))\geq p\]
 and
 \[\text{$\{\{G\models\varphi_0(\overline a)\}\subseteq \mathcal{G}_k;\overline a \in A\}$ are mutually independent.}\]
@@ -273,7 +273,7 @@ From $\aleph_1$-saturation of $\mathcal{M}$ we have $n'>\mathbb{N}$ many tuples 
 
 For $j\in[l]$ construct a tree $T_j$ inductively as follows: Start with $T_{\overline a_0}$. Replace the label of every accepting leaf by $(\overline a_0)_j$ and remove the label of every rejecting leaf. Call this tree $T_j^0$. Assume we have already constructed $T_j^{m}$. Construct $T_j^{i+1}$ by appending $T_{\overline a_{m+1}}$ to every undefined leaf, relabeling every satisfied leaf to $(\overline a_{i+1})_j$ and removing labels from every rejecting leaf. We will define $T_j$ as $T_j^{n'}$ with undefined leaves labeled by $0$. (This can be done because all instances of induction are in $\Th(\mathbb{N})$.) Note that $\dpt(T_j)=d\cdot n' < n^{1/t}$ for some $t>\mathbb{N}$. 
 
-Call $\overline \alpha$ the tuple computed by $T_0,\dots,T_{l-1}$. We will prove that the probability of $\overline \alpha$ being a witness to $\varphi_0(\overline x)$ is 1. For each $\overline a_i$ we have, that the probability of $G\models\varphi_0(\overline a_i)$ is at least $p$. The mutual independence of ${\{G\models\varphi_0(\overline a_i);i\in[n']\}}$ and the construction of $T_j$ implies that $T_j$ has a probability of $(1-p)^{n'}$ of failing, which is obviously almost $0$.
+Call $\overline \alpha$ the tuple computed by $T_0,\dots,T_{l-1}$. We will prove that the probability of $\overline \alpha$ being a witness to $\varphi_0(\overline x)$ is 1. For each $\overline a_i$ we have, that the probability of $G\models\varphi_0(\overline a_i)$ is at least $p$. The mutual independence of ${\{G\models\varphi_0(\overline a_i);i\in[n']\}}$ and the construction of $T_j$ implies that $T_j$ has a probability of $(1-p)^{n'}$ of failing, which is obviously infinitesimal.
 \end{proof}
 
 We now use this theorem to characterize the theory of another wide limit. We denote
@@ -282,20 +282,20 @@ We now use this theorem to characterize the theory of another wide limit. We den
 Note that if we consider an open $\{E\}$-formula $\varphi(\overline x)$ and convert it to DNF, we get a disjunction of conjunctions. Each such conjunction says which first order literals should be satisfied on the variables $\overline x$, the following theorem is proved for conjunctions of literals. By the fact that $\bbl\dots\bbr$ commutes with disjunctions, we can find out a value of any existential sentence.
 
 \begin{thrm}[Everything exists]
-Let $\varphi(\overline x,\overline y)=\Land_{i=0}^{m-1}\psi_i(\overline x,\overline y)\land \Land_{i=0}^{l-1}\vartheta_i(\overline y)$, where $\psi_i,\vartheta_i$ are basic formulas and $\psi_i$ are not of the form $(y_i=y_j)^b$, $E(y_i,y_j)^b$, $x_i\not= x_i$, $E(x_i,x_i)$, $b\in\{0,1\}$ such that
+Let $\varphi(\overline x,\overline y)=\Land_{i=0}^{m-1}\psi_i(\overline x,\overline y)\land \Land_{i=0}^{l-1}\vartheta_i(\overline y)$, where $\psi_i,\vartheta_i$ are basic formulas and $\psi_i$ are not of the form $(y_i=y_j)^b$, $E(y_i,y_j)^b$, $x_i\not= x_i$, $\Gamma(x_i,x_i)$, $b\in\{0,1\}$ such that
 \begin{itemize}
-\item each $\psi_i$ are not of the form $(y_i=y_j)^b,E(y_i,y_j)^b,x_i\not = x_i, E(x_i,x_i)$ for $b\in\{0,1\}$
+\item each $\psi_i$ are not of the form $(y_i=y_j)^b,E(y_i,y_j)^b,x_i\not = x_i, \Gamma(x_i,x_i)$ for $b\in\{0,1\}$
 \item if $\psi_i$ is of the form $(x_i=z)^b$ for $z$ in $\overline x$ or $\overline y$ then no other $\psi_j$ is of the form $(x_i=z)^{1-b}$ or $(z=x_i)^{1-b}$
-\item if $\psi_i$ is of the form $E(x_i,z)^b$ for $z$ in $\overline x$ or $\overline y$ then no other $\psi_j$ is of the form $E(x_i,z)^{1-b}$ or $E(z,x_i)^{1-b}$.
+\item if $\psi_i$ is of the form $\Gamma(x_i,z)^b$ for $z$ in $\overline x$ or $\overline y$ then no other $\psi_j$ is of the form $\Gamma(x_i,z)^{1-b}$ or $\Gamma(z,x_i)^{1-b}$.
 \end{itemize}
 
-If $\overline \beta$ is a tuple of vertices computed by $F_{rud}$ of the same length as $\overline y$ then \[\lim_{F_{rud}}\G_n\bbl(\exists \overline x)\varphi^\Gamma(\overline x,\overline \beta)\bbr=\lim_{F_{rud}}\G_n\bbl\Land_{i=0}^{l-1}\vartheta_i(\overline \beta)\bbr,\] specifically if $l=0$ then
+If $\overline \beta$ is a tuple of vertices computed by $F_{rud}$ of the same length as $\overline y$ then \[\lim_{F_{rud}}\G_n\bbl(\exists \overline x)\varphi_0(\overline x,\overline \beta)\bbr=\lim_{F_{rud}}\G_n\bbl\Land_{i=0}^{l-1}\vartheta_i(\overline \beta)\bbr,\] specifically if $l=0$ then
 
-\[\lim_{F_{rud}}\G_n\bbl(\exists \overline x)\phi_0(\overline x,\overline \beta)\bbr=\1.\]
+\[\lim_{F_{rud}}\G_n\bbl(\exists \overline x)\varphi_0(\overline x,\overline \beta)\bbr=\1.\]
 \end{thrm}
 \begin{proof} We will construct one tree $T$ computing the whole tuple of witnesses $\overline \alpha$, such a construction can be straightforwardly split into a tuple of trees with each computing the specific element.
 
-First we concatenate all the trees used to compute $\overline \beta$. At each leaf we can now proceed knowing the value of $\overline \beta$ at the specific $\omega\in\Omega$. Now we simply construct a tree as in Theorem \ref{mutindfind} but searching only over edges not checked previously and only to fulfill each $\psi_i$. Luckily we have so far searched only an infinitesimal part of the edges and since we assume $\mathcal{G}_k=\text{ALL}_k$ both of the conditions of the theorem are satisfied. So by analogous argument, we have a tree that finds a witness for all of the $\psi_i(\overline x,\overline \beta)$ with probability infinitesimally close to 1.
+First we concatenate all the trees used to compute $\overline \beta$. At each leaf we can now proceed knowing the value of $\overline \beta$ at the specific $\omega\in\Omega$. Now we simply construct a tree as in Theorem \ref{mutindfind} but searching only over edges not checked previously and only to fulfill each $\psi_i$. Since we assume $\mathcal{G}_k=\text{ALL}_k$ both of the conditions of the theorem are satisfied. So by analogous argument, we have a tree that finds a witness for all of the $\psi_i(\overline x,\overline \beta)$ with probability infinitesimally close to 1.
 
 Therefore
 \begin{align}
@@ -309,7 +309,7 @@ The statement of the theorem was rather technical, but we can now use it to prov
 \begin{crll}For each $\varphi(\overline x)$ that is not a contradiction in the theory of graphs we have that $\bbl(\exists \overline x)\varphi^\Gamma(\overline x)\bbr=1.$
 \end{crll}
 \begin{proof}
-The conditions on $\psi_i$ are exactly saying that the conjunction is not a contradiction. Every other formula can be rewritten as a disjunction of such conjunctions and by the theorem we can satisfy at least one (in fact all of those which are not contradictions).
+The conditions on $\psi_i$ are exactly saying that the conjunction is not a contradiction. Every other formula can be rewritten as a disjunction of such conjunctions and by the theorem we can satisfy at least one of them.
 \end{proof}
 \begin{crll}\label{crllev2}
 For each $\varphi(\overline x,\overline y)$ that is not falsifiable by $\overline y$ in the theory of graphs we have that $\bbl(\forall \overline y)(\exists \overline x)\varphi^\Gamma(\overline x)\bbr=\1$.
@@ -333,7 +333,7 @@ For every $\{E\}$-sentence $\varphi$ we have that
 \end{crll}
 
 
-The wide sequence $\ALL_k$ is maximal in the sense that for every $\G_k$ with $g_k=k$ we have that $\G_{k}\subseteq \ALL_{k}$. Since we proved 0-1 law for $\ALL_k$ we can ask whether this tells us anything about the subobjects of $\ALL_k$ since they consist in some sense of all other wide sequences.
+The wide sequence $\ALL_k$ is maximal in the sense that for every $\G_k$ with $g_k=k$ we have that $\G_{k}\subseteq \ALL_{k}$. Since we proved 0-1 law for $\ALL_k$ we can ask whether this tells us anything about the subobjects of $\ALL_k$ since they consist in some sense of all other wide sequences. From now on we no longer assume $\G_k$ denotes $\ALL_k$.
 
 \begin{defi}\label{defiportion}
 Let $\G_k$ be a wide sequence. We say that $\G_k'$ is a \textbf{portion} of $\G_k$ if we have $\G_k'\subseteq \G_k$ for all $k$ big enough which we denote $\G_k'\leq \G_k$. We say it is a \textbf{large portion} if we have
@@ -379,7 +379,7 @@ Let $\{\mathcal{G}_k\}_{k=0}^\infty$ be categorical and isomorphism closed, then
 \[\abs{\mathcal{G}_k}=\frac{g_k!}{\abs{\Aut(G_k)}}.\]
 \end{lemm}
 \begin{proof}
-Every $\rho\in S_{g_k}$ defines an isomorphism $\rho:G_k\to\rho(G_k)$, where $\rho(G_k)$ is a graph obtained from $G_k$ by renaming every vertex $v$ to $\rho(v)$.
+Every $\rho\in S_{g_k}$ defines an isomorphism $\rho:G_k\to\rho(G_k)$, where $\rho(G_k)$ is a graph obtained from $G_k$ by renaming every edge coordinate wise by $\rho$.
 
 {}
 \textbf{Claim:} For any $\rho,\pi\in S_{g_k}$:
@@ -393,7 +393,7 @@ Notice that the $\tau$ in the statement of the claim is uniquely determined by $
 The Lemma follows from noticing that if we start with $\{G_k\}$ and then we build $\mathcal{G}_k$ by finding isomorphic graphs on the vertex set $\set{g_k}$, we can only do so by trying different permutation from $S_{g_k}$ and these permutations find the same graph if and only if they are in the same $\sim$-class. Therefore there is a bijection between $S_{g_k}/\sim$ and $\mathcal{G}_k$. \qed
 \end{proof}
 
-So far we did not encounter an isomorphism closed wide sequence $\G_k$ and a $\{E\}$-sentence $\varphi$ such that $\0<\lim_{F_{rud}}\G_n\bbl\varphi^\Gamma\bbr<\1$. One can use isomorphism closed categorical wide sequences to construct such a wide sequence.
+So far we did not encounter an isomorphism closed wide sequence $\G_k$ and a $\{E\}$-sentence $\varphi$ for which we proved $\0<\lim_{F_{rud}}\G_n\bbl\varphi^\Gamma\bbr<\1$. One can use isomorphism closed categorical wide sequences to construct such a wide sequence.
 \begin{exam}
 Let
 \begin{align}

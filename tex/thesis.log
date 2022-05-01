@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.22 (TeX Live 2021/Arch Linux) (preloaded format=pdflatex 2021.12.12)  30 APR 2022 15:43
+This is pdfTeX, Version 3.141592653-2.6-1.40.22 (TeX Live 2021/Arch Linux) (preloaded format=pdflatex 2021.12.12)  1 MAY 2022 13:28
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1002,11 +1002,7 @@ Package hyperref Warning: Token not allowed in a PDF string (Unicode):
  (../tex/scraps.tex)
 \openout2 = `epilog.aux'.
 
- (../tex/epilog.tex
-
-LaTeX Warning: Reference `lemmhere' on page 37 undefined on input line 4.
-
-) [37
+ (../tex/epilog.tex) [37
 
 
 
@@ -1017,7 +1013,8 @@ LaTeX Warning: Reference `lemmhere' on page 37 undefined on input line 4.
 ]
 \openout2 = `bibliography.aux'.
 
- (../tex/bibliography.tex (../tex/thesis.bbl)) [38
+
+(../tex/bibliography.tex (../tex/thesis.bbl)) [38
 
 
 
@@ -1027,17 +1024,14 @@ LaTeX Warning: Reference `lemmhere' on page 37 undefined on input line 4.
 (../tex/chapForcing.aux) (../tex/chapModel.aux) (../tex/chapSb.aux)
 (../tex/chapSp.aux) (../tex/scraps.aux) (../tex/epilog.aux)
 (../tex/bibliography.aux))
-
-LaTeX Warning: There were undefined references.
-
 Package rerunfilecheck Info: File `thesis.out' has not changed.
 (rerunfilecheck)             Checksum: 172C9A3117245B271FB96C11FFA026AE;3949.
  ) 
 Here is how much of TeX's memory you used:
- 15591 strings out of 478994
- 220320 string characters out of 5864750
+ 15590 strings out of 478994
+ 220310 string characters out of 5864750
  527680 words of memory out of 5000000
- 32442 multiletter control sequences out of 15000+600000
+ 32441 multiletter control sequences out of 15000+600000
  471129 words of font info for 103 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  88i,14n,90p,1341b,2364s stack positions out of 5000i,500n,10000p,200000b,80000s
@@ -1057,7 +1051,7 @@ e/texmf-dist/fonts/type1/public/lm/lmsy8.pfb></usr/share/texmf-dist/fonts/type1
 /public/amsfonts/symbols/msam10.pfb></usr/share/texmf-dist/fonts/type1/public/a
 msfonts/symbols/msbm10.pfb></usr/share/texmf-dist/fonts/type1/public/stmaryrd/s
 tmary10.pfb>
-Output written on thesis.pdf (42 pages, 705208 bytes).
+Output written on thesis.pdf (42 pages, 704666 bytes).
 PDF statistics:
  734 PDF objects out of 1000 (max. 8388607)
  642 compressed objects within 7 object streams

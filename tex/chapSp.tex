@@ -8,7 +8,7 @@ Now we turn our attention to a wide sequence which is made up of `hardest instan
 We define $\pPATH_k$ (the pointed paths on $k$ vertices) as the set of all (undirected) graphs $G$ on the vertex set $\set{k}$, where $G$ is isomorphic to the path on $n$ vertices and $\deg_G(0)=1$.
 \end{defi}
 
-One can also see that it is not fruitful to analyze the $F_{rud}$ limit, because there are only $k-1$ edges in each $G\in\pPATH_k$ and so by Theorem \ref{thrmsparse} we have that $\lim_{F_{rud}}\pPATH_k\bbl(\exists x)(\exists y)\Gamma(x,y)\bbr=\0.$ Moreover in the type 2 version of the problem the graph is presented by an oracle which gives us the neighbour set for each vertex, so we define a new family $F$ as follows.
+One can also see that it is not fruitful to analyze the $F_{rud}$ limit, because there are only $k-1$ edges in each $G\in\pPATH_k$ and therefore, by an analogous argument to the proof of Theorem \ref{thrmsparse}, we have that $\lim_{F_{rud}}\pPATH_k\bbl(\exists x)(\exists y)\Gamma(x,y)\bbr=\0.$ Moreover in the type 2 version of the problem the graph is presented by an oracle which gives us the neighbour set for each vertex, so we define a new family $F$ as follows.
 
 \begin{defi}
 After we fix $n$, we define $F_{nbtree}$ as the set of all functions computed by some some labeled tree with the following shape:
@@ -129,7 +129,7 @@ and the standard part of the lower bound is $1$.
 Finally we can prove the following theorem.
 
 \begin{thrm}\label{thrmnoend}
-\[\bbl(\exists v)(\exists u)(\forall w)((v\not=0)\land (\Gamma(v,u)) \land(\Gamma(v,w) \to u=w))\bbr=\0\]
+\[\lim_{F_{nbtree}}\pPATH_n\bbl(\exists v)(\exists u)(\forall w)((v\not=0)\land (\Gamma(v,u)) \land(\Gamma(v,w) \to u=w))\bbr=\0\]
 \end{thrm}
 \begin{proof}
 Expanding the value of the formula in the statement we get
@@ -174,7 +174,7 @@ $\Th(\lim_{F_{nbtree}}\pPATH_n)$ is complete.
 \begin{proof}
 By applying Theorem \ref{thrmuni} we have that the sentences $\lnot C_k$ stating that there are not cycles of length $k\in\N$ are valid all in $\lim_{F_{nbtree}}\pPATH_n$, the sentence $D^{1,2}_{1,rest}$ stating that there is exactly one vertex of degree $1$ and all other vertices have degree $2$ is valid by Theorem \ref{thrmnoend}. 
 
-Let $T=\{\lnot C_k,k\in\N\}\cup\{D_{1,rest}^{1,2}\}$, and let $\A_1,\A_2\models T$, then we can see by the handshaking lemma that $\M_1$ and $\M_2$ are both infinite. And we can see that they can be decomposed into one path starting at $0$ with no end, and then more infinite paths which have the order type of $\Z$. One can see that the duplicator of Ehrenfeucht-Fraïssé game has a winning strategy by responding to any element on the order type $\Z$ with a far enough element on the path of the order $\N$.
+Let $T=\{\lnot C_k,k\in\N\}\cup\{D_{1,rest}^{1,2}\}$, and let $\A_1,\A_2\models T$, then we can see by the handshaking lemma that $\M_1$ and $\M_2$ are both infinite. And we can see that they can be decomposed into one path starting at $0$ with no end, and then more infinite paths which have the order type of $\Z$. The duplicator of Ehrenfeucht-Fraïssé game has a winning strategy by responding to any element on the order type $\Z$ with a far enough element on the path of the order $\N$.
 \end{proof}
 
 \section{$\G_k=\pPATHl_k$}
@@ -286,7 +286,7 @@ We will not cover details, but analysis of these trees in $F_{dtree}$ finding th
 $\Th(\lim_{F_{nbtree}}\pDPATH_n)$ is complete.
 \end{crll}
 
-(!!!) In the type 2 complexity theory of $\TFNP^2$ we know that there is no (oracle polynomial time) reduction from $\LEAF$ to $\SOURCEORSINK$. An important question arises -- is this reflected in the second order arithmetical expansion $K(\pPATH_n,F_{nbtree},G_{nbtree})$? Where $G_{nbtree}$ is defined analogously as $G_{rud}$ but for elements from $F_{nbtree}$. More specifically we ask the following.
+(!!!) In the type 2 complexity theory of $\TFNP^2$ we know that there is no (oracle polynomial time) reduction from $\LEAF$ to $\SOURCEORSINK$. An important question arises -- is this reflected in the second order arithmetical expansion $K(\pPATH_n,F_{nbtree},G_{nbtree})$? Where $G_{nbtree}$ is defined analogously as $G_{rud}$ but with the components in the tuple from $F_{nbtree}$. More specifically we ask the following.
 
 \begin{ques}
 Consider an instance of $\SOURCEORSINK$ defined by some $\Theta$. Let $\varphi_\Theta$ be the first order statement which says `$\Theta$ has a solution'. Are all $\varphi_\Theta$ valid in $K(\pPATH_n,F_{nbtree},G_{nbtree})$?
