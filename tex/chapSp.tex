@@ -2,7 +2,7 @@
 
 \section{$\mathcal{G}_k=*\text{PATH}_k$}
 
-Now we turn our attention to a wide sequence which is made up of `hardest instances in $\LEAF$'. That is, if we are given a degree 1 vertex labeled $0$ and search for another degree 1 vertex, it is the hardest if there are only two degree 1 vertices and the path from $0$ to the solution is as long as possible.
+Now we turn our attention to a wide sequence which is made up of `the hardest instances in $\LEAF$'. That is, if we are given a degree 1 vertex labeled $0$ and search for another degree 1 vertex, it is the hardest if there are only two degree 1 vertices and the path from $0$ to the solution is as long as possible.
 
 \begin{defi}
 We define $\pPATH_k$ (the pointed paths on $k$ vertices) as the set of all (undirected) graphs $G$ on the vertex set $\set{k}$, where $G$ is isomorphic to the path on $n$ vertices and $\deg_G(0)=1$.
@@ -126,7 +126,7 @@ Since $T$ has depth at most $n^{1/t}$ for some $t>\mathbb{N}$ we by the previous
 and the standard part of the lower bound is $1$.
 \end{proof}
 
-Finally we can prove the following theorem.
+Finally, we can prove the following theorem.
 
 \begin{thrm}\label{thrmnoend}
 \[\lim_{F_{nbtree}}\pPATH_n\bbl(\exists v)(\exists u)(\forall w)((v\not=0)\land (\Gamma(v,u)) \land(\Gamma(v,w) \to u=w))\bbr=\0\]
@@ -134,7 +134,7 @@ Finally we can prove the following theorem.
 \begin{proof}
 Expanding the value of the formula in the statement we get
 \[\Lor_{\alpha}\Lor_{\beta}\Land_{\gamma}\bbl(\alpha\not=0)\land (\Gamma(\alpha,\beta)) \land(\Gamma(\alpha,\gamma) \to \beta=\gamma)\bbr,\]
-to prove it evalues to $\0$ we need to find for every $\alpha,\beta$ some $\gamma$ such that
+to prove it evaluates to $\0$ we need to find for every $\alpha,\beta$ some $\gamma$ such that
 \[\bbl(\alpha\not=0)\land (\Gamma(\alpha,\beta)) \land(\Gamma(\alpha,\gamma) \to \beta=\gamma)\bbr=\0.\]
 For any $\alpha,\beta$ we define
 \[\gamma(\omega):=\begin{cases}v&N(\alpha(\omega))=\{v\}\\w&w\in N(\alpha(\omega))\setminus\{\beta(\omega)\},\end{cases}\]
@@ -264,7 +264,7 @@ We define $\pDPATH_k$ (the pointed directed paths on $k$ vertices) as the set of
 But now, since we are working with directed graphs which have two types of neighbour sets $N_G^+(v)=\{w\in V_G;E_G(w,v)\}$ and $N_G^-(v)=\{w\in V_G;E_G(v,w)\}$, we would like to define a family $F_{dtree}$ of those trees which can inspect either of the neighbour sets.
 
 \begin{defi}
-After we fix $n$, we define $F_{dtree}$ as the set of all functions computed by some some labeled tree with the following shape:
+After we fix $n$, we define $F_{dtree}$ as the set of all functions computed by some labeled tree with the following shape:
 
 \begin{itemize}
 \item Each non-leaf node is labeled by some $v\in\set{n}$ and a symbol $\diamond\in\{+,-\}$. 

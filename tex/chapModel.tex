@@ -28,7 +28,7 @@ The probability that any of those graphs is sampled is
 &\geq \left(1-\frac{2n^{1/t}-2}{n-1}\right)^2\\
 &\geq 1-\frac{4n^{1/t}-4}{n-1}.
 \end{align}
-And one can clearly see that $\st(1-\frac{4n^{1/t}-4}{n-1})=1$. This proves that the boolean value we are considering is $\textbf{0}$.
+And one can clearly see that $\st(1-\frac{4n^{1/t}-4}{n-1})=1$. This proves that the Boolean value we are considering is $\textbf{0}$.
 \end{proof}
 
 \section{Sparse $\mathcal{G}_k$}
@@ -109,7 +109,7 @@ Let $\mathcal{G}_k$ consist of all graphs on the vertex set $\set{k}$ with preci
 Then we claim that
 \[\bbl(\exists x)(\exists y)\Gamma(x,y)\bbr=\1.\]
 
-Let $\alpha$ and $\beta$ be vertices computed by the tree of the same shape which inspects a set of any $n^{1/t}$ distinct edges for some $t>\mathbb{N}$. If it finds an edge we define $\alpha$ and $\beta$ in any way so that they are the distinct vertices incidental with this edge. Otherwise we let $\alpha(\omega)=\beta(\omega)=0$.
+Let $\alpha$ and $\beta$ be vertices computed by the tree of the same shape which inspects a set of any $n^{1/t}$ distinct edges for some $t>\mathbb{N}$. If it finds an edge we define $\alpha$ and $\beta$ in any way so that they are the distinct vertices incidental with this edge. Otherwise, we let $\alpha(\omega)=\beta(\omega)=0$.
 
 Let $T$ be a tree of the same shape, that computes the pair $\{\alpha,\beta\}$ then we can compute the probability where such a tree fails as the fraction of all graphs which have no edges that $T$ inspects. Let $m=\binom{n}{2}$. We get
 
@@ -295,7 +295,7 @@ If $\overline \beta$ is a tuple of vertices computed by $F_{rud}$ of the same le
 \end{thrm}
 \begin{proof} We will construct one tree $T$ computing the whole tuple of witnesses $\overline \alpha$, such a construction can be straightforwardly split into a tuple of trees with each computing the specific element.
 
-First we concatenate all the trees used to compute $\overline \beta$. At each leaf we can now proceed knowing the value of $\overline \beta$ at the specific $\omega\in\Omega$. Now we simply construct a tree as in Theorem \ref{mutindfind} but searching only over edges not checked previously and only to fulfill each $\psi_i$. Since we assume $\mathcal{G}_k=\text{ALL}_k$ both of the conditions of the theorem are satisfied. So by analogous argument, we have a tree that finds a witness for all of the $\psi_i(\overline x,\overline \beta)$ with probability infinitesimally close to 1.
+First we concatenate all the trees used to compute $\overline \beta$. At each leaf we can now proceed knowing the value of $\overline \beta$ at the specific $\omega\in\Omega$. Now we simply construct a tree as in Theorem \ref{mutindfind} but searching only over edges not checked previously and only to fulfill each $\psi_i$. Since we assume $\mathcal{G}_k=\text{ALL}_k$, both of the conditions of the theorem are satisfied. So by analogous argument, we have a tree that finds a witness for all of the $\psi_i(\overline x,\overline \beta)$ with probability infinitesimally close to 1.
 
 Therefore
 \begin{align}
