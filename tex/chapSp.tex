@@ -8,7 +8,7 @@ Now we turn our attention to a wide sequence which is made up of `the hardest in
 We define $\pPATH_k$ (the pointed paths on $k$ vertices) as the set of all (undirected) graphs $G$ on the vertex set $\set{k}$, where $G$ is isomorphic to the path on $n$ vertices and $\deg_G(0)=1$.
 \end{defi}
 
-One can also see that it is not fruitful to analyze the $F_{rud}$ limit, because there are only $k-1$ edges in each $G\in\pPATH_k$ and therefore, by an analogous argument to the proof of Theorem \ref{thrmsparse}, we have that $\lim_{F_{rud}}\pPATH_k\bbl(\exists x)(\exists y)\Gamma(x,y)\bbr=\0.$ Moreover in the type 2 version of the problem the graph is presented by an oracle which gives us the neighbour set for each vertex, so we define a new family $F$ as follows.
+One can also see that it is not fruitful to analyze the $F_{rud}$ limit, because there are only $k-1$ edges in each $G\in\pPATH_k$ and therefore, by an analogous argument to the proof of Theorem \ref{thrmsparse}, we have that $\lim_{F_{rud}}\pPATH_k\bbl(\exists x)(\exists y)E(x,y)\bbr=\0.$ Moreover in the type 2 version of the problem the graph is presented by an oracle which gives us the neighbour set for each vertex, so we define a new family $F$ as follows.
 
 \begin{defi}
 After we fix $n$, we define $F_{nbtree}$ as the set of all functions computed by some some labeled tree with the following shape:
@@ -16,7 +16,7 @@ After we fix $n$, we define $F_{nbtree}$ as the set of all functions computed by
 \begin{itemize}
 \item Each non-leaf node is labeled by some $w\in\set{n}$. 
 \item For each $\{u,v\} \subseteq \set{n}$ and a node $w$ there is an outgoing edge from $w$ labeled $\{u,v\}$.
-\item Each leaf is labeled by some $m\in \mathcal{M}$.
+\item Each leaf is labeled by some $m\in \set{g_n}$.
 \item The depth of the tree is at most $g_n^{1/t}$ for some $t>\mathbb{N}$.
 \end{itemize}
 
@@ -81,7 +81,7 @@ $(k-1) \Rightarrow k:$ First we assume that the root is labeled $0$. Then we hav
 
 \begin{align}
 \Pr_{G\in\G_m}[\text{$T$ fails}]&=\sum_{u\in V\setminus\{0\}}\Pr_{G\in\G_{m-1}}[E(0,u)]\Pr_{G\in\G_{m-1}}[T_{0?=\{u\}}\text{ fails}|E(0,u)]\\
-&\geq \Pr_{G\in\G_{m-1}}[T_{0?=\{u\}}\text{ fails}|0Eu]\\
+&\geq \Pr_{G\in\G_{m-1}}[T_{0?=\{u\}}\text{ fails}|E(0,u)]\\
 &= \Pr_{G\in\G_{m-1}}[\tilde T_{0?=\{u\}}\text{ fails}]\\
 &\geq \prod_{i=0}^{k-1}\left(1-\frac{2}{m-2i-2}\right)\\
 &\geq \prod_{i=0}^{k}\left(1-\frac{2}{m-2i-2}\right).
@@ -90,7 +90,7 @@ $(k-1) \Rightarrow k:$ First we assume that the root is labeled $0$. Then we hav
 Now we assume that the root is labeled $v\not= 0$. First we notice that
 
 \begin{align}
-\Pr_{G\in\G_m}[vE0]&=\frac{1}{m-1}\\
+\Pr_{G\in\G_m}[E(v,0)]&=\frac{1}{m-1}\\
 \Pr_{G\in\G_m}[N(V)=1]&=\frac{1}{m-1}\\
 \Pr_{G\in\G_m}[\abs{N(V)\setminus\{0\}}=2]&=1-\frac{2}{m-1},\label{pmmiddle}
 \end{align}
@@ -129,38 +129,38 @@ and the standard part of the lower bound is $1$.
 Finally, we can prove the following theorem.
 
 \begin{thrm}\label{thrmnoend}
-\[\lim_{F_{nbtree}}\pPATH_n\bbl(\exists v)(\exists u)(\forall w)((v\not=0)\land (\Gamma(v,u)) \land(\Gamma(v,w) \to u=w))\bbr=\0\]
+\[\lim_{F_{nbtree}}\pPATH_n\bbl(\exists v)(\exists u)(\forall w)((v\not=0)\land (E(v,u)) \land(E(v,w) \to u=w))\bbr=\0\]
 \end{thrm}
 \begin{proof}
 Expanding the value of the formula in the statement we get
-\[\Lor_{\alpha}\Lor_{\beta}\Land_{\gamma}\bbl(\alpha\not=0)\land (\Gamma(\alpha,\beta)) \land(\Gamma(\alpha,\gamma) \to \beta=\gamma)\bbr,\]
+\[\Lor_{\alpha}\Lor_{\beta}\Land_{\gamma}\bbl(\alpha\not=0)\land (E(\alpha,\beta)) \land(E(\alpha,\gamma) \to \beta=\gamma)\bbr,\]
 to prove it evaluates to $\0$ we need to find for every $\alpha,\beta$ some $\gamma$ such that
-\[\bbl(\alpha\not=0)\land (\Gamma(\alpha,\beta)) \land(\Gamma(\alpha,\gamma) \to \beta=\gamma)\bbr=\0.\]
+\[\bbl(\alpha\not=0)\land (E(\alpha,\beta)) \land(E(\alpha,\gamma) \to \beta=\gamma)\bbr=\0.\]
 For any $\alpha,\beta$ we define
 \[\gamma(\omega):=\begin{cases}v&N(\alpha(\omega))=\{v\}\\w&w\in N(\alpha(\omega))\setminus\{\beta(\omega)\},\end{cases}\]
 such a function can be computed by a tree in $F_{nbtree}$ which we can construct by concatenation of trees computing $\alpha$ and $\beta$.
 
 Let $T$ be the tree computing $\alpha$. Now we proceed by contradiction, let
-\[\epsilon:=\mu(\bbl(\alpha\not=0)\land (\Gamma(\alpha,\beta)) \land(\Gamma(\alpha,\gamma) \to \beta=\gamma)\bbr)>0,\]
+\[\epsilon:=\mu(\bbl(\alpha\not=0)\land (E(\alpha,\beta)) \land(E(\alpha,\gamma) \to \beta=\gamma)\bbr)>0,\]
 by definition this means that
-\[\epsilon=\st(P_n[(\alpha\not=0)\land (\Gamma(\alpha,\beta)) \land(\Gamma(\alpha,\gamma) \to \beta=\gamma)])>0.\]
+\[\epsilon=\st(P_n[(\alpha\not=0)\land (E(\alpha,\beta)) \land(E(\alpha,\gamma) \to \beta=\gamma)])>0.\]
 Expanding the value of the formula in the statement we get
-\[\Lor_{\alpha}\Lor_{\beta}\Land_{\gamma}\bbl(\alpha\not=0)\land (\Gamma(\alpha,\beta)) \land(\Gamma(\alpha,\gamma) \to \beta=\gamma)\bbr,\]
+\[\Lor_{\alpha}\Lor_{\beta}\Land_{\gamma}\bbl(\alpha\not=0)\land (E(\alpha,\beta)) \land(E(\alpha,\gamma) \to \beta=\gamma)\bbr,\]
 to prove it evalues to $\0$ we need to find for every $\alpha,\beta$ some $\gamma$ such that
-\[\bbl(\alpha\not=0)\land (\Gamma(\alpha,\beta)) \land(\Gamma(\alpha,\gamma) \to \beta=\gamma)\bbr=\0.\]
+\[\bbl(\alpha\not=0)\land (E(\alpha,\beta)) \land(E(\alpha,\gamma) \to \beta=\gamma)\bbr=\0.\]
 For any $\alpha,\beta$ we define
 \[\gamma(\omega):=\begin{cases}v&N(\alpha(\omega))=\{v\}\\w&w\in N(\alpha(\omega))\setminus\{\beta(\omega)\},\end{cases}\]
 such a function can be computed by a tree in $F_{nbtree}$ which we can construct by concatenation of trees computing $\alpha$ and $\beta$.
 
 Let $T$ be the tree computing $\alpha$. Now we proceed by contradiction, let
-\[\epsilon:=\mu(\bbl(\alpha\not=0)\land (\Gamma(\alpha,\beta)) \land(\Gamma(\alpha,\gamma) \to \beta=\gamma)\bbr)>0,\]
+\[\epsilon:=\mu(\bbl(\alpha\not=0)\land (E(\alpha,\beta)) \land(E(\alpha,\gamma) \to \beta=\gamma)\bbr)>0,\]
 by definition this means that
-\[\epsilon=\st(P_n[(\alpha\not=0)\land (\Gamma(\alpha,\beta)) \land(\Gamma(\alpha,\gamma) \to \beta=\gamma)])>0.\]
+\[\epsilon=\st(P_n[(\alpha\not=0)\land (E(\alpha,\beta)) \land(E(\alpha,\gamma) \to \beta=\gamma)])>0.\]
 But by definition of $\gamma$ and Corollary \ref{crllpPathtreefail} we have
 \begin{align*}
 0&<\epsilon\\
-&=\st(P_n[(\alpha\not=0)\land (\Gamma(\alpha,\beta)) \land(\Gamma(\alpha,\gamma) \to \beta=\gamma)])\\
-&\leq\st(P_n[(\alpha\not=0)\land (\Gamma(\alpha,\beta)) \land \abs{N(\alpha)}=1])\\
+&=\st(P_n[(\alpha\not=0)\land (E(\alpha,\beta)) \land(E(\alpha,\gamma) \to \beta=\gamma)])\\
+&\leq\st(P_n[(\alpha\not=0)\land (E(\alpha,\beta)) \land \abs{N(\alpha)}=1])\\
 &\leq\st(P_n[(\alpha\not=0)\land \abs{N(\alpha)}=1])\\
 &=\st(P_n[T\text{ does not fail}])\\
 &=0.
@@ -235,7 +235,7 @@ which tends to $1$ as $k\to\infty$.
 \end{proof}
 
 \begin{thrm}
-\[\lim_{F_{nbtree}}\pPATHl_n\bbl(\exists v)(\exists u)(\forall w)((v\not=0)\land (\Gamma(v,u)) \land(\Gamma(v,w) \to u=w))\bbr=\0\]
+\[\lim_{F_{nbtree}}\pPATHl_n\bbl(\exists v)(\exists u)(\forall w)((v\not=0)\land (E(v,u)) \land(E(v,w) \to u=w))\bbr=\0\]
 \end{thrm}
 \begin{proof}(sketch)
 The probability that a tree fails on any of the wide sequences $\pPATH_k^{k-c}$ is infinitesimal due to Lemma \ref{lemmpathnnc}. This is true for any of their unions so for $\G_k'$ in particular. In Lemma \ref{lemmpathmaj} we proved that $\G_k'$ is a major portion of $\pPATHl_k$, so by Lemma \ref{lemmporup} the probability that a tree fails in $\pPATHl$ is arbitrarily close to $1$.
@@ -268,8 +268,8 @@ After we fix $n$, we define $F_{dtree}$ as the set of all functions computed by 
 
 \begin{itemize}
 \item Each non-leaf node is labeled by some $v\in\set{n}$ and a symbol $\diamond\in\{+,-\}$. 
-\item For each $v \in \set{n}$ and a node $N$ there is an outgoing edge from $w$ labeled $\{v\}$ and also an outgoing edge labeled $\varnothing$.
-\item Each leaf is labeled by some $m\in \mathcal{M}$.
+\item For each $v \in \set{n}$ and a node $w$ there is an outgoing edge from $w$ labeled $\{v\}$ and also an outgoing edge labeled $\varnothing$.
+\item Each leaf is labeled by some $m\in \set{g_n}$.
 \item The depth of the tree is at most $g_n^{1/t}$ for some $t>\mathbb{N}$.
 \end{itemize}
 
@@ -279,15 +279,15 @@ Computation of such a tree on an undirected graph $G$ goes as follows. We interp
 We will not cover details, but analysis of these trees in $F_{dtree}$ finding the nonzero sink is more or less the same as the $F_{nbtree}$ case for $\pPATH_k$, so we have the following.
 
 \begin{thrm}
-\[\lim_{F_{nbtree}}\pDPATH_n\bbl(\exists v)(\forall w)((v\not=0)\land \lnot\Gamma(v,w))\bbr=\0\]
+\[\lim_{F_{nbtree}}\pDPATH_n\bbl(\exists v)(\forall w)((v\not=0)\land \lnot E(v,w))\bbr=\0\]
 \end{thrm}
 
 \begin{crll}\label{crllpDPATH}
 $\Th(\lim_{F_{nbtree}}\pDPATH_n)$ is complete.
 \end{crll}
 
-(!!!) In the type 2 complexity theory of $\TFNP^2$ we know that there is no (oracle polynomial time) reduction from $\LEAF$ to $\SOURCEORSINK$. An important question arises -- is this reflected in the second order arithmetical expansion $K(\pPATH_n,F_{nbtree},G_{nbtree})$? Where $G_{nbtree}$ is defined analogously as $G_{rud}$ but with the components in the tuple from $F_{nbtree}$. More specifically we ask the following.
+In the type 2 complexity theory of $\TFNP^2$ we know that there is no (oracle polynomial time) reduction from $\LEAF$ to $\SOURCEORSINK$. An important question arises -- is this reflected in the second order arithmetical expansion $K(\pPATH_n,F_{nbtree},G_{nbtree})$? Where $G_{nbtree}$ is defined analogously as $G_{rud}$ but with the components in the tuple from $F_{nbtree}$. More specifically we ask the following.
 
 \begin{ques}
-Consider an instance of $\SOURCEORSINK$ defined by some $\Theta$. Let $\varphi_\Theta$ be the first order statement which says `$\Theta$ has a solution'. Are all $\varphi_\Theta$ valid in $K(\pPATH_n,F_{nbtree},G_{nbtree})$?
+Consider an instance of $\SOURCEORSINK$ defined by some $\Theta\in G_{nbtree}$. Let $\varphi_\Theta$ be the first order statement which says `$\Theta$ has a solution'. Are all $\varphi_\Theta$ valid in $K(\pPATH_n,F_{nbtree},G_{nbtree})$?
 \end{ques}

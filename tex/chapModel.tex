@@ -9,10 +9,10 @@ Now every graph $G\in\EDGE_k$ has an edge. How does this reflect in the $F_{rud}
 This is exactly how we prove in the following theorem.
 
 \begin{thrm}\label{thrmedge}
-We will prove that \[\lim_{F_{rud}}\EDGE_n\bbl(\exists x)(\exists y)\Gamma(x,y)\bbr=\textbf{0}.\]
+We will prove that \[\lim_{F_{rud}}\EDGE_n\bbl(\exists x)(\exists y)E(x,y)\bbr=\textbf{0}.\]
 \end{thrm}
 \begin{proof}
-If any two trees $T_\alpha$ and $T_\beta$ computing potential witnesses $\alpha,\beta$ of the formula $\Gamma(x,y)$ on some subset of $\Omega$ we can combine then into one tree that outputs an edge one the same subsets $\Omega$, so we can just analyze the case where the witnesses are computed by the same tree. Let $T\in \T_{rud}$ be a tree of depth $n^{1/t}$, for some $t>\mathbb{N}$, that outputs a pair of vertices.
+If any two trees $T_\alpha$ and $T_\beta$ computing potential witnesses $\alpha,\beta$ of the formula $E(x,y)$ on some subset of $\Omega$ we can combine then into one tree that outputs an edge one the same subsets $\Omega$, so we can just analyze the case where the witnesses are computed by the same tree. Let $T\in \T_{rud}$ be a tree of depth $n^{1/t}$, for some $t>\mathbb{N}$, that outputs a pair of vertices.
 
 
 Start from the root of $T$ and always choose the path that corresponds to the nonexistence of an edge. At the end we obtain some answer, that gives us a set of at most $2 \cdot n^{1/t}+2$ vertices the tree inspected or outputed. Now we can find at least: 
@@ -39,7 +39,7 @@ A more general case would be to consider a family of graphs in which there is an
 
 \begin{exam}
 Let $\mathcal{G}_k$ consist of those graphs on the vertex-set $k$ which contains the edge $E(0,1)$ and then has exactly one other edge. As $k$ increases, the fraction of edges gets smaller than any standard positive fraction. But
-\[\bbl(\exists x)(\exists y)\Gamma(x,y)\bbr=\1,\]
+\[\bbl(\exists x)(\exists y)E(x,y)\bbr=\1,\]
 as witnessed by $x$ being the constant $0$ and $y$ the constant $1$ both of which are computable by a $\T_{rud}$ tree of depth $0$.
 \end{exam}
 
@@ -55,7 +55,7 @@ Let an isomorphism closed $\mathcal{G}_k$ have the following property. There is 
 \[\Pr[E_G(u,v)]\leq b_k,\]
 and some $k_0$ such that $\lim_{k\to\infty}k^{1/k_0}b_k = 0.$ Then
 
-\[\lim_{F_{rud}}\bbl(\exists x)(\exists y)\Gamma(x,y)\bbr=\0.\]
+\[\lim_{F_{rud}}\bbl(\exists x)(\exists y)E(x,y)\bbr=\0.\]
 \end{thrm}
 \begin{proof}
 Let us define the number $c_{u,v}:=\abs{\{G\in\mathcal{G}_k; E_G(u,v)\}}$, which is the number of graphs $G$ in $\mathcal{G}_k$ satisfying $E_G(u,v)$. Of course $c_{u,u}=0$ for every $u$.
@@ -107,7 +107,7 @@ The assumption $\lim_{k\to \infty} k^{1/k_0}b_k=0$ for some $k_0$ may seem unint
 Let $\mathcal{G}_k$ consist of all graphs on the vertex set $\set{k}$ with precisely $\lceil\frac{k(k-1)}{2\log k}\rceil$ edges.
 
 Then we claim that
-\[\bbl(\exists x)(\exists y)\Gamma(x,y)\bbr=\1.\]
+\[\bbl(\exists x)(\exists y)E(x,y)\bbr=\1.\]
 
 Let $\alpha$ and $\beta$ be vertices computed by the tree of the same shape which inspects a set of any $n^{1/t}$ distinct edges for some $t>\mathbb{N}$. If it finds an edge we define $\alpha$ and $\beta$ in any way so that they are the distinct vertices incidental with this edge. Otherwise, we let $\alpha(\omega)=\beta(\omega)=0$.
 
@@ -131,7 +131,7 @@ And for any standard $k$ we have
 
 So $\st(\Pr_{G\in\mathcal{G}_n}[T\text{ fails}])=0$ and we get 
 \begin{align}
-\mu(\bbl(\exists x)(\exists y)\Gamma(x,y)) \bbr &\geq \mu(\bbl \Gamma(\alpha,\beta)\bbr)\\
+\mu(\bbl(\exists x)(\exists y)E(x,y)) \bbr &\geq \mu(\bbl E(\alpha,\beta)\bbr)\\
 &=\st(1-\Pr_{G\in\mathbb{G}_n}[T\text{ fails}])\\
 &=1.
 \end{align}
@@ -185,10 +185,10 @@ Consider
 \SK_k^{1/2}&:=\{(\set{k},E);\text{$E$ has a clique of size $\floor{k/2}$}, \abs{E}=\abs{E_{K_{\floor{k/2}}}}\},
 \end{align*}
 a wide sequence of all graphs with exactly one $\floor{k/2}$ clique and no other edges. One can check that for any $\{E\}$-formula $\varphi_l(\overline x)$ stating that $\overline x$ forms a clique of size $l$ we claim that 
-\[\lim_{k\to\infty} \Pr_{\substack{G\in\SK_k^{1/2}\\\overline a \in \set{k}^l}}[G\models \varphi^\Gamma(\overline a)]\geq(1/2)^l.\]
+\[\lim_{k\to\infty} \Pr_{\substack{G\in\SK_k^{1/2}\\\overline a \in \set{k}^l}}[G\models \varphi(\overline a)]\geq(1/2)^l.\]
 First notice that we can compute the probability for fixed $\overline a$ because $\SK_k^{1/2}$ is isomorphism closed. So we have
 \begin{align}
-\Pr_{G\in\SK_k^{1/2}}[G\models \varphi_l^\Gamma(\overline a)]&=\frac{\binom{k-l}{\floor{k/2}-l}}{\binom{k}{\floor{k/2}}}\\
+\Pr_{G\in\SK_k^{1/2}}[G\models \varphi_l(\overline a)]&=\frac{\binom{k-l}{\floor{k/2}-l}}{\binom{k}{\floor{k/2}}}\\
 &=\prod_{i=0}^l\frac{k-\floor{k/2}-i}{k-i}\\
 &=\prod_{i=0}^l\left(1-\frac{\floor{k/2}}{k-i}\right)\\
 &\geq\prod_{i=0}^l\left(1-\frac{k/2}{k-i}\right)\\
@@ -210,7 +210,7 @@ Now the following theorem describes sufficient conditions for a universal senten
 Let $F$ by any vertex family, let $\G_k$ a wide sequence and let $\varphi_0(\overline x)$ be an open $\{E\}$-sentence, such that
 \[\lim_{k\to\infty}\Pr_{G\in\mathcal{G}_k}[G\models\varphi]=1.\]
 
-Then $\lim_F \G_n \bbl(\forall \overline x)\varphi_0^{\Gamma}(\overline x)\bbr=\1.$
+Then $\lim_F \G_n \bbl(\forall \overline x)\varphi_0^{E}(\overline x)\bbr=\1.$
 
 
 \end{thrm}
@@ -233,10 +233,10 @@ Let us define
 \end{align}
 and let 
 \[\varphi_0(a,b,c,d):=\left(\Land_{\substack{x, y\in\{a,b,c,d\}\\\text{$x,y$ distinct}}}(x\not=y)\right)\to\left(\Lor_{\substack{x, y\in\{a,b,c,d\}\\\text{$x,y$ distinct}}}E(x,y)\right),\]
-which says that if $a,b,c,d$ are distinct, there is an edge between one of them. The universal closure is valid on all graphs in $\G_k^B$ and none of the graphs in $\G_k^A$. Since $\binom{\binom{n}{2}}{2}/\binom{\binom{n}{2}}{n-3}$ is infinitesimal we have, that $\lim_{k\to\infty} \binom{\binom{k}{2}}{2}/\binom{\binom{k}{2}}{k-3}=0$ we have by Theorem \ref{thrmuni} that $\lim_F \G_n \bbl(\forall a,b,c,d)\varphi_0^\Gamma(a,b,c,d)\bbr=\1$ for any $F$ containing all constants.
+which says that if $a,b,c,d$ are distinct, there is an edge between one of them. The universal closure is valid on all graphs in $\G_k^B$ and none of the graphs in $\G_k^A$. Since $\binom{\binom{n}{2}}{2}/\binom{\binom{n}{2}}{n-3}$ is infinitesimal we have, that $\lim_{k\to\infty} \binom{\binom{k}{2}}{2}/\binom{\binom{k}{2}}{k-3}=0$ we have by Theorem \ref{thrmuni} that $\lim_F \G_n \bbl(\forall a,b,c,d)\varphi_0(a,b,c,d)\bbr=\1$ for any $F$ containing all constants.
 \end{exam}
 
-The Theorem \ref{thrmuni} also implies that since all $G\in\G_k$ satisfy that $E_G$ is antireflexive then so does $\lim_{F}\G_n$ and if $E_G$ are all symmetrical then so it the wide limit edge relation $\Gamma$. This combined with Theorem \ref{thrmsparse} proves the following.
+The Theorem \ref{thrmuni} also implies that since all $G\in\G_k$ satisfy that $E_G$ is antireflexive then so does $\lim_{F}\G_n$ and if $E_G$ are all symmetrical then so it the wide limit edge relation $E$. This combined with Theorem \ref{thrmsparse} proves the following.
 
 \begin{crll}[0-1 law for too sparse $F_{rud}$ sequence]\label{crlltoosparse}
 Let $\G_k$ be any wide sequence satisfying the statement of the Theorem \ref{thrmsparse}. Then $\Th(\lim_{F_{rud}})\G_n)$ is the theory of the empty graph and therefore complete. 
@@ -244,11 +244,11 @@ Let $\G_k$ be any wide sequence satisfying the statement of the Theorem \ref{thr
 
 It is natural to ask whether we can weaken the assumption of Theorem \ref{thrmuni} to an assumption analogous to Theorem \ref{thrmexists}. In other words, is
 \[\lim_{k\to\infty}\Pr_{\substack{G\in\G_k\\\overline a\in \set{g_k}^l}}[G\models\varphi_0(\overline a)]=1\]
-enough to imply $\lim_F\G_n\bbl(\forall x)\varphi_0^\Gamma(\overline x)\bbr=\1$? Unfortunately no, as we can see in the following example.
+enough to imply $\lim_F\G_n\bbl(\forall x)\varphi_0(\overline x)\bbr=\1$? Unfortunately no, as we can see in the following example.
 
 \begin{exam}Recall Example \ref{examsparseedge} where $\G_k$ consists of all graphs on $\set{k}$ with exactly $\floor{\frac{k(k-2)}{2\log k}}$ edges. One can easily check that
 \[\lim_{k\to\infty}\Pr_{\substack{G\in\G_k\\u,v \in \set{k}}}[G\models \lnot E(u,v)]=1,\]
-but we proved that $\lim_{F_{rud}}\G_n \bbl(\exists x,y)\Gamma(x,y)\bbr=\1$ in other words we have \[\lim_{F_{rud}}\bbl(\forall x,y)\lnot \Gamma(x,y)\bbr=\0.\]
+but we proved that $\lim_{F_{rud}}\G_n \bbl(\exists x,y)E(x,y)\bbr=\1$ in other words we have \[\lim_{F_{rud}}\bbl(\forall x,y)\lnot E(x,y)\bbr=\0.\]
 \end{exam}
 
 \section{$\G_k=\ALL_k$}
@@ -256,7 +256,7 @@ but we proved that $\lim_{F_{rud}}\G_n \bbl(\exists x,y)\Gamma(x,y)\bbr=\1$ in o
 Now we return to $F=F_{rud}$ and prove a theorem with a more limited use which however forces the truth value of the existential sentence in the wide limit to be $\1$.
 
 \begin{thrm}\label{mutindfind}
-Let $F=F_{rud}$ and let $\varphi_0(x_0,\dots,x_{l-1})$ be an open $\{\Gamma\}$-formula. Furthermore for $0<p\leq 1$, consider subsets $A\subseteq\set{g_k}^l$ with the property that for all for all $\overline a \in A$ we have
+Let $F=F_{rud}$ and let $\varphi_0(x_0,\dots,x_{l-1})$ be an open $\{E\}$-formula. Furthermore for $0<p\leq 1$, consider subsets $A\subseteq\set{g_k}^l$ with the property that for all for all $\overline a \in A$ we have
 \[\Pr_{G\in\mathcal{G}_k}(G\models \varphi_0(\overline a))\geq p\]
 and
 \[\text{$\{\{G\models\varphi_0(\overline a)\}\subseteq \mathcal{G}_k;\overline a \in A\}$ are mutually independent.}\]
@@ -282,15 +282,14 @@ We now use this theorem to characterize the theory of another wide limit. We den
 Note that if we consider an open $\{E\}$-formula $\varphi(\overline x)$ and convert it to DNF, we get a disjunction of conjunctions. Each such conjunction says which first order literals should be satisfied on the variables $\overline x$, the following theorem is proved for conjunctions of literals. By the fact that $\bbl\dots\bbr$ commutes with disjunctions, we can find out a value of any existential sentence.
 
 \begin{thrm}[Everything exists]
-Let $\varphi(\overline x,\overline y)=\Land_{i=0}^{m-1}\psi_i(\overline x,\overline y)\land \Land_{i=0}^{l-1}\vartheta_i(\overline y)$, where $\psi_i,\vartheta_i$ are basic formulas and $\psi_i$ are not of the form $(y_i=y_j)^b$, $E(y_i,y_j)^b$, $x_i\not= x_i$, $\Gamma(x_i,x_i)$, $b\in\{0,1\}$ such that
+Let $\varphi(\overline x,\overline y)=\Land_{i=0}^{m-1}\psi_i(\overline x,\overline y)\land \Land_{i=0}^{l-1}\vartheta_i(\overline y)$, where $\psi_i,\vartheta_i$ are basic formulas and $\psi_i$ are not of the form $(y_i=y_j)^b$, $E(y_i,y_j)^b$, $x_i\not= x_i$, $E(x_i,x_i)$, $b\in\{0,1\}$ such that
 \begin{itemize}
-\item each $\psi_i$ are not of the form $(y_i=y_j)^b,E(y_i,y_j)^b,x_i\not = x_i, \Gamma(x_i,x_i)$ for $b\in\{0,1\}$
+\item each $\psi_i$ are not of the form $(y_i=y_j)^b,E(y_i,y_j)^b,x_i\not = x_i, E(x_i,x_i)$ for $b\in\{0,1\}$
 \item if $\psi_i$ is of the form $(x_i=z)^b$ for $z$ in $\overline x$ or $\overline y$ then no other $\psi_j$ is of the form $(x_i=z)^{1-b}$ or $(z=x_i)^{1-b}$
-\item if $\psi_i$ is of the form $\Gamma(x_i,z)^b$ for $z$ in $\overline x$ or $\overline y$ then no other $\psi_j$ is of the form $\Gamma(x_i,z)^{1-b}$ or $\Gamma(z,x_i)^{1-b}$.
+\item if $\psi_i$ is of the form $E(x_i,z)^b$ for $z$ in $\overline x$ or $\overline y$ then no other $\psi_j$ is of the form $E(x_i,z)^{1-b}$ or $E(z,x_i)^{1-b}$.
 \end{itemize}
 
-If $\overline \beta$ is a tuple of vertices computed by $F_{rud}$ of the same length as $\overline y$ then \[\lim_{F_{rud}}\G_n\bbl(\exists \overline x)\varphi_0(\overline x,\overline \beta)\bbr=\lim_{F_{rud}}\G_n\bbl\Land_{i=0}^{l-1}\vartheta_i(\overline \beta)\bbr,\] specifically if $l=0$ then
-
+If $\overline \beta$ is a tuple of vertices computed by $F_{rud}$ of the same length as $\overline y$ then \[\lim_{F_{rud}}\G_n\bbl(\exists \overline x)\varphi_0(\overline x,\overline \beta)\bbr=\lim_{F_{rud}}\G_n\bbl\Land_{i=0}^{l-1}\vartheta_i(\overline \beta)\bbr,\] specifically if the conjunction is empty then
 \[\lim_{F_{rud}}\G_n\bbl(\exists \overline x)\varphi_0(\overline x,\overline \beta)\bbr=\1.\]
 \end{thrm}
 \begin{proof} We will construct one tree $T$ computing the whole tuple of witnesses $\overline \alpha$, such a construction can be straightforwardly split into a tuple of trees with each computing the specific element.
@@ -299,20 +298,20 @@ First we concatenate all the trees used to compute $\overline \beta$. At each le
 
 Therefore
 \begin{align}
-\bbl(\exists \overline x)\varphi^\Gamma(\overline x,\overline \beta)\bbr&=\bbl(\exists \overline x)\Land_{i=0}^{m-1}\psi_i(\overline x,\overline \beta)\bbr \land \bbl\Land_{i=0}^{l-1}\vartheta_i(\overline \beta)\bbr\\
+\bbl(\exists \overline x)\varphi(\overline x,\overline \beta)\bbr&=\bbl(\exists \overline x)\Land_{i=0}^{m-1}\psi_i(\overline x,\overline \beta)\bbr \land \bbl\Land_{i=0}^{l-1}\vartheta_i(\overline \beta)\bbr\\
 &=\bbl\Land_{i=0}^{l-1}\vartheta_i(\overline \beta)\bbr.
 \end{align}
 \end{proof}
 
 The statement of the theorem was rather technical, but we can now use it to prove the following corollaries.
 
-\begin{crll}For each $\varphi(\overline x)$ that is not a contradiction in the theory of graphs we have that $\bbl(\exists \overline x)\varphi^\Gamma(\overline x)\bbr=1.$
+\begin{crll}For each $\varphi(\overline x)$ that is not a contradiction in the theory of graphs we have that $\bbl(\exists \overline x)\varphi(\overline x)\bbr=1.$
 \end{crll}
 \begin{proof}
 The conditions on $\psi_i$ are exactly saying that the conjunction is not a contradiction. Every other formula can be rewritten as a disjunction of such conjunctions and by the theorem we can satisfy at least one of them.
 \end{proof}
 \begin{crll}\label{crllev2}
-For each $\varphi(\overline x,\overline y)$ that is not falsifiable by $\overline y$ in the theory of graphs we have that $\bbl(\forall \overline y)(\exists \overline x)\varphi^\Gamma(\overline x)\bbr=\1$.
+For each $\varphi(\overline x,\overline y)$ that is not falsifiable by $\overline y$ in the theory of graphs we have that $\bbl(\forall \overline y)(\exists \overline x)\varphi(\overline x)\bbr=\1$.
 \end{crll}
 \begin{proof}
 No $\overline \beta$ can falsify $(\exists \overline x)\varphi(\overline x,\overline \beta)$, this means we can invoke the theorem on one of the non-falsifiable disjuncts.
@@ -329,7 +328,7 @@ Each $E_{i,j}$ satisfies the statement of Corollary \ref{crllev2} and because it
 
 \begin{crll}(0-1 law for $\ALL_k$)
 For every $\{E\}$-sentence $\varphi$ we have that
-\[\lim_{F_{rud}}\ALL_n\bbl\varphi^\Gamma\bbr\in\{\0,\1\}.\]
+\[\lim_{F_{rud}}\ALL_n\bbl\varphi\bbr\in\{\0,\1\}.\]
 \end{crll}
 
 
@@ -393,7 +392,7 @@ Notice that the $\tau$ in the statement of the claim is uniquely determined by $
 The Lemma follows from noticing that if we start with $\{G_k\}$ and then we build $\mathcal{G}_k$ by finding isomorphic graphs on the vertex set $\set{g_k}$, we can only do so by trying different permutation from $S_{g_k}$ and these permutations find the same graph if and only if they are in the same $\sim$-class. Therefore there is a bijection between $S_{g_k}/\sim$ and $\mathcal{G}_k$. \qed
 \end{proof}
 
-So far we did not encounter an isomorphism closed wide sequence $\G_k$ and a $\{E\}$-sentence $\varphi$ for which we proved $\0<\lim_{F_{rud}}\G_n\bbl\varphi^\Gamma\bbr<\1$. One can use isomorphism closed categorical wide sequences to construct such a wide sequence.
+So far we did not encounter an isomorphism closed wide sequence $\G_k$ and a $\{E\}$-sentence $\varphi$ for which we proved $\0<\lim_{F_{rud}}\G_n\bbl\varphi\bbr<\1$. One can use isomorphism closed categorical wide sequences to construct such a wide sequence.
 \begin{exam}
 Let
 \begin{align}
@@ -401,7 +400,7 @@ Let
 \G_k&:=\EDGE_k\cup\nEDGE_k,
 \end{align}
 
-Then one can see that $\mu(\lim_{F_{rud}}\G_n\bbl(\exists x)(\exists y)\Gamma(x,y)\bbr)=\frac{1}{2}$.
+Then one can see that $\mu(\lim_{F_{rud}}\G_n\bbl(\exists x)(\exists y)E(x,y)\bbr)=\frac{1}{2}$.
 \end{exam}
 
 However, each $\EDGE_k$ and $\nEDGE_k$ have complete theories. So natural follow up to this question is whether 0-1 law holds for all isomorphism closed categorical wide sequences. 
@@ -410,5 +409,5 @@ Theorem \ref{thrmsparse}, Corollary \ref{crlltoobig} and Lemma \ref{lemmisocat} 
 
 \begin{ques}
 Is there a isomorphism closed categorical wide sequence $\G_k$ and an $\{E\}$-sentence $\varphi$ such that
-\[\0<\lim_{F_{rud}}\G_n\bbl\varphi^\Gamma\bbr<\1?\]
+\[\0<\lim_{F_{rud}}\G_n\bbl\varphi\bbr<\1?\]
 \end{ques}
