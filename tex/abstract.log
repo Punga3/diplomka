@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.22 (TeX Live 2021/Arch Linux) (preloaded format=pdflatex 2021.9.7)  7 SEP 2021 17:33
+This is pdfTeX, Version 3.141592653-2.6-1.40.22 (TeX Live 2021/Arch Linux) (preloaded format=pdflatex 2021.12.12)  2 MAY 2022 23:24
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -349,7 +349,7 @@ File: l3backend-pdftex.def 2021-03-18 L3 backend support: PDF output (pdfTeX)
 \l__color_backend_stack_int=\count268
 \l__pdf_internal_box=\box47
 )
-No file abstract.aux.
+(../tex/abstract.aux)
 \openout1 = `abstract.aux'.
 
 LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 12.
@@ -370,6 +370,7 @@ LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 12.
 LaTeX Font Info:    ... okay on input line 12.
 LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 12.
 LaTeX Font Info:    ... okay on input line 12.
+
 *geometry* driver: auto-detecting
 *geometry* detected driver: pdftex
 *geometry* verbose mode - [ preamble ] result:
@@ -433,33 +434,28 @@ Package: gettitlestring 2019/12/15 v1.6 Cleanup title references (HO)
 LaTeX Info: Redefining \ref on input line 12.
 LaTeX Info: Redefining \pageref on input line 12.
 LaTeX Info: Redefining \nameref on input line 12.
+
+(../tex/abstract.out) (../tex/abstract.out)
 \@outlinefile=\write4
 \openout4 = `abstract.out'.
 
  [1
 
-]
-(../tex/abstract.aux)
-
-Package rerunfilecheck Warning: File `abstract.out' has changed.
-(rerunfilecheck)                Rerun to get outlines right
-(rerunfilecheck)                or use package `bookmark'.
-
-Package rerunfilecheck Info: Checksums for `abstract.out':
-(rerunfilecheck)             Before: <no file>
-(rerunfilecheck)             After:  D41D8CD98F00B204E9800998ECF8427E;0.
+] (../tex/abstract.aux)
+Package rerunfilecheck Info: File `abstract.out' has not changed.
+(rerunfilecheck)             Checksum: D41D8CD98F00B204E9800998ECF8427E;0.
  ) 
 Here is how much of TeX's memory you used:
- 12221 strings out of 478994
- 173432 string characters out of 5864752
- 455670 words of memory out of 5000000
+ 12227 strings out of 478994
+ 173546 string characters out of 5864750
+ 456025 words of memory out of 5000000
  29552 multiletter control sequences out of 15000+600000
  407491 words of font info for 30 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  88i,5n,90p,532b,2364s stack positions out of 5000i,500n,10000p,200000b,80000s
 {/usr/share/texmf-dist/fonts/enc/dvips/lm/lm-ec.enc}</usr/share/texmf-dist/fo
 nts/type1/public/lm/lmr12.pfb>
-Output written on abstract.pdf (1 page, 33467 bytes).
+Output written on abstract.pdf (1 page, 33606 bytes).
 PDF statistics:
  22 PDF objects out of 1000 (max. 8388607)
  14 compressed objects within 1 object stream
