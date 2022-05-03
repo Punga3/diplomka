@@ -1,6 +1,6 @@
-\chapter{Sparse case and $\TFNP$}\label{chapsparse}
+\chapter{Sparse case and \texorpdfstring{$\TFNP$}{TFNP}}\label{chapsparse}
 
-\section{$\mathcal{G}_k=*\text{PATH}_k$}
+\section{\texorpdfstring{$\mathcal{G}_k=*\text{PATH}_k$}{Gk=*PATHk}}
 
 Now we turn our attention to a wide sequence which is made up of `the hardest instances in $\LEAF$'. That is, if we are given a degree 1 vertex labeled $0$ and search for another degree 1 vertex, it is the hardest if there are only two degree 1 vertices and the path from $0$ to the solution is as long as possible.
 
@@ -177,7 +177,7 @@ By applying Theorem \ref{thrmuni} we have that the sentences $\lnot C_k$ stating
 Let $T=\{\lnot C_k,k\in\N\}\cup\{D_{1,rest}^{1,2}\}$, and let $\A_1,\A_2\models T$, then we can see by the handshaking lemma that $\M_1$ and $\M_2$ are both infinite. And we can see that they can be decomposed into one path starting at $0$ with no end, and then more infinite paths which have the order type of $\Z$. The duplicator of Ehrenfeucht-Fraïssé game has a winning strategy by responding to any element on the order type $\Z$ with a far enough element on the path of the order $\N$.
 \end{proof}
 
-\section{$\G_k=\pPATHl_k$}
+\section{\texorpdfstring{$\G_k=\pPATHl_k$}{Gk=*PATHlk}}
 
 So far we have proved that the hardest instances of $\LEAF$ do not have a solution in the $F_{nbtree}$ limit and that they satisfy the 0-1 law. We can generalize this result to a larger class of instances.
 
@@ -252,7 +252,7 @@ Since the wide sequences $\pPATH_k^{k-c}$, for $c\in\N$, partition a major porti
 
 
 
-\section{$\G_k=\pDPATH$}\label{secpDPATH}
+\section{\texorpdfstring{$\G_k=\pDPATH_k$}{Gk=*DPATHk}}\label{secpDPATH}
 
 As $\pPATH_k$ was the wide sequence consisting of the hardest instances of $\LEAF$ the complete problem for $\PPA$, we define $\pDPATH_k$ analogously but in the directed case so it consists of the hardest instances of $\SOURCEORSINK$ the complete problem for $\PPAD$.
 
@@ -267,13 +267,13 @@ But now, since we are working with directed graphs which have two types of neigh
 After we fix $n$, we define $F_{dtree}$ as the set of all functions computed by some labeled tree with the following shape:
 
 \begin{itemize}
-\item Each non-leaf node is labeled by some $v\in\set{n}$ and a symbol $\diamond\in\{+,-\}$. 
+\item Each non-leaf node is labeled by some $v\in\set{n}$ and a symbol $\circ\in\{+,-\}$. 
 \item For each $v \in \set{n}$ and a node $w$ there is an outgoing edge from $w$ labeled $\{v\}$ and also an outgoing edge labeled $\varnothing$.
 \item Each leaf is labeled by some $m\in \set{g_n}$.
 \item The depth of the tree is at most $g_n^{1/t}$ for some $t>\mathbb{N}$.
 \end{itemize}
 
-Computation of such a tree on an undirected graph $G$ goes as follows. We interpret the non-leaf nodes as questions "what is $N_G^\diamond(v)$?" and the edges as answers from our graph $G$, and thus we follow a path determined by $G$ until we find a leaf, in which case the computation returns the label of the leaf.
+Computation of such a tree on an undirected graph $G$ goes as follows. We interpret the non-leaf nodes as questions "what is $N_G^\circ(v)$?" and the edges as answers from our graph $G$, and thus we follow a path determined by $G$ until we find a leaf, in which case the computation returns the label of the leaf.
 
 We denote the set of such trees $\T_{dtree}$.
 \end{defi}

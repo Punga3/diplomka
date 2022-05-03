@@ -22,6 +22,6 @@
 \contentsline {chapter}{\numberline {4}Sparse case and $\textbf {TFNP}$}{29}{chapter.4}%
 \contentsline {section}{\numberline {4.1}$\mathcal {G}_k=*\text {PATH}_k$}{29}{section.4.1}%
 \contentsline {section}{\numberline {4.2}$\mathcal {G}_k=*\text {PATH}^\leq _k$}{34}{section.4.2}%
-\contentsline {section}{\numberline {4.3}$\mathcal {G}_k=*\text {DPATH}$}{35}{section.4.3}%
+\contentsline {section}{\numberline {4.3}$\mathcal {G}_k=*\text {DPATH}_k$}{35}{section.4.3}%
 \contentsline {chapter}{Concluding remarks}{37}{chapter*.7}%
 \contentsline {chapter}{Bibliography}{38}{chapter*.8}%

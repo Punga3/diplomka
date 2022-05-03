@@ -12,6 +12,9 @@ thesis.pdf: thesis.tex $(wildcard *.tex) bibliography.bib thesis.xmpdata
 abstract.pdf: abstract.tex abstract.xmpdata
 	pdflatex $<
 
+abstract.pdf: abstractcz.tex abstract.xmpdata
+	pdflatex $<
+
 clean:
 	rm -f *.log *.dvi *.aux *.toc *.lof *.lot *.out *.bbl *.blg *.xmpi
 	rm -f thesis.pdf abstract.pdf

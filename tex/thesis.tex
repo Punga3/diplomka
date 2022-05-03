@@ -39,7 +39,6 @@
 \usepackage{amsfonts}       % math fonts
 \usepackage{amsthm}         % theorems, definitions, etc.
 \usepackage{amssymb}
-\usepackage{indentfirst}
 \usepackage{bbding}         % various symbols (squares, asterisks, scissors, ...)
 \usepackage{bm}             % boldface symbols (\bm)
 \usepackage{graphicx}       % embedding of pictures
@@ -52,12 +51,15 @@
 \usepackage{booktabs}       % improved horizontal lines in tables
 \usepackage{paralist}       % improved enumerate and itemize
 \usepackage{xcolor}         % typesetting in color
+\usepackage{hyperref}
+\usepackage{indentfirst}
 
-\bibliographystyle{alpha}
 %%% My packages
 
-\usepackage{stmaryrd}
-\usepackage{mathtools}
+%\usepackage{stmaryrd}
+\def\llbracket{[\![}
+\def\rrbracket{]\!]}
+%\usepackage{mathtools}
 
 %%% Basic information on the thesis
 
@@ -151,8 +153,6 @@ For a class of graph instances of a computational problem we define a limit obje
 \include{chapModel}
 \include{chapSb}
 \include{chapSp}
-\include{scraps}
-
 \include{epilog}
 
 %%% Bibliography
