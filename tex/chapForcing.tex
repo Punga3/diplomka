@@ -1,10 +1,10 @@
-\chapter{Forcing with random variables and the wide Limit}\label{chapwidelimit}
+\chapter{Forcing with random variables and the wide limit}\label{chapwidelimit}
 \section{Setup}
 
 Our goal in this chapter is to provide a definition of a limit of an infinite class of finite graphs in which arbitrarily large graphs occur and the number of graphs in each cardinality tends to infinity. The following definition makes our requirements of such a class of graphs precise. From now on $E$ denotes a binary relational symbol, so that formulas in the theory of graphs are precisely $\{E\}$-sentences.
 
 \begin{defi}
-Let $\{\mathcal{G}_k\}_{k>0}$ be a sequence of non-empty finite sets of (directed or undirected) finite graphs, i.e. structures of in the first order language consisting of the binary function $\{E\}$. We call it a \textbf{wide sequence} if the following holds.
+Let $\{\mathcal{G}_k\}_{k>0}$ be a sequence of non-empty finite sets of (directed or undirected) finite graphs, i.e. structures of in the first order language $\{E\}$. We call it a \textbf{wide sequence} if the following holds.
 
 \begin{itemize}
 \item There is a strictly increasing sequence of positive whole numbers $\{g_k\}_{k>0}$ such that the underlying set of each $G\in\mathcal{G}_k$ is $\set{g_k}$.
@@ -19,7 +19,7 @@ The second condition guarantees that $\mathcal{G}_n$ is an infinite set for $n>\
 We will sometimes talk somewhat loosely about wide limits of a class of finite graphs $\mathcal{C}$ which abbreviates that we imagine the class to be stratified into levels $\mathcal{C}_k=\{G\in\mathcal{C}; V_G=\set{g_k}\}$ determined by some canonical choice of cardinalities. If this sequence is wide we can proceed as if we started with a wide sequence in the first place. Many interesting classes of graphs form a wide sequence in this sense. For example graphs with exactly one edge, graphs with bounded degree and so on. We will get to explore many examples in depth after we define the wide limit. 
 
 \vspace{1em}
-The limit is defined by specifying a nonstandard prolongation $\{\tilde \G_n\}_{n<t}$ of the original wide sequence and some nonstandard $n < t$. In the next section we will consider a very rich sublanguage of $L_{all}$ which still makes every wide sequence definable in $\M$ and therefore there is a unique nonstandard prolongation which we will denote just $\{\G_n\}_{n\in\M}$ because it is in fact also unbounded.
+The limit is defined by specifying a nonstandard prolongation $\{\tilde \G_n\}_{n<t}$ of the original wide sequence and some nonstandard $n < t$. In the next section we will consider a very rich sublanguage of $L_{all}$ which still makes every wide sequence definable in $\M$ and therefore there is a unique nonstandard prolongation which we will denote just $\{\G_t\}_{t\in\M}$ because it is in fact also unbounded.
 
 In the first order case we will define a Boolean valued graph $\lim_F\G_n$ through which we can investigate the first order properties of the limits. We then define its `arithmetical expansion' $K(\G_n,F)$ which interprets all relational symbols from $L_{all}$. 
 
@@ -168,7 +168,7 @@ $G_{rud}$ is $(F_{rud})$-compatible.
 \begin{proof}
 By induction in $\M$ we have that all the depth of all the trees is bounded by $g_n^{1/t}$ for some $t>\N$.
 
-If we take some $\Theta\in G_{rud}$ and $\alpha\in F_{rud}$ we can compute $\Theta(\alpha)$ also by a tree in $F_{rud}$ by concatenating the trees computing $\alpha$ and $\beta_i$s.
+If we take some $\Theta\in G_{rud}$ and $\alpha\in F_{rud}$ we can compute $\Theta(\alpha)$ also by a tree in $\T_{rud}$ by concatenating the trees computing $\alpha$ and $\beta_i$s.
 \end{proof}
 
 \section{Different choices of $n$}
@@ -205,6 +205,6 @@ If $\lim_F\G_n$ is the first order wide limit we will be interested in which exa
 We define $\Th(\lim_F\G_n)$ as the set of all valid $E$-sentences in $\lim_{F}\G_n$.
 \end{defi}
 
-In the next chapter (Theorem \ref{thrmuni}) we will see that if a universal $\{E\}$-sentence $\varphi$ holds for all $G\in\G_k$ for $k$ big enough then $\lim_F\G_n\bbl\varphi\bbr=\1$. In particular, a wide limit of undirected graphs in a Boolean valued undirected graph and a wide limit of directed graphs is a Boolean valued directed graph.
+In the next chapter (Theorem \ref{thrmuni}) we will see that if a universal $\{E\}$-sentence $\varphi$ holds for all $G\in\G_k$ for $k$ big enough then $\lim_F\G_n\bbl\varphi\bbr=\1$. In particular, a wide limit of undirected graphs is a Boolean valued undirected graph and a wide limit of directed graphs is a Boolean valued directed graph.
 
-Lastly, let us recall the concept of 0-1 laws which say that a certain probability tends either to $0$ or $1$ and not to any intermediate value. Here, instead of probability, we can think about the Boolean values $\0$ and $\1$ and ask when does it happen that $\lim_F\G_n\bbl\varphi\bbr\in\{\0,\1\}$ for every $\{E\}$-sentence $\varphi$. This is exactly equivalent to the situation where the theory $\Th(\lim_G \G_n)$ is complete. Later in the thesis we prove such 0-1 law for several wide limits.
+Lastly, let us recall the concept of 0-1 laws which say that a certain probability tends either to $0$ or $1$ and not to any intermediate value. Here, instead of probability, we can think about the Boolean values $\0$ and $\1$ and ask when does it happen that $\lim_F\G_n\bbl\varphi\bbr\in\{\0,\1\}$ for every $\{E\}$-sentence $\varphi$. This is exactly equivalent to the situation where the theory $\Th(\lim_F \G_n)$ is complete. Later in the thesis we prove such 0-1 law for several wide limits.

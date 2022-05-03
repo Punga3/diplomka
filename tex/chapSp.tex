@@ -5,7 +5,7 @@
 Now we turn our attention to a wide sequence which is made up of `the hardest instances in $\LEAF$'. That is, if we are given a degree 1 vertex labeled $0$ and search for another degree 1 vertex, it is the hardest if there are only two degree 1 vertices and the path from $0$ to the solution is as long as possible.
 
 \begin{defi}
-We define $\pPATH_k$ (the pointed paths on $k$ vertices) as the set of all (undirected) graphs $G$ on the vertex set $\set{k}$, where $G$ is isomorphic to the path on $n$ vertices and $\deg_G(0)=1$.
+We define $\pPATH_k$ (the pointed paths on $k$ vertices) as the set of all (undirected) graphs $G$ on the vertex set $\set{k}$, where $G$ is isomorphic to the path on $k$ vertices and $\deg_G(0)=1$.
 \end{defi}
 
 One can also see that it is not fruitful to analyze the $F_{rud}$ limit, because there are only $k-1$ edges in each $G\in\pPATH_k$ and therefore, by an analogous argument to the proof of Theorem \ref{thrmsparse}, we have that $\lim_{F_{rud}}\pPATH_k\bbl(\exists x)(\exists y)E(x,y)\bbr=\0.$ Moreover in the type 2 version of the problem the graph is presented by an oracle which gives us the neighbour set for each vertex, so we define a new family $F$ as follows.
@@ -274,9 +274,11 @@ After we fix $n$, we define $F_{dtree}$ as the set of all functions computed by 
 \end{itemize}
 
 Computation of such a tree on an undirected graph $G$ goes as follows. We interpret the non-leaf nodes as questions "what is $N_G^\diamond(v)$?" and the edges as answers from our graph $G$, and thus we follow a path determined by $G$ until we find a leaf, in which case the computation returns the label of the leaf.
+
+We denote the set of such trees $\T_{dtree}$.
 \end{defi}
 
-We will not cover details, but analysis of these trees in $F_{dtree}$ finding the nonzero sink is more or less the same as the $F_{nbtree}$ case for $\pPATH_k$, so we have the following.
+We will not cover details, but analysis of these trees in $\T_{dtree}$ finding the nonzero sink is more or less the same as the $F_{nbtree}$ case for $\pPATH_k$, so we have the following.
 
 \begin{thrm}
 \[\lim_{F_{nbtree}}\pDPATH_n\bbl(\exists v)(\forall w)((v\not=0)\land \lnot E(v,w))\bbr=\0\]

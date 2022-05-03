@@ -1,6 +1,6 @@
 \chapter{General theory}\label{chapgeneraltheory}
 \section{$\mathcal{G}_k=\EDGE_k$}
-The first and simplest wide sequence we will consider of is the class of graphs with exactly one edge. We put
+The first and simplest wide sequence we will consider of is the class of undirected graphs with exactly one edge. We put
 \[\EDGE_k:=\{\text{$(\set{k},E); \abs{E}=1$}\},\]
 and one can check that this is indeed a wide sequence because $\abs{\EDGE_k}=\binom{k}{2}$ which tends to infinity as $k$ does.
 
@@ -15,7 +15,7 @@ We will prove that \[\lim_{F_{rud}}\EDGE_n\bbl(\exists x)(\exists y)E(x,y)\bbr=\
 If any two trees $T_\alpha$ and $T_\beta$ computing potential witnesses $\alpha,\beta$ of the formula $E(x,y)$ on some subset of $\Omega$ we can combine then into one tree that outputs an edge one the same subsets $\Omega$, so we can just analyze the case where the witnesses are computed by the same tree. Let $T\in \T_{rud}$ be a tree of depth $n^{1/t}$, for some $t>\mathbb{N}$, that outputs a pair of vertices.
 
 
-Start from the root of $T$ and always choose the path that corresponds to the nonexistence of an edge. At the end we obtain some answer, that gives us a set of at most $2 \cdot n^{1/t}+2$ vertices the tree inspected or outputed. Now we can find at least: 
+Start from the root of $T$ and always choose the path that corresponds to the nonexistence of an edge. At the end we obtain some answer, that gives us a set of at most $2 \cdot n^{1/t}+2$ vertices the tree inspected or outputted. Now we can find at least: 
 \begin{align}
 \binom{n-2n^{1/t}-2}{2}&=\frac{(n-2n^{1/t}-2)(n-2n^{1/t}-3)}{2}
 \end{align}
@@ -184,7 +184,7 @@ Consider
 \begin{align*}
 \SK_k^{1/2}&:=\{(\set{k},E);\text{$E$ has a clique of size $\floor{k/2}$}, \abs{E}=\abs{E_{K_{\floor{k/2}}}}\},
 \end{align*}
-a wide sequence of all graphs with exactly one $\floor{k/2}$ clique and no other edges. One can check that for any $\{E\}$-formula $\varphi_l(\overline x)$ stating that $\overline x$ forms a clique of size $l$ we claim that 
+a wide sequence of all graphs with exactly one $\floor{k/2}$ clique and no other edges. One can check that for any $\{E\}$-formula $\varphi_l(\overline x)$ stating that $\overline x$ forms a clique of size $l$ we have that 
 \[\lim_{k\to\infty} \Pr_{\substack{G\in\SK_k^{1/2}\\\overline a \in \set{k}^l}}[G\models \varphi(\overline a)]\geq(1/2)^l.\]
 First notice that we can compute the probability for fixed $\overline a$ because $\SK_k^{1/2}$ is isomorphism closed. So we have
 \begin{align}
@@ -210,7 +210,7 @@ Now the following theorem describes sufficient conditions for a universal senten
 Let $F$ by any vertex family, let $\G_k$ a wide sequence and let $\varphi_0(\overline x)$ be an open $\{E\}$-sentence, such that
 \[\lim_{k\to\infty}\Pr_{G\in\mathcal{G}_k}[G\models\varphi]=1.\]
 
-Then $\lim_F \G_n \bbl(\forall \overline x)\varphi_0^{E}(\overline x)\bbr=\1.$
+Then $\lim_F \G_n \bbl(\forall \overline x)\varphi_0(\overline x)\bbr=\1.$
 
 
 \end{thrm}
@@ -239,7 +239,7 @@ which says that if $a,b,c,d$ are distinct, there is an edge between one of them.
 The Theorem \ref{thrmuni} also implies that since all $G\in\G_k$ satisfy that $E_G$ is antireflexive then so does $\lim_{F}\G_n$ and if $E_G$ are all symmetrical then so it the wide limit edge relation $E$. This combined with Theorem \ref{thrmsparse} proves the following.
 
 \begin{crll}[0-1 law for too sparse $F_{rud}$ sequence]\label{crlltoosparse}
-Let $\G_k$ be any wide sequence satisfying the statement of the Theorem \ref{thrmsparse}. Then $\Th(\lim_{F_{rud}})\G_n)$ is the theory of the empty graph and therefore complete. 
+Let $\G_k$ be any wide sequence satisfying the statement of the Theorem \ref{thrmsparse}. Then $\Th(\lim_{F_{rud}}\G_n)$ is the theory of the empty graph and therefore complete. 
 \end{crll}
 
 It is natural to ask whether we can weaken the assumption of Theorem \ref{thrmuni} to an assumption analogous to Theorem \ref{thrmexists}. In other words, is
@@ -248,7 +248,7 @@ enough to imply $\lim_F\G_n\bbl(\forall x)\varphi_0(\overline x)\bbr=\1$? Unfort
 
 \begin{exam}Recall Example \ref{examsparseedge} where $\G_k$ consists of all graphs on $\set{k}$ with exactly $\floor{\frac{k(k-2)}{2\log k}}$ edges. One can easily check that
 \[\lim_{k\to\infty}\Pr_{\substack{G\in\G_k\\u,v \in \set{k}}}[G\models \lnot E(u,v)]=1,\]
-but we proved that $\lim_{F_{rud}}\G_n \bbl(\exists x,y)E(x,y)\bbr=\1$ in other words we have \[\lim_{F_{rud}}\bbl(\forall x,y)\lnot E(x,y)\bbr=\0.\]
+but we proved that $\lim_{F_{rud}}\G_n \bbl(\exists x)(\exists y)E(x,y)\bbr=\1$ in other words we have \[\lim_{F_{rud}}\bbl(\forall x)(\forall y)\lnot E(x,y)\bbr=\0.\]
 \end{exam}
 
 \section{$\G_k=\ALL_k$}
