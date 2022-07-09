@@ -1,0 +1,252 @@
+\documentclass{beamer}
+\usepackage[utf8]{inputenc}
+\usepackage[czech]{babel}
+\usepackage{amssymb}
+\usepackage{amsthm}
+\usepackage{amsmath}
+\usepackage{tikz}
+\usepackage{stmaryrd}
+
+\title{Pseudokonečné struktury a limity}
+\author{Ondřej Ježil}
+\date{9. června 2022}
+
+\usetheme{Boadilla}
+\newcommand{\N}{\mathbb{N}}
+\renewcommand{\P}{\mathcal{P}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\M}{\mathcal{M}}
+\newcommand{\A}{\mathcal{A}}
+\newcommand{\B}{\mathcal{B}}
+\newcommand{\I}{\mathcal{I}}
+\newcommand{\st}{\text{st}}
+\newcommand{\bbl}{\llbracket}
+\newcommand{\bbr}{\rrbracket}
+\newcommand{\G}{\mathcal{G}}
+\newcommand{\0}{\textbf{0}}
+\newcommand{\1}{\textbf{1}}
+\newcommand{\abs}[1]{\lvert #1 \rvert}
+\newcommand{\Th}{\text{Th}}
+\newcommand{\EDGE}{\text{EDGE}}
+\newcommand{\ALL}{\text{ALL}}
+\newcommand{\nonEDGE}{\text{nonEDGE}}
+\newcommand{\SK}{\text{SK}}
+\newcommand{\CK}{\text{CK}}
+\newcommand{\NP}{\textbf{NP}}
+\newcommand{\FP}{\textbf{FP}}
+\newcommand{\pPATH}{*\text{PATH}}
+\newcommand{\TFNP}{\textbf{TFNP}}
+\newcommand{\PPA}{\textbf{PPA}}
+\newtheorem{thrm}{Věta}
+\newtheorem{ques}{Otázka}
+\newtheorem{exam}{Příklad}
+\newtheorem{defi}{Definice}
+
+\begin{document}
+
+\frame{\titlepage}
+\begin{frame}
+\frametitle{Úvod -- kontext}
+\begin{itemize}[<+->]
+\item Práce se pohybuje na rozmezí matematické logiky a teorie složitosti
+\item \textbf{Limita struktur:}
+posloupnost konečných grafů $\to$ nekonečný \uv{graf}, zachycuje vlastnosti dané posloupnosti
+\item Mnoho konstrukcí (ultraprodukt, věta o kompaktnosti, grafony, \ldots)
+\item Využití (0-1 zákony, extremální kombinatorika, \ldots)
+\end{itemize}
+\end{frame}
+
+\begin{frame}
+\frametitle{Cíl práce}
+\begin{itemize}[<+->]
+\item V práci definuji nový pojem tzv. široké limity
+\item \textbf{Intuice}: třída vstupů výpočetního problému $\to$ limitní objekt, vlastnosti $\approx$ jak algoritmy dané složitosti \uv{vidí obecný vstup}
+\item Klíčová metoda: Forsing s náhodnými proměnnými
+\item Cíl práce:
+\begin{itemize}
+\item Vyvinout základní teorii
+\item Předvést příklady
+\item \textbf{Svázat vlastnosti těchto limit s teorií složitosti}
+\end{itemize}
+\item Následuje neformální popis široké limity
+\end{itemize}
+\end{frame}
+
+\begin{frame}
+\frametitle{Výchozí situace -- široká posloupnost}
+\begin{defi}
+Posloupnost konečných množin konečných (ne)orientovaných grafů $\{\G_k\}_{k>0}$ se nazývá \textbf{široká posloupnost}, pokud platí, že
+\begin{itemize}
+\item existuje rostoucí posloupnost $\{g_k\}_{k>0}$ tak, že pro každé $G\in\G_k$ je množina vrcholů $V_{G}=\{0,\dots,g_k-1\}$,
+\item $\lim_{k\to\infty}\abs{\G_k}=\infty.$
+\end{itemize}
+\end{defi}
+\pause
+\begin{itemize}
+\item $\G_k$: grafy velikosti $g_k$\pause
+\item Třída grafů $\rightleftharpoons$ široká posloupnost\pause 
+\item Příklady: grafy s právě jednou hranou, grafy s přesně jednou velkou klikou, grafy obsahující trojúhelník, \ldots
+\end{itemize}
+\end{frame}
+
+\begin{frame}
+\frametitle{Nestandardní model(y) aritmetiky}
+\begin{itemize}[<+->]
+\item Matematická logika: $\exists \M \models \Th(\N)$, $\M\not\cong\N$
+\item Fixujeme nestandardní model $\M$ (splňující tech. podmínkou)
+\item $\M$ je tedy polookruh, vlastnosti prvního řádu se shodují s $\N$ (axiomy polookruhů, indukce, Velká Fermatova věta, \ldots)
+\item Prvky $\M$ můžeme: sčítat, násobit, $\lfloor \frac{x}{2}\rfloor$, $\lfloor\log(x)\rfloor$, \ldots
+\item Dosadit jako index v široké posloupnosti: $\G_n$
+\item Získáme nekonečnou množinu pseudokončených grafů
+\end{itemize}
+\end{frame}
+
+\begin{frame}
+\frametitle{Idea definice široké limity}
+\begin{itemize}[<+->]
+\item Třída funkcí $F$: vstupy jsou grafy, výstupy jsou vrcholy
+\item $F$ -- náhodné vrcholy v $\{0,\dots,g_n-1\}$ 
+\item Na $F$ definujeme (Booleovsky ohodnocený) graf $\lim_F \G_n$.
+\item Pro $\alpha,\beta\in F$ máme pravdivostní hodnotu $\bbl E(\alpha,\beta) \bbr$.
+\item Tato hodnota může být buď $\1$ (pravda), $\0$ (nepravda) nebo někde \uv{mezi}.
+\item Pravdivé sentence v $\lim_F\G_n \rightleftharpoons$ vlastnosti které umí $F$ dosvědčit
+\end{itemize}
+\end{frame}
+
+\begin{frame}
+\frametitle{Třída funkcí $F_{rud}$}
+\begin{defi}
+$F_{rud}$ sestává ze všech náhodných vrcholů počítáných rozhodovacími stromy hloubky nejvýše $n^{1/t}$, pro nějaké nestandardní $t$, následujícího tvaru.
+\begin{center}
+\begin{tikzpicture}[%
+level 1/.style={sibling distance=5cm},
+level 2/.style={sibling distance=3cm},
+every node/.style = {draw, minimum width=1.5cm, minimum height=.75cm, anchor=north},
+edge from parent path={(\tikzparentnode.south) -- (\tikzchildnode.north)}]
+]
+\node[] {$E(1,2)?$}
+child { node[] {$E(1,3)?$}
+    child { node[] {$1$} 
+        edge from parent node[left,draw=none] {1}
+	}
+    child { node[] {$5$} 
+        edge from parent node[right,draw=none] {0}
+	}
+    edge from parent node[left,draw=none] {1}
+}
+child { node[] {$E(2,3)?$} 
+    child { node[] {$0$} 
+    edge from parent node[left,draw=none] {1}
+	}
+    child { node[] {$\left\lfloor\frac{n}{2}\right\rfloor$} 
+    edge from parent node[right,draw=none] {0}
+	}
+    edge from parent node[right,draw=none] {0}
+};
+\end{tikzpicture}
+\end{center}
+\end{defi}
+\end{frame}
+
+\begin{frame}
+\frametitle{Výsledky -- kapitola 2}
+\begin{exam}
+Ať $\EDGE_k$ je široká posloupnost sestávající z grafů s právě jednou hranou, potom
+\[\lim_{F_{rud}}\EDGE_n\bbl(\exists x)(\exists y)E(x,y)\bbr=\0.\]
+\end{exam}
+\pause
+\begin{itemize}
+\item Další výsledky:
+\begin{itemize}
+\item Postačující podmínka na hustotu hran v $\G_n$ vedoucí k limitě bez hran\pause
+\item Grafy co obsahují právě trojuhelník, čtverec, konstatní podgraf, \ldots $\to$ prázdná limita\pause
+\item $\exists$ posloupnost s hustotou hran $\to 0$, ale limita obsahuje hranu\\
+(Příklad 2.2.4, dotaz 3)
+\end{itemize}
+\end{itemize}
+\end{frame}
+
+\begin{frame}
+\frametitle{Výsledky -- kapitola 3}
+\begin{itemize}
+\item Široká posloupnost obsahující právě velkou kliku: $\SK_k^{1/2}$
+\item Široká posloupnost obsahující alespoň velkou kliku: $\CK_k^{1/2}$\pause
+\item Teorie složitosti
+\begin{itemize}
+\item Pouze velká klika $\to$ polynomiální algoritmus ji najde
+\item Alespoň velká klika $\to$ předpokládáme $\nexists$ polynomální algoritmus
+\end{itemize}\pause
+\item $G_{rud}$ -- limita druhého řádu\pause
+\item Dokázal jsem
+\begin{itemize}
+\item $\SK_k^{1/2}\to_{G_{rud}}$ limita obsahuje relativně velkou kliku
+\item $\CK_k^{1/2}\to_{G_{rud}}$ $\bbl\text{$\exists$ konečná klika}\bbr\not=\0$
+\end{itemize}\pause
+\item Domněnka: $\lim\CK_n^{1/2}$ neobsahuje kliku velikosti $\lfloor n/(c \ln n)\rfloor$
+\end{itemize}
+\end{frame}
+
+\begin{frame}
+\frametitle{Výsledky -- kapitola 4}
+\begin{itemize}
+\item Široká posloupnost cest s počátkem ve vrcholu $0$: $\pPATH_k$
+\item $\pPATH_k \to_{F_{rud}}$ limita bez hran\pause
+\item Třída funkcí $F_{nbtree}$\pause
+\item Složitost $\TFNP$\pause
+\item Výsledky:
+\begin{itemize}
+\item $\lim_{F_{nbtree}}\pPATH_n$ je cesta s počátkem, ale bez konce
+\item $\Leftrightarrow$ funkce z $F_{nbtree}$ neumí najít konec cesty 
+\item to odpovídá tomu, že $\PPA$ je ostrou nadmnožinou $\FP$ (oracle svět)
+\end{itemize}
+\end{itemize}
+\end{frame}
+
+\begin{frame}
+\frametitle{Shrnutí}
+\begin{itemize}
+\item Výsledky z předchozích slidů $\approx$ analýza pravdivých sentencí\pause
+\item V práci kombinuji metody teorie složitosti, kombinatoriky a teorie modelů\pause
+\item Kromě úvodu, Preliminaries a části kapitoly $1$, jsou všechny výsledky vlastní\pause
+\item Formuluji několik problémů navazujících na mé výsledky
+\end{itemize}
+\end{frame}
+
+\begin{frame}
+\frametitle{Nedostatky práce}
+\begin{itemize}
+\item Námitky oponenta\pause
+\item Zřetelněji vyznačit autorství při prezentaci Forsingu v kapitole 1\pause
+\item Ovšem: Chyby nemají za následek neplatnost nějakého tvrzení\pause
+\item V erratě nepřesnosti a překlepy objasňuji
+\end{itemize}
+\end{frame}
+
+\begin{frame}
+\frametitle{Odpověď na otázku oponenta}
+\begin{ques}
+Mohl byste podrobněji ukázat, jak plyne nerovnost mezi (4.26) a (4.27)?
+\end{ques}\pause
+\begin{align*}
+\prod_{i=0}^{n^{1/t}}\left(1-\frac{2}{n-2i-c-2}\right)&\geq 
+\prod_{i=0}^{n^{1/t}}\left(1-\frac{2}{n-2n^{1/t}-c-2}\right)\\
+&=\left (1-\frac{2}{n-2n^{1/t}-c-2}\right)^{n^{1/t}\textbf{+1}}\\
+&\geq\left (1-\frac{2(n^{1/t}\textbf{+1})}{n-2n^{1/t}-c-2}\right)\\
+\end{align*}
+\vspace{-4em}
+\pause
+\begin{itemize}
+\item Argument není ovlivněn\pause
+\item BÚNO lze zvolit $T$ aby původní nerovnost platila
+\end{itemize}
+\end{frame}
+
+\begin{frame}
+\begin{center}
+\huge
+\text{Děkuji za pozornost}
+\end{center}
+\end{frame}
+
+\end{document}

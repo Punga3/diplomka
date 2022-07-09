@@ -1,0 +1,120 @@
+\documentclass{article}
+\usepackage{inputenc}[utf-8]
+\usepackage{babel}[english]
+\usepackage{indentfirst}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{amsthm}
+\usepackage[a-2u]{pdfx}
+
+\def\llbracket{[\![}
+\def\rrbracket{]\!]}
+\newcommand{\Th}{\text{Th}}
+\newcommand{\st}{\text{st}}
+\newcommand{\bbl}{\llbracket}
+\newcommand{\bbr}{\rrbracket}
+\newcommand{\Lor}{\bigvee}
+\newcommand{\Land}{\bigwedge}
+\newcommand{\1}{\textbf{1}}
+\newcommand{\0}{\textbf{0}}
+\newcommand{\dpt}{\text{dp}}
+\newcommand{\Aut}{\text{Aut}}
+\newcommand{\pPATH}{*\text{PATH}}
+\newcommand{\pDPATH}{*\text{DPATH}}
+\newcommand{\pPATHl}{*\text{PATH}^\leq}
+\newcommand{\EDGE}{\text{EDGE}}
+\newcommand{\nEDGE}{\text{nonEDGE}}
+\newcommand{\ALL}{\text{ALL}}
+\newcommand{\leqp}{\leq_l}
+\newcommand{\set}[1]{\langle #1)}
+\newcommand{\ceil}[1]{\left \lceil {#1} \right \rceil}
+\newcommand{\floor}[1]{\left \lfloor {#1} \right \rfloor}
+\newcommand{\M}{\mathcal{M}}
+\newcommand{\Po}{\mathcal{P}}
+\newcommand{\A}{\mathcal{A}}
+\newcommand{\B}{\mathcal{B}}
+\newcommand{\I}{\mathcal{I}}
+\newcommand{\card}{\text{card}}
+\newcommand{\SK}{\text{SK}}
+\newcommand{\CK}{\text{CK}}
+\newcommand{\G}{\mathcal{G}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\T}{\mathcal{T}}
+\renewcommand{\S}{\mathcal{S}}
+\renewcommand{\P}{\textbf{P}}
+\newcommand{\NP}{\textbf{NP}}
+\newcommand{\FP}{\textbf{FP}}
+\newcommand{\TFNP}{\textbf{TFNP}}
+\newcommand{\LEAF}{\text{LEAF}}
+\newcommand{\SOURCEORSINK}{\text{SOURCE.OR.SINK}}
+\newcommand{\PPA}{\textbf{PPA}}
+\newcommand{\PPAD}{\textbf{PPAD}}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\dom}{\text{dom}\:}
+\newcommand{\Rng}{\text{Rng}\:}
+\newcommand{\Frac}{\text{Frac}}
+
+
+\begin{document}
+\begin{center}
+Ondřej Ježil, Pseudofinite structures and limits
+
+\normalsize
+\textbf{ERRATA}
+\end{center}
+
+\textbf{p. 10} The first paragraph on the page (cont. of \textbf{Definition 1.4.1}) is missing a quantification for the parameter $t$. It should read: 
+
+``We define $\T_{rud}$ to be the set of all $(T,\ell)$ of depth at most $g_n^{1/t}$, for some nonstandard $t\in\M$, and $F_{rud}$ to be the set of all functions computed by some $(T,\ell)\in \T_{rud}$. For brevity, we will leave the labeling of the trees out of the notation so a tree in $\T_{rud}$ can be denoted just by $T$.''
+
+\vspace{0.5em}
+\textbf{p. 12, proof of Theorem 2.1.1.} The first sentence in the proof is poorly formulated. Let us restate it as follows.
+
+``
+Any two trees $T_\alpha$ and $T_\beta$ computing potential witnesses $\alpha,\beta$ of the formula $E(x,y)$ on some subset of $\Omega$ can be combined then into one tree that outputs an edge on the same subset of $\Omega$, so we can just analyze the case where the witnesses are computed by the same tree.''
+
+\vspace{0.5em}
+\textbf{p. 16, Example 2.3.2.} 
+The number of edges should be $\ceil{\frac{k(k-1)}{2\log k}}$.
+
+
+\vspace{0.5em}
+\textbf{p. 17, Theorem 2.3.4.} The statement should read:
+
+``
+Let $F$ be any vertex family, $\G_k$ a wide sequence and let $\varphi_0(\overline x)$ be an open $\{E\}$-formula such that
+\[\lim_{k\to\infty}\Pr_{G\in\mathcal{G}_k}[G\models(\forall \overline x)\varphi_0(\overline x)]=1.\]
+
+Then $\lim_F \G_n \bbl(\forall \overline x)\varphi_0(\overline x)\bbr=\1.$''
+
+\vspace{0.5em}
+\textbf{p. 18, Example 2.3.7.} 
+The number of edges should be $\ceil{\frac{k(k-1)}{2\log k}}$.
+
+\vspace{0.5em}
+\textbf{p. 19, Theorem 2.4.2.} The explanation of the notation $\psi^b$ is missing. For an $\{E\}$-formula $\psi$ we have
+\[\psi^b:=
+\begin{cases}
+\psi & b=1\\
+\lnot \psi & b=0.\\
+\end{cases}
+\]
+
+\vspace{0.5em}
+\textbf{p. 20, Corollary 2.4.3.} ``\ldots we have that $\bbl(\forall\overline y)(\exists \overline x)\varphi(\overline x,\overline y)\bbr=\1.$''
+
+\vspace{0.5em}
+\textbf{p. 28, Conjecture 3.2.2.} Let us stress that the parameter $m$ is an element of $\M$.
+
+\vspace{0.5em}
+\textbf{p. 32, proof of Corollary 4.1.7.} The inequalities contain a typo and a numerical error, here is the corrected version. The rest of the proof is unaffected.
+\begin{align*}
+\Pr_{G\in\G_{n-c}}[\text{$T$ fails}]&\geq \prod_{i=0}^{n^{1/t}}\left(1-\frac{2}{n-2i-c-2}\right)\tag{4.26}\\
+&\geq \left(1-\frac{2(n^t+1)}{n-2n^{1/t}-c-2}\right)\tag{4.27}
+\end{align*}
+
+\vspace{0.5em}
+\textbf{p. 32, proof of Theorem 4.1.8.} There is a duplication error and the proof should be read from the beginning of page \textbf{33}.
+
+\end{document}

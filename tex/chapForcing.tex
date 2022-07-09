@@ -75,7 +75,7 @@ Note that while every $\alpha\in F$ is represented by some element in $\M$, this
 Now we can finally define the first order wide limit.
 
 \begin{defi}
-We define a $\B$-valued $\{E\}$-structure $\lim_{k\to n}^{F}G_k$, with universe $F$ and $\{E\}$-sentences being evaluated by the following inductive conditions:
+We define a $\B$-valued $\{E\}$-structure $\lim_{k\to n}^{F}\G_k$, with universe $F$ and $\{E\}$-sentences being evaluated by the following inductive conditions:
 \begin{itemize}
 \item $\bbl \alpha=\beta \bbr := \{\omega\in\Omega; \alpha(\omega)=\beta(\omega)\}/\I.$
 \item $\bbl E(\alpha,\beta) \bbr := \{\omega\in\Omega; E_\omega(\alpha,\beta))\}/\I$.
@@ -126,7 +126,7 @@ and for the second order quantifiers we have the following inductive clauses
 \item $\bbl(\forall X)A(X)\bbr:=\Land_{\Theta\in G}\bbl A(\Theta)\bbr.$
 \end{itemize}
 
-We define \textbf{the second order wide limit} $\lim_{F,n}^G\{\G_k\}_{k>0}$ as $\{E\}$-reduct of $K(\G_n,F,G)$, which we analogously call the \textbf{the arithmetical expansion of the (second order) wide limit}. By abuse of notation we will mostly denote the wide limit $\lim_F^G\G_n$.
+We define \textbf{the second order wide limit} $\lim_{F\to n}^G \G_k$ as $\{E\}$-reduct of the structure $K(\G_n,F,G)$, which we analogously call the \textbf{the arithmetical expansion of the (second order) wide limit}. By abuse of notation we will mostly denote the wide limit $\lim_F^G\G_n$.
 \end{defi}
 
 Let us note that if we have multiple Boolean valued structures $\S_1,\S_2,\dots$ we may add the name of the structure as a prefix to the evaluation function to get $\S_1\bbl-\bbr$ and $\S_2\bbl-\bbr$ to avoid ambiguity or to emphasize the structure where the evaluation takes place. This is different from the standard notation, which would be including the structure name in the superscript as $\bbl\dots\bbr^{\S_1}$, but it is in our case preferable for typographical reasons.
@@ -142,7 +142,7 @@ We define a \textbf{decision tree} to be a binary tree $T\in\M$ with a labeling 
 
 Every sample $\omega\in\Omega$ uniquely determines a path in $(T,\ell)$ by interpreting the vertex labels as ``is $(u,v)\in E_\omega$?'' and the edge labels as true $(1)$ and false $(0)$ and the path then uniquely determines an output.
 
-We define $\T_{rud}$ to be the set of all $(T,\ell)$ of depth at most $g_n^{1/t}$ and $F_{rud}$ to be the set of all function computed by some $(T,\ell)\in \T_{rud}$. For brevity we will leave out the labeling of the trees out of the notation so a tree in $\T_{rud}$ can be denoted just by $T$.
+We define $\T_{rud}$ to be the set of all $(T,\ell)$ of depth at most $g_n^{1/t}$, for some nonstandard $t\in\M$, and $F_{rud}$ to be the set of all function computed by some $(T,\ell)\in \T_{rud}$. For brevity we will leave out the labeling of the trees out of the notation so a tree in $\T_{rud}$ can be denoted just by $T$.
 \end{defi}
 
 Note that if we are given a graph $G\in G_k$ on $g_k$ vertices, we need a polynomial sized circuit with $2l$ inputs, $l:=\log g_k$, to represent its edge relation. In the pseudofinite case, where $k=n$, if we are restricted to inspect/query at most $g_n^{1/t}$ edges then it corresponds to $2^{l/t}$ many queries or the subexponential oracle time.
@@ -202,7 +202,7 @@ Even though the concrete wide limits we will investigate in the following chapte
 If $\lim_F\G_n$ is the first order wide limit we will be interested in which exact $\{E\}$-sentences are valid in it. By \textbf{valid} we mean that their $\bbl\dots\bbr$ value is $\1$.
 
 \begin{defi}
-We define $\Th(\lim_F\G_n)$ as the set of all valid $E$-sentences in $\lim_{F}\G_n$.
+We define $\Th(\lim_F\G_n)$ as the set of all valid $\{E\}$-sentences in $\lim_{F}\G_n$.
 \end{defi}
 
 In the next chapter (Theorem \ref{thrmuni}) we will see that if a universal $\{E\}$-sentence $\varphi$ holds for all $G\in\G_k$ for $k$ big enough then $\lim_F\G_n\bbl\varphi\bbr=\1$. In particular, a wide limit of undirected graphs is a Boolean valued undirected graph and a wide limit of directed graphs is a Boolean valued directed graph.

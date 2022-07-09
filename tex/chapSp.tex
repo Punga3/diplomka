@@ -110,7 +110,7 @@ p&=\Pr_{G\in\G_m}[E(v,0)]\Pr_{G\in\G_m}[\text{$T$ fails}|E(v,0)]\\
 &\geq(1-\frac{2}{m-2})\prod_{i=1}^{k}(1-\frac{2}{m-2i-2})\\
 &\geq\prod_{i=0}^{k}(1-\frac{2}{m-2i-2}).
 \end{align}
-where in \eqref{pmfailchoice} we choose $u_0,w_0$ with the lowest value of \[\Pr_{G\in\G_m}(\text{$T_{v?=\{u_0,w_0\}}|v?=\{u_0,w_0\}$}),\] the bound follows the fact that all $\Pr_{G\in\G_m}(v?=\{u,w\})$ are the same for distinct non-zero $u,w$. In \eqref{pmfaillemma} we use the lemma \ref{lemmrelabeltree} and in \eqref{pmfailih} we use the induction hypothesis.
+where in \eqref{pmfailchoice} we choose $u_0,w_0$ with the lowest value of \[\Pr_{G\in\G_m}(\text{$T_{v?=\{u_0,w_0\}}|v?=\{u_0,w_0\}$}),\] the bound follows the fact that all $\Pr_{G\in\G_m}(v?=\{u,w\})$ are the same for distinct non-zero $u,w$. In \eqref{pmfaillemma} we use the Lemma \ref{lemmrelabeltree} and in \eqref{pmfailih} we use the induction hypothesis.
 \end{proof}
 
 \begin{crll}\label{crllpPathtreefail}
@@ -120,8 +120,8 @@ For a tree $T\in \T_{nbtree}$ and $c\in \N$ we have that
 \begin{proof}
 Since $T$ has depth at most $n^{1/t}$ for some $t>\mathbb{N}$ we by the previous lemma that
 \begin{align}
-\Pr_{G\in\G_n}(\text{$T$ fails})&\geq \prod_{i=0}^{n^{1/t}}\left(1-\frac{2}{n-2i-c-2}\right)\\
-&\geq \left(1-\frac{2n^{1/t}}{n-2n^{1/t}-c-2}\right)
+\Pr_{G\in\G_{n-c}}[\text{$T$ fails}]&\geq \prod_{i=0}^{n^{1/t}}\left(1-\frac{2}{n-2i-c-2}\right)\\
+&\geq \left(1-\frac{2(n^{1/t}+1)}{n-2n^{1/t}-c-2}\right)
 \end{align}
 and the standard part of the lower bound is $1$.
 \end{proof}
@@ -132,18 +132,6 @@ Finally, we can prove the following theorem.
 \[\lim_{F_{nbtree}}\pPATH_n\bbl(\exists v)(\exists u)(\forall w)((v\not=0)\land (E(v,u)) \land(E(v,w) \to u=w))\bbr=\0\]
 \end{thrm}
 \begin{proof}
-Expanding the value of the formula in the statement we get
-\[\Lor_{\alpha}\Lor_{\beta}\Land_{\gamma}\bbl(\alpha\not=0)\land (E(\alpha,\beta)) \land(E(\alpha,\gamma) \to \beta=\gamma)\bbr,\]
-to prove it evaluates to $\0$ we need to find for every $\alpha,\beta$ some $\gamma$ such that
-\[\bbl(\alpha\not=0)\land (E(\alpha,\beta)) \land(E(\alpha,\gamma) \to \beta=\gamma)\bbr=\0.\]
-For any $\alpha,\beta$ we define
-\[\gamma(\omega):=\begin{cases}v&N(\alpha(\omega))=\{v\}\\w&w\in N(\alpha(\omega))\setminus\{\beta(\omega)\},\end{cases}\]
-such a function can be computed by a tree in $F_{nbtree}$ which we can construct by concatenation of trees computing $\alpha$ and $\beta$.
-
-Let $T$ be the tree computing $\alpha$. Now we proceed by contradiction, let
-\[\epsilon:=\mu(\bbl(\alpha\not=0)\land (E(\alpha,\beta)) \land(E(\alpha,\gamma) \to \beta=\gamma)\bbr)>0,\]
-by definition this means that
-\[\epsilon=\st(P_n[(\alpha\not=0)\land (E(\alpha,\beta)) \land(E(\alpha,\gamma) \to \beta=\gamma)])>0.\]
 Expanding the value of the formula in the statement we get
 \[\Lor_{\alpha}\Lor_{\beta}\Land_{\gamma}\bbl(\alpha\not=0)\land (E(\alpha,\beta)) \land(E(\alpha,\gamma) \to \beta=\gamma)\bbr,\]
 to prove it evalues to $\0$ we need to find for every $\alpha,\beta$ some $\gamma$ such that

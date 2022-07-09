@@ -1,0 +1,7 @@
+done 2, sequence of graphs -> sequence of graphs
+done 11, Definition 1.6.1. E-sentences -> {E}-sentences
+done 12, Theorem 2.1.1. We will prove that -> 
+done 12, Opravit počty (2.1) až (2.5)
+Theorem 2.3.3. \approx -> st(-) // i všude jinde
+Theorem 3.1.6. as and therefore -> 
+

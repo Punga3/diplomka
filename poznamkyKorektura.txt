@@ -1,0 +1,41 @@
+family of finite graphs - sequence of families!
+
+F-closed: M-finite functions in M!
+subexp time: ??
+major portion
+lim_{G_{rud}}
+NP-complete large clique? NP-hard
+"this is essentially what happnes in cases of PATHS"?
+class forms a wide sequence
+
+
+NEDĚLE DO TŘÍ
+LIMIT SECOND ORDER = L_ALL RELACE + 
+LIMIT FIRST ORDER = F-vertexy jsou cajk
+
+
+----------------GLOBAL TODO:
+
+
+----------------DONE
+- dedication
+- Nešetřil
+- Sketch vs sketch
+- E vs \Gamma
+- okomentovat jak je vytvořena formule v SK a CK
+- SK n^{1/t} smazat
+- " for an n^1/t clique has to already verify quadratically many cliques" 
+- opravit nejnovější poznámky
+- nezapomeň odstanit !!! po kontrole
+- pokračuj 16/42
+- přepsat chapSp Lemma: scházej strom po všech větvích, věci mezi <n)-<n-c) přejmenovávej někam níž nebo idukcí podle délky stromu/kdyby to nešlo z většiny přejmenovat, tak už lze najít degree 0 vertex/přinejhorším analogicky jako pPATH from scratch
+- pPATH není izomorphism closed - změnit formulaci na začátku chap 4
+- nbtree -> nb?
+- přepsat paragraf ("TODO")
+- změnit název!
+- termy definovat pro SO?
+- global F_rud, T_rud distinction, speciálně v chapSp
+- slovo arithmetic model změnit K(F),K(F,G)
+
+----------------pre-FINAL QUESTION:
+
