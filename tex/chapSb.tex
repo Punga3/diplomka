@@ -63,7 +63,7 @@ The tree $T_{v_i}$ inspects all the edges $(v_i,j)$ where $j$ ranges over $\set{
 \end{proof}
 
 \begin{lemm}\label{lemmmiss2}
-Let $S_0,\dots,S_{a-1}\subseteq\set{n}$ sets of size $a\in \M$ for $i\in \M$ then
+Let $a\in\M$ and $S_0,\dots,S_{a-1}\subseteq\set{n}$ be sets of size $m\in \M$ then
 \[\Pr_{\omega\in\Omega}\left[\bigcup_{i=0}^{a-1}[\text{$S_i$ contains no vertices in the clique of $\omega$}]\right]\leq a\cdot e^{-\floor{\frac{n}{2}}\frac{m}{n}}.\]
 \end{lemm}
 \begin{proof}Follows from the proof of Lemma \ref{lemmmiss} and union bound.
@@ -113,7 +113,7 @@ Is $\floor{n/(2\ln n)}$ the clique number in the Boolean valued graph $\lim_{F_{
 Now let us mention the more complex case of the wide sequence $\CK_k^{1/2}$
 \[\CK_k^{1/2}=\{(\set{k},E);E\text{ contains a $\floor{k/2}$ clique.}\}\]
 
-We are still guaranteed that every $\omega$ contains a large clique, but there is no easy way to check whether a given vertex $v$ is contained in the large clique. To prove the following theorem we can use that $\CK_k^{1/2}$ is isomorphism closed to translate the case for $\SK_k^{1/2}$ at least for the case of cliques of standard size.
+We are still guaranteed that every $\omega$ contains a large clique, but there is no easy way to check whether a given vertex $v$ is contained in the large clique. To prove the following theorem we can use that $\CK_k^{1/2}$ is isomorphism closed to apply the analysis of $\SK_k^{1/2}$ at least for the case of cliques of standard size.
 
 \begin{thrm}\label{thrmck}
 Let $c\in\N$ then 

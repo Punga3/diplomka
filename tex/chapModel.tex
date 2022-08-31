@@ -95,10 +95,9 @@ We use the fact that $p\leq b_n$ to derive
 &\leq\sum_{\{u,v\}\in E_T} p\\
 &=(n^{1/t}+1)p\\
 &\leq(n^{1/t}+1)b_k\\
-&\leq n^{1/k_0}b_k\\
-&\approx 0,
+&\leq n^{1/k_0}b_k,
 \end{align}
-which proves the theorem.
+standard part of which is $0$.
 \end{proof}
 
 The assumption $\lim_{k\to \infty} k^{1/k_0}b_k=0$ for some $k_0$ may seem unintuitive at first. However, it precisely captures what is ``too sparse" for the trees in $\T_{rud}$. The following example shows that without the assumption the theorem fails.
@@ -233,7 +232,7 @@ Let us define
 \end{align}
 and let 
 \[\varphi_0(a,b,c,d):=\left(\Land_{\substack{x, y\in\{a,b,c,d\}\\\text{$x,y$ distinct}}}(x\not=y)\right)\to\left(\Lor_{\substack{x, y\in\{a,b,c,d\}\\\text{$x,y$ distinct}}}E(x,y)\right),\]
-which says that if $a,b,c,d$ are distinct, there is an edge between one of them. The universal closure is valid on all graphs in $\G_k^B$ and none of the graphs in $\G_k^A$. Since $\binom{\binom{n}{2}}{2}/\binom{\binom{n}{2}}{n-3}$ is infinitesimal we have, that $\lim_{k\to\infty} \binom{\binom{k}{2}}{2}/\binom{\binom{k}{2}}{k-3}=0$ we have by Theorem \ref{thrmuni} that $\lim_F \G_n \bbl(\forall a,b,c,d)\varphi_0(a,b,c,d)\bbr=\1$ for any $F$ containing all constants.
+which says that if $a,b,c,d$ are distinct, there is an edge between one of them. The universal closure is valid on all graphs in $\G_k^B$ and none of the graphs in $\G_k^A$. Since $\binom{\binom{n}{2}}{2}/\binom{\binom{n}{2}}{n-3}$ is infinitesimal we have that $\lim_{k\to\infty} \binom{\binom{k}{2}}{2}/\binom{\binom{k}{2}}{k-3}=0$ and we have by Theorem \ref{thrmuni} that $\lim_F \G_n \bbl(\forall a,b,c,d)\varphi_0(a,b,c,d)\bbr=\1$ for any $F$ containing all constants.
 \end{exam}
 
 The Theorem \ref{thrmuni} also implies that since all $G\in\G_k$ satisfy that $E_G$ is antireflexive then so does $\lim_{F}\G_n$ and if $E_G$ are all symmetrical then so it the wide limit edge relation $E$. This combined with Theorem \ref{thrmsparse} proves the following.
@@ -290,15 +289,15 @@ In the statement of the following theorem we use the notation $\varphi^b$ for an
 \]
 
 \begin{thrm}[Everything exists]
-Let $\varphi(\overline x,\overline y)=\Land_{i=0}^{m-1}\psi_i(\overline x,\overline y)\land \Land_{i=0}^{l-1}\vartheta_i(\overline y)$, where $\psi_i,\vartheta_i$ are basic formulas and $\psi_i$ are not of the form $(y_i=y_j)^b$, $E(y_i,y_j)^b$, $x_i\not= x_i$, $E(x_i,x_i)$, $b\in\{0,1\}$ such that
+Let $\varphi(\overline x,\overline y)=\Land_{i=0}^{m-1}\psi_i(\overline x,\overline y)\land \Land_{i=0}^{l-1}\vartheta_i(\overline y)$, where $\psi_i,\vartheta_i$ are basic formulas such that
 \begin{itemize}
-\item each $\psi_i$ are not of the form $(y_i=y_j)^b,E(y_i,y_j)^b,x_i\not = x_i, E(x_i,x_i)$ for $b\in\{0,1\}$
+\item each $\psi_i$ is not of the form $(y_i=y_j)^b,E(y_i,y_j)^b,x_i\not = x_i, E(x_i,x_i)$ for $b\in\{0,1\}$
 \item if $\psi_i$ is of the form $(x_i=z)^b$ for $z$ in $\overline x$ or $\overline y$ then no other $\psi_j$ is of the form $(x_i=z)^{1-b}$ or $(z=x_i)^{1-b}$
 \item if $\psi_i$ is of the form $E(x_i,z)^b$ for $z$ in $\overline x$ or $\overline y$ then no other $\psi_j$ is of the form $E(x_i,z)^{1-b}$ or $E(z,x_i)^{1-b}$.
 \end{itemize}
 
-If $\overline \beta$ is a tuple of vertices computed by $F_{rud}$ of the same length as $\overline y$ then \[\lim_{F_{rud}}\G_n\bbl(\exists \overline x)\varphi_0(\overline x,\overline \beta)\bbr=\lim_{F_{rud}}\G_n\bbl\Land_{i=0}^{l-1}\vartheta_i(\overline \beta)\bbr,\] specifically if the conjunction is empty then
-\[\lim_{F_{rud}}\G_n\bbl(\exists \overline x)\varphi_0(\overline x,\overline \beta)\bbr=\1.\]
+If $\overline \beta$ is a tuple of vertices computed by $F_{rud}$ of the same length as $\overline y$ then \[\lim_{F_{rud}}\ALL_n\bbl(\exists \overline x)\varphi_0(\overline x,\overline \beta)\bbr=\lim_{F_{rud}}\ALL_n\bbl\Land_{i=0}^{l-1}\vartheta_i(\overline \beta)\bbr,\] specifically if the conjunction is empty then
+\[\lim_{F_{rud}}\ALL_n\bbl(\exists \overline x)\varphi_0(\overline x,\overline \beta)\bbr=\1.\]
 \end{thrm}
 \begin{proof} We will construct one tree $T$ computing the whole tuple of witnesses $\overline \alpha$, such a construction can be straightforwardly split into a tuple of trees with each computing the specific element.
 
@@ -313,13 +312,13 @@ Therefore
 
 The statement of the theorem was rather technical, but we can now use it to prove the following corollaries.
 
-\begin{crll}For each $\varphi(\overline x)$ that is not a contradiction in the theory of graphs we have that $\bbl(\exists \overline x)\varphi(\overline x)\bbr=\1.$
+\begin{crll}For each open $\{E\}$-formula $\varphi(\overline x)$ that is not a contradiction in the theory of graphs we have that $\lim_{F_{rud}}\ALL_n\bbl(\exists \overline x)\varphi(\overline x)\bbr=\1.$
 \end{crll}
 \begin{proof}
 The conditions on $\psi_i$ are exactly saying that the conjunction is not a contradiction. Every other formula can be rewritten as a disjunction of such conjunctions and by the theorem we can satisfy at least one of them.
 \end{proof}
 \begin{crll}\label{crllev2}
-For each $\varphi(\overline x,\overline y)$ that is not falsifiable by $\overline y$ in the theory of graphs we have that $\bbl(\forall \overline y)(\exists \overline x)\varphi(\overline x)\bbr=\1$.
+For each open $\{E\}$-formula $\varphi(\overline x,\overline y)$ that is not falsifiable by $\overline y$ in the theory of graphs we have that $\lim_{F_{rud}}\ALL_n\bbl(\forall \overline y)(\exists \overline x)\varphi(\overline x)\bbr=\1$.
 \end{crll}
 \begin{proof}
 No $\overline \beta$ can falsify $(\exists \overline x)\varphi(\overline x,\overline \beta)$, this means we can invoke the theorem on one of the non-falsifiable disjuncts.
@@ -369,7 +368,7 @@ Let $\G_k$ be a wide sequence such that
 The condition on the limit assures that $\G_k\leqp \ALL_{g_k}$. Which, by Lemma \ref{lemmpordown}, is enough to replicate the proof for $\ALL_{g_k}$.
 \end{proof}
 
-We will use a similar argument in Chapter \ref{chapsparse} to instead prove something about a wide sequence by first proving it for its portion.
+We will use a similar argument in Chapter \ref{chapsparse} to instead prove something about a wide sequence by first proving it for its portion. (TODO: Reconsider which of these stays.)
 
 \section{Isomorphism closed categorical \texorpdfstring{$\mathcal{G}_k$}{Gk}}
 
