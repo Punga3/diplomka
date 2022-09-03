@@ -10,7 +10,7 @@ Generally it is considered a computationally hard problem to find a large clique
 Let \[\SK_k^{1/2}=\{(\set{k},E);\text{$E$ consists of exactly one $k/2$-clique}\}.\]
 \end{defi}
 
-Limiting inputs to $\SK_k^{1/2}$ makes the problem less complex, because for a vertex $v$ to be a part of the biggest clique it is enough that it has nonzero degree. Naturally we want to see whether there is a large clique in $\lim_F^G \SK_n^{1/2}$, every sample has a clique of size $n/2$, but is there a set of $F$-vertices witnessing that? 
+Limiting inputs to $\SK_k^{1/2}$ makes the problem less complex, because for a vertex $v$ to be a part of the biggest clique it is enough that it has nonzero degree. Naturally we want to see whether there is a large clique in $\lim_F^G \SK_n^{1/2}$, every sample has a clique of size $n/2$, but is there a subset of $F$ witnessing that? 
 
 Here to measure the size of such a clique, the second order wide limit  by itself is not a sufficient object. Instead we need to turn to the arithmetical expansion $K(\G_n,F,G)$ and ask whether we can find an injective function from some large initial segment into a clique. This can be expressed as a second order sentence with parameters from $F$. It is not hard to prove the following result which also demonstrates how the sentence is formed.
 
@@ -95,7 +95,7 @@ So with probability infinitesimally close to 1 we have in each $S_i$ a vertex $v
 
 Finally we can have a function $\Lambda\in G$ computed by $(\Lambda_0,\dots,\Lambda_{\floor{n/m}-1})$ by letting $\Lambda_i$ be computed by $T_{S_i}$ we have already verified $\bbl\Lambda\text{ is a clique}\bbr=\1.$
 
-Because $T_{S_i}(\omega)\in S_i$ when $S_i$ succeeds, and $S_i$ are disjoint we have \[\bbl\Lambda:\set{\floor{n/m}}\hookrightarrow \M\bbr=\1. \]
+Because $T_{S_i}(\omega)\in S_i$ when $T_{S_i}$ succeeds, and $S_i$ are disjoint we have \[\bbl\Lambda:\set{\floor{n/m}}\hookrightarrow \M\bbr=\1. \]
 Which proves the theorem.
 \end{proof}
 
@@ -123,15 +123,15 @@ Let $c\in\N$ then
 Consider the set \[\G_n^+=\{(G,U);\text{$G\in \G_n$ and $U\subseteq \set{n}$ is a $\floor{n/2}$ clique in $G$ }\}\]
 and projections
 \begin{align*}
-\pi_1:\G_n^+&\to\G_n,(G,U)\mapsto G.\\
-\pi_2:\G_n^+&\to\Po(\set{n}),(G,U)\mapsto U
+\pi_1:\G_n^+&\to\G_n,(G,U)\mapsto G\\
+\pi_2:\G_n^+&\to\Po(\set{n}),(G,U)\mapsto U.
 \end{align*}
 
-From the fact that $\CK_k^{1/2}$ is isomorphism closed, we have that $\abs{\pi_2^{-1}[U_1]}=\abs{\pi_2^{-1}[U_2]}$. We will set $\nu:=\abs{\pi_2^{-1}[U]}$ for some clique $U$ of size $\floor{n/2}$ so we have $\nu\abs{\G_n}=\G_n^+$. Let $\varphi_c(\overline x)$ be a $\{E\}$-sentence is satisfied iff $\overline x$ is a $c$ sized clique.  Denote an event in the sample space $\G_n$
-\[A_{\overline a} :=\{G\in\G_n;G\models \varphi_c(\overline a)\}.\]
+From the fact that $\CK_k^{1/2}$ is isomorphism closed, we have that $\abs{\pi_2^{-1}[U_1]}=\abs{\pi_2^{-1}[U_2]}$ for any $U_1,U_2\in \Po(\set{n})$ of size $\floor{n/2}$. We will set $\nu:=\abs{\pi_2^{-1}[U]}$ for some clique $U$ of size $\floor{n/2}$ so we have $\nu\abs{\G_n}=\G_n^+$. Let $\varphi_c(\overline x)$ be a $\{E\}$-sentence that is satisfied iff $\overline x$ is a $c$ sized clique.  Denote an event in the sample space $\G_n$
+\[A_{\overline a} :=\{\omega\in\G_n;\omega\models \varphi_c(\overline a)\}.\]
 and in the sample space $\G_n^+$
-\[A_{\overline a}^+ :=\{(G,U)\in\G_n^+;\overline a\text{ is a subclique of $U$}\}\]
-notice that if $(G,U)\in A_{\overline a}^+$ then $G\in A_{\overline a}$ which implies (by another argument with projections) that
+\[A_{\overline a}^+ :=\{(G,U)\in\G_n^+;\overline a\text{ is a subclique of $U$}\}.\]
+Notice that if $(G,U)\in A_{\overline a}^+$ then $G\in A_{\overline a}$ which implies (by another argument with projections) that
 \[\nu\cdot\abs{A_{\overline a}}\geq \abs{A_{\overline a}^+}\]
 so in conjunction with Example \ref{examskhalf} we have
 \begin{align*}
@@ -142,7 +142,7 @@ so in conjunction with Example \ref{examskhalf} we have
 and since $c$ is constant we have $\Pr_{G\in\G_n}[A_{\overline a}]>0$.
 \end{proof}
 
-Of course it remains to show that using trees can actually increase the value all the way to $\1$, we did not get to prove that.
+Of course it remains to show that by using non-constant trees we can actually increase the value all the way to $\1$, we did not get to prove that.
 
 Finally one can return to cliques of nonstandard size and intuitively one expects this to be hard. For a clique of size greater than $n^{1/t}$ for any $t>\N$ one has to check more than $n^{1/t}$ edges to even know whether a given set is a clique and the counting argument used in the previous theorem implies that just guessing the clique of nonstandard size is not enough. We therefore present the following conjecture.
 
