@@ -4,7 +4,7 @@ The first and simplest wide sequence we will consider of is the class of undirec
 \[\EDGE_k:=\{\text{$(\set{k},E); \abs{E}=1$}\},\]
 and one can check that this is indeed a wide sequence because $\abs{\EDGE_k}=\binom{k}{2}$ which tends to infinity as $k$ does.
 
-Now every graph $G\in\EDGE_k$ has an edge. How does this reflect in the $F_{rud}$ wide limit? The naive guess could be that there should also be an edge but another view lets us see this should not be the case. The limit encompasses the procedure of randomly sampling an exponentially large graph and then inspecting a subexponential part of its edges. In the pseudofinite case this means that we search for one edge in the nonstandard set of vertices but only search through infinitesimally small portion and so we should almost always fail.
+Now every graph $\omega\in\EDGE_k$ has an edge. How does this reflect in the $F_{rud}$ wide limit? The naive guess could be that there should also be an edge but another view lets us see this should not be the case. The limit encompasses the procedure of randomly sampling an exponentially large graph and then inspecting a subexponential part of its edges. In the pseudofinite case this means that we search for one edge in the nonstandard set of vertices but only search through infinitesimally small portion and so we should almost always fail.
 
 This is exactly how we prove in the following theorem.
 
@@ -46,51 +46,51 @@ as witnessed by $x$ being the constant $0$ and $y$ the constant $1$ both of whic
 One can see that having distinguished vertices can result in the edge being found even in the sparse case. We want to distinguish from this situation by considering the sequences $\mathcal{G}_k$ satisfying the following natural definition.
 
 \begin{defi}
-We say that $\{\mathcal{G}_k\}_{k=0}^\infty$ is \textbf{isomorphism closed}, if there is $k_0$ such that for every $k>k_0$ if we have that $G_1\in\mathcal{G}_k$, $V_{G_2}=\set{g_k}$ and $G_1\cong G_2$ then $G_2\in\mathcal{G}_k$.
+We say that $\{\mathcal{G}_k\}_{k=0}^\infty$ is \textbf{isomorphism closed}, if there is $k_0$ such that for every $k>k_0$, every $\omega_1\in\mathcal{G}_k$, and every graph $\omega_2$ such that $V_{\omega_2}=\set{g_k}$ it holds that if $\omega_1\cong \omega_2$ then $\omega_2\in\mathcal{G}_k$.
 \end{defi}
 
 
 \begin{thrm}\label{thrmsparse}
-Let an isomorphism closed $\mathcal{G}_k$ have the following property. There is a sequence $\{b_k\}_{k}$ and for big enough $k$, a uniformly sampled $2$-element $\{u,v\}\subseteq g_k$ and every $G\in\mathcal{G}_k$ we have
-\[\Pr[E_G(u,v)]\leq b_k,\]
-and some $k_0$ such that $\lim_{k\to\infty}k^{1/k_0}b_k = 0.$ Then
+Let an isomorphism closed $\mathcal{G}_k$ have the following property. There is a sequence $\{b_k\}_{k}$ and for big enough $k$, a uniformly sampled $2$-element $\{u,v\}\subseteq g_k$ and every $\omega\in\mathcal{G}_k$ we have
+\[\Pr[E_\omega(u,v)]\leq b_k,\]
+and some $k_0\in\N$ such that $\lim_{k\to\infty}k^{1/k_0}b_k = 0.$ Then
 
 \[\lim_{F_{rud}}\bbl(\exists x)(\exists y)E(x,y)\bbr=\0.\]
 \end{thrm}
 \begin{proof}
-Let us define the number $c_{u,v}:=\abs{\{G\in\mathcal{G}_k; E_G(u,v)\}}$, which is the number of graphs $G$ in $\mathcal{G}_k$ satisfying $E_G(u,v)$. Of course $c_{u,u}=0$ for every $u$.
+Let us define the number $c_{u,v}:=\abs{\{\omega\in\mathcal{G}_k; E_\omega(u,v)\}}$, which is the number of graphs $\omega$ in $\mathcal{G}_k$ satisfying $E_G(u,v)$. Of course $c_{u,u}=0$ for every $u$.
 
 \vspace{0.5em}
 \textbf{Claim:} Let $u\neq v,u'\neq v'$ be vertices, then $c_{u,v}=c_{u',v'}$.\\
-\textit{proof of claim:} Let $\rho:=(u\:u')(v\:v')$ be a permutation with cycles $(u\:u')$ and $(v\:v')$. We can let $\rho$ act on $\mathcal{G}_k$ by sending $G$ to a graph $\rho(G)$ which renames the edges coordinate-wise.
+\textit{proof of claim:} Let $\rho:=(u\:u')(v\:v')$ be a permutation with cycles $(u\:u')$ and $(v\:v')$. We can let $\rho$ act on $\mathcal{G}_k$ by sending $\omega$ to a graph $\rho(\omega)$ which renames the edges coordinate-wise.
 
 The fact that $\mathcal{G}_k$ is isomorphism closed implies that $\rho$ restricts to a bijection:
-\[\rho':\{G\in\mathcal{G}_k;E_G(u,v), \lnot E_G(u',v')\}\to \{G\in\mathcal{G}_k;E_G(u',v'),\lnot E_G(u,v)\}\]
+\[\rho':\{\omega\in\mathcal{G}_k;E_\omega(u,v), \lnot E_\omega(u',v')\}\to \{\omega\in\mathcal{G}_k;E_\omega(u',v'),\lnot E_\omega(u,v)\}\]
 which proves the claim. \qed
 \vspace{0.5em}
 
 Now we define a matrix with entries
-\[a_{G,\{u,v\}}:=\begin{cases}1&E_G(u,v)\\0&\text{otherwise}\end{cases}\]
-where the rows are indexed by one of $\abs{\mathcal{G}_k}$ many graphs in $\mathcal{G}_k$ and the columns are indexed by the $\frac{k(k-1)}{2}$ many $2$-element sets of numbers in $k$. We take any distinct vertices $u,v$ and define $p:=\Pr_{G\in \mathcal{G}_k}[E_G(u,v)]=\frac{c_{u,v}}{\abs{\mathcal{G}_k}},$ by the claim the choice of $u,v$ does not matter.
+\[a_{\omega,\{u,v\}}:=\begin{cases}1&E_\omega(u,v)\\0&\text{otherwise}\end{cases}\]
+where the rows are indexed by one of $\abs{\mathcal{G}_k}$ many graphs in $\mathcal{G}_k$ and the columns are indexed by the $\frac{k(k-1)}{2}$ many $2$-element sets of numbers in $k$. We take any distinct vertices $u,v$ and define $p:=\Pr_{\omega\in \mathcal{G}_k}[E_\omega(u,v)]=\frac{c_{u,v}}{\abs{\mathcal{G}_k}},$ by the claim the choice of $u,v$ does not matter.
 
 The assumption from the statement is equivalent to the equality 
-\[\sum_{\{u,v\}}a_{G,\{u,v\}}\leq \frac{k(k-1)}{2}b_k\] 
-for every $G$. We combine this with the claim and the definition of $p$ to get
+\[\sum_{\{u,v\}}a_{\omega,\{u,v\}}\leq \frac{k(k-1)}{2}b_k\] 
+for every $\omega$. We combine this with the claim and the definition of $p$ to get
 \begin{align}
-\frac{k(k-1)}{2}\abs{\mathcal{G}_k}p&=\sum_{\{u,v\}}\sum_{G\in\mathcal{G}_k}a_{G,\{u,v\}}\\
-&=\sum_{G\in\mathcal{G}_k}\sum_{\{u,v\}}a_{G,\{u,v\}}\\
+\frac{k(k-1)}{2}\abs{\mathcal{G}_k}p&=\sum_{\{u,v\}}\sum_{\omega\in\mathcal{G}_k}a_{\omega,\{u,v\}}\\
+&=\sum_{\omega\in\mathcal{G}_k}\sum_{\{u,v\}}a_{\omega,\{u,v\}}\\
 &\leq \abs{\mathcal{G}_k}\frac{k(k-1)}{2}b_k
 \end{align}
 which implies
 \[p\leq b_k.\]
 
-Now let $k:=n$ and let $T\in F_{tree}$ be a tree of depth $n^{1/t}$ for some $t>\mathbb{N}$, where every leaf of $T$ is labeled by some edge. Walk down the tree $T$ from the root by answering negatively to every edge, which gives us a set $E_T$ of all edges $T$ inspected or outputted and $\abs{E_T}\leq n^{1/t}+1$.
+Now let $k:=n$ and let $T\in \T_{rud}$ be a tree of depth $n^{1/t}$ for some $t>\mathbb{N}$, where every leaf of $T$ is labeled by some edge. Walk down the tree $T$ from the root by answering negatively to every edge, which gives us a set $E_T$ of all edges $T$ inspected or outputted and $\abs{E_T}\leq n^{1/t}+1$.
 
 Now we just need to prove that the probability that $T$ finds an edge is infinitesimally small. This is enough to prove the theorem, since the trees computing any two witnesses for $x$ and $y$ in the statement can be combined to construct $T$ and if any tree $T$ succeeds with only infinitesimally small probability, no random vertices can witness an edge on a set of non-zero measure.
 
 We use the fact that $p\leq b_n$ to derive 
 \begin{align}
-\Pr_{G\in\mathcal{G}_n}[T\text{ finds an edge}]&\leq \sum_{\{u,v\}\in E_T} \Pr_{G\in \mathcal{G}_n}[E_G(u,v)]\\
+\Pr_{\omega\in\mathcal{G}_n}[T\text{ finds an edge}]&\leq \sum_{\{u,v\}\in E_T} \Pr_{\omega\in \mathcal{G}_n}[E_\omega(u,v)]\\
 &=\sum_{\{u,v\}\in E_T} \frac{c_{u,v}}{\abs{\mathcal{G}_n}}\\
 &\leq\sum_{\{u,v\}\in E_T} p\\
 &=(n^{1/t}+1)p\\
@@ -100,7 +100,7 @@ We use the fact that $p\leq b_n$ to derive
 standard part of which is $0$.
 \end{proof}
 
-The assumption $\lim_{k\to \infty} k^{1/k_0}b_k=0$ for some $k_0$ may seem unintuitive at first. However, it precisely captures what is ``too sparse" for the trees in $\T_{rud}$. The following example shows that without the assumption the theorem fails.
+The assumption $\lim_{k\to \infty} k^{1/k_0}b_k=0$ for some $k_0$ may seem unintuitive at first. However, it captures what is ``too sparse" for the trees in $\T_{rud}$. The following example shows that if we weaken the assumption to requiring the ratio of edges to all pairs is infinitesimal the theorem can fail.
 
 \begin{exam}\label{examsparseedge}
 Let $\mathcal{G}_k$ consist of all graphs on the vertex set $\set{k}$ with precisely $\lceil\frac{k(k-1)}{2\log k}\rceil$ edges.
@@ -113,7 +113,7 @@ Let $\alpha$ and $\beta$ be vertices computed by the tree of the same shape whic
 Let $T$ be a tree of the same shape, that computes the pair $\{\alpha,\beta\}$ then we can compute the probability where such a tree fails as the fraction of all graphs which have no edges that $T$ inspects. Let $m=\binom{n}{2}$. We get
 
 \begin{align}
-\Pr_{G\in\mathbb{G}_n}[T\text{ fails}]&=\frac{\binom{m-n^{1/t}}{\ceil{ \frac{n(n-1)}{2\log n}} }}{\binom{m}{\ceil{ \frac{n(n-1)}{2\log n}}}}\\
+\Pr_{\omega\in\G_n}[T\text{ fails}]&=\frac{\binom{m-n^{1/t}}{\ceil{ \frac{n(n-1)}{2\log n}} }}{\binom{m}{\ceil{ \frac{n(n-1)}{2\log n}}}}\\
 &=\frac{\frac{(m-n^{1/t})!}{\ceil{\frac{n(n-1)}{2\log n}} ! (m-\ceil{ \frac{n(n-1)}{2\log n}}-n^{1/t})!}}{\frac{m!}{\lceil \frac{n(n-1)}{2\log n}\rceil!(m-\ceil{\frac{n(n-1)}{2\log n}})!}}\\
 &=\frac{(m-n^{1/t})!(m-\ceil{ \frac{n(n-1)}{2\log n}})!}{m!(m-\ceil{\frac{n(n-1)}{2\log n}}-n^{1/t})!}\\
 &=\prod_{i=0}^{n^{1/t}-1}\frac{m-\ceil{\frac{n(n-1)}{2}}-i}{m-i}\\
@@ -128,35 +128,35 @@ And for any standard $k$ we have
 &\leq (e^{-\frac{1}{\ln 2}})^k.
 \end{align}
 
-So $\st(\Pr_{G\in\mathcal{G}_n}[T\text{ fails}])=0$ and we get 
+So $\st(\Pr_{\omega\in\mathcal{G}_n}[T\text{ fails}])=0$ and we get 
 \begin{align}
 \mu(\bbl(\exists x)(\exists y)E(x,y)) \bbr &\geq \mu(\bbl E(\alpha,\beta)\bbr)\\
-&=\st(1-\Pr_{G\in\mathbb{G}_n}[T\text{ fails}])\\
+&=\st(1-\Pr_{\omega\in\G_n}[T\text{ fails}])\\
 &=1.
 \end{align}
 \end{exam}
 
 \section{Dense \texorpdfstring{$\G_k$}{Gk}}
 
-Let us now consider how the density of a specific kind of substructure in the wide sequence corresponds to that substructure existing in the wide limit. The following theorem presents a sufficient condition for nonexistance to be invalid. Furthermore, this condition holds generally for all $F$ which contain all constants.
+Let us now consider how the density of a specific kind of substructure in the wide sequence corresponds to that substructure existing in the wide limit. The following theorem presents a sufficient condition for nonexistence to be invalid. Furthermore, this condition holds generally for all $F$ which contain all constants.
 
 \begin{thrm}\label{thrmexists}
 Let $F$ contain all constants, $\G_k$ be a wide sequence and let $\varphi_0(\overline x)$ be an open $\{E\}$-formula such that
-\[\lim_{k\to\infty}\Pr_{\substack{G\in\mathcal{G}_k\\\overline a \in \set{g_k}^l}}(G\models\varphi_0(\overline a))\geq p.\]
+\[\lim_{k\to\infty}\Pr_{\substack{\omega\in\mathcal{G}_k\\\overline a \in \set{g_k}^l}}[\omega\models\varphi_0(\overline a)]\geq p.\]
 Then $\mu(\bbl(\exists x)\varphi_0(x)\bbr)\geq p.$
 \end{thrm}
 
 \begin{proof}
 We define a matrix with components 
-\[C_{G,\overline a}=\begin{cases}1&G\models\varphi_0(\overline a)\\0&\text{otherwise}.\end{cases}\]
+\[C_{\omega,\overline a}=\begin{cases}1&\omega\models\varphi_0(\overline a)\\0&\text{otherwise}.\end{cases}\]
 
 By overspill in $\M$ we have that
-\[\st\left (\frac{1}{\abs{\G_n}g_k^l}\sum_{G\in\G_n}\sum_{\overline a \in \set{g_k}^l}C_{G,\overline \alpha}\right )\geq p.\]
+\[\st\left (\frac{1}{\abs{\G_n}g_k^l}\sum_{\omega\in\G_n}\sum_{\overline a \in \set{g_k}^l}C_{\omega,\overline a}\right )\geq p.\]
 
-We claim that there is one $\overline a$ such that $\st(\Pr_{G\in\G_k}(G\models\varphi_0(\overline a)))\geq p$. Assume for contradiction, that for all $\overline a$ we have $\frac{1}{\abs{\G_n}}\sum_{G\in \G_n}<p$. Then
+We claim that there is one $\overline a$ such that $\st(\Pr_{\omega\in\G_n}[\omega\models\varphi_0(\overline a)])\geq p$. Assume for contradiction, that for all $\overline a$ we have $\frac{1}{\abs{\G_n}}\sum_{\omega\in \G_n}C_{\omega,\overline a}<p$. Then
 \begin{align}
-\frac{1}{\abs{\G_n}g_k^l}\sum_{G\in\G_n}\sum_{\overline a \in \set{g_n}^l}C_{G,\overline \alpha}&=
-\frac{1}{g_k^l}\sum_{\overline a\in\set{g_n}^l}\frac{1}{\abs{\G_n}}\sum_{G\in\G_n}C_{G,\overline \alpha}\\
+\frac{1}{\abs{\G_n}g_n^l}\sum_{\omega\in\G_n}\sum_{\overline a \in \set{g_n}^l}C_{\omega,\overline \alpha}&=
+\frac{1}{g_n^l}\sum_{\overline a\in\set{g_n}^l}\frac{1}{\abs{\G_n}}\sum_{\omega\in\G_n}C_{\omega,\overline \alpha}\\
 &< p,
 \end{align}
 which is a contradiction after taking the standard part of each value.
@@ -171,7 +171,7 @@ By taking $\mu$ of both sides we prove the theorem.
 
 \begin{exam}
 Recall Example \ref{examsparseedge} it is not hard to notice that for a $\G_k$ which consists of graphs with exactly $\ceil{\frac{k(k-1)}{2\log k}}$ edges we have
-\[\lim_{k\to\infty}\Pr_{\substack{G\in \G_k}\\\overline (u,v) \in \set{k}^2}[\lnot E(u,v)]=1,\]
+\[\lim_{k\to\infty}\Pr_{\substack{\omega\in \G_k\\ (u,v) \in \set{k}^2}}[\lnot E_{\omega}(u,v)]=1,\]
 by the theorem it follows that we have
 \[\lim_{F}\G_n\bbl(\exists x)(\exists y)\lnot E(x,y)\bbr=\1.\]
 \end{exam}
@@ -183,8 +183,8 @@ Consider
 \begin{align*}
 \SK_k^{1/2}&:=\{(\set{k},E);\text{$E$ has a clique of size $\floor{k/2}$}, \abs{E}=\abs{E_{K_{\floor{k/2}}}}\},
 \end{align*}
-a wide sequence of all graphs with exactly one $\floor{k/2}$ clique and no other edges. One can check that for any $\{E\}$-formula $\varphi_l(\overline x)$ stating that $\overline x$ forms a clique of size $l$ we have that 
-\[\lim_{k\to\infty} \Pr_{\substack{G\in\SK_k^{1/2}\\\overline a \in \set{k}^l}}[G\models \varphi(\overline a)]\geq(1/2)^l.\]
+a wide sequence of all graphs with exactly one $\floor{k/2}$-clique and no other edges. One can check that for any $\{E\}$-formula $\varphi_l(\overline x)$ stating that $\overline x$ forms a clique of size $l$ we have that 
+\[\lim_{k\to\infty} \Pr_{\substack{\omega\in\SK_k^{1/2}\\\overline a \in \set{k}^l}}[\omega\models \varphi(\overline a)]\geq(1/2)^l.\]
 First notice that we can compute the probability for fixed $\overline a$ because $\SK_k^{1/2}$ is isomorphism closed. So we have
 \begin{align}
 \Pr_{G\in\SK_k^{1/2}}[G\models \varphi_l(\overline a)]&=\frac{\binom{k-l}{\floor{k/2}-l}}{\binom{k}{\floor{k/2}}}\\
@@ -207,7 +207,7 @@ Now the following theorem describes sufficient conditions for a universal senten
 
 \begin{thrm}\label{thrmuni}
 Let $F$ be any vertex family, $\G_k$ a wide sequence and let $\varphi_0(\overline x)$ be an open $\{E\}$-formula, such that
-\[\lim_{k\to\infty}\Pr_{G\in\mathcal{G}_k}[G\models(\forall \overline x)\varphi_0(\overline x)]=1.\]
+\[\lim_{k\to\infty}\Pr_{\omega\in\mathcal{G}_k}[\omega\models(\forall \overline x)\varphi_0(\overline x)]=1.\]
 
 Then $\lim_F \G_n \bbl(\forall \overline x)\varphi_0(\overline x)\bbr=\1.$
 
@@ -215,7 +215,7 @@ Then $\lim_F \G_n \bbl(\forall \overline x)\varphi_0(\overline x)\bbr=\1.$
 \end{thrm}
 
 \begin{proof}
-We have that $\st(\Pr_{G\in\mathcal{G}_n}[G\models(\forall \overline x)\varphi_0(\overline x)])=1$ and therefore $\bbl\varphi_0(\overline\alpha)\bbr=\1$ for each tuple $\overline\alpha$ in $F$. Therefore
+We have that $\st(\Pr_{\omega\in\mathcal{G}_n}[\omega\models(\forall \overline x)\varphi_0(\overline x)])=1$ and therefore $\bbl\varphi_0(\overline\alpha)\bbr=\1$ for each tuple $\overline\alpha$ in $F$. Therefore
 \begin{align}
 \bbl\varphi\bbr&=\Land_{\overline\alpha}\bbl\varphi_0(\overline\alpha)\bbr\\
 &=\Land_{\overline\alpha}\1\\
@@ -235,19 +235,19 @@ and let
 which says that if $a,b,c,d$ are distinct, there is an edge between one of them. The universal closure is valid on all graphs in $\G_k^B$ and none of the graphs in $\G_k^A$. Since $\binom{\binom{n}{2}}{2}/\binom{\binom{n}{2}}{n-3}$ is infinitesimal we have that $\lim_{k\to\infty} \binom{\binom{k}{2}}{2}/\binom{\binom{k}{2}}{k-3}=0$ and we have by Theorem \ref{thrmuni} that $\lim_F \G_n \bbl(\forall a,b,c,d)\varphi_0(a,b,c,d)\bbr=\1$ for any $F$ containing all constants.
 \end{exam}
 
-The Theorem \ref{thrmuni} also implies that since all $G\in\G_k$ satisfy that $E_G$ is antireflexive then so does $\lim_{F}\G_n$ and if $E_G$ are all symmetrical then so it the wide limit edge relation $E$. This combined with Theorem \ref{thrmsparse} proves the following.
+The Theorem \ref{thrmuni} also implies that since all $\omega\in\G_k$ satisfy that $E_\omega$ is antireflexive then so does $\lim_{F}\G_n$ and if $E_\omega$ are all symmetrical then so it the wide limit edge relation $E$. This combined with Theorem \ref{thrmsparse} proves the following.
 
 \begin{crll}[0-1 law for too sparse $F_{rud}$ sequence]\label{crlltoosparse}
 Let $\G_k$ be any wide sequence satisfying the statement of the Theorem \ref{thrmsparse}. Then $\Th(\lim_{F_{rud}}\G_n)$ is the theory of the empty graph and therefore complete. 
 \end{crll}
 
 It is natural to ask whether we can weaken the assumption of Theorem \ref{thrmuni} to an assumption analogous to Theorem \ref{thrmexists}. In other words, is
-\[\lim_{k\to\infty}\Pr_{\substack{G\in\G_k\\\overline a\in \set{g_k}^l}}[G\models\varphi_0(\overline a)]=1\]
+\[\lim_{k\to\infty}\Pr_{\substack{\omega\in\G_k\\\overline a\in \set{g_k}^l}}[\omega\models\varphi_0(\overline a)]=1\]
 enough to imply $\lim_F\G_n\bbl(\forall x)\varphi_0(\overline x)\bbr=\1$? Unfortunately no, as we can see in the following example.
 
 \begin{exam}Recall Example \ref{examsparseedge} where $\G_k$ consists of all graphs on $\set{k}$ with exactly $\ceil{\frac{k(k-2)}{2\log k}}$ edges. One can easily check that
-\[\lim_{k\to\infty}\Pr_{\substack{G\in\G_k\\u,v \in \set{k}}}[G\models \lnot E(u,v)]=1,\]
-but we proved that $\lim_{F_{rud}}\G_n \bbl(\exists x)(\exists y)E(x,y)\bbr=\1$ in other words we have \[\lim_{F_{rud}}\bbl(\forall x)(\forall y)\lnot E(x,y)\bbr=\0.\]
+\[\lim_{k\to\infty}\Pr_{\substack{\omega\in\G_k\\u,v \in \set{k}}}[\omega\models \lnot E(u,v)]=1,\]
+but we proved that $\lim_{F_{rud}}\G_n \bbl(\exists x)(\exists y)E(x,y)\bbr=\1$ in other words we have \[\lim_{F_{rud}}\G_n\bbl(\forall x)(\forall y)\lnot E(x,y)\bbr=\0.\]
 \end{exam}
 
 \section{\texorpdfstring{$\G_k=\ALL_k$}{Gk=ALLk}}
@@ -256,9 +256,9 @@ Now we return to $F=F_{rud}$ and prove a theorem with a more limited use which h
 
 \begin{thrm}\label{mutindfind}
 Let $F=F_{rud}$ and let $\varphi_0(x_0,\dots,x_{l-1})$ be an open $\{E\}$-formula. Furthermore for $0<p\leq 1$, consider subsets $A\subseteq\set{g_k}^l$ with the property that for all for all $\overline a \in A$ we have
-\[\Pr_{G\in\mathcal{G}_k}(G\models \varphi_0(\overline a))\geq p\]
+\[\Pr_{\omega\in\mathcal{G}_k}[\omega\models \varphi_0(\overline a)]\geq p\]
 and
-\[\text{$\{\{G\models\varphi_0(\overline a)\}\subseteq \mathcal{G}_k;\overline a \in A\}$ are mutually independent.}\]
+\[\text{$\{\{\omega\models\varphi_0(\overline a)\}\subseteq \mathcal{G}_k;\overline a \in A\}$ are mutually independent.}\]
 Moreover let $A_k$ be the set with the largest cardinality that has this property.
 
 If $\lim_{k\to\infty} \abs{A_k}=\infty$, then $\bbl(\exists \overline x)\varphi_0(\overline x)\bbr=\1$.
@@ -267,12 +267,12 @@ If $\lim_{k\to\infty} \abs{A_k}=\infty$, then $\bbl(\exists \overline x)\varphi_
 \begin{proof}
 Let $\overline x = (x_0,\dots,x_{l-1})$. Let $T_{\overline a}$ be a tree of some standard depth $d$, that tests whether $G\models\varphi_0(\overline a)$.
 
-By overspill in $\mathcal{M}$ we have $n'>\mathbb{N}$ many tuples \(\overline a_0,\dots,\overline a_{n'-1}\in A_n\), such that \(\Pr_{G\in\mathcal{G}_k}(G\models\varphi_0(\overline a_i))\geq p\), we can assume $n'<n^{1/t_0}$ for some $t_0>\mathbb{N}$.
+By overspill in $\mathcal{M}$ we have $n'>\mathbb{N}$ many tuples \(\overline a_0,\dots,\overline a_{n'-1}\in A_n\), such that \(\Pr_{\omega\in\mathcal{G}_k}[\omega\models\varphi_0(\overline a_i)]\geq p\), we can assume $n'<n^{1/t_0}$ for some $t_0>\mathbb{N}$.
 
 
 For $j\in[l]$ construct a tree $T_j$ inductively as follows: Start with $T_{\overline a_0}$. Replace the label of every accepting leaf by $(\overline a_0)_j$ and remove the label of every rejecting leaf. Call this tree $T_j^0$. Assume we have already constructed $T_j^{m}$. Construct $T_j^{i+1}$ by appending $T_{\overline a_{m+1}}$ to every undefined leaf, relabeling every satisfied leaf to $(\overline a_{i+1})_j$ and removing labels from every rejecting leaf. We will define $T_j$ as $T_j^{n'}$ with undefined leaves labeled by $0$. (This can be done because all instances of induction are in $\Th(\mathbb{N})$.) Note that $\dpt(T_j)=d\cdot n' < n^{1/t}$ for some $t>\mathbb{N}$. 
 
-Call $\overline \alpha$ the tuple computed by $T_0,\dots,T_{l-1}$. We will prove that the probability of $\overline \alpha$ being a witness to $\varphi_0(\overline x)$ is 1. For each $\overline a_i$ we have, that the probability of $G\models\varphi_0(\overline a_i)$ is at least $p$. The mutual independence of ${\{G\models\varphi_0(\overline a_i);i\in[n']\}}$ and the construction of $T_j$ implies that $T_j$ has a probability of $(1-p)^{n'}$ of failing, which is obviously infinitesimal.
+Call $\overline \alpha$ the tuple computed by $T_0,\dots,T_{l-1}$. We will prove that the probability of $\overline \alpha$ being a witness to $\varphi_0(\overline x)$ is 1. For each $\overline a_i$ we have, that the probability of $\omega\models\varphi_0(\overline a_i)$ is at least $p$. The mutual independence of ${\{\omega\models\varphi_0(\overline a_i);i\in[n']\}}$ and the construction of $T_j$ implies that $T_j$ has a probability of $(1-p)^{n'}$ of failing, which is obviously infinitesimal.
 \end{proof}
 
 We now use this theorem to characterize the theory of another wide limit. We denote
@@ -351,7 +351,7 @@ By elementary probability theory we can prove the following.
 
 \begin{lemm}\label{lemmpordown}
 Let $\G_k'\leqp \G_k$ be a wide sequence and its large portion, let $A\subseteq \G_n$ be an event in $\M$ and let $A'=\G_n'\cap A$. Then we have
-\[\st\left(\Pr_{G\in\G_n}[A]\right)=1 \Rightarrow \st\left(\Pr_{G\in\G_n'}[A']\right)=1.\]
+\[\st\left(\Pr_{\omega\in\G_n}[A]\right)=1 \Rightarrow \st\left(\Pr_{\omega\in\G_n'}[A']\right)=1.\]
 \end{lemm}
 
 
@@ -370,7 +370,7 @@ We will use a similar argument in Chapter \ref{chapsparse} to instead prove some
 Take an isomorphism closed wide sequence $\G_k$, what are its isomorphism closed portions? It turns out it is easy to classify them because any such portion can be constructed as a union of those wide sequences which always have one isomorphism type of each $\G_k$ and those precisely match the isomorphism closed sequences which satisfy the following property.
 
 \begin{defi}\label{lemmisocat}
-We say that $\{\mathcal{G}_k\}_{k=0}^\infty$ is \textbf{categorical} if there is $k_0$ such that for every $k>k_0$ if we have $G_1,G_2\in\mathcal{G}_k$ then $G_1\cong G_2$. For a categorical wide sequence $\{G_k\}_{k=0}^\infty$ we denote $G_k$ the lexicographically minimal element of $\mathcal{G}_k$.
+We say that $\{\mathcal{G}_k\}_{k=0}^\infty$ is \textbf{categorical} if there is $k_0$ such that for every $k>k_0$ if we have $\omega_1,\omega_2\in\mathcal{G}_k$ then $\omega_1\cong \omega_2$. For a categorical wide sequence $\{\G_k\}_{k=0}^\infty$ we denote $G_k$ the lexicographically minimal element of $\mathcal{G}_k$.
 \end{defi}
 
 One can see isomorphism closed $\G_k$ as the natural wide sequences and categorical isomorphism closed wide sequences as their building blocks. The concept of isomorphism closed categorical wide sequences can be already limiting the form of the sequence. We have the following lemma which limits sizes of $\G_k$ to specific values.

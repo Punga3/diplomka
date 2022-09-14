@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.24 (TeX Live 2022/Arch Linux) (preloaded format=pdflatex 2022.5.3)  3 SEP 2022 14:43
+This is pdfTeX, Version 3.141592653-2.6-1.40.24 (TeX Live 2022/Arch Linux) (preloaded format=pdflatex 2022.5.3)  14 SEP 2022 16:27
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -745,7 +745,7 @@ LaTeX Font Info:    External font `lmex10' loaded for size
 
 ] [30] [31] [32]
 
-LaTeX Warning: Command \l invalid in math mode on input line 183.
+LaTeX Warning: Command \l invalid in math mode on input line 185.
 
 [33] [34] [35]) [36]
 \openout2 = `epilog.aux'.
@@ -774,11 +774,11 @@ Package rerunfilecheck Info: File `thesis.out' has not changed.
 Here is how much of TeX's memory you used:
  15729 strings out of 478238
  239062 string characters out of 5850445
- 526795 words of memory out of 5000000
+ 525795 words of memory out of 5000000
  33366 multiletter control sequences out of 15000+600000
  535326 words of font info for 96 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 77i,14n,79p,1121b,2377s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 77i,14n,79p,1138b,2377s stack positions out of 5000i,500n,10000p,200000b,80000s
 {/usr/share/texmf-dist/fonts/enc/dvips/lm/lm-mathsy.enc}{/usr/share/texmf-dis
 t/fonts/enc/dvips/lm/lm-rm.enc}{/usr/share/texmf-dist/fonts/enc/dvips/lm/lm-ts1
 .enc}{/usr/share/texmf-dist/fonts/enc/dvips/lm/lm-mathex.enc}{/usr/share/texmf-
@@ -793,7 +793,7 @@ ist/fonts/type1/public/lm/lmri12.pfb></usr/share/texmf-dist/fonts/type1/public/
 lm/lmsy10.pfb></usr/share/texmf-dist/fonts/type1/public/lm/lmsy6.pfb></usr/shar
 e/texmf-dist/fonts/type1/public/lm/lmsy8.pfb></usr/share/texmf-dist/fonts/type1
 /public/amsfonts/symbols/msbm10.pfb>
-Output written on thesis.pdf (42 pages, 696365 bytes).
+Output written on thesis.pdf (42 pages, 696575 bytes).
 PDF statistics:
  724 PDF objects out of 1000 (max. 8388607)
  636 compressed objects within 7 object streams

@@ -145,7 +145,7 @@ Every sample $\omega\in\Omega$ uniquely determines a path in $(T,\ell)$ by inter
 We define $\T_{rud}$ to be the set of all $(T,\ell)$ of depth at most $g_n^{1/t}$, for some nonstandard $t\in\M$, and $F_{rud}$ to be the set of all function computed by some $(T,\ell)\in \T_{rud}$. For brevity we will leave out the labeling of the trees out of the notation so a tree in $\T_{rud}$ can be denoted just by $T$.
 \end{defi}
 
-Note that if we are given a graph $G\in G_k$ on $g_k$ vertices, we need a polynomial sized circuit with $2l$ inputs, $l:=\log g_k$, to represent its edge relation. In the pseudofinite case, where $k=n$, if we are restricted to inspect/query at most $g_n^{1/t}$ edges then it corresponds to $2^{l/t}$ many queries or the subexponential oracle time.
+Note that if we are given a graph $\omega \in \G_k$ on $g_k$ vertices, we need a polynomial sized circuit with $2l$ inputs, $l:=\log g_k$, to represent its edge relation. In the pseudofinite case, where $k=n$, if we are restricted to inspect/query at most $g_n^{1/t}$ edges then it corresponds to $2^{l/t}$ many queries or the subexponential oracle time.
 
 The definition of $G_{rud}$ is a bit more involved. The functionals in it will be computed by tuples of elements from $F_{rud}$ in the following sense.
 
@@ -179,7 +179,7 @@ Even though we generally pose no requirements on $n>\N$ there are examples of wi
 Let 
 
 \[\
-G_{k}:=
+\G_{k}:=
 \begin{cases}
 \{(\set{k},E);\abs{E}=2,E(0,1)\}&\text{$k$ even}\\
 \{(\set{k},E);\abs{E}=1,\lnot E(0,1)\}&\text{$k$ odd.}\\
@@ -205,6 +205,6 @@ If $\lim_F\G_n$ is the first order wide limit we will be interested in which exa
 We define $\Th(\lim_F\G_n)$ as the set of all valid $\{E\}$-sentences in $\lim_{F}\G_n$.
 \end{defi}
 
-In the next chapter (Theorem \ref{thrmuni}) we will see that if a universal $\{E\}$-sentence $\varphi$ holds for all $G\in\G_k$ for $k$ big enough then $\lim_F\G_n\bbl\varphi\bbr=\1$. In particular, a wide limit of undirected graphs is a Boolean valued undirected graph and a wide limit of directed graphs is a Boolean valued directed graph.
+In the next chapter (Theorem \ref{thrmuni}) we will see that if a universal $\{E\}$-sentence $\varphi$ holds for all $\omega\in\G_k$ for $k$ big enough then $\lim_F\G_n\bbl\varphi\bbr=\1$. In particular, a wide limit of undirected graphs is a Boolean valued undirected graph and a wide limit of directed graphs is a Boolean valued directed graph.
 
 Lastly, let us recall the concept of 0-1 laws which say that a certain probability tends either to $0$ or $1$ and not to any intermediate value. Here, instead of probability, we can think about the Boolean values $\0$ and $\1$ and ask when does it happen that $\lim_F\G_n\bbl\varphi\bbr\in\{\0,\1\}$ for every $\{E\}$-sentence $\varphi$. This is exactly equivalent to the situation where the theory $\Th(\lim_F \G_n)$ is complete. Later in the thesis we prove such 0-1 law for several wide limits.

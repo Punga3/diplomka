@@ -5,10 +5,10 @@
 Now we turn our attention to a wide sequence which is made up of `the hardest instances in $\LEAF$'. That is, if we are given a degree 1 vertex labeled $0$ and search for another degree 1 vertex, it is the hardest if there are only two degree 1 vertices and the path from $0$ to the solution is as long as possible.
 
 \begin{defi}
-We define $\pPATH_k$ (the pointed paths on $k$ vertices) as the set of all (undirected) graphs $G$ on the vertex set $\set{k}$, where $G$ is isomorphic to the path on $k$ vertices and $\deg_G(0)=1$.
+We define $\pPATH_k$ (the pointed paths on $k$ vertices) as the set of all (undirected) graphs $\omega$ on the vertex set $\set{k}$, where $\omega$ is isomorphic to the path on $k$ vertices and $\deg_G(0)=1$.
 \end{defi}
 
-One can also see that it is not fruitful to analyze the $F_{rud}$ limit, because there are only $k-1$ edges in each $G\in\pPATH_k$ and therefore, by an analogous argument to the proof of Theorem \ref{thrmsparse}, we have that $\lim_{F_{rud}}\pPATH_k\bbl(\exists x)(\exists y)E(x,y)\bbr=\0.$ Moreover in the type 2 version of the problem the graph is presented by an oracle which gives us the neighbour set for each vertex, so we define a new family $F$ as follows.
+One can also see that it is not fruitful to analyze the $F_{rud}$ limit, because there are only $k-1$ edges in each $\omega\in\pPATH_k$ and therefore, by an analogous argument to the proof of Theorem \ref{thrmsparse}, we have that $\lim_{F_{rud}}\pPATH_k\bbl(\exists x)(\exists y)E(x,y)\bbr=\0.$ Moreover in the type 2 version of the problem the graph is presented by an oracle which gives us the neighbour set for each vertex, so we define a new family $F$ as follows.
 
 \begin{defi}
 After we fix $n$, we define $F_{nbtree}$ as the set of all functions computed by some some labeled tree with the following shape:
@@ -20,10 +20,10 @@ After we fix $n$, we define $F_{nbtree}$ as the set of all functions computed by
 \item The depth of the tree is at most $g_n^{1/t}$ for some $t>\mathbb{N}$.
 \end{itemize}
 
-Computation of such a tree on an undirected graph $G$ goes as follows. We interpret the non-leaf nodes as questions "what is the neighbour set of $w$?" and the edges as answers from our graph $\omega$, and thus we follow a path in the computation tree determined by $\omega$ until we find a leaf, in which case the computation returns the label of the leaf. We will denote the set of all such trees as $\T_{nbtree}$.
+Computation of such a tree on an undirected graph $\omega$ goes as follows. We interpret the non-leaf nodes as questions "what is the neighbour set of $w$?" and the edges as answers from our graph $\omega$, and thus we follow a path in the computation tree determined by $\omega$ until we find a leaf, in which case the computation returns the label of the leaf. We will denote the set of all such trees as $\T_{nbtree}$.
 \end{defi}
 
-We now shift our focus to analyzing the ability of trees from $F_{nbtree}$ to find the non-zero degree 1 vertex in $G\in \pPATH_n$. We say that a tree $T\in \T_{nbtree}$ fails at a graph $G$ if $T(G)$ is not a non-zero vertex of degree one in $G$.
+We now shift our focus to analyzing the ability of trees from $F_{nbtree}$ to find the non-zero degree 1 vertex in $G\in \pPATH_n$. We say that a tree $T\in \T_{nbtree}$ fails at a graph $\omega$ if $T(\omega)$ is not a non-zero vertex of degree one in $\omega$.
 
 \begin{defi}
 Let $m\leq n$ and $v\in \set{m}$ and $U\subseteq \set{m}$ with $\abs{U}\leq 2$, then we define 
@@ -47,29 +47,29 @@ For \eqref{pPathsecbij} we can do the same, but the orientation is given by $0$.
 \end{proof}
 
 \begin{defi}
-Let $m\leq n$, $v,u,w\in\set{m}$ such that $v\neq u$, $v\neq w$ and let $T\in\T_{nbtree}$ with root labeled by $v$. By $T_{v?=\{u,w\}}$ we denote the subtree of $T$ whose root is the node connected to $v$ by the edge $\{u,w\}$.
+Let $m\leq n$. Let $v,u,w\in\set{m}$ such that $v\neq u$, $v\neq w$ and let $T\in\T_{nbtree}$ with root labeled by $v$. By $T_{v?=\{u,w\}}$ we denote the induced subtree of $T$ whose root is the node connected to $v$ by the edge $\{u,w\}$ and the rest of its nodes are those accessible from this root by a (possibly nonstandard) path in the original tree $T$.
 \end{defi}
 
 \begin{lemm}\label{lemmrelabeltree}
 Let $T\in \T_{nbtree}$, with root labeled $v\in[m]\setminus{0}$, we have for each $T_{v?=\{u,w\}}$ a tree $\tilde T_{v?=\{u,w\}}$ of the same depth, such that
 \begin{align}
-\Pr_{G\in\G_m}[T_{v?=\{u,w\}}\text{ fails}|v?=\{u,w\}]=\Pr_{G\in\G_{m-2}}[\tilde T_{v?=\{u,w\}}].
+\Pr_{\omega\in\G_m}[T_{v?=\{u,w\}}\text{ fails}|v?=\{u,w\}]=\Pr_{\omega\in\G_{m-2}}[\tilde T_{v?=\{u,w\}}].
 \end{align}
 For a tree $T$ with the root labeled $0$, we have a tree $\tilde T_{0?=\{u,w\}}$ of the same depth, such that
 \begin{align}
-\Pr_{\G\in\G_m}[T_{0?=\{u\}}\text{ fails}|v?=\{u\}]=\Pr_{\G_{m-1}}[\tilde T_{0?=\{u\}}].
+\Pr_{\omega\in\G_m}[T_{0?=\{u\}}\text{ fails}|v?=\{u\}]=\Pr_{\omega\in\G_{m-1}}[\tilde T_{0?=\{u\}}].
 \end{align}
 \end{lemm}
 \begin{proof}(sketch) To construct the tree, we just replace all vertices in labels of $T_{v?=\{u,w\}}$ by their renumbering from the bijection in \eqref{pPathfirstbij}.
 
-One can then check that the trees $T_{v?=\{u,w\}}$ and $\tilde T_{v?=\{u,w\}}$ are isomorphic in a sense that their computation of a graph $G$ and $\tilde G$ respectively, $\tilde G$ being the corresponding $(m-2)$-vertex graph, agree with the structure of the path and that correctness of leaves is preserved under the renumbering. Essentially they emulate the same computation but on a smaller graph.
+One can then check that the trees $T_{v?=\{u,w\}}$ and $\tilde T_{v?=\{u,w\}}$ are isomorphic in a sense that their computation on a graph $\omega$ and $\tilde \omega$ respectively, $\tilde \omega$ being the corresponding $(m-2)$-vertex graph, agree with the structure of the path and that correctness of leaves is preserved under the renumbering. Essentially they emulate the same computation but on a smaller graph.
 \end{proof}
 
 
 \begin{lemm}\label{lemmpPATHlowerbound}
 For all nonstandard $t>\mathbb{N},m\geq n-2n^{1/t}$ and $k\in \set{n^{1/t}+1}$ for all trees $\T\in \T_{nbtree}$ of depth $k$ we have
 \[
-\Pr_{G\in\G_m}[\text{$T$ fails}]\geq \prod_{i=0}^k\left (1-\frac{2}{m-2i-2}\right ).
+\Pr_{\omega\in\G_m}[\text{$T$ fails}]\geq \prod_{i=0}^k\left (1-\frac{2}{m-2i-2}\right ).
 \]
 \end{lemm}
 \begin{proof}
@@ -78,15 +78,15 @@ We proceed by induction on $k$.
 $k=0:$ We have that the probability of success of a straight guess is at most $\frac{1}{m-1}$. Therefore
 
 \begin{align}
-\Pr_{G\in\G_m}(\text{$T$ fails})\geq \left (1-\frac{1}{m-1}\right ) \geq \left(1-\frac{2}{m-2}\right).
+\Pr_{\omega\in\G_m}[\text{$T$ fails}]\geq \left (1-\frac{1}{m-1}\right ) \geq \left(1-\frac{2}{m-2}\right).
 \end{align}
 
 $(k-1) \Rightarrow k:$ First we assume that the root is labeled $0$. Then we have 
 
 \begin{align}
-\Pr_{G\in\G_m}[\text{$T$ fails}]&=\sum_{u\in V\setminus\{0\}}\Pr_{G\in\G_{m}}[E(0,u)]\Pr_{G\in\G_{m}}[T_{0?=\{u\}}\text{ fails}|E(0,u)]\\
-&\geq \Pr_{G\in\G_{m}}[T_{0?=\{u\}}\text{ fails}|E(0,u)]\\
-&= \Pr_{G\in\G_{m-1}}[\tilde T_{0?=\{u\}}\text{ fails}]\\
+\Pr_{\omega\in\G_m}[\text{$T$ fails}]&=\sum_{u\in V\setminus\{0\}}\Pr_{\omega\in\G_{m}}[E(0,u)]\Pr_{\omega\in\G_{m}}[T_{0?=\{u\}}\text{ fails}|E(0,u)]\\
+&\geq \Pr_{\omega\in\G_{m}}[T_{0?=\{u\}}\text{ fails}|E(0,u)]\\
+&= \Pr_{\omega\in\G_{m-1}}[\tilde T_{0?=\{u\}}\text{ fails}]\\
 &\geq \prod_{i=0}^{k-1}\left(1-\frac{2}{m-2i-2}\right)\\
 &\geq \prod_{i=0}^{k}\left(1-\frac{2}{m-2i-2}\right).
 \end{align}
@@ -94,37 +94,39 @@ $(k-1) \Rightarrow k:$ First we assume that the root is labeled $0$. Then we hav
 Now we assume that the root is labeled $v\not= 0$. First we notice that
 
 \begin{align}
-\Pr_{G\in\G_m}[E(v,0)]&=\frac{1}{m-1}\\
-\Pr_{G\in\G_m}[N(V)=1]&=\frac{1}{m-1}\\
-\Pr_{G\in\G_m}[\abs{N(V)\setminus\{0\}}=2]&=1-\frac{2}{m-1},\label{pmmiddle}
+\Pr_{\omega\in\G_m}[E(v,0)]&=\frac{1}{m-1}\\
+\Pr_{\omega\in\G_m}[N(V)=1]&=\frac{1}{m-1}\\
+\Pr_{\omega\in\G_m}[\abs{N(V)\setminus\{0\}}=2]&=1-\frac{2}{m-1},\label{pmmiddle}
 \end{align}
 the first two probabilities are obviously $\frac{1}{m-1}$ because they correspond to $v$ being positioned on one of the ends of the non-zero segment which has length $m-1$. The event in \eqref{pmmiddle} is the complement of the union of the first two events, which have empty intersection, giving us that stated probability.
 
-Then we have for $p:=\Pr_{G\in\G_m}[\text{$T$ fails}]$
+Then we have for $p:=\Pr_{\omega\in\G_m}[\text{$T$ fails}]$
 \begin{align}
-p&=\Pr_{G\in\G_m}[E(v,0)]\Pr_{G\in\G_m}[\text{$T$ fails}|E(v,0)]\\
-&\:\phantom{=}\:+\Pr_{G\in\G_m}[\abs{N(v)\setminus\{0\}}=2]\Pr_{G\in\G_m}[\text{$T$ fails}|\abs{N(v)\setminus\{0\}}=2]\\
-&\:\phantom{=}\:+(\Pr_{G\in\G_m}[\abs{N(v)}=1]\Pr_{G\in\G_m}[E(v,0)]\Pr_{G\in\G_m}[\text{$T$ fails}|\abs{N(v)}=1])\\
-&\geq \Pr_{G\in\G_m}[\abs{N(v)\setminus\{0\}}=2]\Pr_{G\in\G_m}[\text{$T$ fails}|\abs{N(v)\setminus\{0\}}=2]\\
+p&=\Pr_{\omega\in\G_m}[E(v,0)]\Pr_{\omega\in\G_m}[\text{$T$ fails}|E(v,0)]\\
+&\:\phantom{=}\:+\Pr_{\omega\in\G_m}[\abs{N(v)\setminus\{0\}}=2]\Pr_{\omega\in\G_m}[\text{$T$ fails}|\abs{N(v)\setminus\{0\}}=2]\\
+&\:\phantom{=}\:+\Pr_{\omega\in\G_m}[\abs{N(v)}=1]\Pr_{\omega\in\G_m}[\text{$T$ fails}|\abs{N(v)}=1]\\
+&\geq \Pr_{\omega\in\G_m}[\abs{N(v)\setminus\{0\}}=2]\Pr_{\omega\in\G_m}[\text{$T$ fails}|\abs{N(v)\setminus\{0\}}=2]\\
 &\geq (1-\frac{2}{m-1})\\
-&\:\phantom{=}\:\sum_{\substack{u,w\in V\setminus \{0\} \\ u\not= w}}\Pr_{G\in\G_m}[v?=\{u,w\}]\Pr_{G\in\G_m}[T_{v?=\{u,w\}}\text{ fails}|v?=\{u,w\}]\\
-&\geq(1-\frac{2}{m-1})\Pr_{G\in\G_m}[T_{v?=\{u_0,w_0\}}\text{ fails}|v?=\{u_0,w_0\}]\label{pmfailchoice}\\
-&\geq(1-\frac{2}{m-1})\Pr_{G\in\G_{m-2}}[\tilde T_{v?=\{u_0,w_0\}}\text{ fails}]\label{pmfaillemma}\\
-&\geq(1-\frac{2}{m-1})\prod_{i=0}^{k-1}(1-\frac{2}{m-2i-4})\label{pmfailih}\\
+&\:\phantom{=}\:\sum_{\substack{u,w\in V\setminus \{0\} \\ u\not= w}}\Pr_{\omega\in\G_m}[v?=\{u,w\}]\Pr_{\omega\in\G_m}[T_{v?=\{u,w\}}\text{ fails}|v?=\{u,w\}]\\
+&\geq(1-\frac{2}{m-1})\Pr_{\omega\in\G_m}[T_{v?=\{u_0,w_0\}}\text{ fails}|v?=\{u_0,w_0\}]\label{pmfailchoice}\\
+&\geq(1-\frac{2}{m-1})\Pr_{\omega\in\G_{m-2}}[\tilde T_{v?=\{u_0,w_0\}}\text{ fails}]\label{pmfaillemma}\\
+&\geq(1-\frac{2}{m-1})\prod_{i=0}^{k-1}(1-\frac{2}{m-2i-4})\label{pmfailih}
+\end{align}
+\begin{align}
 &\geq(1-\frac{2}{m-2})\prod_{i=1}^{k}(1-\frac{2}{m-2i-2})\\
 &\geq\prod_{i=0}^{k}(1-\frac{2}{m-2i-2}).
 \end{align}
-where in \eqref{pmfailchoice} we choose $u_0,w_0$ with the lowest value of \[\Pr_{G\in\G_m}[\text{$T_{v?=\{u_0,w_0\}}|v?=\{u_0,w_0\}$}],\] the bound follows the fact that all $\Pr_{G\in\G_m}[v?=\{u,w\}]$ are the same for distinct non-zero $u,w$. In \eqref{pmfaillemma} we use the Lemma \ref{lemmrelabeltree} and in \eqref{pmfailih} we use the induction hypothesis.
+where in \eqref{pmfailchoice} we choose $u_0,w_0$ with the lowest value of \[\Pr_{\omega\in\G_m}[\text{$T_{v?=\{u_0,w_0\}}|v?=\{u_0,w_0\}$}],\] the bound follows the fact that all $\Pr_{\omega\in\G_m}[v?=\{u,w\}]$ are the same for distinct non-zero $u,w$. In \eqref{pmfaillemma} we use the Lemma \ref{lemmrelabeltree} and in \eqref{pmfailih} we use the induction hypothesis.
 \end{proof}
 
 \begin{crll}\label{crllpPathtreefail}
 For a tree $T\in \T_{nbtree}$ and $c\in \N$ we have that
-\[\st\left(\Pr_{G\in\G_{n-c}}[T\text{ fails}]\right)= 1.\]
+\[\st\left(\Pr_{\omega\in\G_{n-c}}[T\text{ fails}]\right)= 1.\]
 \end{crll}
 \begin{proof}
 Since $T$ has depth at most $n^{1/t}$ for some $t>\mathbb{N}$ we by the previous lemma that
 \begin{align}
-\Pr_{G\in\G_{n-c}}[\text{$T$ fails}]&\geq \prod_{i=0}^{n^{1/t}}\left(1-\frac{2}{n-2i-c-2}\right)\\
+\Pr_{\omega\in\G_{n-c}}[\text{$T$ fails}]&\geq \prod_{i=0}^{n^{1/t}}\left(1-\frac{2}{n-2i-c-2}\right)\\
 &\geq \left(1-\frac{2(n^{1/t}+1)}{n-2n^{1/t}-c-2}\right)
 \end{align}
 and the standard part of the lower bound is $1$.
@@ -138,7 +140,7 @@ Finally, we can prove the following theorem.
 \begin{proof}
 Expanding the value of the formula in the statement we get
 \[\Lor_{\alpha}\Lor_{\beta}\Land_{\gamma}\bbl(\alpha\not=0)\land (E(\alpha,\beta)) \land(E(\alpha,\gamma) \to \beta=\gamma)\bbr,\]
-to prove it evalues to $\0$ we need to find for every $\alpha,\beta$ some $\gamma$ such that
+to prove it evaluates to $\0$ we need to find for every $\alpha,\beta$ some $\gamma$ such that
 \[\bbl(\alpha\not=0)\land (E(\alpha,\beta)) \land(E(\alpha,\gamma) \to \beta=\gamma)\bbr=\0.\]
 For any $\alpha,\beta$ we define
 \[\gamma(\omega):=\begin{cases}v&N(\alpha(\omega))=\{v\}\\w&w\in N(\alpha(\omega))\setminus\{\beta(\omega)\},\end{cases}\]
@@ -164,17 +166,17 @@ A contradiction.
 $\Th(\lim_{F_{nbtree}}\pPATH_n)$ is complete.
 \end{crll}
 \begin{proof}
-By applying Theorem \ref{thrmuni} we have that the sentences $\lnot C_k$ stating that there are not cycles of length $k\in\N$ are valid all in $\lim_{F_{nbtree}}\pPATH_n$, the sentence $D^{1,2}_{1,rest}$ stating that there is exactly one vertex of degree $1$ and all other vertices have degree $2$ is valid by Theorem \ref{thrmnoend}. 
+By applying Theorem \ref{thrmuni} we have that the sentences $\lnot C_k$ stating that there are not any cycles of length $k\in\N$ are valid all in $\lim_{F_{nbtree}}\pPATH_n$, the sentence $D^{1,2}_{1,rest}$ stating that there is exactly one vertex of degree $1$ and all other vertices have degree $2$ is valid by Theorem \ref{thrmnoend}. 
 
 Let $T=\{\lnot C_k,k\in\N\}\cup\{D_{1,rest}^{1,2}\}$, and let $\A_1,\A_2\models T$, then we can see by the handshaking lemma that $\M_1$ and $\M_2$ are both infinite. And we can see that they can be decomposed into one path starting at $0$ with no end, and then more infinite paths which have the order type of $\Z$. The duplicator of Ehrenfeucht-Fraïssé game has a winning strategy by responding to any element on the order type $\Z$ with a far enough element on the path of the order $\N$.
 \end{proof}
 
 \section{\texorpdfstring{$\G_k=\pPATHl_k$}{Gk=*PATHlk}}
 
-So far we have proved that the hardest instances of $\LEAF$ do not have a solution in the $F_{nbtree}$ limit and that they satisfy the 0-1 law. We can generalize this result to a larger class of instances.
+So far we have proved that the hardest instances of $\LEAF$ do not have a solution in the $F_{nbtree}$ limit and that they satisfy the 0-1 law. We can generalize this result to a larger class of instances. Let us state that while we did not explicitly define computation of trees in $\T_{nbtree}$ on graphs with vertices of zero degree we can for example let the computation proceed as follows without changing the definition of the trees. If we are at a node labeled $v$ and there are no neighbours of $v$ present in $\omega$ we continue on the path by taking the edge labeled $\{v\}$.
 
 \begin{defi}
-We define $\pPATHl_k$ (the pointed paths on $k$ vertices of length at most $k$) as the set of all (undirected) graphs $G$ on the vertex set $\set{k}$, where $G$ has a subgraph isomorphic to the path on $l\leq k$ vertices, $\deg_G(0)=1$ and no other edges.
+We define $\pPATHl_k$ (the pointed paths on $k$ vertices of length at most $k$) as the set of all (undirected) graphs $\omega$ on the vertex set $\set{k}$, where $\omega$ has a subgraph isomorphic to the path on $l\leq k$ vertices, $\deg_G(0)=1$ and no other edges.
 \end{defi}
 
 Immediately we have that $\pPATH_k$ is a portion of $\pPATHl_k,$ we can prove even more.
@@ -202,11 +204,11 @@ and the denominator tends to $ec!$ as $k\to\infty$.
 
 \begin{lemm}\label{lemmpathnnc}
 Let $T\in \T_{nbtree}$ be a tree, then
-\[\st\left(\Pr_{G\in\pPATH_{n}^{n-c}}[\text{$T$ fails}]\right )=1.\]
+\[\st\left(\Pr_{\omega\in\pPATH_{n}^{n-c}}[\text{$T$ fails}]\right )=1.\]
 \end{lemm}
 \begin{proof}(sketch)
 By an analogous argument to how we proved Lemma \ref{lemmpPATHlowerbound} we get that
-\[\Pr_{G\in\pPATH_{n}^{n-c}}[T\text{ fails}]\geq \prod_{i=0}^{n^{1/t}}\left(1-\frac{(c+2)}{n-2i-2}\right),\]
+\[\Pr_{\omega\in\pPATH_{n}^{n-c}}[T\text{ fails}]\geq \prod_{i=0}^{n^{1/t}}\left(1-\frac{(c+2)}{n-2i-2}\right),\]
 standard part of which is also $1$. The constant $c$ appears because there is a $(1-\frac{c}{m})$ chance of finding a degree $0$ in the induction step.
 \end{proof}
 
