@@ -12,7 +12,7 @@ This is exactly how we prove in the following theorem.
 \[\lim_{F_{rud}}\EDGE_n\bbl(\exists x)(\exists y)E(x,y)\bbr=\textbf{0}.\]
 \end{thrm}
 \begin{proof}
-Any two trees $T_\alpha$ and $T_\beta$ computing potential witnesses $\alpha,\beta$ of the formula $E(x,y)$ on some subset of $\Omega$ can be combined then into one tree that outputs an edge on the same subset of $\Omega$, so we can just analyze the case where the witnesses are computed by the same tree.
+Any two trees $T_\alpha$ and $T_\beta$ computing potential witnesses $\alpha,\beta$ of the formula $E(x,y)$ on some subset of $\Omega$ can be then combined into one tree that outputs an edge on the same subset of $\Omega$, so we can just analyze the case where the witnesses are computed by the same tree.
 Let $T\in \T_{rud}$ be a tree of depth $n^{1/t}$, for some $t>\mathbb{N}$, that outputs a pair of vertices.
 
 Start from the root of $T$ and always choose the path that corresponds to the nonexistence of an edge. At the end we obtain some answer, that gives us a set of at most $2 \cdot n^{1/t}+2$ vertices the tree inspected or outputted. Now we can find at least: 
@@ -100,7 +100,7 @@ We use the fact that $p\leq b_n$ to derive
 standard part of which is $0$.
 \end{proof}
 
-The assumption $\lim_{k\to \infty} k^{1/k_0}b_k=0$ for some $k_0$ may seem unintuitive at first. However, it captures what is ``too sparse" for the trees in $\T_{rud}$. The following example shows that if we weaken the assumption to requiring the ratio of edges to all pairs is infinitesimal the theorem can fail.
+The assumption $\lim_{k\to \infty} k^{1/k_0}b_k=0$ for some $k_0$ may seem unintuitive at first. However, it captures what is ``too sparse" for the trees in $\T_{rud}$. The following example shows that just requiring the ratio of edges to all pairs is infinitesimal is not enough for the theorem to hold.
 
 \begin{exam}\label{examsparseedge}
 Let $\mathcal{G}_k$ consist of all graphs on the vertex set $\set{k}$ with precisely $\lceil\frac{k(k-1)}{2\log k}\rceil$ edges.
@@ -138,7 +138,7 @@ So $\st(\Pr_{\omega\in\mathcal{G}_n}[T\text{ fails}])=0$ and we get
 
 \section{Dense \texorpdfstring{$\G_k$}{Gk}}
 
-Let us now consider how the density of a specific kind of substructure in the wide sequence corresponds to that substructure existing in the wide limit. The following theorem presents a sufficient condition for nonexistence to be invalid. Furthermore, this condition holds generally for all $F$ which contain all constants.
+Let us now consider how the density of a specific kind of substructure in the wide sequence corresponds to that substructure existing in the wide limit. The following theorem presents a sufficient condition for the existence to have nonzero measure. Furthermore, this condition holds generally for all $F$ which contain all constants.
 
 \begin{thrm}\label{thrmexists}
 Let $F$ contain all constants, $\G_k$ be a wide sequence and let $\varphi_0(\overline x)$ be an open $\{E\}$-formula such that

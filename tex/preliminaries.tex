@@ -6,7 +6,9 @@ In this chapter we recall a few important notions which we will use in the next 
 \section*{The ambient model \texorpdfstring{$\M$}{M}}
 \addcontentsline{toc}{section}{The ambient model \texorpdfstring{$\M$}{M}}
 
-Let $L_{all}$ be the language consisting of function symbols for all functions on $\N$, all relations and all constants. We call a model of $\Th_{L_{all}}(\N)$ nonstandard if it is not isomorphic to $\N$. Every model of $\Th(\N)$ contains an initial segment isomorphic to $\N$ so we can view nonstandard models as those which also contain `infinite natural numbers', if we assume $\M\models \Th(\N)$ contains $\N$ as an initial segment then the elements $\M\setminus \N$ are called nonstandard. We recommend the introduction of \cite{kaye1991pa} for a review of this topic. In the appendix of \cite{krajicek2010forcing} there is an explict ultraproduct construction of a model $\M\models \Th(\N)$ which is $\aleph_1$-saturated.
+Let $L_{all}$ be the language consisting of function symbols for all functions on $\N$, all relations and all constants. We call a model of $\Th_{L_{all}}(\N)$ nonstandard if it is not isomorphic to $\N$. From now on, we will omit the language from the subscript of the $\Th(-)$ operator which we will continue to do when the language is clear from context. 
+
+Every model of $\Th(\N)$ contains an initial segment isomorphic to $\N$ so we can view nonstandard models as those which also contain `infinite natural numbers', if we assume $\M\models \Th(\N)$ contains $\N$ as an initial segment then the elements $\M\setminus \N$ are called nonstandard. We recommend the introduction of \cite{kaye1991pa} for a review of this topic. In the appendix of \cite{krajicek2010forcing} there is an explicit ultraproduct construction of a model $\M\models \Th(\N)$ which is $\aleph_1$-saturated.
 
 This $\aleph_1$-saturated model $\M$ is used throughout this thesis and we call it the ambient model of arithmetic. For our applications we only need to know that the model is nonstandard and the following property holds because of the $\aleph_1$-saturation. (Note that we can encode finite sequences and sets in $\M$ which lets us state the property.)
 
@@ -14,7 +16,7 @@ This $\aleph_1$-saturated model $\M$ is used throughout this thesis and we call 
 If $\{a_k\}_{k\geq 0}$ is a sequence with elements in $\N$ then there is an element $t\in \M \setminus \N$ and a sequence $\{b_k\}_{k<t}\in \M$ with $a_k=b_k$ for all $k\in \N$.
 \end{prope}
 
-By overspill in $\M$ if some definable property $P$ holds for $a_k$ with unbounded indexes, then there is also some nonstandard $n<t$ such that $b_s$ satisfies the property $P$. Moreover, if some definable property $P$ holds for all $b_k$ with $k$ above some $k_0$ it has to also hold by induction in $\M$ for all nonstandard $b_n$. These $b_n$ are intuitively the limit elements of the sequence $\{a_k\}_{k\geq0}$.
+By overspill in $\M$ if some definable property $P$ holds for $a_k$ with unbounded indexes, then there is also some nonstandard $n<t$ such that $b_n$ satisfies the property $P$. Moreover, if some definable property $P$ holds for all $b_k$ with $k$ above some $k_0$ it has to also hold by induction in $\M$ for all nonstandard $b_n$. These $b_n$ are intuitively the limit elements of the sequence $\{a_k\}_{k\geq0}$.
 
 Now let us introduce some notation. For $m\in\M$ we denote the set of numbers below $m$ as $\set{m}:=\{0,\dots,m-1\}\in\M$ and $\abs{m}$ as the bit-length of the (possibly nonstandard) number $m$. These definitions can be easily made rigorous using the first order definitions of these functions.
 

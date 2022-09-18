@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.24 (TeX Live 2022/Arch Linux) (preloaded format=pdflatex 2022.5.3)  14 SEP 2022 16:27
+This is pdfTeX, Version 3.141592653-2.6-1.40.24 (TeX Live 2022/Arch Linux) (preloaded format=pdflatex 2022.5.3)  18 SEP 2022 23:29
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -655,11 +655,11 @@ LaTeX Font Info:    External font `lmex10' loaded for size
 ]
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 55.
+(hyperref)                removing `math shift' on input line 57.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 55.
+(hyperref)                removing `math shift' on input line 57.
 
 [4]) [5]
 \openout2 = `chapForcing.aux'.
@@ -677,37 +677,37 @@ File: ts1lmr.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
 
 ] [7]
 LaTeX Font Info:    Trying to load font information for OMS+lmr on input line 1
-10.
+08.
 
 (/usr/share/texmf-dist/tex/latex/lm/omslmr.fd
 File: omslmr.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
 )
 LaTeX Font Info:    Font shape `OMS/lmr/m/n' in size <12> not available
-(Font)              Font shape `OMS/lmsy/m/n' tried instead on input line 110.
+(Font)              Font shape `OMS/lmsy/m/n' tried instead on input line 108.
  [8]
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 134.
+(hyperref)                removing `math shift' on input line 132.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `subscript' on input line 134.
+(hyperref)                removing `subscript' on input line 132.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 134.
+(hyperref)                removing `math shift' on input line 132.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 134.
+(hyperref)                removing `math shift' on input line 132.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `subscript' on input line 134.
+(hyperref)                removing `subscript' on input line 132.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 134.
+(hyperref)                removing `math shift' on input line 132.
 
 [9] [10]) [11]
 \openout2 = `chapModel.aux'.
@@ -793,7 +793,7 @@ ist/fonts/type1/public/lm/lmri12.pfb></usr/share/texmf-dist/fonts/type1/public/
 lm/lmsy10.pfb></usr/share/texmf-dist/fonts/type1/public/lm/lmsy6.pfb></usr/shar
 e/texmf-dist/fonts/type1/public/lm/lmsy8.pfb></usr/share/texmf-dist/fonts/type1
 /public/amsfonts/symbols/msbm10.pfb>
-Output written on thesis.pdf (42 pages, 696575 bytes).
+Output written on thesis.pdf (42 pages, 696631 bytes).
 PDF statistics:
  724 PDF objects out of 1000 (max. 8388607)
  636 compressed objects within 7 object streams

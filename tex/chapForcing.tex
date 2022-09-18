@@ -1,7 +1,7 @@
 \chapter{Forcing with random variables and the wide limit}\label{chapwidelimit}
 \section{Setup}
 
-Our goal in this chapter is to provide a definition of a limit of an infinite class of finite graphs in which arbitrarily large graphs occur and the number of graphs in each cardinality tends to infinity. The following definition makes our requirements of such a class of graphs precise. From now on $E$ denotes a binary relational symbol, so that formulas in the theory of graphs are precisely $\{E\}$-sentences.
+Our goal in this chapter is to provide a definition of a limit of an infinite class of finite graphs in which arbitrarily large graphs occur and the number of graphs in each cardinality tends to infinity. The following definition makes our requirements of such a class of graphs precise. From now on $E$ denotes a binary relational symbol, so that formulas in the language of graphs are precisely $\{E\}$-formulas.
 
 \begin{defi}
 Let $\{\mathcal{G}_k\}_{k>0}$ be a sequence of non-empty finite sets of (directed or undirected) finite graphs, i.e. structures of in the first order language $\{E\}$. We call it a \textbf{wide sequence} if the following holds.
@@ -14,7 +14,7 @@ Let $\{\mathcal{G}_k\}_{k>0}$ be a sequence of non-empty finite sets of (directe
 By abuse of notation we will denote the wide sequence just $\G_k$.
 \end{defi}
 
-The second condition guarantees that $\mathcal{G}_n$ is an infinite set for $n>\mathbb{N}$. In fact, the condition is not strictly important to proceed with this chapter, but it more closely describes what sort of sequences we are interested in. 
+The second condition is not strictly important to proceed with this chapter, but it more closely describes what sort of sequences we are interested in. 
 
 We will sometimes talk somewhat loosely about wide limits of a class of finite graphs $\mathcal{C}$ which abbreviates that we imagine the class to be stratified into levels $\mathcal{C}_k=\{G\in\mathcal{C}; V_G=\set{g_k}\}$ determined by some canonical choice of cardinalities. If this sequence is wide we can proceed as if we started with a wide sequence in the first place. Many interesting classes of graphs form a wide sequence in this sense. For example graphs with exactly one edge, graphs with bounded degree and so on. We will get to explore many examples in depth after we define the wide limit. 
 
@@ -31,16 +31,20 @@ $\lim_F\G_n$ to $\lim_F^G\G_n$ and $K(\G_n,F)$ to $K(\G_n,F,G)$ with $G$ being s
 
 
 
-From now on we closely follow Chapter 1 of \cite{krajicek2010forcing}. Let $\mathcal{M}$ be the $\aleph_1$-saturated model of true arithmetic discussed in the previous chapter and let $\mathcal{G}_k$ be a wide sequence of graphs and $\Omega:=\mathcal{G}_n$ for $n\in\mathcal{M}\setminus \mathbb{N}$. One can check that graphs in $\Omega$ are all pseudofinite. The model $\M$ treats all its elements (including those which represent sets) as ``finite objects'' which lets us define uniform probability even on sets which are infinite from the set-theoretical perspective. Unlike in Krajíček's book, we will not define a structure in the arithmetical language $L_{all}$ because for us the families of functions $F$ will have their range restricted to the vertex set $\set{g_n}$ of the pseudofinite member of $\G_n$ and functions from $L_{all}$ could easily generate functions with range outside of this vertex set.
+From now on we closely follow Chapter 1 of \cite{krajicek2010forcing}. Let $\mathcal{M}$ be the $\aleph_1$-saturated model of true arithmetic discussed in the previous chapter and let $\mathcal{G}_k$ be a wide sequence of graphs and $\Omega:=\mathcal{G}_n$ for $n\in\mathcal{M}\setminus \mathbb{N}$. Since $\G_k$ is a wide sequence $\Omega$ is an infinite set. Moreover one can check that graphs in $\Omega$ are all pseudofinite. 
 
+The intuitive idea for the following definitions is the following. The model $\M$ treats all its elements (including those which represent sets) as ``finite objects'' which lets us define uniform probability even on sets which are infinite from the set-theoretical perspective. 
+
+Unlike in Krajíček's book, we will not define a structure in the arithmetical language $L_{all}$ because for us the families of functions $F$ will have their range restricted to the vertex set $\set{g_n}$ of any pseudofinite member of $\G_n$ and functions from $L_{all}$ could easily generate functions with range outside of this vertex set.
 However nothing forbids us to interpret the relations and constants in $L_{all}$ so we define the language $L_{rel}$ to consist precisely of the relational and constant symbols in $L_{all}$
 
 \begin{defi}
 Let $\mathcal{A}:=\{A\in\mathcal{M};A\subseteq \Omega\}$ be the set of all subsets of $\Omega$ represented by an element in $\M$.
-
-We define the \textbf{counting measure} as the uniform probability of $A$ when we sample $\Omega$ uniformly, so we have
-\[A\in\A \to \abs{A}/\abs{\Omega},\]
-the counting measure takes values in $\M$-rationals.
+We define the \textbf{counting measure} as the map 
+\begin{align*}
+\A&\to\Q^\M\\
+A &\mapsto \abs{A}/\abs{\Omega}.
+\end{align*}
 \end{defi}
 
 One can check that $\A$ is a Boolean algebra, but not a $\sigma$-algebra as it is not closed under all countable unions. Indeed all singleton sets are part of $\A$ but the set of all elements with standardly many predecessors in $\Omega$ is not in $\A$.
@@ -48,7 +52,7 @@ One can check that $\A$ is a Boolean algebra, but not a $\sigma$-algebra as it i
 \begin{defi}\label{defiinfinitesimal}
 We call an $\M$-rational \textbf{infinitesimal} if its absolute value is smaller than all standard fractions $\frac{1}{k},k\in\N$.
 
-Define an ideal in $\A$ as $\I:=\{A\in\A;\abs{A}/\abs{\Omega}\text{ is infinitesimal}\}$. Define the Boolean algebra $\B:=\A/\I$. The induced measure on $\B$ is a real-valued measure and can be written as \[\mu(A/\I)=\st(\abs{A}/\abs{\Omega}).\]
+We define an ideal in $\A$ as $\I:=\{A\in\A;\abs{A}/\abs{\Omega}\text{ is infinitesimal}\}$ and define a Boolean algebra $\B:=\A/\I$. The induced measure on $\B$ is a real-valued measure and can be written as \[\mu(A/\I)=\st(\abs{A}/\abs{\Omega}).\]
 \end{defi}
 
 We can also check, that now $\mu$ is a measure in the ordinary sense and that $\B$ is an $\sigma$-algebra. In fact, the following key lemma holds.
@@ -60,27 +64,21 @@ $\B$ is a complete Boolean algebra.
 The maximal and minimal element in $\B$ will be denoted $\1$ and $\0$ respectively. We now define what we require of the family of functions $F$ we already mentioned.
 
 \begin{defi}
-Let $F$ be a non-empty set of $\M$-finite function which are elements in $\M$. We call it a \textbf{(random) vertex family} if it satisfies the following:
+Let $F$ be a non-empty set of functions which are elements in $\M$. We call it a \textbf{(random) vertex family} if it satisfies the following:
 \begin{itemize}
 \item The domain of any function $\alpha\in F$ is $\Omega$ and the range is $\set{g_n}$.
 \end{itemize}
 \end{defi}
 
-Note that while every $\alpha\in F$ is represented by some element in $\M$, this need not be the case for the whole family $F$. 
-
-%From now on $E$ denotes a binary relational symbol which we understand as `limit edge relation'. For a $\{E\}$-formula $\varphi$ we denote its translation to a $\{E\}$-formula by rewriting every $E$ to $E$ as $\varphi^{E}$. 
-
-%( (!!!) ? Neměl bych mluvit v celé práci jen o jazyce $\{E\}$? Jméno pro limitní objekt stejně máme jiné.)
-
-Now we can finally define the first order wide limit.
+Note that while every $\alpha\in F$ is represented by some element in $\M$, this need not be the case for the whole family $F$. Now we can finally define the first order wide limit.
 
 \begin{defi}
 We define a $\B$-valued $\{E\}$-structure $\lim_{k\to n}^{F}\G_k$, with universe $F$ and $\{E\}$-sentences being evaluated by the following inductive conditions:
 \begin{itemize}
-\item $\bbl \alpha=\beta \bbr := \{\omega\in\Omega; \alpha(\omega)=\beta(\omega)\}/\I.$
-\item $\bbl E(\alpha,\beta) \bbr := \{\omega\in\Omega; E_\omega(\alpha,\beta))\}/\I$.
-\item $\bbl-\bbr$ commutes with $\land$,$\lor$,$\lnot$.
-\item $\bbl(\exists x)A(x)\bbr:=\Lor_{\alpha\in F}\bbl A(\alpha)\bbr$.
+\item $\bbl \alpha=\beta \bbr := \{\omega\in\Omega; \alpha(\omega)=\beta(\omega)\}/\I$
+\item $\bbl E(\alpha,\beta) \bbr := \{\omega\in\Omega; E_\omega(\alpha,\beta))\}/\I$
+\item $\bbl-\bbr$ commutes with $\land$,$\lor$,$\lnot$
+\item $\bbl(\exists x)A(x)\bbr:=\Lor_{\alpha\in F}\bbl A(\alpha)\bbr$
 \item $\bbl(\forall x)A(x)\bbr:=\Land_{\alpha\in F}\bbl A(\alpha)\bbr$.
 \end{itemize}
 
@@ -133,7 +131,7 @@ Let us note that if we have multiple Boolean valued structures $\S_1,\S_2,\dots$
  
 \section{The vertex family $F_{rud}$ and $G_{rud}$}\label{secFrud}
 
-Throughout this thesis we will mostly work with the vertex family $F_{rud}$ which ties the properties of $\lim_F \G_n$ with decision tree complexity -- but decision trees can also be seen as an abstraction of oracle machine time we mentioned in the Preliminaries chapter.
+Throughout this thesis we will mostly work with the vertex family $F_{rud}$ which ties the properties of $\lim_F \G_n$ with decision tree complexity -- but decision trees can also be seen as an abstraction of oracle Turing machine complexity we mentioned in the Preliminaries chapter.
 
 After we choose the sequence $\{\G_k\}_{k>0}$ and $n>\N$ we again put $\Omega:=\G_n$ and define $F_{rud}$ as follows.
 
@@ -165,7 +163,7 @@ The family $G_{rud}$ consists of all functionals $\Theta$ such that there is $m\
 \begin{lemm}[\cite{krajicek2010forcing}]
 $G_{rud}$ is $(F_{rud})$-compatible.
 \end{lemm}
-\begin{proof}
+\begin{proof}(sketch)
 By induction in $\M$ we have that all the depth of all the trees is bounded by $g_n^{1/t}$ for some $t>\N$.
 
 If we take some $\Theta\in G_{rud}$ and $\alpha\in F_{rud}$ we can compute $\Theta(\alpha)$ also by a tree in $\T_{rud}$ by concatenating the trees computing $\alpha$ and $\beta_i$s.
@@ -173,7 +171,7 @@ If we take some $\Theta\in G_{rud}$ and $\alpha\in F_{rud}$ we can compute $\The
 
 \section{Different choices of \texorpdfstring{$n$}{n}}
 
-Even though we generally pose no requirements on $n>\N$ there are examples of wide sequences for which the limit is sensitive on the choice of the non-standard number $n$. 
+Even though we generally pose no requirements on $n>\N$ there are examples of wide sequences for which the outcome of the limit is sensitive to the choice of the non-standard number $n$. 
 
 \begin{exam}
 Let 
@@ -199,7 +197,7 @@ Even though the concrete wide limits we will investigate in the following chapte
 
 \section{Theories of wide limits}
 
-If $\lim_F\G_n$ is the first order wide limit we will be interested in which exact $\{E\}$-sentences are valid in it. By \textbf{valid} we mean that their $\bbl\dots\bbr$ value is $\1$.
+If $\lim_F\G_n$ is the first order wide limit we will be interested in which exact $\{E\}$-sentences are valid in it. By \textbf{valid} we mean that their $\bbl-\bbr$ value is $\1$.
 
 \begin{defi}
 We define $\Th(\lim_F\G_n)$ as the set of all valid $\{E\}$-sentences in $\lim_{F}\G_n$.
