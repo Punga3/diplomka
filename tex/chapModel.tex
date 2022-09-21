@@ -235,7 +235,7 @@ and let
 which says that if $a,b,c,d$ are distinct, there is an edge between one of them. The universal closure is valid on all graphs in $\G_k^B$ and none of the graphs in $\G_k^A$. Since $\binom{\binom{n}{2}}{2}/\binom{\binom{n}{2}}{n-3}$ is infinitesimal we have that $\lim_{k\to\infty} \binom{\binom{k}{2}}{2}/\binom{\binom{k}{2}}{k-3}=0$ and we have by Theorem \ref{thrmuni} that $\lim_F \G_n \bbl(\forall a,b,c,d)\varphi_0(a,b,c,d)\bbr=\1$ for any $F$ containing all constants.
 \end{exam}
 
-The Theorem \ref{thrmuni} also implies that since all $\omega\in\G_k$ satisfy that $E_\omega$ is antireflexive then so does $\lim_{F}\G_n$ and if $E_\omega$ are all symmetrical then so it the wide limit edge relation $E$. This combined with Theorem \ref{thrmsparse} proves the following.
+The Theorem \ref{thrmuni} also implies that since all $\omega\in\G_k$ satisfy that $E_\omega$ is antireflexive then so does $\lim_{F}\G_n$ and if $E_\omega$ are all symmetrical then so is the wide limit edge relation $E$. This combined with Theorem \ref{thrmsparse} proves the following.
 
 \begin{crll}[0-1 law for too sparse $F_{rud}$ sequence]\label{crlltoosparse}
 Let $\G_k$ be any wide sequence satisfying the statement of the Theorem \ref{thrmsparse}. Then $\Th(\lim_{F_{rud}}\G_n)$ is the theory of the empty graph and therefore complete. 
@@ -255,13 +255,13 @@ but we proved that $\lim_{F_{rud}}\G_n \bbl(\exists x)(\exists y)E(x,y)\bbr=\1$ 
 Now we return to $F=F_{rud}$ and prove a theorem with a more limited use which however forces the truth value of the existential sentence in the wide limit to be $\1$.
 
 \begin{thrm}\label{mutindfind}
-Let $F=F_{rud}$ and let $\varphi_0(x_0,\dots,x_{l-1})$ be an open $\{E\}$-formula. Furthermore for $0<p\leq 1$, consider subsets $A\subseteq\set{g_k}^l$ with the property that for all for all $\overline a \in A$ we have
+Let $\varphi_0(x_0,\dots,x_{l-1})$ be an open $\{E\}$-formula. Furthermore for $0<p\leq 1$, consider subsets $A\subseteq\set{g_k}^l$ with the property that for all for all $\overline a \in A$ we have
 \[\Pr_{\omega\in\mathcal{G}_k}[\omega\models \varphi_0(\overline a)]\geq p\]
 and
 \[\text{$\{\{\omega\models\varphi_0(\overline a)\}\subseteq \mathcal{G}_k;\overline a \in A\}$ are mutually independent.}\]
 Moreover let $A_k$ be the set with the largest cardinality that has this property.
 
-If $\lim_{k\to\infty} \abs{A_k}=\infty$, then $\bbl(\exists \overline x)\varphi_0(\overline x)\bbr=\1$.
+If $\lim_{k\to\infty} \abs{A_k}=\infty$, then $\lim_{F_{rud}} \G_n\bbl(\exists \overline x)\varphi_0(\overline x)\bbr=\1$.
 \end{thrm}
 
 \begin{proof}
@@ -278,7 +278,7 @@ Call $\overline \alpha$ the tuple computed by $T_0,\dots,T_{l-1}$. We will prove
 We now use this theorem to characterize the theory of another wide limit. We denote
 \[\ALL_k=\{G \text{ undirected graph; }V_G=\set{k}\}.\]
 
-Note that if we consider an open $\{E\}$-formula $\varphi(\overline x)$ and convert it to DNF, we get a disjunction of conjunctions. Each such conjunction says which first order literals should be satisfied on the variables $\overline x$, the following theorem is proved for conjunctions of literals. By the fact that $\bbl\dots\bbr$ commutes with disjunctions, we can find out a value of any existential sentence.
+Note that if we consider an open $\{E\}$-formula $\varphi(\overline x)$ and convert it to DNF, we get a disjunction of conjunctions. Each such conjunction says which first order literals should be satisfied on the variables $\overline x$, the following theorem is proved for conjunctions of literals. By the fact that $\bbl-\bbr$ commutes with disjunctions, we can find out the value of any existential sentence.
 
 In the statement of the following theorem we use the notation $\varphi^b$ for an $\{E\}$-formula $\psi$ and $b\in\{0,1\}$ to mean
 \[\psi^b:=
@@ -363,7 +363,7 @@ Let $\G_k$ be a wide sequence such that
 The condition on the limit assures that $\G_k\leqp \ALL_{g_k}$. Which, by Lemma \ref{lemmpordown}, is enough to replicate the proof for $\ALL_{g_k}$.
 \end{proof}
 
-We will use a similar argument in Chapter \ref{chapsparse} to instead prove something about a wide sequence by first proving it for its portion. 
+We will use a similar argument in Chapter \ref{chapsparse} to instead prove something about a wide sequence by first proving it for its portions. 
 
 \section{Isomorphism closed categorical \texorpdfstring{$\mathcal{G}_k$}{Gk}}
 
@@ -405,7 +405,7 @@ Let
 Then one can see that $\mu(\lim_{F_{rud}}\G_n\bbl(\exists x)(\exists y)E(x,y)\bbr)=\frac{1}{2}$.
 \end{exam}
 
-However, each $\EDGE_k$ and $\nEDGE_k$ have complete theories. So natural follow up to this question is whether 0-1 law holds for all isomorphism closed categorical wide sequences. 
+However, each $\EDGE_k$ and $\nEDGE_k$ have complete theories. So natural follow up to this question is whether the 0-1 law holds for all isomorphism closed categorical wide sequences. 
 
 Theorem \ref{thrmsparse}, Corollary \ref{crlltoobig} and Lemma \ref{lemmisocat} already give some conditions on what any counterexample would have to satisfy. However, we did not find any nor did we rule out its existence. 
 
