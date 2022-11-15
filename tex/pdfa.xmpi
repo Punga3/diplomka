@@ -62,6 +62,16 @@
   </rdf:Description> 
   <rdf:Description rdf:about="" xmlns:dc="http://purl.org/dc/elements/1.1/"> 
    <dc:format>application/pdf</dc:format> 
+   <dc:title><rdf:Alt><rdf:li xml:lang="x-default">Pseudofinite structures</rdf:li></rdf:Alt></dc:title>
+   <dc:creator><rdf:Seq><rdf:li>Ondřej Ježil</rdf:li></rdf:Seq></dc:creator>
+   <dc:publisher><rdf:Bag><rdf:li>Charles University</rdf:li></rdf:Bag></dc:publisher>
+   <dc:description><rdf:Alt><rdf:li xml:lang="x-default">For a class of graph instances of a computational problem we define a limit object, relative to some computationally restricted class of functions. The key method here is forcing with random variables where the sample set is taken as instances of some nonstandard size. We study the general theory of these limits, called in the thesis wide limits, and their connection to classical problems such as finding a large clique or with the combinatorial problems associated with the classes of total NP search problems PPA and PPAD. Our main results are several 0-1 laws associated with these limits and existence of a significantly large clique of the wide limit of all graph consisting of one large clique.</rdf:li></rdf:Alt></dc:description>
+   <dc:subject><rdf:Bag><rdf:li> pseudofinite structure</rdf:li>
+     <rdf:li>forcing</rdf:li>
+     <rdf:li>complexity</rdf:li>
+     <rdf:li>witnessing</rdf:li>
+     <rdf:li>TFNP</rdf:li>
+     <rdf:li>clique </rdf:li></rdf:Bag></dc:subject>
   </rdf:Description> 
   <rdf:Description rdf:about="" xmlns:prism="http://prismstandard.org/namespaces/basic/2.2/"> 
   </rdf:Description> 
@@ -73,15 +83,15 @@
   </rdf:Description> 
   <rdf:Description rdf:about="" xmlns:xmp="http://ns.adobe.com/xap/1.0/"> 
    <xmp:CreatorTool>LaTeX with hyperref</xmp:CreatorTool> 
-   <xmp:ModifyDate>2022-09-21T15:33:13+02:00</xmp:ModifyDate> 
-   <xmp:CreateDate>2022-09-21T15:33:13+02:00</xmp:CreateDate> 
-   <xmp:MetadataDate>2022-09-21T15:33:13+02:00</xmp:MetadataDate> 
+   <xmp:ModifyDate>2022-11-15T14:34:23+01:00</xmp:ModifyDate> 
+   <xmp:CreateDate>2022-11-15T14:34:23+01:00</xmp:CreateDate> 
+   <xmp:MetadataDate>2022-11-15T14:34:23+01:00</xmp:MetadataDate> 
   </rdf:Description> 
   <rdf:Description rdf:about="" xmlns:xmpRights = "http://ns.adobe.com/xap/1.0/rights/"> 
   </rdf:Description> 
   <rdf:Description rdf:about="" xmlns:xmpMM="http://ns.adobe.com/xap/1.0/mm/"> 
-   <xmpMM:DocumentID>uuid:9DA409B5-35A1-4D6B-AEE5-57DFBB82593B</xmpMM:DocumentID> 
-   <xmpMM:InstanceID>uuid:4E6D39BA-EB06-F2C9-E06F-055240603FAA</xmpMM:InstanceID> 
+   <xmpMM:DocumentID>uuid:C8CFC28F-88E1-7995-E9AD-F6D12EAD346B</xmpMM:DocumentID> 
+   <xmpMM:InstanceID>uuid:AC320B2A-B771-A48E-E9A5-DF50D2F61929</xmpMM:InstanceID> 
   </rdf:Description> 
  </rdf:RDF> 
 </x:xmpmeta> 

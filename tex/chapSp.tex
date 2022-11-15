@@ -229,7 +229,7 @@ which tends to \[\frac{1}{e}\sum_{i=0}^c\frac{1}{i!}\] as $k\to\infty$; which it
 \[\lim_{F_{nbtree}}\pPATHl_n\bbl(\exists v)(\exists u)(\forall w)((v\not=0)\land (E(v,u)) \land(E(v,w) \to u=w))\bbr=\0\]
 \end{thrm}
 \begin{proof}(sketch)
-The probability that a tree fails on any of $\pPATH_n^{n-i}$ is infinitesimal due to Lemma \ref{lemmpathnnc}. This is true for any of their finite unions so for $\bigcup_{i=0}^c\pPATH^{n-i}_n$ in particular. In Lemma \ref{lemmpathmaj} we proved that $\bigcup_{i=0}^c\pPATH^{k-i}_k$ is a large portion of $\pPATHl_k$ with ratio tending to $1$ as $c\to\infty$. If the probability that a tree fails in $\pPATHl_n$ is not infinitesimally close to $1$ then there would have to be a $c$ large enough, such that the tree succeeds on $\bigcup_{i=0}\pPATH_k^{k-c}$ with probability which is not infinitesimal.
+The probability that a tree fails on any of $\pPATH_n^{n-i}$ is infinitesimal due to Lemma \ref{lemmpathnnc}. This is true for any of their finite unions so for $\bigcup_{i=0}^c\pPATH^{n-i}_n$ in particular. In Lemma \ref{lemmpathmaj} we proved that $\bigcup_{i=0}^c\pPATH^{k-i}_k$ is a large portion of $\pPATHl_k$ with ratio tending to $1$ as $c\to\infty$. If the probability that a tree fails in $\pPATHl_n$ is not infinitesimally close to $1$ then there would have to be a $c$ large enough, such that the tree succeeds on $\bigcup_{i=0}^c\pPATH_k^{k-i}$ with probability which is not infinitesimal.
 \end{proof}
 
 So we have for a larger set of instances that their wide limit has no solution relative to $F_{nbtree}$. Using analogous arguments, we can further get the following corollary.
@@ -249,7 +249,7 @@ As $\pPATH_k$ was the wide sequence consisting of the hardest instances of $\LEA
 
 
 \begin{defi}
-We define $\pDPATH_k$ (the pointed directed paths on $k$ vertices) as the set of all directed graphs $G$ on the vertex set $\set{k}$, where $G$ is isomorphic to the path on $k$ vertices such that $\deg_G^{+}(0)=0$ and $\deg_G^{-}(1)=1$.
+We define $\pDPATH_k$ (the pointed directed paths on $k$ vertices) as the set of all directed graphs $G$ on the vertex set $\set{k}$, where $G$ is isomorphic to the path on $k$ vertices such that $\deg_G^{+}(0)=0$ and $\deg_G^{-}(0)=1$.
 \end{defi}
 
 But now, since we are working with directed graphs which have two types of neighbour sets $N_G^+(v)=\{w\in V_G;E_G(w,v)\}$ and $N_G^-(v)=\{w\in V_G;E_G(v,w)\}$, we would like to define a family $F_{dtree}$ of those trees which can inspect either of the neighbour sets.
@@ -272,7 +272,7 @@ We denote the set of such trees $\T_{dtree}$.
 We will not cover details, but analysis of these trees in $\T_{dtree}$ finding the nonzero sink is more or less the same as the $F_{nbtree}$ case for $\pPATH_k$, so we have the following.
 
 \begin{thrm}
-\[\lim_{F_{nbtree}}\pDPATH_n\bbl(\exists v)(\forall w)((v\not=0)\land \lnot E(v,w))\bbr=\0\]
+\[\lim_{F_{dtree}}\pDPATH_n\bbl(\exists v)(\forall w)((v\not=0)\land \lnot E(v,w))\bbr=\0\]
 \end{thrm}
 
 \begin{crll}\label{crllpDPATH}
